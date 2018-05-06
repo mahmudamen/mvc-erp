@@ -1,0 +1,152 @@
+﻿@model ERP.Models.CoreManager.userinfo
+@{ViewBag.Title = "إضافة مستخدم";}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "adusr" }))
+{@Html.AntiForgeryToken()@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div style="display:none">
+        @Html.EditorFor(model => model.Createby, new { htmlAttributes = new { @Value = Convert.ToInt32(HttpContext.Current.User.Identity.Name.Split('|')[1]) } })
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <button class="btn btn-xs btn-icon btn-circle btn-success" type="button" id="sv">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                </button>
+                <span>|</span>
+                <button class="btn btn-xs btn-icon btn-circle btn-danger" type="button" id="canc">
+                    <i class="glyphicon glyphicon-backward"></i>
+                </button>
+                <label style="margin-right:20px">بيانات المستخدم</label>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 16px">اسم المستخدم</label>
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", autofocus = "autofocus", maxlength = "10" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 40px">كلمة المرور</label>
+                        @Html.EditorFor(model => model.UserKey, new { htmlAttributes = new { @class = "form-control", type = "Password", @maxlength = "10" } })
+                        @Html.ValidationMessageFor(model => model.UserKey, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label>تأكيد كلمة المرور</label>
+                        @Html.EditorFor(model => model.UserKeyc, new { htmlAttributes = new { @class = "form-control", type = "Password", maxlength = "10" } })
+                        @Html.ValidationMessageFor(model => model.UserKeyc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin-left: 61px;">الموظف</label>
+                        @Html.DropDownListFor(model => model.EmpID, (SelectList)ViewBag.emp, " ----اختر من القائمة---- ", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmpID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 25px">
+                        <label style="margin:0px 0px 0px 5px">البريد الالكتروني</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 70px">تليفون</label>
+                        @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control text-center", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 60px">الصلاحية</label>
+                        @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.depts, " ---اختر من القائمة--- ", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 23px">نشط/غير نشط</label>
+                        @Html.DropDownListFor(model => model.IsActive, new List<SelectListItem> { new SelectListItem { Text="نشط", Value="true" }, new SelectListItem { Text="معلق", Value="false" }}, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 25px">تاريخ التنشيط</label>
+                        @Html.EditorFor(model => model.ValidFrom, new { htmlAttributes = new { @class = "form-control", id = "vdat", @Value = DateTime.Today.ToString("yyyy-MM-dd"), type = "date" } })
+                        @Html.ValidationMessageFor(model => model.ValidFrom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(window).keydown(function (e) {
+                if (event.which === 119) {
+                    $('#sv').click();
+                }
+                else if (event.which === 121) {
+                    $('#canc').click();
+                }
+            });
+            $(document).on("keypress", 'form', function (e) {
+                var code = e.keyCode || e.which;
+                if (code == 13) {
+                    var $targ = $(e.target);
+                    if (!$targ.is("textarea") && !$targ.is(":button,:submit")) {
+                        var focusNext = false;
+                        $(this).find(":input:visible:not([disabled],[readonly]), a").each(function () {
+                            if (this === e.target) {
+                                focusNext = true;
+                            }
+                            else if (focusNext) {
+                                $(this).focus();
+                                return false;
+                            }
+                        });
+                        return false;
+                    }
+                }
+            });
+            $('#sv').click(function () {
+                $("#adusr").submit();
+            })
+            $('#canc').click(function () {
+                location.href = '/ERP/User/Index';
+            })
+        });
+    </script>
+}

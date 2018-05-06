@@ -1,0 +1,2645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HafModelStoreContainer" CdmEntityContainer="HDB">
+    <EntitySetMapping Name="EmpShfts">
+      <EntityTypeMapping TypeName="HafModel.EmpShft">
+        <MappingFragment StoreEntitySet="EmpShft">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Emp" ColumnName="Emp" />
+          <ScalarProperty Name="frm" ColumnName="frm" />
+          <ScalarProperty Name="tw" ColumnName="tw" />
+          <ScalarProperty Name="Dy" ColumnName="Dy" />
+          <ScalarProperty Name="Mo" ColumnName="Mo" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="SDate" ColumnName="SDate" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Punshes">
+      <EntityTypeMapping TypeName="HafModel.Punsh">
+        <MappingFragment StoreEntitySet="Punsh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="PunshMount" ColumnName="PunshMount" />
+          <ScalarProperty Name="PunshDay" ColumnName="PunshDay" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacs">
+      <EntityTypeMapping TypeName="HafModel.Vac">
+        <MappingFragment StoreEntitySet="Vac">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="VacStrt" ColumnName="VacStrt" />
+          <ScalarProperty Name="VacEnd" ColumnName="VacEnd" />
+          <ScalarProperty Name="VMount" ColumnName="VMount" />
+          <ScalarProperty Name="Ds" ColumnName="Ds" />
+          <ScalarProperty Name="Cuts" ColumnName="Cuts" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="CutMonth" ColumnName="CutMonth" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beds">
+      <EntityTypeMapping TypeName="HafModel.Bed">
+        <MappingFragment StoreEntitySet="Bed">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BedN" ColumnName="BedN" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OprDevs">
+      <EntityTypeMapping TypeName="HafModel.OprDev">
+        <MappingFragment StoreEntitySet="OprDev">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Oper" ColumnName="Oper" />
+          <ScalarProperty Name="DevID" ColumnName="DevID" />
+          <ScalarProperty Name="DevName" ColumnName="DevName" />
+          <ScalarProperty Name="Repe" ColumnName="Repe" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="UVal" ColumnName="UVal" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashActs">
+      <EntityTypeMapping TypeName="HafModel.CashAct">
+        <MappingFragment StoreEntitySet="CashAct">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+          <ScalarProperty Name="SortID" ColumnName="SortID" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Pval" ColumnName="Pval" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Grd" ColumnName="Grd" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="SerTyp" ColumnName="SerTyp" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="Bed" ColumnName="Bed" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="PatNam" ColumnName="PatNam" />
+          <ScalarProperty Name="PatTel" ColumnName="PatTel" />
+          <ScalarProperty Name="Patadrs" ColumnName="Patadrs" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Cby" ColumnName="Cby" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Diags" ColumnName="Diags" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cheks">
+      <EntityTypeMapping TypeName="HafModel.Chek">
+        <MappingFragment StoreEntitySet="Chek">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ChekNum" ColumnName="ChekNum" />
+          <ScalarProperty Name="inout" ColumnName="inout" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="IssuDate" ColumnName="IssuDate" />
+          <ScalarProperty Name="DrwDate" ColumnName="DrwDate" />
+          <ScalarProperty Name="PayTo" ColumnName="PayTo" />
+          <ScalarProperty Name="Canc" ColumnName="Canc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubMainAccs">
+      <EntityTypeMapping TypeName="HafModel.SubMainAcc">
+        <MappingFragment StoreEntitySet="SubMainAcc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="MainAcc" ColumnName="MainAcc" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Frep" ColumnName="Frep" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItmInvs">
+      <EntityTypeMapping TypeName="HafModel.ItmInv">
+        <MappingFragment StoreEntitySet="ItmInv">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="ItmID" ColumnName="ItmID" />
+          <ScalarProperty Name="AdItm" ColumnName="AdItm" />
+          <ScalarProperty Name="DrwItm" ColumnName="DrwItm" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBills">
+      <EntityTypeMapping TypeName="HafModel.PBill">
+        <MappingFragment StoreEntitySet="PBill">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="RowNu" ColumnName="RowNu" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="Invn" ColumnName="Invn" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="WDate" ColumnName="WDate" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemNam" ColumnName="ItemNam" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Totval" ColumnName="Totval" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Netval" ColumnName="Netval" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="PayTyp" ColumnName="PayTyp" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="sect" ColumnName="sect" />
+          <ScalarProperty Name="BType" ColumnName="BType" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ToInv" ColumnName="ToInv" />
+          <ScalarProperty Name="Tinvn" ColumnName="Tinvn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="Catg" ColumnName="Catg" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SCategs">
+      <EntityTypeMapping TypeName="HafModel.SCateg">
+        <MappingFragment StoreEntitySet="SCateg">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SCategID" ColumnName="SCategID" />
+          <ScalarProperty Name="SCName" ColumnName="SCName" />
+          <ScalarProperty Name="CategID" ColumnName="CategID" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServTypes">
+      <EntityTypeMapping TypeName="HafModel.ServType">
+        <MappingFragment StoreEntitySet="ServType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="HafModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="HafModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usrs">
+      <EntityTypeMapping TypeName="HafModel.Usr">
+        <MappingFragment StoreEntitySet="Usr">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="EntryKey" ColumnName="EntryKey" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDepts">
+      <EntityTypeMapping TypeName="HafModel.vDept">
+        <MappingFragment StoreEntitySet="vDepts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmpHis">
+      <EntityTypeMapping TypeName="HafModel.vEmpHi">
+        <MappingFragment StoreEntitySet="vEmpHis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Deptto" ColumnName="Deptto" />
+          <ScalarProperty Name="Jopto" ColumnName="Jopto" />
+          <ScalarProperty Name="Osal" ColumnName="Osal" />
+          <ScalarProperty Name="Nsal" ColumnName="Nsal" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Deptfrm" ColumnName="Deptfrm" />
+          <ScalarProperty Name="Jopfrm" ColumnName="Jopfrm" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmpls">
+      <EntityTypeMapping TypeName="HafModel.vEmpl">
+        <MappingFragment StoreEntitySet="vEmpl">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="NShift" ColumnName="NShift" />
+          <ScalarProperty Name="OShift" ColumnName="OShift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmplons">
+      <EntityTypeMapping TypeName="HafModel.vEmplon">
+        <MappingFragment StoreEntitySet="vEmplon">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="jop" ColumnName="jop" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vTSals">
+      <EntityTypeMapping TypeName="HafModel.vTSal">
+        <MappingFragment StoreEntitySet="vTSal">
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vUsrEmps">
+      <EntityTypeMapping TypeName="HafModel.vUsrEmp">
+        <MappingFragment StoreEntitySet="vUsrEmp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vVacEs">
+      <EntityTypeMapping TypeName="HafModel.vVacE">
+        <MappingFragment StoreEntitySet="vVacE">
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VacStrt" ColumnName="VacStrt" />
+          <ScalarProperty Name="VacEnd" ColumnName="VacEnd" />
+          <ScalarProperty Name="VMount" ColumnName="VMount" />
+          <ScalarProperty Name="Ds" ColumnName="Ds" />
+          <ScalarProperty Name="Cuts" ColumnName="Cuts" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="CutMonth" ColumnName="CutMonth" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocDs">
+      <EntityTypeMapping TypeName="HafModel.DocD">
+        <MappingFragment StoreEntitySet="DocDs">
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="valu" ColumnName="valu" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+          <ScalarProperty Name="PatNam" ColumnName="PatNam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocDsTs">
+      <EntityTypeMapping TypeName="HafModel.DocDsT">
+        <MappingFragment StoreEntitySet="DocDsT">
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recterents">
+      <EntityTypeMapping TypeName="HafModel.recterent">
+        <MappingFragment StoreEntitySet="recterent">
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="ServType" ColumnName="ServType" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vAcclists">
+      <EntityTypeMapping TypeName="HafModel.vAcclist">
+        <MappingFragment StoreEntitySet="vAcclist">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Par" ColumnName="Par" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Frep" ColumnName="Frep" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="lvl" ColumnName="lvl" />
+          <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vAccTrees">
+      <EntityTypeMapping TypeName="HafModel.vAccTree">
+        <MappingFragment StoreEntitySet="vAccTree">
+          <ScalarProperty Name="MainAcc" ColumnName="MainAcc" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="SubMainAcc" ColumnName="SubMainAcc" />
+          <ScalarProperty Name="SubM" ColumnName="SubM" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="AccN" ColumnName="AccN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AccType" ColumnName="AccType" />
+          <ScalarProperty Name="AEbal" ColumnName="AEbal" />
+          <ScalarProperty Name="AEdpt" ColumnName="AEdpt" />
+          <ScalarProperty Name="AEcrd" ColumnName="AEcrd" />
+          <ScalarProperty Name="ACdpt" ColumnName="ACdpt" />
+          <ScalarProperty Name="ACcrd" ColumnName="ACcrd" />
+          <ScalarProperty Name="ACbal" ColumnName="ACbal" />
+          <ScalarProperty Name="SMdpt" ColumnName="SMdpt" />
+          <ScalarProperty Name="SMcrd" ColumnName="SMcrd" />
+          <ScalarProperty Name="SMbal" ColumnName="SMbal" />
+          <ScalarProperty Name="MAdpt" ColumnName="MAdpt" />
+          <ScalarProperty Name="MAcrd" ColumnName="MAcrd" />
+          <ScalarProperty Name="MAbal" ColumnName="MAbal" />
+          <ScalarProperty Name="MCod" ColumnName="MCod" />
+          <ScalarProperty Name="SCod" ColumnName="SCod" />
+          <ScalarProperty Name="ACod" ColumnName="ACod" />
+          <ScalarProperty Name="AECod" ColumnName="AECod" />
+          <ScalarProperty Name="SMCod" ColumnName="SMCod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vAccVens">
+      <EntityTypeMapping TypeName="HafModel.vAccVen">
+        <MappingFragment StoreEntitySet="vAccVen">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vcashes">
+      <EntityTypeMapping TypeName="HafModel.vcash">
+        <MappingFragment StoreEntitySet="vcash">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Ter" ColumnName="Ter" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="TerN" ColumnName="TerN" />
+          <ScalarProperty Name="CCID" ColumnName="CCID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Cashbal" ColumnName="Cashbal" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vcashgs">
+      <EntityTypeMapping TypeName="HafModel.vcashg">
+        <MappingFragment StoreEntitySet="vcashg">
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vdEntries">
+      <EntityTypeMapping TypeName="HafModel.vdEntry">
+        <MappingFragment StoreEntitySet="vdEntry">
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="AcCod" ColumnName="AcCod" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="dpt" ColumnName="dpt" />
+          <ScalarProperty Name="crd" ColumnName="crd" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEntrLists">
+      <EntityTypeMapping TypeName="HafModel.vEntrList">
+        <MappingFragment StoreEntitySet="vEntrList">
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="MDescrip" ColumnName="MDescrip" />
+          <ScalarProperty Name="dpt" ColumnName="dpt" />
+          <ScalarProperty Name="crd" ColumnName="crd" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLedgers">
+      <EntityTypeMapping TypeName="HafModel.vLedger">
+        <MappingFragment StoreEntitySet="vLedger">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="CCID" ColumnName="CCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPeris">
+      <EntityTypeMapping TypeName="HafModel.vPeri">
+        <MappingFragment StoreEntitySet="vPeri">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+          <ScalarProperty Name="enum" ColumnName="enum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vShAccs">
+      <EntityTypeMapping TypeName="HafModel.vShAcc">
+        <MappingFragment StoreEntitySet="vShAcc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vtBals">
+      <EntityTypeMapping TypeName="HafModel.vtBal">
+        <MappingFragment StoreEntitySet="vtBal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="lvl" ColumnName="lvl" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vVenAccs">
+      <EntityTypeMapping TypeName="HafModel.vVenAcc">
+        <MappingFragment StoreEntitySet="vVenAcc">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Bill" ColumnName="Bill" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vVendors">
+      <EntityTypeMapping TypeName="HafModel.vVendor">
+        <MappingFragment StoreEntitySet="vVendor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="VenGroupID" ColumnName="VenGroupID" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDrwrps">
+      <EntityTypeMapping TypeName="HafModel.vDrwrp">
+        <MappingFragment StoreEntitySet="vDrwrp">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemNam" ColumnName="ItemNam" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Emg" ColumnName="Emg" />
+          <ScalarProperty Name="Opr" ColumnName="Opr" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Car" ColumnName="Car" />
+          <ScalarProperty Name="tot" ColumnName="tot" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDrwrpps">
+      <EntityTypeMapping TypeName="HafModel.vDrwrpp">
+        <MappingFragment StoreEntitySet="vDrwrpp">
+          <ScalarProperty Name="tots" ColumnName="tots" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemNam" ColumnName="ItemNam" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Emg" ColumnName="Emg" />
+          <ScalarProperty Name="Opr" ColumnName="Opr" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Car" ColumnName="Car" />
+          <ScalarProperty Name="tot" ColumnName="tot" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vItmcrds">
+      <EntityTypeMapping TypeName="HafModel.vItmcrd">
+        <MappingFragment StoreEntitySet="vItmcrd">
+          <ScalarProperty Name="inc" ColumnName="inc" />
+          <ScalarProperty Name="ot" ColumnName="ot" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Netval" ColumnName="Netval" />
+          <ScalarProperty Name="ItemNam" ColumnName="ItemNam" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BType" ColumnName="BType" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="Invn" ColumnName="Invn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vItminbs">
+      <EntityTypeMapping TypeName="HafModel.vItminb">
+        <MappingFragment StoreEntitySet="vItminb">
+          <ScalarProperty Name="ItmID" ColumnName="ItmID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Emg" ColumnName="Emg" />
+          <ScalarProperty Name="Opr" ColumnName="Opr" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Car" ColumnName="Car" />
+          <ScalarProperty Name="tot" ColumnName="tot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLabSms">
+      <EntityTypeMapping TypeName="HafModel.vLabSm">
+        <MappingFragment StoreEntitySet="vLabSm">
+          <ScalarProperty Name="PatNum" ColumnName="PatNum" />
+          <ScalarProperty Name="SVal" ColumnName="SVal" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Labd" ColumnName="Labd" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="CusN" ColumnName="CusN" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vItmInvbs">
+      <EntityTypeMapping TypeName="HafModel.vItmInvb">
+        <MappingFragment StoreEntitySet="vItmInvb">
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Categ" ColumnName="Categ" />
+          <ScalarProperty Name="SCateg" ColumnName="SCateg" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="AdItm" ColumnName="AdItm" />
+          <ScalarProperty Name="DrwItm" ColumnName="DrwItm" />
+          <ScalarProperty Name="InBal" ColumnName="InBal" />
+          <ScalarProperty Name="InvN" ColumnName="InvN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPBills">
+      <EntityTypeMapping TypeName="HafModel.vPBill">
+        <MappingFragment StoreEntitySet="vPBills">
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="bvall" ColumnName="bvall" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="VenName" ColumnName="VenName" />
+          <ScalarProperty Name="InvName" ColumnName="InvName" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="PayTyp" ColumnName="PayTyp" />
+          <ScalarProperty Name="sect" ColumnName="sect" />
+          <ScalarProperty Name="BType" ColumnName="BType" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="ToInv" ColumnName="ToInv" />
+          <ScalarProperty Name="Trans" ColumnName="Trans" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCusContrs">
+      <EntityTypeMapping TypeName="HafModel.vCusContr">
+        <MappingFragment StoreEntitySet="vCusContr">
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ContrID" ColumnName="ContrID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisPer" ColumnName="DisPer" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Patpyd" ColumnName="Patpyd" />
+          <ScalarProperty Name="CusPyd" ColumnName="CusPyd" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="ContrStart" ColumnName="ContrStart" />
+          <ScalarProperty Name="ContrEnd" ColumnName="ContrEnd" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CNum" ColumnName="CNum" />
+          <ScalarProperty Name="AddVal" ColumnName="AddVal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDocs">
+      <EntityTypeMapping TypeName="HafModel.vDoc">
+        <MappingFragment StoreEntitySet="vDoc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Speci" ColumnName="Speci" />
+          <ScalarProperty Name="Degr" ColumnName="Degr" />
+          <ScalarProperty Name="DegID" ColumnName="DegID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dnum" ColumnName="Dnum" />
+          <ScalarProperty Name="SpID" ColumnName="SpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDocDues">
+      <EntityTypeMapping TypeName="HafModel.vDocDue">
+        <MappingFragment StoreEntitySet="vDocDue">
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pat" ColumnName="Pat" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Bal" ColumnName="Bal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDocDuedts">
+      <EntityTypeMapping TypeName="HafModel.vDocDuedt">
+        <MappingFragment StoreEntitySet="vDocDuedt">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PatNum" ColumnName="PatNum" />
+          <ScalarProperty Name="DeptVal" ColumnName="DeptVal" />
+          <ScalarProperty Name="CrdVal" ColumnName="CrdVal" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DateDue" ColumnName="DateDue" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="cbyn" ColumnName="cbyn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDocServs">
+      <EntityTypeMapping TypeName="HafModel.vDocServ">
+        <MappingFragment StoreEntitySet="vDocServ">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="AllVall" ColumnName="AllVall" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vdsevrlists">
+      <EntityTypeMapping TypeName="HafModel.vdsevrlist">
+        <MappingFragment StoreEntitySet="vdsevrlist">
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDslists">
+      <EntityTypeMapping TypeName="HafModel.vDslist">
+        <MappingFragment StoreEntitySet="vDslist">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Clinic" ColumnName="Clinic" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="ServType" ColumnName="ServType" />
+          <ScalarProperty Name="AllVall" ColumnName="AllVall" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDslsts">
+      <EntityTypeMapping TypeName="HafModel.vDslst">
+        <MappingFragment StoreEntitySet="vDslst">
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="AllVall" ColumnName="AllVall" />
+          <ScalarProperty Name="Clinic" ColumnName="Clinic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLabs">
+      <EntityTypeMapping TypeName="HafModel.vLab">
+        <MappingFragment StoreEntitySet="vLab">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PatNum" ColumnName="PatNum" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="enis" ColumnName="enis" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="CusN" ColumnName="CusN" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vOprs">
+      <EntityTypeMapping TypeName="HafModel.vOpr">
+        <MappingFragment StoreEntitySet="vOpr">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="OperType" ColumnName="OperType" />
+          <ScalarProperty Name="OperTn" ColumnName="OperTn" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Servn" ColumnName="Servn" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="Mexp" ColumnName="Mexp" />
+          <ScalarProperty Name="Ord" ColumnName="Ord" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="aval" ColumnName="aval" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vRecCashes">
+      <EntityTypeMapping TypeName="HafModel.vRecCash">
+        <MappingFragment StoreEntitySet="vRecCashes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="PatNam" ColumnName="PatNam" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PatTel" ColumnName="PatTel" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Pval" ColumnName="Pval" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+          <ScalarProperty Name="SortID" ColumnName="SortID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vRS">
+      <EntityTypeMapping TypeName="HafModel.vR">
+        <MappingFragment StoreEntitySet="vRS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RNumber" ColumnName="RNumber" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="BedN" ColumnName="BedN" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vScans">
+      <EntityTypeMapping TypeName="HafModel.vScan">
+        <MappingFragment StoreEntitySet="vScan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+          <ScalarProperty Name="PatNam" ColumnName="PatNam" />
+          <ScalarProperty Name="PatTel" ColumnName="PatTel" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="SerTyp" ColumnName="SerTyp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vServs">
+      <EntityTypeMapping TypeName="HafModel.vServ">
+        <MappingFragment StoreEntitySet="vServ">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DocDegre" ColumnName="DocDegre" />
+          <ScalarProperty Name="Degr" ColumnName="Degr" />
+          <ScalarProperty Name="AddVal" ColumnName="AddVal" />
+          <ScalarProperty Name="Totv" ColumnName="Totv" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vURoles">
+      <EntityTypeMapping TypeName="HafModel.vURole">
+        <MappingFragment StoreEntitySet="vURoles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UsrRolID" ColumnName="UsrRolID" />
+          <ScalarProperty Name="UsrID" ColumnName="UsrID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EntryKey" ColumnName="EntryKey" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CusConTots">
+      <EntityTypeMapping TypeName="HafModel.CusConTot">
+        <MappingFragment StoreEntitySet="CusConTot">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depts">
+      <EntityTypeMapping TypeName="HafModel.Dept">
+        <MappingFragment StoreEntitySet="Depts">
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpHis">
+      <EntityTypeMapping TypeName="HafModel.EmpHi">
+        <MappingFragment StoreEntitySet="EmpHis">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Osal" ColumnName="Osal" />
+          <ScalarProperty Name="Nsal" ColumnName="Nsal" />
+          <ScalarProperty Name="Jopto" ColumnName="Jopto" />
+          <ScalarProperty Name="Jopfrm" ColumnName="Jopfrm" />
+          <ScalarProperty Name="Deptto" ColumnName="Deptto" />
+          <ScalarProperty Name="Deptfrm" ColumnName="Deptfrm" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="NatId" ColumnName="NatId" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpInfoes">
+      <EntityTypeMapping TypeName="HafModel.EmpInfo">
+        <MappingFragment StoreEntitySet="EmpInfo">
+          <ScalarProperty Name="OShift" ColumnName="OShift" />
+          <ScalarProperty Name="NShift" ColumnName="NShift" />
+          <ScalarProperty Name="Usr" ColumnName="Usr" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="MaritalState" ColumnName="MaritalState" />
+          <ScalarProperty Name="MState" ColumnName="MState" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="GradeDate" ColumnName="GradeDate" />
+          <ScalarProperty Name="EduGrade" ColumnName="EduGrade" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="MonthDays" ColumnName="MonthDays" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jops">
+      <EntityTypeMapping TypeName="HafModel.Jop">
+        <MappingFragment StoreEntitySet="Jop">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="MaxSal" ColumnName="MaxSal" />
+          <ScalarProperty Name="MinSal" ColumnName="MinSal" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loans">
+      <EntityTypeMapping TypeName="HafModel.Loan">
+        <MappingFragment StoreEntitySet="Loan">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+          <ScalarProperty Name="MonthPayed" ColumnName="MonthPayed" />
+          <ScalarProperty Name="LoanMount" ColumnName="LoanMount" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mors">
+      <EntityTypeMapping TypeName="HafModel.Mor">
+        <MappingFragment StoreEntitySet="Mors">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PayMonth" ColumnName="PayMonth" />
+          <ScalarProperty Name="DonDate" ColumnName="DonDate" />
+          <ScalarProperty Name="MorDay" ColumnName="MorDay" />
+          <ScalarProperty Name="MorMount" ColumnName="MorMount" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sals">
+      <EntityTypeMapping TypeName="HafModel.Sal">
+        <MappingFragment StoreEntitySet="Sal">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="PdDoc" ColumnName="PdDoc" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperActs">
+      <EntityTypeMapping TypeName="HafModel.OperAct">
+        <MappingFragment StoreEntitySet="OperAct">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Isa" ColumnName="Isa" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PCod" ColumnName="PCod" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="CusPayed" ColumnName="CusPayed" />
+          <ScalarProperty Name="PatPayed" ColumnName="PatPayed" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="PatAdrs" ColumnName="PatAdrs" />
+          <ScalarProperty Name="Nat" ColumnName="Nat" />
+          <ScalarProperty Name="Pattel" ColumnName="Pattel" />
+          <ScalarProperty Name="PatName" ColumnName="PatName" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="Etime" ColumnName="Etime" />
+          <ScalarProperty Name="Stime" ColumnName="Stime" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OprN" ColumnName="OprN" />
+          <ScalarProperty Name="OprId" ColumnName="OprId" />
+          <ScalarProperty Name="Optypn" ColumnName="Optypn" />
+          <ScalarProperty Name="Optyp" ColumnName="Optyp" />
+          <ScalarProperty Name="Degr" ColumnName="Degr" />
+          <ScalarProperty Name="Spc" ColumnName="Spc" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="HafModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperDescs">
+      <EntityTypeMapping TypeName="HafModel.OperDesc">
+        <MappingFragment StoreEntitySet="OperDesc">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="aval" ColumnName="aval" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Ord" ColumnName="Ord" />
+          <ScalarProperty Name="Mexp" ColumnName="Mexp" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="Servn" ColumnName="Servn" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="OperTn" ColumnName="OperTn" />
+          <ScalarProperty Name="OperType" ColumnName="OperType" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperServs">
+      <EntityTypeMapping TypeName="HafModel.OperServ">
+        <MappingFragment StoreEntitySet="OperServ">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="MosVal" ColumnName="MosVal" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="ServID" ColumnName="ServID" />
+          <ScalarProperty Name="OperTeam" ColumnName="OperTeam" />
+          <ScalarProperty Name="OperAct" ColumnName="OperAct" />
+          <ScalarProperty Name="Opertype" ColumnName="Opertype" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperTeams">
+      <EntityTypeMapping TypeName="HafModel.OperTeam">
+        <MappingFragment StoreEntitySet="OperTeam">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="NurseID" ColumnName="NurseID" />
+          <ScalarProperty Name="DocBing" ColumnName="DocBing" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="OperAct" ColumnName="OperAct" />
+          <ScalarProperty Name="Opertype" ColumnName="Opertype" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="HafModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="BedN" ColumnName="BedN" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="RNumber" ColumnName="RNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accs">
+      <EntityTypeMapping TypeName="HafModel.Acc">
+        <MappingFragment StoreEntitySet="Acc">
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="Frep" ColumnName="Frep" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SubMainAcc" ColumnName="SubMainAcc" />
+          <ScalarProperty Name="MainAcc" ColumnName="MainAcc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accents">
+      <EntityTypeMapping TypeName="HafModel.Accent">
+        <MappingFragment StoreEntitySet="Accent">
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="FRep" ColumnName="FRep" />
+          <ScalarProperty Name="AccType" ColumnName="AccType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="SubMainAcc" ColumnName="SubMainAcc" />
+          <ScalarProperty Name="MainAcc" ColumnName="MainAcc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="HafModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="AccNumber" ColumnName="AccNumber" />
+          <ScalarProperty Name="Bank1" ColumnName="Bank" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankActs">
+      <EntityTypeMapping TypeName="HafModel.BankAct">
+        <MappingFragment StoreEntitySet="BankAct">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cashtrans">
+      <EntityTypeMapping TypeName="HafModel.Cashtran">
+        <MappingFragment StoreEntitySet="Cashtran">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Ter" ColumnName="Ter" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Tto" ColumnName="Tto" />
+          <ScalarProperty Name="Tfrm" ColumnName="Tfrm" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contrs">
+      <EntityTypeMapping TypeName="HafModel.Contr">
+        <MappingFragment StoreEntitySet="Contr">
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CNum" ColumnName="CNum" />
+          <ScalarProperty Name="CusPyd" ColumnName="CusPyd" />
+          <ScalarProperty Name="Patpyd" ColumnName="Patpyd" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DisPer" ColumnName="DisPer" />
+          <ScalarProperty Name="ContrEnd" ColumnName="ContrEnd" />
+          <ScalarProperty Name="ContrStart" ColumnName="ContrStart" />
+          <ScalarProperty Name="ContrDate" ColumnName="ContrDate" />
+          <ScalarProperty Name="CusContr" ColumnName="CusContr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContrPrices">
+      <EntityTypeMapping TypeName="HafModel.ContrPrice">
+        <MappingFragment StoreEntitySet="ContrPrice">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Contr" ColumnName="Contr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CostCenters">
+      <EntityTypeMapping TypeName="HafModel.CostCenter">
+        <MappingFragment StoreEntitySet="CostCenter">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CcType" ColumnName="CcType" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="MainCcn" ColumnName="MainCcn" />
+          <ScalarProperty Name="MainCc" ColumnName="MainCc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cus">
+      <EntityTypeMapping TypeName="HafModel.Cu">
+        <MappingFragment StoreEntitySet="Cus">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="CusVen" ColumnName="CusVen" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="STelephone" ColumnName="STelephone" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CusConAccs">
+      <EntityTypeMapping TypeName="HafModel.CusConAcc">
+        <MappingFragment StoreEntitySet="CusConAcc">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="ContID" ColumnName="ContID" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CrdVal" ColumnName="CrdVal" />
+          <ScalarProperty Name="DeptVal" ColumnName="DeptVal" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CusConActs">
+      <EntityTypeMapping TypeName="HafModel.CusConAct">
+        <MappingFragment StoreEntitySet="CusConAct">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Patnum" ColumnName="Patnum" />
+          <ScalarProperty Name="Contr" ColumnName="Contr" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CusContrs">
+      <EntityTypeMapping TypeName="HafModel.CusContr">
+        <MappingFragment StoreEntitySet="CusContr">
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Conterd" ColumnName="Conterd" />
+          <ScalarProperty Name="CusGroupID" ColumnName="CusGroupID" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="CusVen" ColumnName="CusVen" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="STelephone" ColumnName="STelephone" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CusGroups">
+      <EntityTypeMapping TypeName="HafModel.CusGroup">
+        <MappingFragment StoreEntitySet="CusGroup">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entries">
+      <EntityTypeMapping TypeName="HafModel.Entry">
+        <MappingFragment StoreEntitySet="Entry">
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="Baled" ColumnName="Baled" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Entkind" ColumnName="Entkind" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="MDescrip" ColumnName="MDescrip" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="WDat" ColumnName="WDat" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FixedAssets">
+      <EntityTypeMapping TypeName="HafModel.FixedAsset">
+        <MappingFragment StoreEntitySet="FixedAssets">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Wdate" ColumnName="Wdate" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="SynAcc" ColumnName="SynAcc" />
+          <ScalarProperty Name="EhkAcc" ColumnName="EhkAcc" />
+          <ScalarProperty Name="QstEhkAcc" ColumnName="QstEhkAcc" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FixNum" ColumnName="FixNum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IsalRecevs">
+      <EntityTypeMapping TypeName="HafModel.IsalRecev">
+        <MappingFragment StoreEntitySet="IsalRecev">
+          <ScalarProperty Name="nots" ColumnName="nots" />
+          <ScalarProperty Name="VairVal" ColumnName="VairVal" />
+          <ScalarProperty Name="Acval" ColumnName="Acval" />
+          <ScalarProperty Name="Pcval" ColumnName="Pcval" />
+          <ScalarProperty Name="RecUser" ColumnName="RecUser" />
+          <ScalarProperty Name="AccUser" ColumnName="AccUser" />
+          <ScalarProperty Name="timep" ColumnName="timep" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ToIsal" ColumnName="ToIsal" />
+          <ScalarProperty Name="Fromisal" ColumnName="Fromisal" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainAccs">
+      <EntityTypeMapping TypeName="HafModel.MainAcc">
+        <MappingFragment StoreEntitySet="MainAcc">
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="Frep" ColumnName="Frep" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatActs">
+      <EntityTypeMapping TypeName="HafModel.PatAct">
+        <MappingFragment StoreEntitySet="PatAct">
+          <ScalarProperty Name="Prtd" ColumnName="Prtd" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="oprid" ColumnName="oprid" />
+          <ScalarProperty Name="opr" ColumnName="opr" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="PatExit" ColumnName="PatExit" />
+          <ScalarProperty Name="BillID" ColumnName="BillID" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+          <ScalarProperty Name="Datout" ColumnName="Datout" />
+          <ScalarProperty Name="Datin" ColumnName="Datin" />
+          <ScalarProperty Name="Patnum" ColumnName="Patnum" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatHistories">
+      <EntityTypeMapping TypeName="HafModel.PatHistory">
+        <MappingFragment StoreEntitySet="PatHistory">
+          <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+          <ScalarProperty Name="Datein" ColumnName="Datein" />
+          <ScalarProperty Name="Mexp" ColumnName="Mexp" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="RomID" ColumnName="RomID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="PatName" ColumnName="PatName" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PeriodInfoes">
+      <EntityTypeMapping TypeName="HafModel.PeriodInfo">
+        <MappingFragment StoreEntitySet="PeriodInfo">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServPrices">
+      <EntityTypeMapping TypeName="HafModel.ServPrice">
+        <MappingFragment StoreEntitySet="ServPrice">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CContr" ColumnName="CContr" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="DocDegrN" ColumnName="DocDegrN" />
+          <ScalarProperty Name="DocDegre" ColumnName="DocDegre" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ServTot" ColumnName="ServTot" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="AddVal" ColumnName="AddVal" />
+          <ScalarProperty Name="dev" ColumnName="dev" />
+          <ScalarProperty Name="sectN" ColumnName="sectN" />
+          <ScalarProperty Name="sect" ColumnName="sect" />
+          <ScalarProperty Name="ServType" ColumnName="ServType" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="AccN" ColumnName="AccN" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShActs">
+      <EntityTypeMapping TypeName="HafModel.ShAct">
+        <MappingFragment StoreEntitySet="ShAct">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CareateBy" ColumnName="CareateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ShID" ColumnName="ShID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShActdts">
+      <EntityTypeMapping TypeName="HafModel.ShActdt">
+        <MappingFragment StoreEntitySet="ShActdt">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ShID" ColumnName="ShID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shares">
+      <EntityTypeMapping TypeName="HafModel.Share">
+        <MappingFragment StoreEntitySet="Shares">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="AddRem" ColumnName="AddRem" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="ShareVal" ColumnName="ShareVal" />
+          <ScalarProperty Name="ShareNo" ColumnName="ShareNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShHolders">
+      <EntityTypeMapping TypeName="HafModel.ShHolder">
+        <MappingFragment StoreEntitySet="ShHolders">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ShareNo" ColumnName="ShareNo" />
+          <ScalarProperty Name="Indate" ColumnName="Indate" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="HafModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="VenGroupID" ColumnName="VenGroupID" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="CusVen" ColumnName="CusVen" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="STelephone" ColumnName="STelephone" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenGroups">
+      <EntityTypeMapping TypeName="HafModel.VenGroup">
+        <MappingFragment StoreEntitySet="VenGroup">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invs">
+      <EntityTypeMapping TypeName="HafModel.Inv">
+        <MappingFragment StoreEntitySet="Inv">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categs">
+      <EntityTypeMapping TypeName="HafModel.Categ">
+        <MappingFragment StoreEntitySet="Categ">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemMedics">
+      <EntityTypeMapping TypeName="HafModel.ItemMedic">
+        <MappingFragment StoreEntitySet="ItemMedic">
+          <ScalarProperty Name="MPack" ColumnName="MPack" />
+          <ScalarProperty Name="SPack" ColumnName="SPack" />
+          <ScalarProperty Name="BPack" ColumnName="BPack" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="LSell" ColumnName="LSell" />
+          <ScalarProperty Name="LPur" ColumnName="LPur" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="PurPrice" ColumnName="PurPrice" />
+          <ScalarProperty Name="Barcod" ColumnName="Barcod" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SCateg" ColumnName="SCateg" />
+          <ScalarProperty Name="Categ" ColumnName="Categ" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clinictbls">
+      <EntityTypeMapping TypeName="HafModel.Clinictbl">
+        <MappingFragment StoreEntitySet="Clinictbl">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocDegrs">
+      <EntityTypeMapping TypeName="HafModel.DocDegr">
+        <MappingFragment StoreEntitySet="DocDegr">
+          <ScalarProperty Name="Degr" ColumnName="Degr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocDues">
+      <EntityTypeMapping TypeName="HafModel.DocDue">
+        <MappingFragment StoreEntitySet="DocDue">
+          <ScalarProperty Name="cbyn" ColumnName="cbyn" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CrdVal" ColumnName="CrdVal" />
+          <ScalarProperty Name="DeptVal" ColumnName="DeptVal" />
+          <ScalarProperty Name="PatNum" ColumnName="PatNum" />
+          <ScalarProperty Name="DateDue" ColumnName="DateDue" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocServs">
+      <EntityTypeMapping TypeName="HafModel.DocServ">
+        <MappingFragment StoreEntitySet="DocServ">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="AllVall" ColumnName="AllVall" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctortbls">
+      <EntityTypeMapping TypeName="HafModel.Doctortbl">
+        <MappingFragment StoreEntitySet="Doctortbl">
+          <ScalarProperty Name="Comm" ColumnName="Comm" />
+          <ScalarProperty Name="Cby" ColumnName="Cby" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Dnum" ColumnName="Dnum" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Speci" ColumnName="Speci" />
+          <ScalarProperty Name="SpID" ColumnName="SpID" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Labs">
+      <EntityTypeMapping TypeName="HafModel.Lab">
+        <MappingFragment StoreEntitySet="Lab">
+          <ScalarProperty Name="Shft" ColumnName="Shft" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="enis" ColumnName="enis" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="Labd" ColumnName="Labd" />
+          <ScalarProperty Name="CusN" ColumnName="CusN" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="ServID" ColumnName="ServID" />
+          <ScalarProperty Name="Adrs" ColumnName="Adrs" />
+          <ScalarProperty Name="Nti" ColumnName="Nti" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PatNum" ColumnName="PatNum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecTers">
+      <EntityTypeMapping TypeName="HafModel.RecTer">
+        <MappingFragment StoreEntitySet="RecTer">
+          <ScalarProperty Name="timep" ColumnName="timep" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="ComID" ColumnName="ComID" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="Diags" ColumnName="Diags" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Cby" ColumnName="Cby" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="Patadrs" ColumnName="Patadrs" />
+          <ScalarProperty Name="PatTel" ColumnName="PatTel" />
+          <ScalarProperty Name="PatNam" ColumnName="PatNam" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="Bed" ColumnName="Bed" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="SerTyp" ColumnName="SerTyp" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Grd" ColumnName="Grd" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Actyp" ColumnName="Actyp" />
+          <ScalarProperty Name="Pval" ColumnName="Pval" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="SortID" ColumnName="SortID" />
+          <ScalarProperty Name="ActID" ColumnName="ActID" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomPats">
+      <EntityTypeMapping TypeName="HafModel.RoomPat">
+        <MappingFragment StoreEntitySet="RoomPat">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="DateOt" ColumnName="DateOt" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="CompID" ColumnName="CompID" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="DocNam" ColumnName="DocNam" />
+          <ScalarProperty Name="DocId" ColumnName="DocId" />
+          <ScalarProperty Name="Patadr" ColumnName="Patadr" />
+          <ScalarProperty Name="PatTel" ColumnName="PatTel" />
+          <ScalarProperty Name="PatNti" ColumnName="PatNti" />
+          <ScalarProperty Name="Diag" ColumnName="Diag" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Isa" ColumnName="Isa" />
+          <ScalarProperty Name="Bed" ColumnName="Bed" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vJops">
+      <EntityTypeMapping TypeName="HafModel.vJop">
+        <MappingFragment StoreEntitySet="vJops">
+          <ScalarProperty Name="MaxSal" ColumnName="MaxSal" />
+          <ScalarProperty Name="MinSal" ColumnName="MinSal" />
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLoanEs">
+      <EntityTypeMapping TypeName="HafModel.vLoanE">
+        <MappingFragment StoreEntitySet="vLoanE">
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="MonthPayed" ColumnName="MonthPayed" />
+          <ScalarProperty Name="LoanMount" ColumnName="LoanMount" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vMorsEs">
+      <EntityTypeMapping TypeName="HafModel.vMorsE">
+        <MappingFragment StoreEntitySet="vMorsE">
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PayMonth" ColumnName="PayMonth" />
+          <ScalarProperty Name="DonDate" ColumnName="DonDate" />
+          <ScalarProperty Name="MorDay" ColumnName="MorDay" />
+          <ScalarProperty Name="MorMount" ColumnName="MorMount" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="MorID" ColumnName="MorID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPunEs">
+      <EntityTypeMapping TypeName="HafModel.vPunE">
+        <MappingFragment StoreEntitySet="vPunE">
+          <ScalarProperty Name="PunID" ColumnName="PunID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="PunshDay" ColumnName="PunshDay" />
+          <ScalarProperty Name="PunshMount" ColumnName="PunshMount" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSalaries">
+      <EntityTypeMapping TypeName="HafModel.vSalary">
+        <MappingFragment StoreEntitySet="vSalary">
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSalEntries">
+      <EntityTypeMapping TypeName="HafModel.vSalEntry">
+        <MappingFragment StoreEntitySet="vSalEntry">
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="CcID" ColumnName="CcID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patbals">
+      <EntityTypeMapping TypeName="HafModel.Patbal">
+        <MappingFragment StoreEntitySet="Patbal">
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="crd" ColumnName="crd" />
+          <ScalarProperty Name="dbt" ColumnName="dbt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDevReps">
+      <EntityTypeMapping TypeName="HafModel.vDevRep">
+        <MappingFragment StoreEntitySet="vDevRep">
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmBeds">
+      <EntityTypeMapping TypeName="HafModel.vEmBed">
+        <MappingFragment StoreEntitySet="vEmBed">
+          <ScalarProperty Name="SerVal" ColumnName="SerVal" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="BedN" ColumnName="BedN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vpatarcs">
+      <EntityTypeMapping TypeName="HafModel.vpatarc">
+        <MappingFragment StoreEntitySet="vpatarc">
+          <ScalarProperty Name="cbalanc" ColumnName="cbalanc" />
+          <ScalarProperty Name="DocId" ColumnName="DocId" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="balanc" ColumnName="balanc" />
+          <ScalarProperty Name="dbt" ColumnName="dbt" />
+          <ScalarProperty Name="crd" ColumnName="crd" />
+          <ScalarProperty Name="aexp" ColumnName="aexp" />
+          <ScalarProperty Name="exp" ColumnName="exp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OprN" ColumnName="OprN" />
+          <ScalarProperty Name="Optypn" ColumnName="Optypn" />
+          <ScalarProperty Name="DateOt" ColumnName="DateOt" />
+          <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Diag" ColumnName="Diag" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DocNam" ColumnName="DocNam" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="Bed" ColumnName="Bed" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="Isa" ColumnName="Isa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cashreps">
+      <EntityTypeMapping TypeName="HafModel.Cashrep">
+        <MappingFragment StoreEntitySet="Cashrep">
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CCID" ColumnName="CCID" />
+          <ScalarProperty Name="TerN" ColumnName="TerN" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Ter" ColumnName="Ter" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="docdudts">
+      <EntityTypeMapping TypeName="HafModel.docdudt">
+        <MappingFragment StoreEntitySet="docdudt">
+          <ScalarProperty Name="SpID" ColumnName="SpID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="ipval" ColumnName="ipval" />
+          <ScalarProperty Name="ival" ColumnName="ival" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="daval" ColumnName="daval" />
+          <ScalarProperty Name="dval" ColumnName="dval" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocEntries">
+      <EntityTypeMapping TypeName="HafModel.DocEntry">
+        <MappingFragment StoreEntitySet="DocEntry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Prtd" ColumnName="Prtd" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="valu" ColumnName="valu" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntryDets">
+      <EntityTypeMapping TypeName="HafModel.EntryDet">
+        <MappingFragment StoreEntitySet="EntryDet">
+          <ScalarProperty Name="Baled" ColumnName="Baled" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AcCod" ColumnName="AcCod" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntryServs">
+      <EntityTypeMapping TypeName="HafModel.EntryServ">
+        <MappingFragment StoreEntitySet="EntryServ">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="AllVall" ColumnName="AllVall" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SpID" ColumnName="SpID" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expreps">
+      <EntityTypeMapping TypeName="HafModel.Exprep">
+        <MappingFragment StoreEntitySet="Exprep">
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Increps">
+      <EntityTypeMapping TypeName="HafModel.Increp">
+        <MappingFragment StoreEntitySet="Increp">
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nTres">
+      <EntityTypeMapping TypeName="HafModel.nTre">
+        <MappingFragment StoreEntitySet="nTre">
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="MID" ColumnName="MID" />
+          <ScalarProperty Name="AceBal" ColumnName="AceBal" />
+          <ScalarProperty Name="AceCrd" ColumnName="AceCrd" />
+          <ScalarProperty Name="AceDpt" ColumnName="AceDpt" />
+          <ScalarProperty Name="AceName" ColumnName="AceName" />
+          <ScalarProperty Name="AcBal" ColumnName="AcBal" />
+          <ScalarProperty Name="AcCrd" ColumnName="AcCrd" />
+          <ScalarProperty Name="AcDpt" ColumnName="AcDpt" />
+          <ScalarProperty Name="AcName" ColumnName="AcName" />
+          <ScalarProperty Name="SubBal" ColumnName="SubBal" />
+          <ScalarProperty Name="SubCrd" ColumnName="SubCrd" />
+          <ScalarProperty Name="SubDpt" ColumnName="SubDpt" />
+          <ScalarProperty Name="SubName" ColumnName="SubName" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AceAc" ColumnName="AceAc" />
+          <ScalarProperty Name="AceSub" ColumnName="AceSub" />
+          <ScalarProperty Name="AceMain" ColumnName="AceMain" />
+          <ScalarProperty Name="AceCod" ColumnName="AceCod" />
+          <ScalarProperty Name="AcSub" ColumnName="AcSub" />
+          <ScalarProperty Name="AcMain" ColumnName="AcMain" />
+          <ScalarProperty Name="AcCod" ColumnName="AcCod" />
+          <ScalarProperty Name="SubCod" ColumnName="SubCod" />
+          <ScalarProperty Name="MainAcc" ColumnName="MainAcc" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vAccShes">
+      <EntityTypeMapping TypeName="HafModel.vAccSh">
+        <MappingFragment StoreEntitySet="vAccSh">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="ShID" ColumnName="ShID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vcahs">
+      <EntityTypeMapping TypeName="HafModel.vcah">
+        <MappingFragment StoreEntitySet="vcah">
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CashID" ColumnName="CashID" />
+          <ScalarProperty Name="Entkind" ColumnName="Entkind" />
+          <ScalarProperty Name="EntNumber" ColumnName="EntNumber" />
+          <ScalarProperty Name="EntTyp" ColumnName="EntTyp" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Cridval" ColumnName="Cridval" />
+          <ScalarProperty Name="Deptval" ColumnName="Deptval" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="MDescrip" ColumnName="MDescrip" />
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="WDat" ColumnName="WDat" />
+          <ScalarProperty Name="Dat" ColumnName="Dat" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vContrprics">
+      <EntityTypeMapping TypeName="HafModel.vContrpric">
+        <MappingFragment StoreEntitySet="vContrpric">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Contr" ColumnName="Contr" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCostLists">
+      <EntityTypeMapping TypeName="HafModel.vCostList">
+        <MappingFragment StoreEntitySet="vCostList">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MainCc" ColumnName="MainCc" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCTs">
+      <EntityTypeMapping TypeName="HafModel.vCT">
+        <MappingFragment StoreEntitySet="vCT">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Ter" ColumnName="Ter" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Tto" ColumnName="Tto" />
+          <ScalarProperty Name="Tfrm" ColumnName="Tfrm" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vdocsals">
+      <EntityTypeMapping TypeName="HafModel.vdocsal">
+        <MappingFragment StoreEntitySet="vdocsal">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="ipval" ColumnName="ipval" />
+          <ScalarProperty Name="ival" ColumnName="ival" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="daval" ColumnName="daval" />
+          <ScalarProperty Name="dval" ColumnName="dval" />
+          <ScalarProperty Name="xEnt" ColumnName="xEnt" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vdoctotals">
+      <EntityTypeMapping TypeName="HafModel.vdoctotal">
+        <MappingFragment StoreEntitySet="vdoctotal">
+          <ScalarProperty Name="SpID" ColumnName="SpID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Isal" ColumnName="Isal" />
+          <ScalarProperty Name="ipval" ColumnName="ipval" />
+          <ScalarProperty Name="ival" ColumnName="ival" />
+          <ScalarProperty Name="IsPer" ColumnName="IsPer" />
+          <ScalarProperty Name="daval" ColumnName="daval" />
+          <ScalarProperty Name="dval" ColumnName="dval" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="SerDate" ColumnName="SerDate" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vItmsbs">
+      <EntityTypeMapping TypeName="HafModel.vItmsb">
+        <MappingFragment StoreEntitySet="vItmsb">
+          <ScalarProperty Name="Car" ColumnName="Car" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Opr" ColumnName="Opr" />
+          <ScalarProperty Name="Emg" ColumnName="Emg" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ItmID" ColumnName="ItmID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vTras">
+      <EntityTypeMapping TypeName="HafModel.vTra">
+        <MappingFragment StoreEntitySet="vTra">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Tinvn" ColumnName="Tinvn" />
+          <ScalarProperty Name="ToInv" ColumnName="ToInv" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemNam" ColumnName="ItemNam" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Invn" ColumnName="Invn" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xvPBills">
+      <EntityTypeMapping TypeName="HafModel.xvPBill">
+        <MappingFragment StoreEntitySet="xvPBills">
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Trans" ColumnName="Trans" />
+          <ScalarProperty Name="ToInv" ColumnName="ToInv" />
+          <ScalarProperty Name="PatID" ColumnName="PatID" />
+          <ScalarProperty Name="BType" ColumnName="BType" />
+          <ScalarProperty Name="sect" ColumnName="sect" />
+          <ScalarProperty Name="PayTyp" ColumnName="PayTyp" />
+          <ScalarProperty Name="InvName" ColumnName="InvName" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="bvall" ColumnName="bvall" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vBilltras">
+      <EntityTypeMapping TypeName="HafModel.vBilltra">
+        <MappingFragment StoreEntitySet="vBilltra">
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Tname" ColumnName="Tname" />
+          <ScalarProperty Name="ToInv" ColumnName="ToInv" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Iname" ColumnName="Iname" />
+          <ScalarProperty Name="InvID" ColumnName="InvID" />
+          <ScalarProperty Name="PrdID" ColumnName="PrdID" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vNurses">
+      <EntityTypeMapping TypeName="HafModel.vNurse">
+        <MappingFragment StoreEntitySet="vNurse">
+          <ScalarProperty Name="ServType" ColumnName="ServType" />
+          <ScalarProperty Name="val" ColumnName="val" />
+          <ScalarProperty Name="ServVal" ColumnName="ServVal" />
+          <ScalarProperty Name="AddVal" ColumnName="AddVal" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPatAccous">
+      <EntityTypeMapping TypeName="HafModel.vPatAccou">
+        <MappingFragment StoreEntitySet="vPatAccou">
+          <ScalarProperty Name="ServType" ColumnName="ServType" />
+          <ScalarProperty Name="Comp" ColumnName="Comp" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="Cus" ColumnName="Cus" />
+          <ScalarProperty Name="Cbyn" ColumnName="Cbyn" />
+          <ScalarProperty Name="opr" ColumnName="opr" />
+          <ScalarProperty Name="Docn" ColumnName="Docn" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Bed" ColumnName="Bed" />
+          <ScalarProperty Name="Rom" ColumnName="Rom" />
+          <ScalarProperty Name="Patnam" ColumnName="Patnam" />
+          <ScalarProperty Name="BillID" ColumnName="BillID" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="bal" ColumnName="bal" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ServName" ColumnName="ServName" />
+          <ScalarProperty Name="Serv" ColumnName="Serv" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="ActDate" ColumnName="ActDate" />
+          <ScalarProperty Name="Datout" ColumnName="Datout" />
+          <ScalarProperty Name="Datin" ColumnName="Datin" />
+          <ScalarProperty Name="Patnum" ColumnName="Patnum" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenActs">
+      <EntityTypeMapping TypeName="HafModel.VenAct">
+        <MappingFragment StoreEntitySet="VenAct">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="Doc" ColumnName="Doc" />
+          <ScalarProperty Name="Ent" ColumnName="Ent" />
+          <ScalarProperty Name="Bill" ColumnName="Bill" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VenActdts">
+      <EntityTypeMapping TypeName="HafModel.VenActdt">
+        <MappingFragment StoreEntitySet="VenActdt">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Crd" ColumnName="Crd" />
+          <ScalarProperty Name="Dpt" ColumnName="Dpt" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vContrs">
+      <EntityTypeMapping TypeName="HafModel.vContr">
+        <MappingFragment StoreEntitySet="vContr">
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="CNum" ColumnName="CNum" />
+          <ScalarProperty Name="CusPyd" ColumnName="CusPyd" />
+          <ScalarProperty Name="Patpyd" ColumnName="Patpyd" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisPer" ColumnName="DisPer" />
+          <ScalarProperty Name="ContrEnd" ColumnName="ContrEnd" />
+          <ScalarProperty Name="ContrStart" ColumnName="ContrStart" />
+          <ScalarProperty Name="ContrDate" ColumnName="ContrDate" />
+          <ScalarProperty Name="CusContr" ColumnName="CusContr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

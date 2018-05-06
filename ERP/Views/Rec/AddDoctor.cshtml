@@ -1,0 +1,146 @@
+﻿@model Haf.Models.Rec.DoctorModel
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+    </ul>
+</nav>
+@{ViewBag.Title = "إضافة طبيب";}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <button class="btn btn-xs btn-icon btn-circle btn-success" type="button" id="ad">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                </button>
+                <span>|</span>
+                <button class="btn btn-xs btn-icon btn-circle btn-danger" type="button" id="ed">
+                    <i class="glyphicon glyphicon-backward"></i>
+                </button>
+                <label style="margin-right:20px">إضافة طبيب</label>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div style="display:none">
+                @Html.EditorFor(model => model.cby, new { htmlAttributes = new { @Value = Convert.ToInt32(HttpContext.Current.User.Identity.Name.Split('|')[1]) } })
+                @Html.EditorFor(model => model.cbyn, new { htmlAttributes = new { @Value = Convert.ToString(HttpContext.Current.User.Identity.Name.Split('|')[0]) } })
+            </div>
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 10px 0px 20px">
+                        <label style="margin-left:20px">كـــــود</label>
+                        @Html.TextBoxFor(model => model.Dnum, new { @class = "form-control text-center", @style = "max-width:100px", id = "nn", maxlength = "50", @readonly="readonly" })
+                        @Html.ValidationMessageFor(model => model.Dnum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 10px 0px 20px">
+                        <label style="margin-left:10px">الاســــم</label>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @style = "max-width:350px", autofocus = "autofocus", id = "nn", maxlength = "50" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form" style="margin-right:15px">
+                    <label style="margin-left:5px">الـدرجــة</label>
+                    @Html.DropDownListFor(model => model.Degree, (SelectList)ViewBag.dgr, "  -----اختر من القائمة-----  ", new { @class = "js-example-basic-single form-control", @style = "max-width:200px;", id = "dg" })
+                    @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+                    <label>التخصص</label>
+                    @Html.DropDownListFor(model => model.Specid, (SelectList)ViewBag.Speci, "-----اختر من القائمة-----", htmlAttributes: new { @class = "js-example-basic-single form-control", @style = "max-width:300px;" })
+                    @Html.ValidationMessageFor(model => model.Specid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 10px 0px 20px">
+                        <label>تليفون -1</label>
+                        @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control text-center", @style = "max-width:150px;", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 10px 0px 20px">
+                        <label>تليفون -2</label>
+                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control text-center", @style = "max-width:150px;", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 10px 0px 20px">
+                        <label  style="margin-left:15px">عمـولــة</label>
+                        @Html.EditorFor(model => model.Comm, new { htmlAttributes = new { @class = "form-control text-center", @style = "max-width:100px;", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Comm, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<link href="~/Content/select2.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script type="text/javascript">
+        $(".js-example-basic-single").select2({
+            dir: "rtl", language: "ar", theme: "classic", selectOnClose: true, width: '20%'
+        });
+        $(document).ready(function () {
+            $(window).keydown(function (e) {
+                if (event.which === 119) {
+                    $('#ad').click();
+                }
+                if (event.which === 121) {
+                    $('#ed').click();
+                }
+            });
+            $('#ad').click(function () {
+                $("#myForm").submit();
+            })
+            $('#ed').click(function () {
+                location.href = '/Haf/Rec/Doctors';
+            })
+        });
+    </script>
+}

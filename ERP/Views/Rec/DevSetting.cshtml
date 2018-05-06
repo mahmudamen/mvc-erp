@@ -1,0 +1,147 @@
+﻿@{ViewBag.Title = "الأجهزة الطبية";}
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("DocDu", "Rec")'>حسابات الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+        <li><a href='@Url.Action("DevSetting", "Rec")'>الأجهزة الطبية</a></li>
+    </ul>
+</nav>
+<input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">الأجهزة الطبية</h3>
+    </div>
+    <div class="panel-body" style="background-color:#eeeeee">
+        <div class="row">
+            <div class="form-group" style="margin:0px 40px 0px 10px">
+                @Html.DropDownList("tp", (SelectList)ViewBag.tp, "  -----اختر جهاز-----  ", htmlAttributes: new { @class = "js-example-basic-single form-control", @style = "max-width:300px", id = "tp" })
+                @Html.DropDownList("doc", (SelectList)ViewBag.doc, "  -----اختر طبيب-----  ", htmlAttributes: new { @class = "js-example-basic-single form-control", @style = "max-width:200px", id = "doc" })
+                <label style="margin:0px 10px 0px 10px">من</label>
+                <input type="date" id="frm" value=@DateTime.Today.ToString("yyyy-MM-dd") class="form-control text-center" style="max-width:150px;display:inline-block" autofocus="autofocus" />
+                <label style="margin:0px 10px 0px 10px">إلي</label>
+                <input type="date" id="two" class="form-control text-center" style="max-width:150px;display:inline-block" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+            </div>
+            <br />
+        </div>
+        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center">الجهاز</th>
+                    <th class="text-center">الطبيب</th>
+                    <th class="text-center">المريض</th>
+                    <th class="text-center">التاريخ</th>
+                    <th class="text-center">القيمة</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<link href="~/Content/select2.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#tp").select2({
+                dir: "rtl", language: "ar", theme: "classic", selectOnClose: true, width: '30%'
+            });
+            $("#doc").select2({
+                dir: "rtl", language: "ar", theme: "classic", selectOnClose: true, width: '20%'
+            });
+            $("#frm,#two").change(function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/gdevusg?frm=' + $('#frm').val() + '&two=' + $('#two').val() + '&doc=' + $('#doc').val() + '&dev=' + $('#tp').val()).load();
+            });
+            $("#doc").change(function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/gdevusg?frm=' + $('#frm').val() + '&two=' + $('#two').val() + '&doc=' + $('#doc').val() + '&dev=' + $('#tp').val()).load();
+            });
+            $("#tp").change(function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/gdevusg?frm=' + $('#frm').val() + '&two=' + $('#two').val() + '&doc=' + $('#doc').val() + '&dev=' + $('#tp').val()).load();
+            });
+            var table = $('#example').DataTable({
+                fixedHeader: true, "ordering": false, "pageLength": 15, sAjaxSource: '/Haf/Rec/gdevusg?frm=' + $('#frm').val() + '&two=' + $('#two').val(),
+                lengthChange: false, dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                    exportOptions: { modifier: { page: 'current' }, columns: [ 1, 3, 4 ] },
+                    customize: function (win) {
+                        $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                        $(win.document.body).find('h4').css('text-align', 'center');
+                        $(win.document.body).find('h4').text('تقرير الاجهزة الطبية');
+                    }
+                },
+                ],
+                columns: [
+            { "data": "ServName", "width": "25%" },
+            { "data": "Docn", "width": "25%" },
+            { "data": "Patnam", "width": "25%" },
+            {
+                "data": "ActDate", "width": "15%", "sClass": "dt-center", "render": function (data) {
+                    var date = new Date(parseInt(data.substr(6))).getDate();
+                    var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                    var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                    var fl = (date < 10 ? '0' : '') + date + "-" + (datem < 10 ? '0' : '') + datem + "-" + datey
+                    return fl
+                }
+            },
+            { "data": "Dpt", "width": "10%", "sClass": "dt-center" },
+                ]
+            });
+            $('#example tbody').on('click', 'tr', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected')
+            });
+        });
+    </script>
+}

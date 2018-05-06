@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="ar-eg">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top glyphicon-text-height" >
+        <div class="container">
+            @*<div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>*@
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/ERP/Admin/Index">الرئيسية</a></li>
+                <li class="active"><a href="/ERP/Admin/cash"></a></li>
+                @*<li class="active" id="cashrp"><a href="javascript:;">تقرير مبيعات يومي</a></li>
+                <li class="active" id="bbordday"><a  href="javascript:;">تعديل طلب </a></li>
+                <li class="active" id="bbexplist"><a href="javascript:;"> دليل المصروفات</a></li>
+                <li class="active" id="topten"><a href="javascript:;">Top 10 AG</a></li>
+                <li class="active" id="toptenfd"><a href="javascript:;">Top 10 FD</a></li>
+                <li class="active"><a href="/ERP/User/Index">UseAdmin</a></li>*@
+                @*<li class="active"><a href="/Meno/Finance/Finance">الحسابات</a></li>
+    <li class="active"><a href="/Meno/HR/Index">شئون العاملين</a></li>
+    <li class="active"><a href="/Meno/InvMan/Index">المخازن</a></li>*@
+            </ul>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right flip">
+                    <li>
+                        <a class="label-danger" href="/ERP/Home/LogOut">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,3122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HafModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EmpShft">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp" Type="Int32" Nullable="false" />
+    <Property Name="frm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dy" Type="Int32" />
+    <Property Name="Mo" Type="Int32" />
+    <Property Name="Yer" Type="Int32" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Punsh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="PunshMount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Vac">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="VacStrt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VacEnd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="Int32" Nullable="false" />
+    <Property Name="Cuts" Type="Boolean" Nullable="false" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CutMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Bed">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BedN" Type="Int32" Nullable="false" />
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="OprDev">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Oper" Type="Int32" Nullable="false" />
+    <Property Name="DevID" Type="Int32" Nullable="false" />
+    <Property Name="DevName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Repe" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="UVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CashAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+    <Property Name="SortID" Type="Int32" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Pval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="Grd" Type="Int32" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="SerTyp" Type="Int32" Nullable="false" />
+    <Property Name="Rom" Type="Int32" />
+    <Property Name="Bed" Type="Int32" />
+    <Property Name="PatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PatNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PatTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Patadrs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Printed" Type="Boolean" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Cby" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diags" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Post" Type="Boolean" Nullable="false" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Chek">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChekNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="inout" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankID" Type="Int32" />
+    <Property Name="IssuDate" Type="DateTime" Precision="0" />
+    <Property Name="DrwDate" Type="DateTime" Precision="0" />
+    <Property Name="PayTo" Type="Int32" Nullable="false" />
+    <Property Name="Canc" Type="Boolean" Nullable="false" />
+    <Property Name="Ent" Type="Int32" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="SubMainAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MainAcc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Frep" Type="Int32" Nullable="false" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItmInv">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="ItmID" Type="Int32" Nullable="false" />
+    <Property Name="AdItm" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DrwItm" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="PBill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="RowNu" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="Invn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VenID" Type="Int32" />
+    <Property Name="CusID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemNam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Totval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Netval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DocID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="PayTyp" Type="Boolean" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <Property Name="sect" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="BType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PatID" Type="Int32" />
+    <Property Name="EmpID" Type="Int32" />
+    <Property Name="ToInv" Type="Int32" />
+    <Property Name="Tinvn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Printed" Type="Boolean" />
+    <Property Name="Catg" Type="Int32" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SCateg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SCategID" Type="Int32" Nullable="false" />
+    <Property Name="SCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategID" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ServType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Usr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EntryKey" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="6" />
+    <Property Name="UserKey" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vDept">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Users" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="EmpNo" Type="Int32" />
+    <Property Name="Users" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmpHi">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Action" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="NatID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Deptto" Type="Int32" />
+    <Property Name="Jopto" Type="Int32" />
+    <Property Name="Osal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Nsal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Deptfrm" Type="Int32" />
+    <Property Name="Jopfrm" Type="Int32" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmpl">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="HireDate" />
+      <PropertyRef Name="NatID" />
+      <PropertyRef Name="CcName" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="NShift" />
+      <PropertyRef Name="OShift" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="NShift" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OShift" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmplon">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="dept" />
+      <PropertyRef Name="jop" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vTSal">
+    <Key>
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vUsrEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vVacE">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VacStrt" />
+      <PropertyRef Name="VacEnd" />
+      <PropertyRef Name="VMount" />
+      <PropertyRef Name="Ds" />
+      <PropertyRef Name="Cuts" />
+      <PropertyRef Name="CreatDate" />
+      <PropertyRef Name="CutMonth" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="VacStrt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VacEnd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="Int32" Nullable="false" />
+    <Property Name="Cuts" Type="Boolean" Nullable="false" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CutMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocD">
+    <Key>
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Printed" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Cbyn" />
+      <PropertyRef Name="PatNam" />
+    </Key>
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="valu" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Printed" Type="Boolean" Nullable="false" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+    <Property Name="PatNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocDsT">
+    <Key>
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="recterent">
+    <Key>
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Serv" />
+    </Key>
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ServType" Type="Int32" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vAcclist">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Ent" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="Frep" />
+      <PropertyRef Name="Actyp" />
+      <PropertyRef Name="lvl" />
+      <PropertyRef Name="CNAME" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Par" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Cod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Frep" Type="Int32" Nullable="false" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="lvl" Type="Int32" Nullable="false" />
+    <Property Name="CNAME" Type="String" MaxLength="73" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vAccTree">
+    <Key>
+      <PropertyRef Name="Main" />
+      <PropertyRef Name="MAdpt" />
+      <PropertyRef Name="MAcrd" />
+      <PropertyRef Name="MAbal" />
+      <PropertyRef Name="MCod" />
+    </Key>
+    <Property Name="MainAcc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Main" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubMainAcc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Acc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AccN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccType" Type="Boolean" />
+    <Property Name="AEbal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AEdpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AEcrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ACdpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ACcrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ACbal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SMdpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SMcrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SMbal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MAdpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MAcrd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MAbal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ACod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AECod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SMCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vAccVen">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="ActID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vcash">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="CashID" />
+      <PropertyRef Name="Ter" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="TerN" />
+      <PropertyRef Name="CCID" />
+      <PropertyRef Name="Cashbal" />
+      <PropertyRef Name="Cod" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cridval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="Ter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TerN" Type="Int32" Nullable="false" />
+    <Property Name="CCID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cashbal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vcashg">
+    <Key>
+      <PropertyRef Name="Dat" />
+    </Key>
+    <Property Name="Dpt" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="vdEntry">
+    <Key>
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="AcCod" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="dpt" />
+      <PropertyRef Name="crd" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="EntNumber" />
+    </Key>
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="Acc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AcCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEntrList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="Posted" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MDescrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="dpt" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="crd" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="Posted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vLedger">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="CashID" />
+      <PropertyRef Name="Balance" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Cridval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vPeri">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="Startdate" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Startdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="enum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vShAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ActID" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vtBal">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="lvl" />
+      <PropertyRef Name="Balance" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="lvl" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vVenAcc">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="VenID" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Ent" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VenID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Crd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bill" Type="Int32" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vVendor">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="VenGroupID" />
+      <PropertyRef Name="Group" />
+      <PropertyRef Name="AccNo" />
+      <PropertyRef Name="Balance" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="VenGroupID" Type="Int32" Nullable="false" />
+    <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vDrwrp">
+    <Key>
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemNam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Main" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Emg" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Opr" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ent" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Car" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="tot" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vDrwrpp">
+    <Key>
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="tots" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemNam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Main" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Emg" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Opr" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ent" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Car" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="tot" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vItmcrd">
+    <Key>
+      <PropertyRef Name="inc" />
+      <PropertyRef Name="ot" />
+      <PropertyRef Name="BillNo" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="InvID" />
+    </Key>
+    <Property Name="inc" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ot" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="dt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Netval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ItemNam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="BType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="Invn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vItminb">
+    <Key>
+      <PropertyRef Name="ItmID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ItmID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Main" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Emg" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Opr" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ent" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Car" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="tot" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vLabSm">
+    <Key>
+      <PropertyRef Name="PatNum" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Labd" />
+      <PropertyRef Name="Ent" />
+      <PropertyRef Name="CusID" />
+    </Key>
+    <Property Name="PatNum" Type="Int32" Nullable="false" />
+    <Property Name="SVal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Labd" Type="Boolean" Nullable="false" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+    <Property Name="CusID" Type="Int32" Nullable="false" />
+    <Property Name="CusN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vItmInvb">
+    <Key>
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Categ" />
+      <PropertyRef Name="SCateg" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="AdItm" />
+      <PropertyRef Name="DrwItm" />
+      <PropertyRef Name="InBal" />
+      <PropertyRef Name="InvN" />
+    </Key>
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Categ" Type="Int32" Nullable="false" />
+    <Property Name="SCateg" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AdItm" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DrwItm" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InBal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vPBill">
+    <Key>
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="BillNo" />
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="InvName" />
+    </Key>
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="bvall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <Property Name="VenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InvName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VenID" Type="Int32" />
+    <Property Name="PayTyp" Type="Boolean" />
+    <Property Name="sect" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="BType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PatID" Type="Int32" />
+    <Property Name="ToInv" Type="Int32" />
+    <Property Name="Trans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vCusContr">
+    <Key>
+      <PropertyRef Name="CusID" />
+      <PropertyRef Name="ContrID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Patpyd" />
+      <PropertyRef Name="CusPyd" />
+      <PropertyRef Name="AccNo" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="CNum" />
+      <PropertyRef Name="AddVal" />
+    </Key>
+    <Property Name="CusID" Type="Int32" Nullable="false" />
+    <Property Name="ContrID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DisPer" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Patpyd" Type="Int32" Nullable="false" />
+    <Property Name="CusPyd" Type="Int32" Nullable="false" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="ContrStart" Type="DateTime" Precision="0" />
+    <Property Name="ContrEnd" Type="DateTime" Precision="0" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CNum" Type="Int32" Nullable="false" />
+    <Property Name="AddVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vDoc">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Degr" />
+      <PropertyRef Name="DegID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Dnum" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Speci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Degr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DegID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dnum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vDocDue">
+    <Key>
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pat" Type="Int32" />
+    <Property Name="Dept" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Bal" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vDocDuedt">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PatNum" />
+      <PropertyRef Name="DeptVal" />
+      <PropertyRef Name="CrdVal" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="DateDue" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PatNum" Type="Int32" Nullable="false" />
+    <Property Name="DeptVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CrdVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DateDue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Descrip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vDocServ">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="AllVall" />
+      <PropertyRef Name="IsPer" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Doc" />
+      <PropertyRef Name="Serv" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AllVall" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsPer" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Serv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vdsevrlist">
+    <Key>
+      <PropertyRef Name="Doc" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ServName" />
+    </Key>
+    <Property Name="Doc" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vDslist">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="ServType" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Doc" Type="Int32" />
+    <Property Name="Clinic" Type="Boolean" />
+    <Property Name="ServVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ServType" Type="Int32" Nullable="false" />
+    <Property Name="AllVall" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vDslst">
+    <Key>
+      <PropertyRef Name="Doc" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="AllVall" />
+    </Key>
+    <Property Name="Doc" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AllVall" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Clinic" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vLab">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PatNum" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Ent" />
+      <PropertyRef Name="enis" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="State" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatNum" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+    <Property Name="enis" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CusN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vOpr">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Operation" />
+      <PropertyRef Name="OperType" />
+      <PropertyRef Name="OperTn" />
+      <PropertyRef Name="Spec" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ServVal" />
+      <PropertyRef Name="Mexp" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="aval" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Operation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OperType" Type="Int32" Nullable="false" />
+    <Property Name="OperTn" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Spec" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Servn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="ServVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Mexp" Type="Boolean" Nullable="false" />
+    <Property Name="Ord" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="aval" Type="Boolean" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vRecCash">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PatNam" />
+      <PropertyRef Name="Pval" />
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="ActID" />
+      <PropertyRef Name="SortID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="PatNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PatTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pval" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+    <Property Name="SortID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vR">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RNumber" />
+      <PropertyRef Name="Degree" />
+      <PropertyRef Name="BedN" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="ServName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RNumber" Type="Int32" Nullable="false" />
+    <Property Name="Degree" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BedN" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vScan">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ActID" />
+      <PropertyRef Name="PatNam" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="SerTyp" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+    <Property Name="PatNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PatTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="PatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="SerTyp" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vServ">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="ServVal" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="AddVal" />
+      <PropertyRef Name="Cod" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="DocDegre" Type="Int32" />
+    <Property Name="Degr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddVal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Totv" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vURole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UsrRolID" />
+      <PropertyRef Name="UsrID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="EntryKey" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UsrRolID" Type="Int32" Nullable="false" />
+    <Property Name="UsrID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EntryKey" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="HDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EmpShfts" EntityType="Self.EmpShft" />
+    <EntitySet Name="Punshes" EntityType="Self.Punsh" />
+    <EntitySet Name="Vacs" EntityType="Self.Vac" />
+    <EntitySet Name="Beds" EntityType="Self.Bed" />
+    <EntitySet Name="OprDevs" EntityType="Self.OprDev" />
+    <EntitySet Name="CashActs" EntityType="Self.CashAct" />
+    <EntitySet Name="Cheks" EntityType="Self.Chek" />
+    <EntitySet Name="SubMainAccs" EntityType="Self.SubMainAcc" />
+    <EntitySet Name="ItmInvs" EntityType="Self.ItmInv" />
+    <EntitySet Name="PBills" EntityType="Self.PBill" />
+    <EntitySet Name="SCategs" EntityType="Self.SCateg" />
+    <EntitySet Name="ServTypes" EntityType="Self.ServType" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="Usrs" EntityType="Self.Usr" />
+    <EntitySet Name="vDepts" EntityType="Self.vDept" />
+    <EntitySet Name="vEmpHis" EntityType="Self.vEmpHi" />
+    <EntitySet Name="vEmpls" EntityType="Self.vEmpl" />
+    <EntitySet Name="vEmplons" EntityType="Self.vEmplon" />
+    <EntitySet Name="vTSals" EntityType="Self.vTSal" />
+    <EntitySet Name="vUsrEmps" EntityType="Self.vUsrEmp" />
+    <EntitySet Name="vVacEs" EntityType="Self.vVacE" />
+    <EntitySet Name="DocDs" EntityType="Self.DocD" />
+    <EntitySet Name="DocDsTs" EntityType="Self.DocDsT" />
+    <EntitySet Name="recterents" EntityType="Self.recterent" />
+    <EntitySet Name="vAcclists" EntityType="Self.vAcclist" />
+    <EntitySet Name="vAccTrees" EntityType="Self.vAccTree" />
+    <EntitySet Name="vAccVens" EntityType="Self.vAccVen" />
+    <EntitySet Name="vcashes" EntityType="Self.vcash" />
+    <EntitySet Name="vcashgs" EntityType="Self.vcashg" />
+    <EntitySet Name="vdEntries" EntityType="Self.vdEntry" />
+    <EntitySet Name="vEntrLists" EntityType="Self.vEntrList" />
+    <EntitySet Name="vLedgers" EntityType="Self.vLedger" />
+    <EntitySet Name="vPeris" EntityType="Self.vPeri" />
+    <EntitySet Name="vShAccs" EntityType="Self.vShAcc" />
+    <EntitySet Name="vtBals" EntityType="Self.vtBal" />
+    <EntitySet Name="vVenAccs" EntityType="Self.vVenAcc" />
+    <EntitySet Name="vVendors" EntityType="Self.vVendor" />
+    <EntitySet Name="vDrwrps" EntityType="Self.vDrwrp" />
+    <EntitySet Name="vDrwrpps" EntityType="Self.vDrwrpp" />
+    <EntitySet Name="vItmcrds" EntityType="Self.vItmcrd" />
+    <EntitySet Name="vItminbs" EntityType="Self.vItminb" />
+    <EntitySet Name="vLabSms" EntityType="Self.vLabSm" />
+    <EntitySet Name="vItmInvbs" EntityType="Self.vItmInvb" />
+    <EntitySet Name="vPBills" EntityType="Self.vPBill" />
+    <EntitySet Name="vCusContrs" EntityType="Self.vCusContr" />
+    <EntitySet Name="vDocs" EntityType="Self.vDoc" />
+    <EntitySet Name="vDocDues" EntityType="Self.vDocDue" />
+    <EntitySet Name="vDocDuedts" EntityType="Self.vDocDuedt" />
+    <EntitySet Name="vDocServs" EntityType="Self.vDocServ" />
+    <EntitySet Name="vdsevrlists" EntityType="Self.vdsevrlist" />
+    <EntitySet Name="vDslists" EntityType="Self.vDslist" />
+    <EntitySet Name="vDslsts" EntityType="Self.vDslst" />
+    <EntitySet Name="vLabs" EntityType="Self.vLab" />
+    <EntitySet Name="vOprs" EntityType="Self.vOpr" />
+    <EntitySet Name="vRecCashes" EntityType="Self.vRecCash" />
+    <EntitySet Name="vRS" EntityType="Self.vR" />
+    <EntitySet Name="vScans" EntityType="Self.vScan" />
+    <EntitySet Name="vServs" EntityType="Self.vServ" />
+    <EntitySet Name="vURoles" EntityType="Self.vURole" />
+    <EntitySet Name="CusConTots" EntityType="HafModel.CusConTot" />
+    <EntitySet Name="Depts" EntityType="HafModel.Dept" />
+    <EntitySet Name="EmpHis" EntityType="HafModel.EmpHi" />
+    <EntitySet Name="EmpInfoes" EntityType="HafModel.EmpInfo" />
+    <EntitySet Name="Jops" EntityType="HafModel.Jop" />
+    <EntitySet Name="Loans" EntityType="HafModel.Loan" />
+    <EntitySet Name="Mors" EntityType="HafModel.Mor" />
+    <EntitySet Name="Sals" EntityType="HafModel.Sal" />
+    <EntitySet Name="OperActs" EntityType="HafModel.OperAct" />
+    <EntitySet Name="Operations" EntityType="HafModel.Operation" />
+    <EntitySet Name="OperDescs" EntityType="HafModel.OperDesc" />
+    <EntitySet Name="OperServs" EntityType="HafModel.OperServ" />
+    <EntitySet Name="OperTeams" EntityType="HafModel.OperTeam" />
+    <EntitySet Name="Rooms" EntityType="HafModel.Room" />
+    <EntitySet Name="Accs" EntityType="HafModel.Acc" />
+    <EntitySet Name="Accents" EntityType="HafModel.Accent" />
+    <EntitySet Name="Banks" EntityType="HafModel.Bank" />
+    <EntitySet Name="BankActs" EntityType="HafModel.BankAct" />
+    <EntitySet Name="Cashtrans" EntityType="HafModel.Cashtran" />
+    <EntitySet Name="Contrs" EntityType="HafModel.Contr" />
+    <EntitySet Name="ContrPrices" EntityType="HafModel.ContrPrice" />
+    <EntitySet Name="CostCenters" EntityType="HafModel.CostCenter" />
+    <EntitySet Name="Cus" EntityType="HafModel.Cu" />
+    <EntitySet Name="CusConAccs" EntityType="HafModel.CusConAcc" />
+    <EntitySet Name="CusConActs" EntityType="HafModel.CusConAct" />
+    <EntitySet Name="CusContrs" EntityType="HafModel.CusContr" />
+    <EntitySet Name="CusGroups" EntityType="HafModel.CusGroup" />
+    <EntitySet Name="Entries" EntityType="HafModel.Entry" />
+    <EntitySet Name="FixedAssets" EntityType="HafModel.FixedAsset" />
+    <EntitySet Name="IsalRecevs" EntityType="HafModel.IsalRecev" />
+    <EntitySet Name="MainAccs" EntityType="HafModel.MainAcc" />
+    <EntitySet Name="PatActs" EntityType="HafModel.PatAct" />
+    <EntitySet Name="PatHistories" EntityType="HafModel.PatHistory" />
+    <EntitySet Name="PeriodInfoes" EntityType="HafModel.PeriodInfo" />
+    <EntitySet Name="ServPrices" EntityType="HafModel.ServPrice" />
+    <EntitySet Name="ShActs" EntityType="HafModel.ShAct" />
+    <EntitySet Name="ShActdts" EntityType="HafModel.ShActdt" />
+    <EntitySet Name="Shares" EntityType="HafModel.Share" />
+    <EntitySet Name="ShHolders" EntityType="HafModel.ShHolder" />
+    <EntitySet Name="Vendors" EntityType="HafModel.Vendor" />
+    <EntitySet Name="VenGroups" EntityType="HafModel.VenGroup" />
+    <EntitySet Name="Invs" EntityType="HafModel.Inv" />
+    <EntitySet Name="Categs" EntityType="HafModel.Categ" />
+    <EntitySet Name="ItemMedics" EntityType="HafModel.ItemMedic" />
+    <EntitySet Name="Clinictbls" EntityType="HafModel.Clinictbl" />
+    <EntitySet Name="DocDegrs" EntityType="HafModel.DocDegr" />
+    <EntitySet Name="DocDues" EntityType="HafModel.DocDue" />
+    <EntitySet Name="DocServs" EntityType="HafModel.DocServ" />
+    <EntitySet Name="Doctortbls" EntityType="HafModel.Doctortbl" />
+    <EntitySet Name="Labs" EntityType="HafModel.Lab" />
+    <EntitySet Name="RecTers" EntityType="HafModel.RecTer" />
+    <EntitySet Name="RoomPats" EntityType="HafModel.RoomPat" />
+    <EntitySet Name="vJops" EntityType="HafModel.vJop" />
+    <EntitySet Name="vLoanEs" EntityType="HafModel.vLoanE" />
+    <EntitySet Name="vMorsEs" EntityType="HafModel.vMorsE" />
+    <EntitySet Name="vPunEs" EntityType="HafModel.vPunE" />
+    <EntitySet Name="vSalaries" EntityType="HafModel.vSalary" />
+    <EntitySet Name="vSalEntries" EntityType="HafModel.vSalEntry" />
+    <EntitySet Name="Patbals" EntityType="HafModel.Patbal" />
+    <EntitySet Name="vDevReps" EntityType="HafModel.vDevRep" />
+    <EntitySet Name="vEmBeds" EntityType="HafModel.vEmBed" />
+    <EntitySet Name="vpatarcs" EntityType="HafModel.vpatarc" />
+    <EntitySet Name="Cashreps" EntityType="HafModel.Cashrep" />
+    <EntitySet Name="docdudts" EntityType="HafModel.docdudt" />
+    <EntitySet Name="DocEntries" EntityType="HafModel.DocEntry" />
+    <EntitySet Name="EntryDets" EntityType="HafModel.EntryDet" />
+    <EntitySet Name="EntryServs" EntityType="HafModel.EntryServ" />
+    <EntitySet Name="Expreps" EntityType="HafModel.Exprep" />
+    <EntitySet Name="Increps" EntityType="HafModel.Increp" />
+    <EntitySet Name="nTres" EntityType="HafModel.nTre" />
+    <EntitySet Name="vAccShes" EntityType="HafModel.vAccSh" />
+    <EntitySet Name="vcahs" EntityType="HafModel.vcah" />
+    <EntitySet Name="vContrprics" EntityType="HafModel.vContrpric" />
+    <EntitySet Name="vCostLists" EntityType="HafModel.vCostList" />
+    <EntitySet Name="vCTs" EntityType="HafModel.vCT" />
+    <EntitySet Name="vdocsals" EntityType="HafModel.vdocsal" />
+    <EntitySet Name="vdoctotals" EntityType="HafModel.vdoctotal" />
+    <EntitySet Name="vItmsbs" EntityType="HafModel.vItmsb" />
+    <EntitySet Name="vTras" EntityType="HafModel.vTra" />
+    <EntitySet Name="xvPBills" EntityType="HafModel.xvPBill" />
+    <EntitySet Name="vBilltras" EntityType="HafModel.vBilltra" />
+    <EntitySet Name="vNurses" EntityType="HafModel.vNurse" />
+    <EntitySet Name="vPatAccous" EntityType="HafModel.vPatAccou" />
+    <EntitySet Name="VenActs" EntityType="HafModel.VenAct" />
+    <EntitySet Name="VenActdts" EntityType="HafModel.VenActdt" />
+    <EntitySet Name="vContrs" EntityType="HafModel.vContr" />
+  </EntityContainer>
+  <EntityType Name="CusConTot">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Dept">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Users" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpHi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="NatId" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Deptfrm" Type="Int32" />
+    <Property Name="Deptto" Type="Int32" />
+    <Property Name="Jopfrm" Type="Int32" />
+    <Property Name="Jopto" Type="Int32" />
+    <Property Name="Nsal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Osal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="CostCenter" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NatID" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MonthDays" Type="Int32" />
+    <Property Name="Telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EduGrade" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MState" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalState" Type="Boolean" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="Usr" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NShift" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="OShift" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Jop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="MinSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="LoanMount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MonthPayed" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Months" Type="Int32" Nullable="false" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="MorMount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MorDay" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="DonDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PayMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MainSal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="PdDoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="OperAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Doc" Type="Int32" Nullable="false" />
+    <Property Name="Docn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Spc" Type="Int32" Nullable="false" />
+    <Property Name="Degr" Type="Int32" Nullable="false" />
+    <Property Name="Optyp" Type="Int32" />
+    <Property Name="Optypn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OprId" Type="Int32" />
+    <Property Name="OprN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Room" Type="Int32" Nullable="false" />
+    <Property Name="Stime" Type="Time" Precision="7" />
+    <Property Name="Etime" Type="Time" Precision="7" />
+    <Property Name="PatID" Type="Int32" Nullable="false" />
+    <Property Name="PatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pattel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Nat" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PatAdrs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CusID" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PatPayed" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CusPayed" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PCod" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Boolean" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Isa" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="OperDesc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operation" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OperType" Type="Int32" Nullable="false" />
+    <Property Name="OperTn" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Spec" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="Servn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Mexp" Type="Boolean" Nullable="false" />
+    <Property Name="Ord" Type="Int32" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="aval" Type="Boolean" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OperServ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Opertype" Type="Int32" Nullable="false" />
+    <Property Name="OperAct" Type="Int32" Nullable="false" />
+    <Property Name="OperTeam" Type="Int32" Nullable="false" />
+    <Property Name="ServID" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MosVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="OperTeam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Opertype" Type="Int32" Nullable="false" />
+    <Property Name="OperAct" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="DocName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocBing" Type="Int32" />
+    <Property Name="NurseID" Type="Int32" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RNumber" Type="Int32" Nullable="false" />
+    <Property Name="Degree" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="BedN" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Acc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MainAcc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubMainAcc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Frep" Type="Int32" Nullable="false" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MainAcc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubMainAcc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Acc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccType" Type="Boolean" Nullable="false" />
+    <Property Name="FRep" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bank1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Cashtran">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="Tfrm" Type="Int32" Nullable="false" />
+    <Property Name="Tto" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Bank" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ter" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BID" Type="Int32" Nullable="false" />
+    <Property Name="TID" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Contr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusContr" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ContrDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContrStart" Type="DateTime" Precision="0" />
+    <Property Name="ContrEnd" Type="DateTime" Precision="0" />
+    <Property Name="DisPer" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Patpyd" Type="Int32" Nullable="false" />
+    <Property Name="CusPyd" Type="Int32" Nullable="false" />
+    <Property Name="CNum" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ContrPrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contr" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="CostCenter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MainCc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MainCcn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CcName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CcType" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="STelephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CusVen" Type="Boolean" />
+    <Property Name="AccNo" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="CusConAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DeptVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CrdVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cost" Type="Int32" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Ent" Type="Int32" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CusConAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Contr" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Patnum" Type="Int32" Nullable="false" />
+    <Property Name="Serv" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Dept" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="CusContr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="STelephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CusVen" Type="Boolean" Nullable="false" />
+    <Property Name="AccNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CusGroupID" Type="Int32" Nullable="false" />
+    <Property Name="Conterd" Type="Boolean" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CusGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Entry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WDat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="MDescrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="Entkind" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CostCenter" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Baled" Type="Boolean" Nullable="false" />
+    <Property Name="Posted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FixedAsset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FixNum" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="QstEhkAcc" Type="Int32" Nullable="false" />
+    <Property Name="EhkAcc" Type="Int32" Nullable="false" />
+    <Property Name="SynAcc" Type="Int32" Nullable="false" />
+    <Property Name="CostCenter" Type="Int32" Nullable="false" />
+    <Property Name="Wdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="IsalRecev">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fromisal" Type="Int32" Nullable="false" />
+    <Property Name="ToIsal" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="timep" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AccUser" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RecUser" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Pcval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Acval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="VairVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="nots" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MainAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Frep" Type="Int32" Nullable="false" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Patnum" Type="Int32" Nullable="false" />
+    <Property Name="Datin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Datout" Type="DateTime" Precision="0" />
+    <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Nots" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="BillID" Type="Int32" />
+    <Property Name="PatExit" Type="Boolean" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="opr" Type="Boolean" Nullable="false" />
+    <Property Name="oprid" Type="Int32" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Prtd" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatID" Type="Int32" Nullable="false" />
+    <Property Name="PatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="CusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RomID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Doc" Type="Int32" Nullable="false" />
+    <Property Name="DocName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Mexp" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Datein" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateOut" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="PeriodInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="Startdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServPrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Acc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AccN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServType" Type="Int32" Nullable="false" />
+    <Property Name="sect" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="sectN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="dev" Type="Boolean" Nullable="false" />
+    <Property Name="AddVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ServVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ServTot" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="DocDegre" Type="Int32" />
+    <Property Name="DocDegrN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Room" Type="Boolean" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CContr" Type="Boolean" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CareateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ShActdt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Share">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShareNo" Type="Int32" Nullable="false" />
+    <Property Name="ShareVal" Type="Int32" Nullable="false" />
+    <Property Name="IssueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AddRem" Type="Boolean" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ShHolder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Indate" Type="DateTime" Precision="0" />
+    <Property Name="ShareNo" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="STelephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CusVen" Type="Boolean" Nullable="false" />
+    <Property Name="AccNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="VenGroupID" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VenGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccNo" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Inv">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ItemMedic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="Categ" Type="Int32" Nullable="false" />
+    <Property Name="SCateg" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Barcod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PurPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="SellPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="LPur" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="LSell" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BPack" Type="Int32" Nullable="false" />
+    <Property Name="SPack" Type="Int32" Nullable="false" />
+    <Property Name="MPack" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clinictbl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocDegr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Degr" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocDue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="DateDue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PatNum" Type="Int32" Nullable="false" />
+    <Property Name="DeptVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CrdVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Descrip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocServ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Doc" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AllVall" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Doctortbl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="Int32" />
+    <Property Name="SpID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Speci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Dnum" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cby" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Comm" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Lab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatNum" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Nti" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Adrs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ServID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CusN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Labd" Type="Boolean" Nullable="false" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Ent" Type="Boolean" Nullable="false" />
+    <Property Name="enis" Type="Int32" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shft" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecTer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="ActID" Type="Int32" Nullable="false" />
+    <Property Name="SortID" Type="Int32" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Pval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Actyp" Type="Boolean" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="Grd" Type="Int32" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="SerTyp" Type="Int32" Nullable="false" />
+    <Property Name="Rom" Type="Int32" />
+    <Property Name="Bed" Type="Int32" />
+    <Property Name="PatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PatNam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PatTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Patadrs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Printed" Type="Boolean" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Cby" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diags" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Post" Type="Boolean" Nullable="false" />
+    <Property Name="timep" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RoomPat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rom" Type="Int32" Nullable="false" />
+    <Property Name="Bed" Type="Int32" Nullable="false" />
+    <Property Name="Isa" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Diag" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PatNti" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="PatTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Patadr" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DocId" Type="Int32" />
+    <Property Name="DocNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="DateIn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateOt" Type="DateTime" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vJop">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="empno" Type="Int32" />
+    <Property Name="MinSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vLoanE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="LoanMount" />
+      <PropertyRef Name="MonthPayed" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="SCutMonths" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoanMount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MonthPayed" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="vMorsE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MorID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DepID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="MorMount" />
+      <PropertyRef Name="MorDay" />
+      <PropertyRef Name="DonDate" />
+      <PropertyRef Name="PayMonth" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MorID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <Property Name="Dept" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MorMount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="MorDay" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="DonDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PayMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vPunE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CutMonths" />
+      <PropertyRef Name="SCutMonths" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="PunID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PunshMount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="PunID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vSalary">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dept" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Jop" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lon" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Mon" Type="Int32" />
+    <Property Name="Yer" Type="Int32" />
+    <Property Name="NetSall" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vSalEntry">
+    <Key>
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="CcID" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Dept" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CcID" Type="Int32" Nullable="false" />
+    <Property Name="CcName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Patbal">
+    <Key>
+      <PropertyRef Name="EntID" />
+    </Key>
+    <Property Name="dbt" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="crd" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vDevRep">
+    <Key>
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="ActDate" />
+      <PropertyRef Name="Patnam" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Dpt" />
+    </Key>
+    <Property Name="ServName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vEmBed">
+    <Key>
+      <PropertyRef Name="BedN" />
+      <PropertyRef Name="RoomID" />
+      <PropertyRef Name="Degree" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BID" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="ServVal" />
+      <PropertyRef Name="Serv" />
+    </Key>
+    <Property Name="BedN" Type="Int32" Nullable="false" />
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Degree" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="BID" Type="Int32" Nullable="false" />
+    <Property Name="ServName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="SerVal" Type="Decimal" Precision="19" Scale="2" />
+  </EntityType>
+  <EntityType Name="vpatarc">
+    <Key>
+      <PropertyRef Name="Isa" />
+      <PropertyRef Name="Rom" />
+      <PropertyRef Name="Bed" />
+      <PropertyRef Name="Patnam" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="DateIn" />
+    </Key>
+    <Property Name="Isa" Type="Int32" Nullable="false" />
+    <Property Name="Rom" Type="Int32" Nullable="false" />
+    <Property Name="Bed" Type="Int32" Nullable="false" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Diag" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateIn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateOt" Type="DateTime" Precision="0" />
+    <Property Name="Optypn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OprN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="exp" Type="Decimal" Precision="38" Scale="5" />
+    <Property Name="aexp" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="crd" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="dbt" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="balanc" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Cus" Type="Int32" />
+    <Property Name="DocId" Type="Int32" />
+    <Property Name="cbalanc" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="Cashrep">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="CashID" />
+      <PropertyRef Name="Ter" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="TerN" />
+      <PropertyRef Name="Cod" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="Ter" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TerN" Type="Int32" Nullable="false" />
+    <Property Name="CCID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="docdudt">
+    <Key>
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="ival" />
+      <PropertyRef Name="ipval" />
+    </Key>
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="dval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="daval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" />
+    <Property Name="ival" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ipval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SpID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DocEntry">
+    <Key>
+      <PropertyRef Name="ActDate" />
+      <PropertyRef Name="Nots" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="IsPer" />
+      <PropertyRef Name="Rom" />
+      <PropertyRef Name="Patnam" />
+      <PropertyRef Name="Prtd" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="Nots" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" Nullable="false" />
+    <Property Name="valu" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="Rom" Type="Int32" Nullable="false" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Prtd" Type="Boolean" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EntryDet">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="AcCod" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Posted" />
+      <PropertyRef Name="Baled" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="Int32" Nullable="false" />
+    <Property Name="Acc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CostCenter" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AcCod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Posted" Type="Boolean" Nullable="false" />
+    <Property Name="Baled" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EntryServ">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="ActDate" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Nots" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="AllVall" />
+      <PropertyRef Name="IsPer" />
+      <PropertyRef Name="Patnam" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Nots" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="SpID" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AllVall" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" Nullable="false" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Exprep">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="CcName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Increp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="CcName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="nTre">
+    <Key>
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MainAcc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AcCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AcMain" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AcSub" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AceCod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AceMain" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AceSub" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AceAc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="SubName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubDpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SubCrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SubBal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AcName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AcDpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AcCrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AcBal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AceDpt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AceCrd" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AceBal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MID" Type="Int32" Nullable="false" />
+    <Property Name="SID" Type="Int32" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="EID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vAccSh">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ShID" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="Ent" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="ShID" Type="Int32" Nullable="false" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="vcah">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Dat" />
+      <PropertyRef Name="WDat" />
+      <PropertyRef Name="Acc" />
+      <PropertyRef Name="Deptval" />
+      <PropertyRef Name="Cridval" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="EntTyp" />
+      <PropertyRef Name="EntNumber" />
+      <PropertyRef Name="Entkind" />
+      <PropertyRef Name="CashID" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="CreateBy" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Dat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WDat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Acc" Type="Int32" Nullable="false" />
+    <Property Name="MDescrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Descrip" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Deptval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Cridval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntTyp" Type="Int32" Nullable="false" />
+    <Property Name="EntNumber" Type="Int32" Nullable="false" />
+    <Property Name="Entkind" Type="Int32" Nullable="false" />
+    <Property Name="CashID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vContrpric">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="Contr" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="ServVal" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Contr" Type="Int32" Nullable="false" />
+    <Property Name="Cus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ServName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ServVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vCostList">
+    <Key>
+      <PropertyRef Name="Cod" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="Cod" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CcName" Type="String" MaxLength="43" FixedLength="false" Unicode="true" />
+    <Property Name="MainCc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vCT">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="Tfrm" />
+      <PropertyRef Name="Tto" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Val" />
+      <PropertyRef Name="Bank" />
+      <PropertyRef Name="Ter" />
+      <PropertyRef Name="Ent" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="Tfrm" Type="Int32" Nullable="false" />
+    <Property Name="Tto" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Val" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Bank" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ter" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vdocsal">
+    <Key>
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="ival" />
+      <PropertyRef Name="ipval" />
+    </Key>
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="Ent" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="xEnt" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="dval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="daval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" />
+    <Property Name="ival" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ipval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vdoctotal">
+    <Key>
+      <PropertyRef Name="BDate" />
+      <PropertyRef Name="SerDate" />
+      <PropertyRef Name="Shift" />
+      <PropertyRef Name="Serv" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="Cus" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="ival" />
+      <PropertyRef Name="ipval" />
+    </Key>
+    <Property Name="BDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SerDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="Serv" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="Cus" Type="Int32" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="dval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="daval" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsPer" Type="Boolean" />
+    <Property Name="ival" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ipval" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Isal" Type="Int32" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SpID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vItmsb">
+    <Key>
+      <PropertyRef Name="ItmID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ItmID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Main" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Emg" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Opr" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Ent" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Car" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="vTra">
+    <Key>
+      <PropertyRef Name="BillNo" />
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="Invn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemNam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ToInv" Type="Int32" />
+    <Property Name="Tinvn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="xvPBill">
+    <Key>
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="BillNo" />
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="InvName" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="bvall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <Property Name="InvName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PayTyp" Type="Boolean" />
+    <Property Name="sect" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="BType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PatID" Type="Int32" />
+    <Property Name="ToInv" Type="Int32" />
+    <Property Name="Trans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CusID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vBilltra">
+    <Key>
+      <PropertyRef Name="BillNo" />
+      <PropertyRef Name="PrdID" />
+      <PropertyRef Name="InvID" />
+      <PropertyRef Name="Iname" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Tname" />
+    </Key>
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="PrdID" Type="Int32" Nullable="false" />
+    <Property Name="InvID" Type="Int32" Nullable="false" />
+    <Property Name="Iname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ToInv" Type="Int32" />
+    <Property Name="Tname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="DocID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vNurse">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ServName" />
+      <PropertyRef Name="AddVal" />
+      <PropertyRef Name="ServVal" />
+      <PropertyRef Name="ServType" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ServVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="val" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="ServType" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vPatAccou">
+    <Key>
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Patnum" />
+      <PropertyRef Name="Datin" />
+      <PropertyRef Name="ActDate" />
+      <PropertyRef Name="Crd" />
+      <PropertyRef Name="Balance" />
+      <PropertyRef Name="Nots" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Dpt" />
+      <PropertyRef Name="Patnam" />
+      <PropertyRef Name="Rom" />
+      <PropertyRef Name="Bed" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="opr" />
+    </Key>
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="Patnum" Type="Int32" Nullable="false" />
+    <Property Name="Datin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Datout" Type="DateTime" Precision="0" />
+    <Property Name="ActDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Nots" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Serv" Type="Int32" />
+    <Property Name="ServName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="bal" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="BillID" Type="Int32" />
+    <Property Name="Patnam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rom" Type="Int32" Nullable="false" />
+    <Property Name="Bed" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <Property Name="DocID" Type="Int32" />
+    <Property Name="Docn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="opr" Type="Boolean" Nullable="false" />
+    <Property Name="Cbyn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cus" Type="Int32" />
+    <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VenAct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bill" Type="Int32" />
+    <Property Name="Ent" Type="Int32" Nullable="false" />
+    <Property Name="Doc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="VenActdt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Dpt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Crd" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="vContr">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CusContr" />
+      <PropertyRef Name="ContrDate" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Patpyd" />
+      <PropertyRef Name="CusPyd" />
+      <PropertyRef Name="CNum" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CusContr" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ContrDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContrStart" Type="DateTime" Precision="0" />
+    <Property Name="ContrEnd" Type="DateTime" Precision="0" />
+    <Property Name="DisPer" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Patpyd" Type="Int32" Nullable="false" />
+    <Property Name="CusPyd" Type="Int32" Nullable="false" />
+    <Property Name="CNum" Type="Int32" Nullable="false" />
+    <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

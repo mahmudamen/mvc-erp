@@ -1,0 +1,209 @@
+﻿@{ViewBag.Title = " أرشيف المستندات";}
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-inline ls_form">
+            <div class="form-group" style="margin:0px 5px 0px 5px">
+                <label>اسم المشروع</label>
+                <input type="text" class="form-control text-right" style="width:400px" id="accn" />
+                <input type="hidden" id="proid" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4" style="padding: 12px;">
+        <div class="panel panel-danger" style="margin-bottom:10px">
+            <div class="panel-heading" style="padding: 5px 5px;">
+                <label class="panel-title">ارشيف المشروعات </label>
+
+            </div>
+            <div class="panel-body" style="max-height:460px; min-height:300px; padding:5px">
+                <table id="tbaimage" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">المشروع</th>
+                            <th>الملف</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>مرحلة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel-body" style="max-height:360px; min-height:300px; padding:5px;">
+            <div id="gallery" class="gallery">
+                <div class="image gallery-group-1">
+                    <div class="image-inner">
+                        <a id="alink" href=" " data-lightbox="gallery-group-1">
+                            <img src=" " alt="" id="targetImg" width="850"/>
+                            <embed style="display:none" id="embo" src=" " type="application/pdf" width="900" height="450"/>
+                        </a>
+                        <p class="image-caption" id="cap">
+                            #تخص مرحلة
+                        </p>
+                    </div>
+                    <div class="image-info">
+                        <h5 class="title"  id="tit">اسم المشروع</h5>
+                        <div class="pull-right">
+                            <small>  </small> <a id="xlink" href="javascript:;">اسم الصورة</a>
+                        </div>
+                        @*<div class="rating">
+                            <span class="star active"></span>
+                            <span class="star active"></span>
+                            <span class="star active"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                        </div>*@
+                        <div class="desc" id="desc">
+                            وصف 
+                            تفصيلي 
+                            للملف
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/Content/dt.css" rel="stylesheet" />
+<link href="~/Assets/style.btn.min.css" rel="stylesheet" />
+<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            // var dept table
+            var table = $('#tbaimage').DataTable({
+                bProcessing: false, sAjaxSource: '/ERP/Pro/tbimg?id=' + $('#proid').val(), bFilter: true, bInfo: false, lengthChange: false, scrollY: '320px', scrollCollapse: false, bPaginate: true,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } }, 
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('المشروعات');
+                }
+            },
+            ],
+            columns: [
+            { "data": "ID", "visible": false, "bSearchable": false },
+            { "data": "ProName", "sClass": "dt-center", "width": "10%" },
+            { "data": "Photo", "sClass": "dt-center", "width": "1%" },
+            { "data": "PicPath", "visible": false },
+            { "data": "Ex", "visible": false },
+            { "data": "GallaryName", "visible": false },
+            { "data": "Subject", "visible": false },
+            { "data": "GallaryName", "sClass": "dt-center", "width": "1%" }
+            
+            ]
+        });
+            // select  function tbactivity
+            $('#tbaimage tbody').on('click', 'tr', function () {
+                var tbSysv = $("#tbaimage").DataTable();
+                tbSysv.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                var tit = tbSysv.cell('.selected', 1).data();
+                var na = tbSysv.cell('.selected', 2).data();
+                var t = tbSysv.cell('.selected', 3).data();
+                var e = tbSysv.cell('.selected', 4).data();
+                var f = tbSysv.cell('.selected', 5).data();
+                var sub = tbSysv.cell('.selected', 6).data();
+                if (e == '.pdf') {
+                    $('#targetImg').hide();
+                    $('#embo').attr('src', t);
+                    $('#xlink').attr('href', t);
+                    $('#xlink').text(na)
+                    $('#embo').css('display', 'block');
+                    $('#tit').text(tit);
+                    $('#cap').text(f);
+                    $('#desc').text(sub);
+                } else {
+                    $('#targetImg').css('display', 'block');
+                    $('#alink').attr('href', t);
+                    $('#xlink').attr('href', t);
+                    $('#xlink').text(na)
+                    $('#targetImg').attr('src', t);
+                    $('#embo').css('display', 'none');
+                    $('#tit').text(tit);
+                    $('#cap').text(f);
+                    $('#desc').text(sub);
+                }
+                
+                
+        });
+        $('#accn').autocomplete({
+            autoFocus: true,
+            messages: { noResults: '', results: function () { } },
+            source: function (request, response) {
+                $.ajax({
+                    url: "@(Url.Action("tbarch", "Pro"))",
+                    type: 'GET',
+                cache: false,
+                dataType: 'json',
+                data: { Prefix: request.term },
+                success: function (json) {
+                    response($.map(json, function (data, ID, ProName) {
+                        return {
+                            label: data.ID + " - " + data.ProName,
+                            value: data.ID,
+                            g: data.ID
+                        }; uest
+                    }));
+                },
+                });
+        },
+        focus: function (event, ui) {
+            return false;
+        },
+        select: function (event, ui) {
+            $('#proid').val(ui.item.g)
+            $('#accn').val(ui.item.label)
+
+            var t = $('#tbaimage').DataTable();
+            t.$('tr.selected').removeClass('selected');
+            t.clear();
+            t.draw();
+            table.ajax.url('/Erp/Pro/tbimg?id=' + $('#proid').val()).load();
+            return false;
+        },
+        change: function (event, ui) {
+            var source = $(this).val();
+            var found = false;
+            $('#accn').filter(function () {
+                if (ui.item != null) {
+                    found = true;
+                }
+                else {
+                    $(this).val('');
+                    $(this).focus();
+                    $('#proid').val(' ');
+                }
+                if ($(this).val() == null) {
+                    $('#proid').val(' ');
+                }
+            });
+        }
+        });
+        });
+    </script>
+}

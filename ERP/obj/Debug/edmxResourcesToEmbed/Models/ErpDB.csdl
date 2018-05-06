@@ -1,0 +1,1919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERP" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Depts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Users" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpHis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="NatId" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Deptfrm" Type="Int32" />
+    <Property Name="Deptto" Type="Int32" />
+    <Property Name="Jopfrm" Type="Int32" />
+    <Property Name="Jopto" Type="Int32" />
+    <Property Name="Nsal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Osal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="CostCenter" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MonthDays" Type="Int32" />
+    <Property Name="Telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EduGrade" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GradeDate" Type="DateTime" Precision="0" />
+    <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MState" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalState" Type="Boolean" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+    <Property Name="Usr" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmpShft">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp" Type="Int32" Nullable="false" />
+    <Property Name="frm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dy" Type="Int32" />
+    <Property Name="Mo" Type="Int32" />
+    <Property Name="Yer" Type="Int32" />
+    <Property Name="Val" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dept" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="MinSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="LoanMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MonthPayed" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Months" Type="Int32" Nullable="false" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="MorMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MorDay" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DonDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PayMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Punsh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="PunshMount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Sal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Pun" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Vac" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CtAll" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MainSal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Mor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AdAll" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NetSall" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="PdDoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Vac">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="VacStrt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VacEnd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="Int32" Nullable="false" />
+    <Property Name="Cuts" Type="Boolean" Nullable="false" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CutMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="BanksList">
+    <Key>
+      <PropertyRef Name="BnkID" />
+    </Key>
+    <Property Name="BnkID" Type="Int32" Nullable="false" />
+    <Property Name="BnkTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DegreeList">
+    <Key>
+      <PropertyRef Name="DegreeID" />
+    </Key>
+    <Property Name="DegreeID" Type="Int32" Nullable="false" />
+    <Property Name="DegreeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="EmpDegree" Relationship="Self.FK_EmpDegree_DegreeList" FromRole="DegreeList" ToRole="EmpDegree" />
+  </EntityType>
+  <EntityType Name="EmpDegree">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Emp_ID" Type="Int32" />
+    <Property Name="DegreeID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="College" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="University" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DegreeList" Relationship="Self.FK_EmpDegree_DegreeList" FromRole="EmpDegree" ToRole="DegreeList" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_EmpDegree_HR_EmpReform" FromRole="EmpDegree" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="EmpFamily">
+    <Key>
+      <PropertyRef Name="FmlySer" />
+    </Key>
+    <Property Name="FmlySer" Type="Int32" Nullable="false" />
+    <Property Name="Emp_id" Type="Int32" Nullable="false" />
+    <Property Name="FmlyID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmpFin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmpId" Type="Int32" />
+    <Property Name="DegreeID" Type="Boolean" />
+    <Property Name="BaseSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BaseSalaryTax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BaseSalaryNotTax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BounceVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BnkID" Type="Int32" />
+    <Property Name="E_Date_receipt_work" Type="DateTime" Precision="0" />
+    <Property Name="E_Date_Hiring" Type="DateTime" Precision="0" />
+    <Property Name="MilitaryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MilitaryNum" Type="Int32" />
+    <Property Name="MilitaryFinishDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_EmpFin_HR_EmpReform" FromRole="EmpFin" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="EmpForm">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmpGender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emploan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmpId" Type="Int32" />
+    <Property Name="LoanID" Type="Int32" />
+    <Property Name="GetDate" Type="DateTime" Precision="0" />
+    <Property Name="PartVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Months" Type="Int32" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_emploan_HR_EmpReform" FromRole="emploan" ToRole="HR_EmpReform" />
+    <NavigationProperty Name="LoanList" Relationship="Self.FK_emploan_LoanList" FromRole="emploan" ToRole="LoanList" />
+  </EntityType>
+  <EntityType Name="emppunish">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Emp_id" Type="Int32" />
+    <Property Name="DecisionNum" Type="Int32" />
+    <Property Name="DecisionKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DecisionDate" Type="DateTime" Precision="0" />
+    <Property Name="PunishID" Type="Int32" />
+    <Property Name="PunishDate" Type="DateTime" Precision="0" />
+    <Property Name="UnPunishDate" Type="DateTime" Precision="0" />
+    <Property Name="NoticeNum" Type="Int32" />
+    <Property Name="NoticeDate" Type="DateTime" Precision="0" />
+    <Property Name="DayNum" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PanishVal" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_emppunish_HR_EmpReform" FromRole="emppunish" ToRole="HR_EmpReform" />
+    <NavigationProperty Name="PunishList" Relationship="Self.FK_emppunish_PunishList" FromRole="emppunish" ToRole="PunishList" />
+  </EntityType>
+  <EntityType Name="EmpVications">
+    <Key>
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="Int32" Nullable="false" />
+    <Property Name="Emp_id" Type="Int32" Nullable="false" />
+    <Property Name="VKind" Type="Int32" Nullable="false" />
+    <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_EmpVications_HR_EmpReform" FromRole="EmpVications" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="FamilyList">
+    <Key>
+      <PropertyRef Name="FamilyID" />
+    </Key>
+    <Property Name="FamilyID" Type="Int32" Nullable="false" />
+    <Property Name="FamilyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hr_dept">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_HR_EmpReform_Hr_dept" FromRole="Hr_dept" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="HR_EmpReform">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="Int32" Nullable="false" />
+    <Property Name="Emp_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emp_NationalID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SocialStatues" Type="Int32" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="Emp_kader_FK" Type="Int32" Nullable="false" />
+    <Property Name="Emp_JCat_FK" Type="Int32" Nullable="false" />
+    <Property Name="SpecificGrp" Type="Int32" />
+    <Property Name="Emp_JGrade" Type="Int32" Nullable="false" />
+    <Property Name="Job_Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="Emp_JTitile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HireDate" Type="DateTime" Precision="0" />
+    <Property Name="EmpIsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <NavigationProperty Name="EmpDegree" Relationship="Self.FK_EmpDegree_HR_EmpReform" FromRole="HR_EmpReform" ToRole="EmpDegree" />
+    <NavigationProperty Name="EmpFin" Relationship="Self.FK_EmpFin_HR_EmpReform" FromRole="HR_EmpReform" ToRole="EmpFin" />
+    <NavigationProperty Name="emploan" Relationship="Self.FK_emploan_HR_EmpReform" FromRole="HR_EmpReform" ToRole="emploan" />
+    <NavigationProperty Name="emppunish" Relationship="Self.FK_emppunish_HR_EmpReform" FromRole="HR_EmpReform" ToRole="emppunish" />
+    <NavigationProperty Name="EmpVications" Relationship="Self.FK_EmpVications_HR_EmpReform" FromRole="HR_EmpReform" ToRole="EmpVications" />
+    <NavigationProperty Name="Hr_dept" Relationship="Self.FK_HR_EmpReform_Hr_dept" FromRole="HR_EmpReform" ToRole="Hr_dept" />
+    <NavigationProperty Name="JobCategory" Relationship="Self.FK_HR_EmpReform_JobCategory" FromRole="HR_EmpReform" ToRole="JobCategory" />
+    <NavigationProperty Name="JobGarde" Relationship="Self.FK_HR_EmpReform_JobGarde" FromRole="HR_EmpReform" ToRole="JobGarde" />
+    <NavigationProperty Name="JobKader" Relationship="Self.FK_HR_EmpReform_JobKader" FromRole="HR_EmpReform" ToRole="JobKader" />
+    <NavigationProperty Name="JobStatus" Relationship="Self.FK_HR_EmpReform_JobStatus" FromRole="HR_EmpReform" ToRole="JobStatus" />
+  </EntityType>
+  <EntityType Name="HR_SpecificGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SpecGrpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="JobCategory">
+    <Key>
+      <PropertyRef Name="JBC_PK" />
+    </Key>
+    <Property Name="JBC_PK" Type="Int32" Nullable="false" />
+    <Property Name="JBC_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Kdr_fk" Type="Int32" />
+    <Property Name="JBC_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_HR_EmpReform_JobCategory" FromRole="JobCategory" ToRole="HR_EmpReform" />
+    <NavigationProperty Name="JobKader" Relationship="Self.FK_JobCategory_JobKader" FromRole="JobCategory" ToRole="JobKader" />
+  </EntityType>
+  <EntityType Name="JobGarde">
+    <Key>
+      <PropertyRef Name="JTL_JG_FK" />
+    </Key>
+    <Property Name="JTL_JG_FK" Type="Int32" Nullable="false" />
+    <Property Name="JG_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_HR_EmpReform_JobGarde" FromRole="JobGarde" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="JobKader">
+    <Key>
+      <PropertyRef Name="KDR_PK" />
+    </Key>
+    <Property Name="KDR_PK" Type="Int32" Nullable="false" />
+    <Property Name="KDR_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_HR_EmpReform_JobKader" FromRole="JobKader" ToRole="HR_EmpReform" />
+    <NavigationProperty Name="JobCategory" Relationship="Self.FK_JobCategory_JobKader" FromRole="JobKader" ToRole="JobCategory" />
+  </EntityType>
+  <EntityType Name="JobStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="JobStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HR_EmpReform" Relationship="Self.FK_HR_EmpReform_JobStatus" FromRole="JobStatus" ToRole="HR_EmpReform" />
+  </EntityType>
+  <EntityType Name="LoanList">
+    <Key>
+      <PropertyRef Name="LoanID" />
+    </Key>
+    <Property Name="LoanID" Type="Int32" Nullable="false" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="emploan" Relationship="Self.FK_emploan_LoanList" FromRole="LoanList" ToRole="emploan" />
+  </EntityType>
+  <EntityType Name="PunishList">
+    <Key>
+      <PropertyRef Name="PunishID" />
+    </Key>
+    <Property Name="PunishID" Type="Int32" Nullable="false" />
+    <Property Name="PunishTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="emppunish" Relationship="Self.FK_emppunish_PunishList" FromRole="PunishList" ToRole="emppunish" />
+  </EntityType>
+  <EntityType Name="SOCIALSTATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SocialTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="townlist">
+    <Key>
+      <PropertyRef Name="BnkID" />
+    </Key>
+    <Property Name="BnkID" Type="Int32" Nullable="false" />
+    <Property Name="BnkTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SysID" Type="Int32" Nullable="false" />
+    <Property Name="AgntName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LandNum" Type="Int32" />
+    <Property Name="FlatNum" Type="Int32" />
+    <Property Name="BuildNum" Type="Int32" />
+    <Property Name="StageNum" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="DebF" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreF" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="DebCur" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreCur" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="DebTot" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreTot" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="DebLast" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreLast" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" />
+    <NavigationProperty Name="SysList" Relationship="Self.FK_Ag_Syslist" FromRole="Ag" ToRole="SysList" />
+    <NavigationProperty Name="AgMove" Relationship="Self.FK_AgMove_Ag" FromRole="Ag" ToRole="AgMove" />
+  </EntityType>
+  <EntityType Name="AgentsList">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="AgentName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NationalID" Type="Decimal" Precision="14" Scale="0" />
+    <Property Name="LandID" Type="Int32" Nullable="false" />
+    <Property Name="SysID" Type="Int32" Nullable="false" />
+    <Property Name="LevelID" Type="Int32" Nullable="false" />
+    <Property Name="Neighborhood" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="NeighborhoodNext" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Stage" Type="Int32" />
+    <Property Name="AcceptedDate" Type="DateTime" Precision="0" />
+    <Property Name="Spaces" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SpacesReal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PriceMeter" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Deposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DepositPlus" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TossDate" Type="DateTime" Precision="0" />
+    <Property Name="FileNum" Type="Int32" />
+    <Property Name="Licenseid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LicenseDate" Type="DateTime" Precision="0" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusFlag" Type="Int32" />
+    <Property Name="DigID" Type="Int32" />
+    <Property Name="DigSer" Type="Int32" />
+    <Property Name="DigDate" Type="DateTime" Precision="0" />
+    <Property Name="DigRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LevelList" Relationship="Self.FK_AgentsList_LevelList" FromRole="AgentsList" ToRole="LevelList" />
+    <NavigationProperty Name="Syslisto" Relationship="Self.FK_AgentsList_Syslist" FromRole="AgentsList" ToRole="Syslisto" />
+    <NavigationProperty Name="digtab" Relationship="Self.FK_digtab_AgentsList" FromRole="AgentsList" ToRole="digtab" />
+    <NavigationProperty Name="PartMount" Relationship="Self.FK_PartMount_AgentsList" FromRole="AgentsList" ToRole="PartMount" />
+  </EntityType>
+  <EntityType Name="AgMove">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="AgID" Type="Int32" />
+    <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Credit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateBy" Type="Int32" />
+    <NavigationProperty Name="Ag" Relationship="Self.FK_AgMove_Ag" FromRole="AgMove" ToRole="Ag" />
+  </EntityType>
+  <EntityType Name="digtab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="AgentID" Type="Int32" Nullable="false" />
+    <Property Name="DigID" Type="Int32" Nullable="false" />
+    <Property Name="DigMount" Type="Double" Nullable="false" />
+    <Property Name="DigDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DigRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserIDCreated" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UserIDModif" Type="Int32" />
+    <Property Name="ModifData" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AgentsList" Relationship="Self.FK_digtab_AgentsList" FromRole="digtab" ToRole="AgentsList" />
+  </EntityType>
+  <EntityType Name="LevelList">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="Int32" Nullable="false" />
+    <Property Name="LevelName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TosDate" Type="DateTime" Precision="0" />
+    <Property Name="PartDate" Type="DateTime" Precision="0" />
+    <Property Name="PartNum" Type="Int32" />
+    <Property Name="PartMonth" Type="Int32" />
+    <Property Name="PartVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FreeMonth" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="SysID_FK" Type="Int32" Nullable="false" />
+    <Property Name="BeginPart" Type="Int32" Nullable="false" />
+    <Property Name="Benfit" Type="Boolean" />
+    <Property Name="BRatesFrom" Type="Int32" />
+    <Property Name="BRates" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="Punch" Type="Boolean" />
+    <Property Name="PRatesFrom" Type="Int32" />
+    <Property Name="PRates" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="Fixe" Type="Boolean" />
+    <Property Name="DebitVal" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="AgentsList" Relationship="Self.FK_AgentsList_LevelList" FromRole="LevelList" ToRole="AgentsList" />
+  </EntityType>
+  <EntityType Name="PartMount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="AgentID" Type="Int32" />
+    <Property Name="AgentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Deposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DepositPlus" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Mount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Benefits" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Finedelay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AccFinFund" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AccFundTrustees" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Expense" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PartDate" Type="DateTime" Precision="0" />
+    <Property Name="PayDate" Type="DateTime" Precision="0" />
+    <Property Name="PartID_FK" Type="Int32" Nullable="false" />
+    <Property Name="UserDate" Type="DateTime" Precision="0" />
+    <Property Name="ParID" Type="Int32" />
+    <NavigationProperty Name="AgentsList" Relationship="Self.FK_PartMount_AgentsList" FromRole="PartMount" ToRole="AgentsList" />
+    <NavigationProperty Name="partsname" Relationship="Self.FK_PartMount_partsname" FromRole="PartMount" ToRole="partsname" />
+  </EntityType>
+  <EntityType Name="partsname">
+    <Key>
+      <PropertyRef Name="PartID" />
+    </Key>
+    <Property Name="PartID" Type="Int32" Nullable="false" />
+    <Property Name="PartName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PartMount" Relationship="Self.FK_PartMount_partsname" FromRole="partsname" ToRole="PartMount" />
+  </EntityType>
+  <EntityType Name="projectlist">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="TownID_FK" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SysList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SysName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ReMark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LandNum" Type="Boolean" />
+    <Property Name="FlatNum" Type="Boolean" />
+    <Property Name="BuildNum" Type="Boolean" />
+    <Property Name="StageNum" Type="Boolean" />
+    <Property Name="CreateBy" Type="Int32" />
+    <NavigationProperty Name="Ag" Relationship="Self.FK_Ag_Syslist" FromRole="SysList" ToRole="Ag" />
+  </EntityType>
+  <EntityType Name="Syslisto">
+    <Key>
+      <PropertyRef Name="SysID" />
+    </Key>
+    <Property Name="SysID" Type="Int32" Nullable="false" />
+    <Property Name="SystemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ProjectID_FK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AgentsList" Relationship="Self.FK_AgentsList_Syslist" FromRole="Syslisto" ToRole="AgentsList" />
+  </EntityType>
+  <EntityType Name="townlist1">
+    <Key>
+      <PropertyRef Name="TownID" />
+    </Key>
+    <Property Name="TownID" Type="Int32" Nullable="false" />
+    <Property Name="TownName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YearsList1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="YearsNames" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EnDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreaateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CActivity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedHost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Company_CActivity" FromRole="CActivity" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActivityID" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Mob" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="CEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TaxID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TradeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CActivity" Relationship="Self.FK_Company_CActivity" FromRole="Company" ToRole="CActivity" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ProList_Company" FromRole="Company" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="KPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TProFK" Type="Int32" Nullable="false" />
+    <Property Name="KName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TPro" Relationship="Self.FK_KPro_TPro" FromRole="KPro" ToRole="TPro" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ProList_KPro" FromRole="KPro" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="PostList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostedName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ProList_PostList" FromRole="PostList" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="PurType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ProList_PurType" FromRole="PurType" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="TPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="KPro" Relationship="Self.FK_KPro_TPro" FromRole="TPro" ToRole="KPro" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Usr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserKey" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EntryKey" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedTime" Type="Time" Nullable="false" Precision="6" />
+  </EntityType>
+  <EntityType Name="AccDocSub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="IDFK" Type="Int32" />
+    <Property Name="AccID" Type="Int32" />
+    <Property Name="DebitVal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreditVal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DocDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AccDocSubSubSub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="IDFK" Type="Int32" />
+    <Property Name="AccID" Type="Double" />
+    <Property Name="DebitVal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CreditVal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DocDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AcckindList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Acckind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AccTree">
+    <Key>
+      <PropertyRef Name="AccID" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="AccID" Type="Int32" Nullable="false" />
+    <Property Name="AccName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Acckind" Type="Int32" />
+    <Property Name="ide" Type="Double" />
+    <Property Name="isactive" Type="Boolean" Nullable="false" />
+    <Property Name="AccidFK" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DocAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="DocDate" />
+      <PropertyRef Name="DocKind" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DocID" Type="Int32" Nullable="false" />
+    <Property Name="YearID" Type="Int32" />
+    <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DocKind" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocKindList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DocKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrialBalance">
+    <Key>
+      <PropertyRef Name="AccID" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="AccID" Type="Int32" Nullable="false" />
+    <Property Name="AccName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AccKind" Type="Int32" />
+    <Property Name="isactive" Type="Boolean" Nullable="false" />
+    <Property Name="AccidFK" Type="Int32" />
+    <Property Name="ADebit" Type="Int32" />
+    <Property Name="ACredit" Type="Int32" />
+    <Property Name="BDebit" Type="Int32" />
+    <Property Name="BCredit" Type="Int32" />
+    <Property Name="CDebit" Type="Int32" />
+    <Property Name="CCredit" Type="Int32" />
+  </EntityType>
+  <EntityType Name="YearsList">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="YearName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BeginYear" Type="DateTime" Precision="3" />
+    <Property Name="EndYear" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VicationList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VicationTitle" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="VicationTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AgentIDFind">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="spacenum" Type="Int32" />
+    <Property Name="identity_num" Type="Int32" />
+    <Property Name="kind" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BeginList">
+    <Key>
+      <PropertyRef Name="BeginID" />
+      <PropertyRef Name="BeginFrom" />
+    </Key>
+    <Property Name="BeginID" Type="Int32" Nullable="false" />
+    <Property Name="BeginFrom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fig">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Ldate" Type="DateTime" Precision="0" />
+    <Property Name="part" Type="Int32" />
+    <Property Name="PerPart" Type="Int32" />
+  </EntityType>
+  <EntityType Name="mval">
+    <Key>
+      <PropertyRef Name="SerID" />
+    </Key>
+    <Property Name="SerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentID" Type="Int32" />
+    <Property Name="PartsID" Type="Int32" />
+    <Property Name="PartsNum" Type="Int32" />
+    <Property Name="Mount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MountDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vDepts">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Users" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="EmpNo" Type="Int32" />
+    <Property Name="Users" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEDJ">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpName" />
+      <PropertyRef Name="jop" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="JopID" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="CcID" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JopID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="CcID" Type="Int32" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmpHis">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Action" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="NatID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Deptto" Type="Int32" />
+    <Property Name="Jopto" Type="Int32" />
+    <Property Name="Osal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Nsal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Deptfrm" Type="Int32" />
+    <Property Name="Jopfrm" Type="Int32" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmpl">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="HireDate" />
+      <PropertyRef Name="NatID" />
+      <PropertyRef Name="CcName" />
+      <PropertyRef Name="Shift" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NatID" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shift" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vEmplon">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="dept" />
+      <PropertyRef Name="jop" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vJops">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="empno" Type="Int32" />
+    <Property Name="MinSal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vLoanE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="LoanMount" />
+      <PropertyRef Name="MonthPayed" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="SCutMonths" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoanMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MonthPayed" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DocID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EntID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="vMorsE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MorID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DepID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="MorMount" />
+      <PropertyRef Name="MorDay" />
+      <PropertyRef Name="DonDate" />
+      <PropertyRef Name="PayMonth" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MorID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MorMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MorDay" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DonDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PayMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vPunE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CutMonths" />
+      <PropertyRef Name="SCutMonths" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="PunID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PunshMount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="Int32" Nullable="false" />
+    <Property Name="SCutMonths" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="PunID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vSalary">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="JopID" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Jop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Mon" Type="Int32" />
+    <Property Name="Yer" Type="Int32" />
+    <Property Name="NetSall" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="vSalEntry">
+    <Key>
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="CcID" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Dept" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CcID" Type="Int32" Nullable="false" />
+    <Property Name="CcName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vTSal">
+    <Key>
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Mon" Type="Int32" Nullable="false" />
+    <Property Name="Yer" Type="Int32" Nullable="false" />
+    <Property Name="Lon" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vUsrEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vVacE">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VacStrt" />
+      <PropertyRef Name="VacEnd" />
+      <PropertyRef Name="VMount" />
+      <PropertyRef Name="Ds" />
+      <PropertyRef Name="Cuts" />
+      <PropertyRef Name="CreatDate" />
+      <PropertyRef Name="CutMonth" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="VacStrt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VacEnd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VMount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="Int32" Nullable="false" />
+    <Property Name="Cuts" Type="Boolean" Nullable="false" />
+    <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CutMonth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nots" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vURoles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UsrRolID" />
+      <PropertyRef Name="UsrID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="EntryKey" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UsrRolID" Type="Int32" Nullable="false" />
+    <Property Name="UsrID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EntryKey" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_EmpDegree_DegreeList">
+    <End Role="DegreeList" Type="Self.DegreeList" Multiplicity="0..1" />
+    <End Role="EmpDegree" Type="Self.EmpDegree" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DegreeList">
+        <PropertyRef Name="DegreeID" />
+      </Principal>
+      <Dependent Role="EmpDegree">
+        <PropertyRef Name="DegreeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDegree_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="EmpDegree" Type="Self.EmpDegree" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpDegree">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpFin_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="EmpFin" Type="Self.EmpFin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpFin">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emploan_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="emploan" Type="Self.emploan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="emploan">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emploan_LoanList">
+    <End Role="LoanList" Type="Self.LoanList" Multiplicity="0..1" />
+    <End Role="emploan" Type="Self.emploan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoanList">
+        <PropertyRef Name="LoanID" />
+      </Principal>
+      <Dependent Role="emploan">
+        <PropertyRef Name="LoanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emppunish_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="emppunish" Type="Self.emppunish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="emppunish">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emppunish_PunishList">
+    <End Role="PunishList" Type="Self.PunishList" Multiplicity="0..1" />
+    <End Role="emppunish" Type="Self.emppunish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PunishList">
+        <PropertyRef Name="PunishID" />
+      </Principal>
+      <Dependent Role="emppunish">
+        <PropertyRef Name="PunishID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpVications_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="1" />
+    <End Role="EmpVications" Type="Self.EmpVications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpVications">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_Hr_dept">
+    <End Role="Hr_dept" Type="Self.Hr_dept" Multiplicity="0..1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hr_dept">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobCategory">
+    <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobCategory">
+        <PropertyRef Name="JBC_PK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_JCat_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobGarde">
+    <End Role="JobGarde" Type="Self.JobGarde" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobGarde">
+        <PropertyRef Name="JTL_JG_FK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_JGrade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobKader">
+    <End Role="JobKader" Type="Self.JobKader" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobKader">
+        <PropertyRef Name="KDR_PK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_kader_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobStatus">
+    <End Role="JobStatus" Type="Self.JobStatus" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatus">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Job_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobCategory_JobKader">
+    <End Role="JobKader" Type="Self.JobKader" Multiplicity="0..1" />
+    <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobKader">
+        <PropertyRef Name="KDR_PK" />
+      </Principal>
+      <Dependent Role="JobCategory">
+        <PropertyRef Name="Kdr_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ag_Syslist">
+    <End Role="SysList" Type="Self.SysList" Multiplicity="1" />
+    <End Role="Ag" Type="Self.Ag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ag">
+        <PropertyRef Name="SysID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgMove_Ag">
+    <End Role="Ag" Type="Self.Ag" Multiplicity="0..1" />
+    <End Role="AgMove" Type="Self.AgMove" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ag">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgMove">
+        <PropertyRef Name="AgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgentsList_LevelList">
+    <End Role="LevelList" Type="Self.LevelList" Multiplicity="1" />
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelList">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="AgentsList">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgentsList_Syslist">
+    <End Role="Syslisto" Type="Self.Syslisto" Multiplicity="1" />
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syslisto">
+        <PropertyRef Name="SysID" />
+      </Principal>
+      <Dependent Role="AgentsList">
+        <PropertyRef Name="SysID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_digtab_AgentsList">
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="1" />
+    <End Role="digtab" Type="Self.digtab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgentsList">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="digtab">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMount_AgentsList">
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="0..1" />
+    <End Role="PartMount" Type="Self.PartMount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgentsList">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="PartMount">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMount_partsname">
+    <End Role="partsname" Type="Self.partsname" Multiplicity="1" />
+    <End Role="PartMount" Type="Self.PartMount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partsname">
+        <PropertyRef Name="PartID" />
+      </Principal>
+      <Dependent Role="PartMount">
+        <PropertyRef Name="PartID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_CActivity">
+    <End Role="CActivity" Type="Self.CActivity" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CActivity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="ActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPro_TPro">
+    <End Role="TPro" Type="Self.TPro" Multiplicity="1" />
+    <End Role="KPro" Type="Self.KPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KPro">
+        <PropertyRef Name="TProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ErpDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Depts" EntityType="Self.Depts" />
+    <EntitySet Name="EmpHis" EntityType="Self.EmpHis" />
+    <EntitySet Name="EmpInfo" EntityType="Self.EmpInfo" />
+    <EntitySet Name="EmpShft" EntityType="Self.EmpShft" />
+    <EntitySet Name="Jop" EntityType="Self.Jop" />
+    <EntitySet Name="Loan" EntityType="Self.Loan" />
+    <EntitySet Name="Mors" EntityType="Self.Mors" />
+    <EntitySet Name="Punsh" EntityType="Self.Punsh" />
+    <EntitySet Name="Sal" EntityType="Self.Sal" />
+    <EntitySet Name="Vac" EntityType="Self.Vac" />
+    <EntitySet Name="BanksList" EntityType="Self.BanksList" />
+    <EntitySet Name="DegreeList" EntityType="Self.DegreeList" />
+    <EntitySet Name="EmpDegree" EntityType="Self.EmpDegree" />
+    <EntitySet Name="EmpFamily" EntityType="Self.EmpFamily" />
+    <EntitySet Name="EmpFin" EntityType="Self.EmpFin" />
+    <EntitySet Name="EmpForm" EntityType="Self.EmpForm" />
+    <EntitySet Name="EmpGender" EntityType="Self.EmpGender" />
+    <EntitySet Name="emploan" EntityType="Self.emploan" />
+    <EntitySet Name="emppunish" EntityType="Self.emppunish" />
+    <EntitySet Name="EmpVications" EntityType="Self.EmpVications" />
+    <EntitySet Name="FamilyList" EntityType="Self.FamilyList" />
+    <EntitySet Name="Hr_dept" EntityType="Self.Hr_dept" />
+    <EntitySet Name="HR_EmpReform" EntityType="Self.HR_EmpReform" />
+    <EntitySet Name="HR_SpecificGroup" EntityType="Self.HR_SpecificGroup" />
+    <EntitySet Name="JobCategory" EntityType="Self.JobCategory" />
+    <EntitySet Name="JobGarde" EntityType="Self.JobGarde" />
+    <EntitySet Name="JobKader" EntityType="Self.JobKader" />
+    <EntitySet Name="JobStatus" EntityType="Self.JobStatus" />
+    <EntitySet Name="LoanList" EntityType="Self.LoanList" />
+    <EntitySet Name="PunishList" EntityType="Self.PunishList" />
+    <EntitySet Name="SOCIALSTATUSES" EntityType="Self.SOCIALSTATUSES" />
+    <EntitySet Name="townlist" EntityType="Self.townlist" />
+    <EntitySet Name="Ag" EntityType="Self.Ag" />
+    <EntitySet Name="AgentsList" EntityType="Self.AgentsList" />
+    <EntitySet Name="AgMove" EntityType="Self.AgMove" />
+    <EntitySet Name="digtab" EntityType="Self.digtab" />
+    <EntitySet Name="LevelList" EntityType="Self.LevelList" />
+    <EntitySet Name="PartMount" EntityType="Self.PartMount" />
+    <EntitySet Name="partsname" EntityType="Self.partsname" />
+    <EntitySet Name="projectlist" EntityType="Self.projectlist" />
+    <EntitySet Name="SysList" EntityType="Self.SysList" />
+    <EntitySet Name="Syslisto" EntityType="Self.Syslisto" />
+    <EntitySet Name="townlist1" EntityType="Self.townlist1" />
+    <EntitySet Name="YearsList1" EntityType="Self.YearsList1" />
+    <EntitySet Name="CActivity" EntityType="Self.CActivity" />
+    <EntitySet Name="Company" EntityType="Self.Company" />
+    <EntitySet Name="KPro" EntityType="Self.KPro" />
+    <EntitySet Name="PostList" EntityType="Self.PostList" />
+    <EntitySet Name="PurType" EntityType="Self.PurType" />
+    <EntitySet Name="TPro" EntityType="Self.TPro" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Usr" EntityType="Self.Usr" />
+    <EntitySet Name="AccDocSub" EntityType="Self.AccDocSub" />
+    <EntitySet Name="AccDocSubSubSub" EntityType="Self.AccDocSubSubSub" />
+    <EntitySet Name="AcckindList" EntityType="Self.AcckindList" />
+    <EntitySet Name="AccTree" EntityType="Self.AccTree" />
+    <EntitySet Name="DocAcc" EntityType="Self.DocAcc" />
+    <EntitySet Name="DocKindList" EntityType="Self.DocKindList" />
+    <EntitySet Name="TrialBalance" EntityType="Self.TrialBalance" />
+    <EntitySet Name="YearsList" EntityType="Self.YearsList" />
+    <EntitySet Name="VicationList" EntityType="Self.VicationList" />
+    <EntitySet Name="AgentIDFind" EntityType="Self.AgentIDFind" />
+    <EntitySet Name="BeginList" EntityType="Self.BeginList" />
+    <EntitySet Name="fig" EntityType="Self.fig" />
+    <EntitySet Name="mval" EntityType="Self.mval" />
+    <EntitySet Name="vDepts" EntityType="Self.vDepts" />
+    <EntitySet Name="vEDJ" EntityType="Self.vEDJ" />
+    <EntitySet Name="vEmpHis" EntityType="Self.vEmpHis" />
+    <EntitySet Name="vEmpl" EntityType="Self.vEmpl" />
+    <EntitySet Name="vEmplon" EntityType="Self.vEmplon" />
+    <EntitySet Name="vJops" EntityType="Self.vJops" />
+    <EntitySet Name="vLoanE" EntityType="Self.vLoanE" />
+    <EntitySet Name="vMorsE" EntityType="Self.vMorsE" />
+    <EntitySet Name="vPunE" EntityType="Self.vPunE" />
+    <EntitySet Name="vSalary" EntityType="Self.vSalary" />
+    <EntitySet Name="vSalEntry" EntityType="Self.vSalEntry" />
+    <EntitySet Name="vTSal" EntityType="Self.vTSal" />
+    <EntitySet Name="vUsrEmp" EntityType="Self.vUsrEmp" />
+    <EntitySet Name="vVacE" EntityType="Self.vVacE" />
+    <EntitySet Name="vURoles" EntityType="Self.vURoles" />
+    <AssociationSet Name="FK_EmpDegree_DegreeList" Association="Self.FK_EmpDegree_DegreeList">
+      <End Role="DegreeList" EntitySet="DegreeList" />
+      <End Role="EmpDegree" EntitySet="EmpDegree" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDegree_HR_EmpReform" Association="Self.FK_EmpDegree_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpDegree" EntitySet="EmpDegree" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpFin_HR_EmpReform" Association="Self.FK_EmpFin_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpFin" EntitySet="EmpFin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emploan_HR_EmpReform" Association="Self.FK_emploan_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="emploan" EntitySet="emploan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emploan_LoanList" Association="Self.FK_emploan_LoanList">
+      <End Role="LoanList" EntitySet="LoanList" />
+      <End Role="emploan" EntitySet="emploan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emppunish_HR_EmpReform" Association="Self.FK_emppunish_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="emppunish" EntitySet="emppunish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emppunish_PunishList" Association="Self.FK_emppunish_PunishList">
+      <End Role="PunishList" EntitySet="PunishList" />
+      <End Role="emppunish" EntitySet="emppunish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpVications_HR_EmpReform" Association="Self.FK_EmpVications_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpVications" EntitySet="EmpVications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_Hr_dept" Association="Self.FK_HR_EmpReform_Hr_dept">
+      <End Role="Hr_dept" EntitySet="Hr_dept" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobCategory" Association="Self.FK_HR_EmpReform_JobCategory">
+      <End Role="JobCategory" EntitySet="JobCategory" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobGarde" Association="Self.FK_HR_EmpReform_JobGarde">
+      <End Role="JobGarde" EntitySet="JobGarde" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobKader" Association="Self.FK_HR_EmpReform_JobKader">
+      <End Role="JobKader" EntitySet="JobKader" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobStatus" Association="Self.FK_HR_EmpReform_JobStatus">
+      <End Role="JobStatus" EntitySet="JobStatus" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobCategory_JobKader" Association="Self.FK_JobCategory_JobKader">
+      <End Role="JobKader" EntitySet="JobKader" />
+      <End Role="JobCategory" EntitySet="JobCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ag_Syslist" Association="Self.FK_Ag_Syslist">
+      <End Role="SysList" EntitySet="SysList" />
+      <End Role="Ag" EntitySet="Ag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgMove_Ag" Association="Self.FK_AgMove_Ag">
+      <End Role="Ag" EntitySet="Ag" />
+      <End Role="AgMove" EntitySet="AgMove" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgentsList_LevelList" Association="Self.FK_AgentsList_LevelList">
+      <End Role="LevelList" EntitySet="LevelList" />
+      <End Role="AgentsList" EntitySet="AgentsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgentsList_Syslist" Association="Self.FK_AgentsList_Syslist">
+      <End Role="Syslisto" EntitySet="Syslisto" />
+      <End Role="AgentsList" EntitySet="AgentsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_digtab_AgentsList" Association="Self.FK_digtab_AgentsList">
+      <End Role="AgentsList" EntitySet="AgentsList" />
+      <End Role="digtab" EntitySet="digtab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMount_AgentsList" Association="Self.FK_PartMount_AgentsList">
+      <End Role="AgentsList" EntitySet="AgentsList" />
+      <End Role="PartMount" EntitySet="PartMount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMount_partsname" Association="Self.FK_PartMount_partsname">
+      <End Role="partsname" EntitySet="partsname" />
+      <End Role="PartMount" EntitySet="PartMount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_CActivity" Association="Self.FK_Company_CActivity">
+      <End Role="CActivity" EntitySet="CActivity" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPro_TPro" Association="Self.FK_KPro_TPro">
+      <End Role="TPro" EntitySet="TPro" />
+      <End Role="KPro" EntitySet="KPro" />
+    </AssociationSet>
+    <FunctionImport Name="Sysrep" IsComposable="true" ReturnType="Collection(ERP.Sysrep_Result)" />
+    <EntitySet Name="ExpPro" EntityType="ERP.ExpPro" />
+    <EntitySet Name="ProState" EntityType="ERP.ProState" />
+    <EntitySet Name="Gallary" EntityType="ERP.Gallary" />
+    <EntitySet Name="DurList" EntityType="ERP.DurList" />
+    <EntitySet Name="ProList" EntityType="ERP.ProList" />
+    <AssociationSet Name="FK_ProList_Company" Association="ERP.FK_ProList_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DurList_ProList" Association="ERP.FK_DurList_ProList">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="DurList" EntitySet="DurList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpPro_ProList1" Association="ERP.FK_ExpPro_ProList1">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="ExpPro" EntitySet="ExpPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_KPro" Association="ERP.FK_ProList_KPro">
+      <End Role="KPro" EntitySet="KPro" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_PostList" Association="ERP.FK_ProList_PostList">
+      <End Role="PostList" EntitySet="PostList" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_PurType" Association="ERP.FK_ProList_PurType">
+      <End Role="PurType" EntitySet="PurType" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <EntitySet Name="ArchPro" EntityType="ERP.ArchPro" />
+    <AssociationSet Name="FK_ArchPro_Gallary" Association="ERP.FK_ArchPro_Gallary">
+      <End Role="Gallary" EntitySet="Gallary" />
+      <End Role="ArchPro" EntitySet="ArchPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchPro_ProList" Association="ERP.FK_ArchPro_ProList">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="ArchPro" EntitySet="ArchPro" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="Sysrep_Result">
+    <Property Type="Int32" Name="SysID" Nullable="true" />
+    <Property Type="String" Name="SysName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="DebF" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CreF" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DebCur" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CreCur" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DebTot" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CreTot" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DebLast" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CreLast" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="ExpPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProListFK" Type="Int32" Nullable="false" />
+    <Property Name="ExpNum" Type="Int32" Nullable="false" />
+    <Property Name="ExpDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExpVal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ExpPro_ProList1" FromRole="ExpPro" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="ProState">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProName" />
+      <PropertyRef Name="PostedName" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ProName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PostedName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpVal" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="Gallary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GallaryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MinImg" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="ArchPro" Relationship="ERP.FK_ArchPro_Gallary" FromRole="Gallary" ToRole="ArchPro" />
+  </EntityType>
+  <EntityType Name="DurList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProFK" Type="Int32" />
+    <Property Name="DurDateFirst" Type="DateTime" Precision="0" />
+    <Property Name="DurDateSec" Type="DateTime" Precision="0" />
+    <Property Name="DurDateThird" Type="DateTime" Precision="0" />
+    <Property Name="FinalDate" Type="DateTime" Precision="0" />
+    <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_DurList_ProList" FromRole="DurList" ToRole="ProList" />
+  </EntityType>
+  <EntityType Name="ProList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ComFK" Type="Int32" />
+    <Property Name="KProFK" Type="Int32" />
+    <Property Name="PurNameFK" Type="Int32" />
+    <Property Name="FirstAccepteDate" Type="DateTime" Precision="0" />
+    <Property Name="SecandAccepteDate" Type="DateTime" Precision="0" />
+    <Property Name="ThirdAceepteDate" Type="DateTime" Precision="0" />
+    <Property Name="DeclareDate" Type="DateTime" Precision="0" />
+    <Property Name="OpnTechDate" Type="DateTime" Precision="0" />
+    <Property Name="SetTechDate" Type="DateTime" Precision="0" />
+    <Property Name="TechUser" Type="Int32" />
+    <Property Name="TechDate" Type="DateTime" Precision="0" />
+    <Property Name="OpnFinDate" Type="DateTime" Precision="0" />
+    <Property Name="SetFinDate" Type="DateTime" Precision="0" />
+    <Property Name="FinUser" Type="Int32" />
+    <Property Name="FinDate" Type="DateTime" Precision="0" />
+    <Property Name="ProNum" Type="Int32" />
+    <Property Name="ProDate" Type="DateTime" Precision="0" />
+    <Property Name="ProVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FixDate" Type="DateTime" Precision="0" />
+    <Property Name="FixUser" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="FinalDate" Type="DateTime" Precision="0" />
+    <Property Name="TargetVal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetValTime" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetPrec" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="ExpForNow" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TargetFin" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ProSt" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="Posted" Type="Int32" />
+    <Property Name="ProStop" Type="Boolean" />
+    <Property Name="StopDate" Type="DateTime" Precision="0" />
+    <Property Name="DurDateFirst" Type="DateTime" Precision="0" />
+    <Property Name="DurDateSec" Type="DateTime" Precision="0" />
+    <Property Name="DurDateThird" Type="DateTime" Precision="0" />
+    <Property Name="OverFirst" Type="DateTime" Precision="0" />
+    <Property Name="OverSec" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Company" Relationship="ERP.FK_ProList_Company" FromRole="ProList" ToRole="Company" />
+    <NavigationProperty Name="DurList" Relationship="ERP.FK_DurList_ProList" FromRole="ProList" ToRole="DurList" />
+    <NavigationProperty Name="ExpPro" Relationship="ERP.FK_ExpPro_ProList1" FromRole="ProList" ToRole="ExpPro" />
+    <NavigationProperty Name="KPro" Relationship="ERP.FK_ProList_KPro" FromRole="ProList" ToRole="KPro" />
+    <NavigationProperty Name="PostList" Relationship="ERP.FK_ProList_PostList" FromRole="ProList" ToRole="PostList" />
+    <NavigationProperty Name="PurType" Relationship="ERP.FK_ProList_PurType" FromRole="ProList" ToRole="PurType" />
+    <NavigationProperty Name="ArchPro" Relationship="ERP.FK_ArchPro_ProList" FromRole="ProList" ToRole="ArchPro" />
+  </EntityType>
+  <Association Name="FK_ProList_Company">
+    <End Type="ERP.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="ComFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DurList_ProList">
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="0..1" />
+    <End Type="ERP.DurList" Role="DurList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DurList">
+        <PropertyRef Name="ProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpPro_ProList1">
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="1" />
+    <End Type="ERP.ExpPro" Role="ExpPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExpPro">
+        <PropertyRef Name="ProListFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_KPro">
+    <End Type="ERP.KPro" Role="KPro" Multiplicity="0..1" />
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="KProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_PostList">
+    <End Type="ERP.PostList" Role="PostList" Multiplicity="0..1" />
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="Posted" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_PurType">
+    <End Type="ERP.PurType" Role="PurType" Multiplicity="0..1" />
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="PurNameFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ArchPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProListFK" Type="Int32" />
+    <Property Name="GFK" Type="Int32" />
+    <Property Name="PicPath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ReNamePic" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Posted" Type="Boolean" />
+    <Property Name="PosteDate" Type="DateTime" Precision="0" />
+    <Property Name="Ex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Img" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Gallary" Relationship="ERP.FK_ArchPro_Gallary" FromRole="ArchPro" ToRole="Gallary" />
+    <NavigationProperty Name="ProList" Relationship="ERP.FK_ArchPro_ProList" FromRole="ArchPro" ToRole="ProList" />
+  </EntityType>
+  <Association Name="FK_ArchPro_Gallary">
+    <End Type="ERP.Gallary" Role="Gallary" Multiplicity="0..1" />
+    <End Type="ERP.ArchPro" Role="ArchPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gallary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ArchPro">
+        <PropertyRef Name="GFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchPro_ProList">
+    <End Type="ERP.ProList" Role="ProList" Multiplicity="0..1" />
+    <End Type="ERP.ArchPro" Role="ArchPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ArchPro">
+        <PropertyRef Name="ProListFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,481 @@
+﻿@{ViewBag.Title = "الغرف";}
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("DocDu", "Rec")'>حسابات الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+        <li><a href='@Url.Action("DevSetting", "Rec")'>الأجهزة الطبية</a></li>
+    </ul>
+</nav>
+<input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<script language="javascript" type="text/javascript">
+    function Getsrv() {
+        var procemessage = "<option value='0'> تحميل...</option>";
+        $("#serv").html(procemessage).show();
+        var url = "@(Url.Action("Gserv", "Rec"))";
+        $.ajax({
+            url: url, cache: false, type: "POST", success: function (data) {
+                var markup = "<option value='0'> --- الخدمة --- </option>";
+                for (var x = 0; x < data.length; x++)
+                { markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>"; }
+                $("#serv").html(markup).show();
+            }, error: function (response) { alert("error : " + response); }
+        });
+    }
+</script>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">قائمة الغرف</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="padding:5px 5px" id="bcon">
+            <button class="small btn-primary pull-left" id="aden" title="F8"><i class="glyphicon glyphicon-plus"></i></button><span class="pull-left">|</span>
+            <button class="small btn-info pull-left" id="eden" title="F9"><i class="glyphicon glyphicon-edit"></i></button><span class="pull-left">|</span>
+        </div>
+        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center">كود</th>
+                    <th class="text-center">رقم الغرفة</th>
+                    <th class="text-center">الدرجة</th>
+                    <th class="text-center">الخدمة</th>
+                    <th class="text-center">عدد الأسرة</th>
+                    <th class="text-center"></th>
+                    <th class="text-center">إضافة أسرة</th>
+                    <th class="text-center">إزالة أسرة</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">الإجمالي:</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                    <td class="text-center"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="Adrom">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title" id="rtit"></label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group">
+                            <label style="margin:0px 30px 0px 21px">رقم الغرفة</label>
+                            <input type="number" id="Rnum" class="form-control text-center" style="max-width:75px" min="1" />
+                            <input type="hidden" id="idtup" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group">
+                            <label style="margin:0px 30px 0px 20px">عدد الأسرة</label>
+                            <input type="number" id="Bed" class="form-control text-center" style="max-width:75px" min="1" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group">
+                            <label style="margin:0px 30px 0px 55px">الدرجة</label>
+                            <select id="Degr" style="max-width:150px" class="form-control">
+                                <option value="أولي">أولي</option>
+                                <option value="عادية">عادية</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group">
+                            <label style="margin:0px 30px 0px 52px">الخدمة</label>
+                            <select id="serv" class="form-control" style="max-width:150px"></select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 30px 0px 20px">
+                            <label>تعمل/لاتعمل</label>
+                            <input id="isac" type="checkbox" class="form-control" style="max-width:20px;margin:0px 11px 0px 0px" checked="checked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="rosve" style="display:none" type="button" class="btn btn-sm btn-success">حفظ</a>
+                <a href="javascript:;" id="erosve" style="display:none" type="button" class="btn btn-sm btn-success">تحديث</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Adbed">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة أسرة</label>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin:0px 30px 0px 20px">
+                </div>
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 30px 0px 20px">
+                            <label style="margin-left:5px">رقم الغرفة</label>
+                            <input type="number" min="1" id="Rnumbd" class="form-control text-center" style="max-width:75px" />
+                            <input type="hidden" id="idtupbd" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 30px 0px 20px">
+                            <label style="margin-left:4px">عدد الأسرة</label>
+                            <input type="text" id="Bedbd" class="text-center" style="width:75px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="bdsve" type="button" class="btn btn-sm btn-success">حفظ</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="dbed">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إزالة سرير</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 30px 0px 20px">
+                            <label style="margin-left:5px">رقم الغرفة</label>
+                            <input type="number" id="dRnumbd" class="form-control text-center" style="max-width:75px" min="1" />
+                            <input type="hidden" id="didtupbd" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 30px 0px 20px">
+                            <label style="margin-left:4px">رقم السرير</label>
+                            <input type="number" id="dBedbd" class="form-control text-center" style="max-width:75px" min="1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="dbsve" type="button" class="btn btn-sm btn-success">حفظ</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dbsve').click(function () {
+                $.ajax({
+                    url: "@(Url.Action("upbed", "Rec"))",
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { cby: $('#cby').val(), RoomID: $("#dRnumbd").val(), BedN: $("#dBedbd").val() },
+                    dataType: "json",
+                    success: function (result) {
+                        if (result) {
+                            alert('تم إزالة السرير بنجاح')
+                            $("#dbed").modal("destroy");
+                        }
+                        else {
+                            alert('لا يمكن إزالة السرير حاليا')
+                            console.log(result)
+                        }
+                    }
+                });
+            })
+            $('#erosve').click(function () {
+                $.ajax({
+                    url: "@(Url.Action("RoomUpdat", "Rec"))",
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { cby: $('#cby').val(), id: $("#idtup").val(), RoomNumber: $("#Rnum").val(), Degr: $("#Degr").val(), Bedn: $("#Bed").val(), ser: $("#serv").val(), actv: $("#isac").is(':checked') },
+                    dataType: "json",
+                    success: function (result) {
+                        if (result) {
+                            alert('تم تحديث بيانات الغرفة بنجاح')
+                            $("#Adrom").modal("hide");
+                        }
+                        else {
+                            alert('لا يوجد غرفة بهذا الرقم في هذا الدور')
+                        }
+                    }
+                });
+            })
+            $('#rosve').click(function () {
+                if ($("#Bed").val() == '' || $("#Bed").val() == 0) {
+                    alert('يجب تحديد عدد الاسرة')
+                }
+                else {
+                    $.ajax({
+                        url: "@(Url.Action("AddRom", "Rec"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: {
+                            cby: $('#cby').val(), RoomNumber: $("#Rnum").val(), Degr: $("#Degr").val(), Bedn: $("#Bed").val(), ser: $("#serv").val(),
+                            actv: $("#isac").is(':checked')
+                        },
+                        dataType: "json",
+                        success: function (result) {
+                            if (result) {
+                                alert('تم إضافة الغرفة بنجاح')
+                                $("#Adrom").modal("hide");
+                            }
+                            else {
+                                alert('يوجد غرفة بنفس الرقم')
+                            }
+                        },
+                    });
+                }
+            });
+            $('#bdsve').click(function () {
+                $.ajax({
+                    url: "@(Url.Action("Addbed", "Rec"))",
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { RoomID: $("#Rnumbd").val(), Floor: $("#Florbd").val(), BedN: $("#Bedbd").val() },
+                    dataType: "json",
+                    success: function (result) {
+                        if (result) {
+                            alert('تم إضافة السرير بنجاح')
+                            $("#Adbed").modal("hide");
+                        }
+                    }
+                });
+            })
+            $("#Adbed").on('hidden.bs.modal', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/Groom').load();
+            });
+            $("#Adrom").on('hidden.bs.modal', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/Groom').load();
+                document.getElementById("erosve").style.display = "none";
+                document.getElementById("rosve").style.display = "none";
+            });
+            var table = $('#example').DataTable({
+                fixedHeader: true, "ordering": false, bFilter: false, bPaginate: false, sAjaxSource: '/Haf/Rec/Groom', lengthChange: false, dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                    exportOptions: { modifier: { page: 'current' }, columns: [0, 1, 2, 3, 4] },
+                    customize: function (win) {
+                        $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                        $(win.document.body).find('h4').css('text-align', 'center');
+                        $(win.document.body).find('h4').text('الغرف');
+                    }
+                },
+                ],
+                footerCallback: function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                    };
+                    totald = api
+                    .column(4, { page: 'current' })
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                    $(api.column(4).footer()).html(
+                    totald
+                    );
+                },
+                columns: [
+            { "data": "ID", "width": "10%", "sClass": "dt-center" },
+            {
+                "data": "RNumber", "width": "10%", "sClass": "dt-center",
+                "render": function (val, type, row) {
+                    if (val == 9000)
+                    { return val = "عناية" }
+                    else if (val == 0) {
+                        { return val = "افاقة" }
+                    }
+                    else { return val }
+                }
+            },
+            { "data": "Degree", "width": "25%", "sClass": "dt-center" },
+            { "data": "ServName", "width": "25%", "sClass": "dt-center" },
+            { "data": "BedN", "width": "10%", "sClass": "dt-center" },
+            { "data": "Serv", "visible": false },
+            {
+                "data": null, "width": "10%", "sClass": "dt-center", "defaultContent": "<button class='small btn-success'id='adn'><i class='glyphicon glyphicon-plus'></button>"
+            },
+                {
+                    "data": null, "width": "10%", "sClass": "dt-center", "defaultContent": "<button class='small btn-danger'id='edn'><i class='glyphicon glyphicon-minus'></button>"
+                }]
+            });
+            table.buttons().container().appendTo('#bcon');
+            $(window).keydown(function (e) {
+                if (event.which === 119) {
+                    $('#aden').click();
+                }
+                else if (event.which === 120) {
+                    $('#eden').click();
+                }
+                else if (event.which === 121) {
+                    $('#deen').click();
+                }
+            });
+            $(document).on("keypress", function (e) {
+                var code = e.keyCode || e.which;
+                if (code == 13) {
+                    var $targ = $(e.target);
+                    if (!$targ.is("textarea") && !$targ.is(":button:submit")) {
+                        var focusNext = false;
+                        $(this).find(":input:visible:not([disabled],[readonly]), a").each(function () {
+                            if (this === e.target) {
+                                focusNext = true;
+                            }
+                            else if (focusNext) {
+                                $(this).focus();
+                                return false;
+                            }
+                        });
+                        return false;
+                    }
+                }
+            });
+            $('#example tbody').on('click', '#adn', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected')
+                if (table.cell('.selected', 0).data()) {
+                    $("#idtupbd").val(table.cell('.selected', 0).data());
+                    $("#Rnumbd").val(table.cell('.selected', 1).data());
+                    $("#Bedbd").val('');
+                    $('#Adbed').modal({ backdrop: false });
+                }
+                else { alert("قم بتحديد غرفة أولا") }
+            });
+            $('#example tbody').on('click', '#edn', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected')
+                if (table.cell('.selected', 0).data()) {
+                    $("#didtupbd").val(table.cell('.selected', 0).data());
+                    $("#dRnumbd").val(table.cell('.selected', 1).data());
+                    $("#dBedbd").val('');
+                    $('#dbed').modal({ backdrop: false });
+                }
+                else { alert("قم بتحديد غرفة أولا") }
+            });
+            $('#aden').click(function () {
+                $("#Rnum,#Degr,#Bed").val('');
+                $('#rtit').text('إضافة غرفة');
+                document.getElementById("erosve").style.display = "none"
+                document.getElementById("rosve").style.display = "inline-block"
+                document.getElementById("Bed").disabled = false;
+                $('#Adrom').modal({ backdrop: false });
+                $('#Rnum').focus();
+                $("#serv").val('');
+                Getsrv();
+            });
+            $('#eden').click(function () {
+                var table = $("#example").DataTable();
+                if (table.cell('.selected', 0).data()) {
+                    document.getElementById("rosve").style.display = "none"
+                    document.getElementById("erosve").style.display = "inline-block"
+                    $("#idtup").val(table.cell('.selected', 0).data());
+                    $("#Rnum").val(table.cell('.selected', 1).data());
+                    $("#Bed").val(table.cell('.selected', 4).data());
+                    document.getElementById("Bed").disabled = true
+                    $("#Degr").val(table.cell('.selected', 2).data());
+                    $("#serv").val(table.cell('.selected', 5).data());
+                    $("#isac").prop('checked', true);
+                    $('#rtit').text('تحديث بيانات الغرف');
+                    $('#Adrom').modal({ backdrop: false });
+                    $('#Rnum').focus();
+                }
+                else { alert("قم بتحديد غرفة أولا") }
+            });
+            $('#example tbody').on('click', 'tr', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected')
+                Getsrv();
+            })
+        });
+    </script>
+}

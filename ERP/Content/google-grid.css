@@ -1,0 +1,133 @@
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+/*@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont862f.eot?v=4.1.0');
+  src: url('../fonts/fontawesome-webfontd41d.eot?#iefix&v=4.1.0') format('embedded-opentype'), 
+      url('../fonts/fontawesome-webfont862f.woff?v=4.1.0') format('woff'), 
+      url('../fonts/fontawesome-webfont862f.ttf?v=4.1.0') format('truetype'), 
+      url('../fonts/fontawesome-webfont862f.svg?v=4.1.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+/* General style */
+.grid-gallery{
+	padding-top: 10px;
+}
+.grid-gallery ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.grid-gallery figure {
+	margin: 0;
+}
+
+.grid-gallery figure img {
+	display: block;
+	width: 100%;
+	text-align: center;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	margin: auto;
+}
+
+.grid-gallery figcaption h3 {
+	margin: 0;
+	padding: 0 0 0.5em;
+	font-size: 16px;
+}
+
+.grid-gallery figcaption p {
+	margin: 0;
+	font-size: 11px;
+}
+
+/* Grid style */
+.grid-wrap {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.grid {
+	margin: 0 auto;
+}
+
+.grid li {
+	width: 25%;
+	float: left;
+	cursor: pointer;
+}
+
+.grid figure {
+	padding: 10px;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.grid li:hover figure {
+	opacity: 0.7;
+}
+
+.grid figcaption {
+	background: #ffffff;
+	padding: 0px;
+	margin-top: -1px;
+	position: relative;
+}
+.grid figcaption .ribbon{
+	position: absolute;
+	top: -34px;
+	left: -5px;
+	right: -5px;
+	height: 30px;
+	text-align: center;
+}
+.ribbon .name{
+	background: #d5dee9;
+	position: relative;
+	height: 100%;
+	color: #333;
+	font-size: 13px;
+	line-height: 30px;
+}
+
+.ribbon .name:after, .ribbon .name:before{
+	content:"";
+	top: -5px;
+	position: absolute;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.ribbon .name:after{
+	left: -3px;
+	border-top: 5px solid transparent;
+	border-right: 5px solid #577ca4;
+	border-bottom: transparent;
+}
+.ribbon .name:before{
+	right: -3px;
+	border-top: 5px solid transparent;
+	border-left: 5px solid #577ca4;
+	border-bottom: transparent;
+}
+
+/* Slideshow style */

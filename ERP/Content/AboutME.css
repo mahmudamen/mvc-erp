@@ -1,0 +1,133 @@
+﻿/*body{
+  background: rgba(228, 214, 214, 0.99);
+    perspective:1000px;
+    font-family: Raleway
+}*/
+
+
+.card{
+    width: 300px;
+    height: 450px;
+    margin: 50px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+}
+.card:hover{
+    transform: rotateY(180deg);
+}
+.card > div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: #eee;
+    color: #0026ff;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    text-align: center;
+}
+.card .front{
+    z-index: 2;
+    backface-visibility:hidden;
+
+}
+.card .front header{
+    /*background-image: url(http://7or.org/img/cloud.jpg);*/
+    background-size: cover;
+    background-color: #444;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 55px;
+    border-radius: 10px 10px 0 0 ;    
+}
+.card .front img{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 25px;
+    border-radius: 50%;
+}
+.card .front p{
+    padding: 10px;
+    line-height: 2em
+}
+.card .front span{
+    display: inline-block;
+    margin-top: 10px;
+    color: #454846;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    font-size: 20px;
+
+}
+.card .back{
+    z-index: 1;
+    transform: rotateY(180deg);
+    backface-visibility:hidden;
+}
+.card .back ul{
+    padding: 5px 10px 10px 10px;
+    list-style: none;
+    line-height: 2em;
+}
+.card .back ul h2{
+    margin-bottom: 10px;
+    margin-top: 0;
+
+}
+.card .back ul li > div{
+    width: 100%;
+    height: 30px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    border:1px solid #C0BEBE;
+}
+.card .back ul li {
+    margin-bottom: 5px;
+}
+.card .back ul li .progress{
+    height: 30px;
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-color: #029FFF;
+    background-size: 40px 40px;
+    color: #fff;
+}
+.card .back ul li .progress span:first-of-type{
+    float: left;
+    padding-left: 5px
+}
+.card .back ul li .progress span:last-of-type{
+    float: right;
+    padding-right: 5px
+}
+.html{width: 95%;}
+.css{width: 80%;}
+.javaScript{width: 70%;}
+.bootstrap{width: 90%;}
+.php{width: 75%;}
+.Python{width: 70%;}
+.JQuery{width: 80%;}
+.Linux{width: 50%;}
+.CSharp{width: 80%;}
+
+.card .back ul.social li{
+    display: inline;
+    margin-left: 19px;
+    
+}
+.card .back ul.social li a{
+    width: 90px;
+    height: 90px;
+    font-size: 30px;
+    color: #029FFF
+}
+.card .back ul.social li a:hover{color: #575151;transition:all .5s ease;}
+.card .back ul h2{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+}

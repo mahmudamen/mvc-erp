@@ -1,0 +1,710 @@
+﻿@{ViewBag.Title = " مد المده";}
+<script language="javascript" type="text/javascript">
+    function empcountfuc() {
+        $.ajax({
+            url: '/ERP/HR/empcountfuc', cache: false, type: "POST", success: function (data) {
+                $('#empcount').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+    function ORDlst() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlst', cache: false, type: "POST", success: function (data) {
+                $('#lastname').val(data)
+            }
+        });
+    }
+    function ORDlstnum() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlstnum', cache: false, type: "POST", success: function (data) {
+                $('#orderfk').val(data)
+            }
+        });
+    }
+    function Ordpk() {
+        $.ajax({
+            url: '/ERP/Casher/Ordpk', cache: false, type: "POST", success: function (data) {
+                $('#orderpk').val(data)
+            }
+        });
+    }
+    function Totfuc() {
+        $.ajax({
+            url: '/ERP/Casher/Totfuc?id=' + parseInt($('#last').text()), cache: false, type: "POST", success: function (data) {
+                $('#Totfuc').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<input type="hidden" id="xzvid" />
+<div class="modal fade" id="Mdeditpro">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title" style="font-size: 13px !important; margin: 0px 5px 0px 5px !important ">بيانات المده</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <input type="hidden" id="vid" />
+                            <label>اسم المشروع</label>
+                            <input type="text" id="vname" class="form-control text-center" style="width:250px" readonly="readonly" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 25px 0px 5px">
+                            <label>تاريخ الارسال للجنة</label>
+                            <input type="date" id="fdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تاريخ رد اللجنة</label>
+                            <input type="date" id="sdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label >تاريخ رائ إدارة الفتوي</label>
+                            <input type="date" id="tdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline" style="margin:0px 5px 0px 5px">
+                        <label>معرض ارشيف </label>
+                        @Html.DropDownList("Galery", (SelectList)ViewBag.kprofk, "  -----اختر ارشيف -----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "Galery" })
+
+                        <label>اسم الصورة</label>
+                        <input type="text" id="ReNamePic" class="form-control text-center" style="width:200px" />
+                    </div>
+
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>وصف الصورة</label>
+                            <input type="text" lang="ar-eg" placeholder="شرح توضيحي للمستند" id="Subject" class="form-control text-center" style="width:75%" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-group" style="margin:0px 5px 0px 5px">
+                        <div class="fileUpload btn btn-primary">
+                            <span>اختار صورة</span>
+                            <input type="file" id="FileUpload1" class="upload" />
+                        </div>
+                        <div class="fileUpload btn btn-primary">
+                            <span>تحميل </span>
+                            <input type="button" id="btnUpload" class="upload" value="Upload Files" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div id="grid-gallery" class="grid-gallery">
+                            <section class="grid-wrap">
+                                <ul class="grid">
+                                    <li class="grid-sizer"></li>
+                                    <li>
+                                        <figure>
+                                            <img id="targetImg" src=" " alt="صورة للإرشيف " />
+                                            <figcaption>
+                                                <label id="namefiles"></label>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" type="button" id="btneditpro" class="btn btn-sm btn-info">تعديل</a>
+                <a href="javascript:;" type="button" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Mdgpro">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title" style="font-size: 13px !important; margin: 0px 5px 0px 5px !important ">بيانات المده</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <input type="hidden" id="gvid" />
+                            <label>اسم المشروع</label>
+                            <input type="text" id="gvname" class="form-control text-center" style="width:250px" readonly="readonly" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 25px 0px 5px">
+                            <label>تاريخ الارسال للجنة</label>
+                            <input type="date" id="gfdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تاريخ رد اللجنة</label>
+                            <input type="date" id="gsdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تاريخ رائ إدارة الفتوي</label>
+                            <input type="date" id="gtdate" class="form-control text-center" style="width:150px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>النهو المعدل</label>
+                            <input type="date" id="gfinaldate" class="form-control text-center" style="width:150px" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="c-panal" class="panel panel-danger" style="margin-bottom:5px" data-sortable-id="ui-index-2">
+                        <div class="panel-body" style="max-height:300px;  min-height:200px; padding:10px">
+                            <table id="dux" class="table table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>الارسال للجنة</th>
+                                        <th>رد اللجنة</th>
+                                        <th class="text-center"> رأي الفتوي</th>
+                                        <th class="text-center">النهو المعدل</th>
+                                        <th>حذف</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="modal-footer">
+                <a href="javascript:;" type="button" id="btngpro" class="btn btn-sm btn-success">اضافة</a>
+                <a href="javascript:;" type="button" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-primary" style="margin-bottom:5px">
+    <div class="panel-heading" style="padding: 10px 10px;">
+        <label class="panel-title" style="font-size: 13px !important; margin: 5px 5px 5px 5px !important "> اضافة مدة </label>
+            <button class="btn  btn-info pull-left" title="Repeat " id="refrsh"><i class="fa fa-repeat fa-1x pull-left"></i>تحديث</button>
+            <button class="btn  btn-warning pull-left" title="تعديل  " id="btnewpro"><i class="fa fa-edit fa-1x pull-left"></i>تعديل</button>
+    </div>
+    <div class="panel-body" style="max-height:460px; min-height:300px; padding:10px">
+        <table id="tbdurprolist" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-center">اسم المشروع</th>
+                    <th class="text-center">الشركة النفذة</th>
+                    <th class="text-center">نوع الاسناد</th>
+                    <th class="text-center">امر الاسناد</th>
+                    <th class="text-center">تاريخ الاسناد</th>
+                    <th class="text-center">قيمة امر الاسناد</th>
+                    <th class="text-center">تاريخ البدء</th>
+                    <th class="text-center"> النهو المقرر</th>
+                    <th class="text-center">النهو المعدل</th>
+                    <th class="text-center"> الارسال للجنة</th>
+                    <th class="text-center"> رد اللجنة </th>
+                    <th class="text-center"> رائ إدارة الفتوي</th>
+                    <th>النهو المعدل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<link href="~/Content/google-grid.css" rel="stylesheet" />
+<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/select2.css" rel="stylesheet" />
+<link href="~/Assets/style.btn.min.css" rel="stylesheet" />
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2({
+                dir: "rtl", language: "ar", selectOnClose: true, width: '30%'
+            });
+            $('#accn').autocomplete({
+                autoFocus: true,
+                messages: { noResults: '', results: function () { } },
+                appendTo: $('#Mdeditpro'),
+                source: function (request, response) {
+                    $.ajax({
+                        url: "@(Url.Action("accnm", "Pro"))",
+                        type: 'GET',
+                    cache: false,
+                    dataType: 'json',
+                    data: { Prefix: request.term },
+                    success: function (json) {
+                        response($.map(json, function (data, ID, CompanyName) {
+                            return {
+                                label: data.ID + " - " + data.CompanyName,
+                                value: data.ID,
+                                g : data.CompanyName
+                            }; uest
+                        }));
+                    },
+                    });
+        },
+            focus: function (event, ui) {
+                return false;
+            },
+        select: function (event, ui) {
+            $('#acci').val(ui.item.value);
+            $('#accn').val(ui.item.label);
+            return false;
+        },
+        change: function (event, ui) {
+            var source = $(this).val();
+            var found = false;
+            $('#accn').filter(function () {
+                if (ui.item != null) {
+                    found = true;
+                }
+                else {
+                    $(this).val('');
+                    $(this).focus();
+                    $('#acci').val('');
+                }
+                if ($(this).val() == null) {
+                    $('#acci').val('');
+                }
+            });
+        }
+        });
+        });
+        $('#btnUpload').click(function () {
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                // Adding one more key to FormData object
+                fileData.append('cby', $('#cby').val());
+                fileData.append('vid', $('#vid').val());
+                fileData.append('Galery', $('#Galery').val());
+                fileData.append('ReNamePic', $('#ReNamePic').val());
+                fileData.append('Subject', $('#Subject').val());
+                $.ajax({
+                    url: '/ERP/Pro/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (data) {
+                        //   $('#targetImg').append("<img src='/Erp/Img/" + data.resulte + "'><br>");
+                        $('#targetImg').attr('src', '/Erp/Img/' + data.resulte)
+                        $('#namefiles').text(data.resulte)
+                        // $('#FileUpload1').empty()
+                        alert(data.Message);
+
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+        // var  table
+        var table = $('#tbdurprolist').DataTable({
+            bProcessing: false, sAjaxSource: '/ERP/Pro/durprodef', bFilter: true, bInfo: false, lengthChange: false, scrollY: '600px', scrollCollapse: true, bPaginate: true,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' }, columns: [1, 3, 4, 5, 6, 7, 8, 9 , 10 , 11 ] },
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('بيان مد المدد ');
+                }
+            },
+            {
+                extend: 'excelHtml5', title: function () { return 'بيان مد المدد' },
+                text: 'Excel', exportOptions: { columns: [ 1, 3, 4, 5, 6, 7, 8, 9 , 10 , 11] }, customize: function (xlsx)
+                { var sheet = xlsx.xl.worksheets['مد-المدد.xml']; $('row c[r^="C"]', sheet).attr('s', '2') }
+            }],
+            columns: [
+        { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "ProName", "sClass": "dt-center", "width": "20%" },
+        { "data": "CompanyName", "sClass": "dt-center", "width": "20%" },
+        { "data": "PurName", "sClass": "dt-center", "width": "10%" },
+        { "data": "ProNum", "sClass": "dt-center", "width": "10%" },
+        {
+          "data": "ProDate", "width": "5%", "render": function (data) {
+          if (data == null) {
+              return "تاريخ"
+                 }
+            else {
+
+             var date = new Date(parseInt(data.substr(6))).getDate();
+             var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+             var datey = new Date(parseInt(data.substr(6))).getFullYear();
+             var fl = datey + "-" + datem + "-" + date
+             return fl
+              }
+                    }
+         },
+         { "data": "ProVal", "sClass": "dt-center", "width": "10%" },
+         {
+           "data": "StartDate", "width": "5%", "render": function (data) {
+            if (data == null) {
+                return "تاريخ"
+               }
+               else {
+                var date = new Date(parseInt(data.substr(6))).getDate();
+                var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                var fl = datey + "-" + datem + "-" + date
+                return fl
+                     }
+                  }
+                },
+                  {
+                      "data": "StopDate", "width": "5%", "render": function (data) {
+                          if (data == null) {
+                              return "تاريخ"
+                          }
+                          else {
+                              var date = new Date(parseInt(data.substr(6))).getDate();
+                              var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                              var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                              var fl = datey + "-" + datem + "-" + date
+                              return fl
+                          }
+                      }
+                  },
+                   {
+                       "data": "FinalDate", "width": "5%", "render": function (data) {
+                           if (data == null) {
+                               return "تاريخ"
+                           }
+                           else {
+                               var date = new Date(parseInt(data.substr(6))).getDate();
+                               var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                               var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                               var fl = datey + "-" + datem + "-" + date
+                               return fl
+                           }
+                       }
+                   },
+                  {
+                      "data": "DurDateFirst", "width": "5%", "render": function (data) {
+                    if (data == null) {
+                        return "تاريخ"
+                        }
+                     else {
+                     var date = new Date(parseInt(data.substr(6))).getDate();
+                     var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                     var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                     var fl = datey + "-" + datem + "-" + date
+                     return fl
+                     }
+                         }
+                  },
+                    {
+                    "data": "DurDateSec", "width": "5%", "render": function (data) {
+                    if (data == null) {
+                           return "تاريخ"
+                     }
+                        else {
+                       var date = new Date(parseInt(data.substr(6))).getDate();
+                       var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                       var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                       var fl = datey + "-" + datem + "-" + date
+                       return fl
+                                 }
+                             }
+                    },
+                    {
+                        "data": "DurDateThird", "width": "5%", "render": function (data) {
+                            if (data == null) {
+                                return "تاريخ"
+                            }
+                            else {
+                                var date = new Date(parseInt(data.substr(6))).getDate();
+                                var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                                var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                                var fl = datey + "-" + datem + "-" + date
+                                return fl
+                            }
+                        }
+                    },
+                     {
+                         "data": null, "sClass": "dt-center", "width": "1%", "orderable": false,
+                         "defaultContent": "<button  class='xbutton small btn-info'id='post'><i class='fa fa-plus-circle'></button>"
+                     }
+            ]
+        });
+        $('#refrsh').click(function () {
+            var tbtprov = $("#tbdurprolist").DataTable();
+            tbtprov.$('tr.selected').removeClass('selected');
+            tbtprov.clear();
+            tbtprov.draw();
+            tbtprov.ajax.url('/ERP/Pro/durprodef').load()
+        });
+            // select  function tbcpy
+        $('#tbdurprolist tbody').on('click', 'tr', function () {
+            var tbSysv = $("#tbdurprolist").DataTable();
+            //tbSysv.$('tr.selected').removeClass('selected');
+            //$(this).closest('tr').addClass('selected');
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                $(this).addClass('selected');
+            }
+        });
+        $('#dux tbody').on('click', 'tr', function () {
+            var tbSysv = $("#dux").DataTable();
+            //tbSysv.$('tr.selected').removeClass('selected');
+            //$(this).closest('tr').addClass('selected');
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                $(this).addClass('selected');
+            }
+
+        });
+        $('#btnewpro').click(function () {
+            var table = $("#tbdurprolist").DataTable();
+            $(this).closest('tr').addClass('selected');
+            var zvid = table.cell('.selected', 0).data()
+            var name = table.cell('.selected', 1).data()
+            $('#vid').val(zvid)
+            $('#vname').val(name)
+            if (zvid != null) {
+                $('#Mdeditpro').modal({ backdrop: false });
+            } else {
+                alert("اختار مشروع لإضافة بيانات مد المدة")
+            };
+        });
+        $('#dux tbody').on('click', '.zbutton', function () {
+            var table = $('#dux').DataTable();
+            $(this).closest('tr').addClass('selected');
+            var idz = table.cell('.selected', 0).data();
+            if (idz == null) {
+                alert('اختار سجل اولاً للحذف ')
+            } else {
+                $.ajax({
+                    url: "@(Url.Action("redux", "Pro"))",
+                    type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: { id: idz },
+                dataType: "json",
+                success: function (data) {
+                    if (data.Success) {
+                        var t = $('#dux').DataTable();
+                        t.$('tr.selected').removeClass('selected');
+                        t.clear();
+                        t.draw();
+                        t.ajax.reload(null, false);
+                        alert(data.Message)
+                    } else {
+                        alert(data.Message)
+                    }
+                }
+            })
+            }
+        });
+        $('#tbdurprolist tbody').on('click', '.xbutton', function () {
+            var table = $("#tbdurprolist").DataTable();
+            $(this).closest('tr').addClass('selected');
+            var vid = table.cell('.selected', 0).data()
+            var name = table.cell('.selected', 1).data()
+            $('#gvid').val(vid)
+            $('#gvname').val(name)
+
+            if (gvid != null) {
+                
+                var table = $("#dux").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                table.clear();
+                table.draw();
+                table.ajax.url('/Erp/Pro/du?id=' + $('#gvid').val()).load();
+                $('#Mdgpro').modal({ backdrop: false });
+            } else {
+                alert("اختار مشروع لإضافة بيانات مد المدة")
+            };
+        });
+        $('#btnsavepro').click(function () {
+            var table = $("#tbdurprolist").DataTable();
+           // table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            var idv = table.cell('.selected', 0).data()
+            $.ajax({
+                url: "@(Url.Action("savpro", "Pro"))",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: { id: idv },
+                dataType: "json",
+                success: function (data) {
+                    if (data.Success) {
+                        alert(data.Message)
+                    } else {
+                        alert(data.Message)
+                    }
+                }
+            })
+        });
+        $('#btneditpro').click(function () {
+            $.ajax({
+                url: "@(Url.Action("editdurpro", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: $('#zvid').val(), fdate: $('#fdate').val(), sdate: $('#sdate').val(), tdate: $('#tdate').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                    var tbtprov = $("#tbdurprolist").DataTable();
+                    tbtprov.$('tr.selected').removeClass('selected');
+                    tbtprov.clear();
+                    tbtprov.draw();
+                    tbtprov.ajax.url('/ERP/Pro/durprodef').load()
+                    $('#Mdeditpro').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        $('#btngpro').click(function () {
+            $.ajax({
+                url: "@(Url.Action("addurpro", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: $('#gvid').val(), axdate: $('#gfdate').val(), azdate: $('#gsdate').val(), asdate: $('#gtdate').val(), finaldate: $('#gfinaldate').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                    var tbtprov = $("#tbdurprolist").DataTable();
+                    tbtprov.$('tr.selected').removeClass('selected');
+                    tbtprov.clear();
+                    tbtprov.draw();
+                    tbtprov.ajax.url('/ERP/Pro/durprodef').load()
+                    $('#Mdgpro').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        var table = $('#dux').DataTable({
+            cache: true,
+            bProcessing: false, sAjaxSource: '/Erp/Pro/du?id=' + $('#gvid').val(), bFilter: false, bInfo: false, lengthChange: false, scrollY: '100px', scrollCollapse: true, bPaginate: false,
+            "order": [[0, "desc"]],
+            columns: [
+
+                    { "data": "ID", "visible": false },
+                    { "data": "ProFK", "visible": false },
+                    {
+                    "data": "DurDateFirst", "width": "5%", "render": function (data) {
+                    if (data == null) { return "تاريخ" }
+                       else {
+                             var date = new Date(parseInt(data.substr(6))).getDate();
+                             var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                             var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                             var fl = datey + "-" + datem + "-" + date
+                             return fl } }
+                    },
+                    {
+                        "data": "DurDateSec", "width": "5%", "render": function (data) {
+                            if (data == null) { return "تاريخ" }
+                            else {
+                                var date = new Date(parseInt(data.substr(6))).getDate();
+                                var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                                var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                                var fl = datey + "-" + datem + "-" + date
+                                return fl
+                            }
+                        }
+                    },
+                     {"data": "DurDateThird", "width": "5%", "render": function (data) {
+                     if (data == null) { return "تاريخ" }
+                     else {
+                     var date = new Date(parseInt(data.substr(6))).getDate();
+                     var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                     var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                     var fl = datey + "-" + datem + "-" + date
+                     return fl
+                    }
+                     }
+                     },
+                    {
+                    "data": "FinalDate", "width": "5%", "render": function (data) {
+                    if (data == null) { return "تاريخ" }
+                        else {
+                              var date = new Date(parseInt(data.substr(6))).getDate();
+                              var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                              var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                              var fl = datey + "-" + datem + "-" + date
+                              return fl}}
+                      },
+                   {
+                    "data": null, "sClass": "dt-center", "width": "1%", "orderable": false,
+                    "defaultContent": "<button  class='zbutton small btn-warning'id='post'><i class='fa fa-minus-circle'></button>"
+                    }
+            ]
+        });
+    </script>
+}

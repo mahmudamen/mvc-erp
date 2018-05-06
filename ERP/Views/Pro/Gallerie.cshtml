@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ERP.Models.ArchPro>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Assets/style.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>معرض الصور</title>
+</head>
+
+<body>
+        <header class="clearfix">
+           @* <span>معرض صور المشروعات <span class="bp-icon bp-icon-about" data-content="وصف توضيحي للصورة"></span></span>*@
+            <h1>إدارة المشروعات</h1>
+        </header>
+                        
+    <div class="superbox" data-offset="54">
+        @foreach (var item in Model)
+        {
+
+            <div class="superbox-list">
+                <img src=@item.PicPath data-img=@item.Photo alt="" class="superbox-img" />
+            </div>
+
+        }
+    </div>
+</body>
+
+</html>
+
+
+
+@section scripts{
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script src="~/Scripts/dts.js"></script>
+    }
+
+

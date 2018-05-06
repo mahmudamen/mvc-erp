@@ -1,0 +1,1277 @@
+﻿@{ViewBag.Title = "باب الحارة";}
+<script language="javascript" type="text/javascript">
+    function Gent() {
+        $.ajax({
+            url: '/ERP/Casher/lastshift', cache: false, type: "POST", success: function (data) {
+                $('#last').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+    function ORDlst() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlst', cache: false, type: "POST", success: function (data) {
+                $('#lastname').val(data)
+            }
+        });
+    }
+    function ORDlstnum() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlstnum', cache: false, type: "POST", success: function (data) {
+                $('#orderfk').val(data)
+            }
+        });
+    }
+    function Ordpk() {
+        $.ajax({
+            url: '/ERP/Casher/Ordpk', cache: false, type: "POST", success: function (data) {
+                $('#orderpk').val(data)
+            }
+        });
+    }
+    function Totfuc() {
+        $.ajax({
+            url: '/ERP/Casher/Totfuc?id=' + parseInt($('#last').text()), cache: false, type: "POST", success: function (data) {
+                $('#Totfuc').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<div class="modal fade" id="mdcashrp">
+    <div class="modal-prn">
+        <div class="modal-contentp">
+            <div class="modal-header text-center" style="background-color:#fff">
+                <a href="javascript:;" id="bbcashrp" type="button" class="btn btn-sm btn-success no-print">طباعة</a>
+                <a type="button" href="javascript:;" id="prn" class="btn btn-sm btn-danger no-print" data-dismiss="modal">إغلاق</a>
+                <div class="form-group" style="margin:0px 5px 0px 5px">
+                    <label>تقرير اليومية</label>
+                    <input type="text" id="qdate" class="form-control text-center" style="max-width:200px" value=20 autofocus="autofocus" />
+
+                </div>
+            </div>
+
+            <div class="panel-body" style="max-height:480px; min-height:400px; padding:5px">
+                <table id="tbcashrp" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                    <thead>
+                        <tr>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">اجمالي</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+
+                            <td></td>
+                            <td class="text-center"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <label>تاريخ:</label>
+                <label id="ZDPRNT" style="margin-left:5px">@DateTime.Today.ToString("yyyy-MMM-dd")</label>
+                <label style="margin:0px 2px">الوقت:</label>
+                <label id="ZTPRNT">@DateTime.Now.ToString("hh:mm tt")</label>
+                <label>أصـل</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="print">
+    <div class="modal-prn">
+        <div class="modal-contentp">
+            <div class="modal-header text-center" style="background-color:#fff">
+                <a href="javascript:;" id="prncli" type="button" class="btn btn-sm btn-success no-print">طباعة</a>
+                <a type="button" href="javascript:;" id="prn" class="btn btn-sm btn-danger no-print" data-dismiss="modal">إغلاق</a>
+                <div class="user-image">
+                    <img src="~/Assets/logo.png" class="img-thumbnail" height="20%" style="border:none ;max-width:50% !important; background-color:none">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin:5px 10px ;font-size:14px">
+                <label>رقم:</label>
+                <label id="ordersid" style="margin-left:10px"></label>
+            </div>
+            <div class="form-group" style="margin:5px 10px ;font-size:14px ;font-family:Tahoma">
+                <label>العميل:</label>
+                <label id="ordersname" style="margin-left:10px ;font-size:20px"></label>
+            </div>
+            <div class="panel-body" style="max-height:500px; min-height:400px; padding:5px">
+                <table id="ordersforprint" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">السعر</th>
+                            <th class="text-center">الكمية</th>
+                            <th class="text-center">اجمالي</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <label>تاريخ:</label>
+                <label id="ZDPRNT" style="margin-left:5px">@DateTime.Today.ToString("yyyy-MMM-dd")</label>
+                <label style="margin:0px 2px">الوقت:</label>
+                <label id="ZTPRNT">@DateTime.Now.ToString("hh:mm tt")</label>
+                <label>أصـل</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modtopten">
+    <div class="modal-prn">
+        <div class="modal-contentp">
+            <div class="modal-header text-center" style="background-color:#fff">
+                <a href="javascript:;" id="prncli" type="button" class="btn btn-sm btn-success no-print">طباعة</a>
+                <a type="button" href="javascript:;" id="prn" class="btn btn-sm btn-danger no-print" data-dismiss="modal">إغلاق</a>
+                <div class="user-image">
+                    <img src="~/Assets/logo.png" class="img-thumbnail" height="20%" style="border:none ;max-width:50% !important; background-color:none">
+                </div>
+            </div>
+            <div class="panel-body" style="max-height:400px; min-height:250px; padding:5px">
+                <table id="tbtopten" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                    <thead>
+                        <tr>
+                            <th class="text-center">العميل</th>
+                            <th class="text-center">عدد </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modtoptenord">
+    <div class="modal-prn">
+        <div class="modal-contentp">
+            <div class="modal-header text-center" style="background-color:#fff">
+                <a href="javascript:;" id="prncli" type="button" class="btn btn-sm btn-success no-print">طباعة</a>
+                <a type="button" href="javascript:;" id="prn" class="btn btn-sm btn-danger no-print" data-dismiss="modal">إغلاق</a>
+                <div class="user-image">
+                    <img src="~/Assets/logo.png" class="img-thumbnail" height="20%" style="border:none ;max-width:50% !important; background-color:none">
+                </div>
+            </div>
+            <div class="panel-body" style="max-height:400px; min-height:250px; padding:5px">
+                <table id="tbtoptenord" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                    <thead>
+                        <tr>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">عدد </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Addguest">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">اضافة شفت جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>رقم الشفت</label>
+                            <input type="text" id="cwdoc" class="form-control text-center" style="max-width:150px" readonly="readonly" />
+                            <input type="hidden" id="cwdoci" />
+
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>التاريخ</label>
+                            <input type="date" id="cwdat" class="form-control text-center" style="max-width:150px" value=@DateTime.Today.ToString("yyyy-MM-dd") autofocus="autofocus" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>الفترة</label>
+                            <select id="whshft" class="form-control" name="cwshft" style="max-width:100px">
+                                <option value=true>صباحا</option>
+                                <option value=false>مساءا</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adshft" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="nguest">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">ضيف جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم الضيف </label>
+                            <input type="text" id="gname" class="form-control text-center" autofocus="autofocus" style="max-width:300px" />
+                            <input type="hidden" id="asdf" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adgst" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdacc">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">حساب جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم الحساب </label>
+                            <input type="text" id="expnme" class="form-control text-center" autofocus="autofocus" style="max-width:300px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="accad" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="edguest">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">تعديل طلب</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>رقم الشفت</label>
+                            <input type="text" id="eddate" class="form-control text-center" style="max-width:300px" value=20 autofocus="autofocus" />
+                            <input type="hidden" id="oid" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="panel-body" style="max-height:300px; min-height:200px; padding:10px">
+                    <table id="tborday" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="background-color:slateblue !important ; color:white">
+                                <th></th>
+                                <th class="text-center">رقم الطلب</th>
+                                <th class="text-center">اسم العميل</th>
+                                <th class="text-center">فعال</th>
+                                <th class="text-center">الغاء طلب</th>
+                                <th class="text-center">تفاصيل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-body" style="max-height:300px; min-height:200px; padding:10px">
+                    <table id="tbdetail" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="background-color:slateblue !important ; color:white">
+                                <th></th>
+                                <th class="text-center">الصنف</th>
+                                <th class="text-center">السعر</th>
+                                <th class="text-center">الكمية</th>
+                                <th class="text-center">اجمالي</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th class="text-center">الإجمالي:</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdexp">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title"></label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>دليل المصروفات </label>
+                        </div>
+                    </div>
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <a href="javascript:;" id="adacc" type="button" style="font-style:italic;" class="btn btn-sm btn-primary">اضافة حساب جديد</a>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="panel-body" style="max-height:250px; min-height:200px; padding:10px; width:auto">
+                    <table id="tbexplist" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="background-color:slateblue !important ; color:white;">
+                                <th class="text-center">رقم الحساب</th>
+                                <th class="text-center">اسم الحساب</th>
+                                <th class="text-center">مبلغ</th>
+                                <th class="text-center">اضافة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Addexp">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">اضافة مصروفات جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>رقم الحساب </label>
+                            <input type="text" id="exid" class="form-control text-center" style="max-width:50px" readonly="readonly" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> اسم الحساب </label>
+                            <input type="text" id="exname" class="form-control text-center" style="max-width:250px" readonly="readonly" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>التاريخ</label>
+                            <input type="date" id="exdat" class="form-control text-center" style="max-width:150px" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>المبلغ</label>
+                            <input type="number" id="exval" class="form-control text-center" style="max-width:150px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>ملاحظات</label>
+                            <input type="text" id="remark" class="form-control text-center" style="max-width:550px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adexp" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content text-center">
+                <div class="user-image">
+                    <img src="../Assets/logo.png" class="img-thumbnail" height="50%" style="border:none ; background-color:none">
+                </div>
+            </div>
+            <div class="ibox-title bg-blue-darker">
+                <a href="javascript:void(0);" class="panel-reload" style="color:#fff" onclick="ORDlst(); ORDlstnum();Gent()"><i class="glyphicon glyphicon-refresh"></i></a>
+                <a href="javascript:void(0);" onclick="Gent(); ORDlst(); ORDlstnum();" id="adsh" style="color:white ; font-size:18px ; font-style:unset"><span> رقم الشفت</span></a>
+            </div>
+            <div class="ibox-content">
+                <h3 class="no-margins text-center" id="last"></h3>
+            </div>
+            <div class="ibox-content">
+                <h3 class="no-margins text-center" id="Totfuc"></h3>
+            </div>
+            <div class="ibox-content text-center">
+                @DateTime.Today.ToString("yyyy-MM-dd")
+                <div class="user-image">
+                </div>
+            </div>
+        </div>
+        <div class="widget widget-stats bg-blue-lighter">
+            <div class="stats-icon"><i class="glyphicon glyphicon-list"></i></div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="cref"> الشاورمة <i class="glyphicon glyphicon-list"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="sandwitch"> ساندوتشات <i class="glyphicon glyphicon-yen"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="mile"> الوجبات <i class="glyphicon glyphicon­-list"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="chiken"> فراخ مشوية <i class="glyphicon glyphicon­-list"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="falal"> فلافل <i class="glyphicon glyphicon­-list"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="othz"> مقبلات <i class="glyphicon glyphicon­-list"></i></a>
+            </div>
+            <div class="stats-link">
+                <a class="theme-collapse-btn" style="font-style:normal; font-size:20px ; font-family:Aharoni" id="Bkonafa"> الكنافة <i class="glyphicon glyphicon-­list"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="padding: 5px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">انواع الوجبات السريعة</label>
+                <button class="btn btn-xs btn-success pull-left" id="neworder"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            </div>
+            <br />
+            <div class="panel-body" style="max-height:500px; min-height:380px; padding:10px">
+                <table id="shawrma" class="table table-striped table-bordered dt-responsive" style="margin-bottom:0px" cellspacing="0" width="100%">
+                    <thead>
+                        <tr style="background-color:slateblue !important ; color:white">
+                            <th></th>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">السعر</th>
+                            <th class="text-center">طلب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5" style="padding: 5px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">الطلبات</label>
+                <button class="btn btn-xs btn-primary  pull-left" id="pp">طباعة  <i class="glyphicon glyphicon-print"></i></button>
+            </div>
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 30px 0px 0px">
+                        <input type="hidden" id="orderpk" class="form-control text-center" style="max-width:50px" readonly="readonly" />
+                        <input type="hidden" id="iditem" class="form-control text-center" style="max-width:50px" readonly="readonly" />
+                        <input type="hidden" id="iditempr" class="form-control text-center" style="max-width:50px" readonly="readonly" />
+                        <input type="hidden" id="id" class="form-control text-center" style="max-width:50px" readonly="readonly" />
+                    </div>
+                    <div class="form-group" style="margin:0px 0px 0px 0px">
+                        <label style="font-size:15px">رقم الطلب</label>
+                        <input type="text" id="orderfk" class="form-control text-center" style="max-width:50px ; border:hidden ; font-size:20px" />
+                    </div>
+                    <div class="form-group" style="margin:0px 0px 0px 0px">
+                        <label style="font-size:15px">اسم الضيف</label>
+                        <input type="text" id="lastname" class="form-control text-center" style="max-width:200px ; border:hidden ; font-size:20px" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="max-height:500px; min-height:500px; padding:10px">
+                <table id="orders" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                    <thead>
+                        <tr style="background-color:slateblue !important ; color:white">
+                            <th></th>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">السعر</th>
+                            <th class="text-center">الكمية</th>
+                            <th class="text-center">اجمالي</th>
+                            <th class="text-center">حذف</th>
+                            <th class="text-center">زيادة</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                Gent()
+                ORDlst()
+                ORDlstnum()
+                Ordpk()
+                Totfuc()
+            });
+            $(window).unload(function () {
+                return "Handler for .unload() called.";
+            });
+            $(document).ready(function () {
+                    Gent()
+                    ORDlst()
+                    ORDlstnum()
+                    Ordpk()
+                   Totfuc()
+                $(window).keydown(function (e) {
+
+                    if (event.which === 107) {
+                        $('#neworder').click();
+                    }
+                    if (event.which === 40) {
+                        $('#adgst').click();
+                    }
+                    if (event.which === 35) {
+                        $('#pp').click();
+                    }
+                    if (event.which === 106) {
+                        $('#prncli').click();
+                    }
+                    var ordtable = $("#orders").DataTable();
+                    ordtable.$('tr.selected').removeClass('selected');
+                    ordtable.clear();
+                    ordtable.draw();
+                    ordtable.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+
+                    var tbtype = $("#tbtype").DataTable();
+                    tbtype.$('tr.selected').removeClass('selected');
+                    tbtype.clear();
+                    tbtype.draw();
+                    tbtype.ajax.url('tbtype?id=').load();
+
+                });
+
+                var table = $('#shawrma').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false, bInfo: false,bSearchable:false, "oLanguage": { "sSearch": "" },
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '360px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/Tlist',
+                    columns: [
+
+                { "data": "ItemID", "visible": false, "bSearchable": false },
+                { "data": "ItmName", "orderable": false },
+                { "data": "ItmPrice", "orderable": false },
+                {
+                    "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                    "defaultContent": "<button  class='bbutton small btn-info'id='adp'><i class='glyphicon glyphicon-plus'></button>"
+                }
+                    ]
+                });
+                var kotable = $('#ko').DataTable({
+                    fixedHeader: true, bPaginate: false,bFilter:false, bLengthChange: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '120px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/Konafa',
+                    columns: [
+                { "data": "ItemID", "visible": false, "bSearchable": false },
+                { "data": "ItmName", "orderable": false },
+                { "data": "ItmPrice", "orderable": false }
+                    ]
+                });
+                var ordersforprint = $('#ordersforprint').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false,bFilter:false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '1000', scrollCollapse: falal, sAjaxSource: '/ERP/Casher/ordprint?id=' + $('#orderpk').val(),
+                    footerCallback: function (row, data, start, end, display) {
+                        var api = this.api(), data;
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        caca= api
+                            .column(4, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+
+                        totapo = api
+                          .column(2, { page: 'current' })
+                          .data()
+                          .reduce(function (a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                        $(api.column(4).footer()).html(
+                             caca
+                        );
+                    },
+                    columns: [
+                { "data": "ser", "visible": false, "bSearchable": false },
+                { "data": "ItmName", "orderable": false ,"width":"100%"},
+                { "data": "price", "orderable": false, "width": "10%" },
+                { "data": "qty", "orderable": false, "width": "10%" },
+                { "data": "totval", "orderable": false, "width": "10%" }
+                    ]
+                });
+                var toptenv = $('#tbtopten').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: false, sAjaxSource: '/ERP/Casher/topten',
+                    columns: [
+                { "data": "key", "orderable": false, "width": "90%" },
+                { "data": "cnt", "orderable": true, "width": "10%" }
+                    ]
+                });
+                var toptenordv = $('#tbtoptenord').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: false, sAjaxSource: '/ERP/Casher/toptenord',
+                    columns: [
+                { "data": "key", "orderable": false, "width": "90%" },
+                { "data": "cnt", "orderable": true, "width": "10%" }
+                    ]
+                });
+                var tbcashrpv = $('#tbcashrp').DataTable({
+                    fixedHeader: true, bPaginate: true, bLengthChange: false, bFilter: true, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '350px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/cashrpt?id=' + $('#qdate').val(),
+                    footerCallback: function (row, data, start, end, display) {
+                        var api = this.api(), data;
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        caca = api
+                            .column(1, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+
+                        totapo = api
+                          .column(1, { page: 'current' })
+                          .data()
+                          .reduce(function (a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                        $(api.column(1).footer()).html(
+                             caca
+                        );
+                    },
+                    columns: [
+
+                { "data": "ItmName", "orderable": false, "width": "100%" },
+                { "data": "totval", "orderable": false, "width": "10%" }
+                    ]
+                });
+                var tborddayv = $('#tborday').DataTable({
+                        fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: true, bInfo: false, "oLanguage": { "sSearch": "" },
+                        //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                        "pageLength": 5, "order": [[1, "desc"]], scrollY: '120px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/eddguest?id=' + $('#eddate').val(),
+
+                        columns: [
+                        { "data": "OrdID", "visible": false, "width": "10%" },
+                        { "data": "OrderFk", "orderable": false, "width": "10%" },
+                        { "data": "GuestName", "orderable": false, "width": "90%" },
+                        { "data": "IsActive", "orderable": false, "width": "10%" },
+                        {
+                         "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                         "defaultContent": "<button  class='xobutton small btn-info'id='adpremove'><i class='glyphicon glyphicon-lock'></button>"
+                        },
+                        {
+                            "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                            "defaultContent": "<button  class='rebutton small btn-info'id='reopen'><i class='glyphicon glyphicon-lock'></button>"
+                        }
+                        ]
+                });
+                var tbexplistv = $('#tbexplist').DataTable({
+                    fixedHeader: false, bPaginate: true, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    "pageLength": 5, "order": [[0, "asc"]], scrollY: '200px', scrollCollapse: false, sAjaxSource: '/ERP/Casher/explst',
+                    columns: [
+                    { "data": "ExpID", "orderable": true ,"width": "10%" },
+                    { "data": "ExpName", "orderable": false, "width": "30%" },
+                    { "data": "ExpVal", "orderable": false, "width": "10%" },
+                    {
+                        "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                        "defaultContent": "<button  class='expbutton small btn-info'id='exbutton'><i class='glyphicon glyphicon-plus'></button>"
+                    }
+
+                    ]
+                });
+                var ordtable = $('#orders').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '400px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint?id=' + $('#orderpk').val(),
+                    footerCallback: function (row, data, start, end, display) {
+                        var api = this.api(), data;
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        caca = api
+                            .column(4, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        totapo = api
+                          .column(2, { page: 'current' })
+                          .data()
+                          .reduce(function (a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                        $(api.column(4).footer()).html(
+                             caca
+                        );
+                    },
+                    columns: [
+                { "data": "ser", "visible": false, "bSearchable": false },
+                { "data": "ItmName", "orderable": false ,"width":'10px' },
+                { "data": "price", "orderable": false, "width": '10px' },
+                { "data": "qty", "orderable": false, "width": '10px' },
+                { "data": "totval", "orderable": false, "width": '10px' },
+                {
+                    "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                    "defaultContent": "<button  class='xbutton small btn-info'id='adpremove'><i class='glyphicon glyphicon-remove'></button>"
+                },
+                {
+                 "data": null, "sClass": "dt-center", "width": "10%", "orderable": false,
+                 "defaultContent": "<button  class='xzbutton small btn-info'id='adpremove'><i class='glyphicon glyphicon-remove'></button>"
+                 }
+                 ]
+                });
+                var tbdetailv = $('#tbdetail').DataTable({
+                    fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                    //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                    "pageLength": 5, "order": [[1, "desc"]], scrollY: '120px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint?id=' + $('#orderpk').val(),
+                    footerCallback: function (row, data, start, end, display) {
+                        var api = this.api(), data;
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        caca = api
+                            .column(4, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        totapo = api
+                          .column(2, { page: 'current' })
+                          .data()
+                          .reduce(function (a, b) {
+                              return intVal(a) + intVal(b);
+                          }, 0);
+                        $(api.column(4).footer()).html(
+                             caca
+                        );
+                    },
+                    columns: [
+                { "data": "ser", "visible": false, "bSearchable": false },
+                { "data": "ItmName", "orderable": false, "width": '10px' },
+                { "data": "price", "orderable": false, "width": '10px' },
+                { "data": "qty", "orderable": false, "width": '10px' },
+                { "data": "totval", "orderable": false, "width": '10px' }
+                    ]
+                });
+
+                $('#cref').click(function () {
+                    var table = $("#shawrma").DataTable();
+                    table.$('tr.selected').removeClass('selected');
+                    table.clear();
+                    table.draw();
+                    table.ajax.url('/ERP/Casher/Tlist').load()
+                });
+                // button print
+                $('#prncli').click(function () {
+                    printdiv('print')
+
+                    $('#print').modal('hide')
+                    location.href = '/ERP/Casher/Index';
+
+                });
+                $('#bbcashrp').click(function () {
+                    printdiv('mdcashrp')
+                    $('#mdcashrp').modal('hide')
+                    location.href = '/ERP/Casher/Index';
+                });
+                $('#prn').click(function () {
+                    $('#print').modal('hide')
+                });
+                $('#cashrp').click(function () {
+                    $('#mdcashrp').modal('hide')
+                });
+                $('#Bkonafa').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/Konafa').load()
+                });
+                $('#sandwitch').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/sandwitch').load()
+                });
+                $('#othz').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/othz').load()
+                });
+                $('#mile').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/mile').load()
+                });
+                $('#falal').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/falal').load()
+                });
+                $('#chiken').click(function () {
+                    var kotable = $("#shawrma").DataTable();
+                    kotable.$('tr.selected').removeClass('selected');
+                    kotable.clear();
+                    kotable.draw();
+                    kotable.ajax.url('/ERP/Casher/chiken').load()
+                });
+                $('#qdate').change(function () {
+                    var tbcashrpv = $("#tbcashrp").DataTable();
+                    tbcashrpv.$('tr.selected').removeClass('selected');
+                    tbcashrpv.clear();
+                    tbcashrpv.draw();
+                    tbcashrpv.ajax.url('/ERP/Casher/cashrpt?id=' + $('#qdate').val()).load()
+                });
+                $('#eddate').change(function () {
+                    var tborddayv = $("#tborday").DataTable();
+                    tborddayv.$('tr.selected').removeClass('selected');
+                    tborddayv.clear();
+                    tborddayv.draw();
+                    tborddayv.ajax.url('/ERP/Casher/eddguest?id=' + $('#eddate').val()).load()
+                });
+                $('#adsh').click(function () {
+                    $('#cwdoc').val(parseInt($('#last').text()) + 1);
+                    $('#Addguest').modal({ backdrop: false });
+                });
+                $('#pp').click(function () {
+                    $('#ordersid').text($('#orderfk').val())
+                    $('#ordersname').text($('#lastname').val())
+                    var ordersforprint = $("#ordersforprint").DataTable();
+                    ordersforprint.$('tr.selected').removeClass('selected');
+                    ordersforprint.clear();
+                    ordersforprint.draw();
+                    ordersforprint.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+                    $('#print').modal({ backdrop: false });
+
+                });
+                $('#topten').click(function () {
+                    var toptenv = $('#tbtopten').DataTable();
+                    toptenv.$('tr.selected').removeClass('selected');
+                    toptenv.clear();
+                    toptenv.draw();
+                    toptenv.ajax.url('/ERP/Casher/topten').load();
+                    $('#modtopten').modal({ backdrop: false });
+                });
+                $('#toptenfd').click(function () {
+                    var toptenv = $('#tbtoptenord').DataTable();
+                    toptenv.$('tr.selected').removeClass('selected');
+                    toptenv.clear();
+                    toptenv.draw();
+                    toptenv.ajax.url('/ERP/Casher/toptenord').load();
+                    $('#modtoptenord').modal({ backdrop: false });
+
+                });
+                $('#neworder').click(function () {
+                    $('#asdf').val(parseInt($('#last').text()));
+                    Gent();
+                    ORDlst();
+                    Ordpk();
+                    ORDlstnum();
+                    Totfuc();
+                    $('#nguest').modal({ backdrop: false });
+                    $("#gname").focus();
+                    $("#gname").val(' ')
+                    $('#gname').empty();
+
+                });
+                $('#adacc').click(function () {
+                    var tbexplistv = $("#tbexplist").DataTable();
+                    tbexplistv.$('tr.selected').removeClass('selected');
+                    tbexplistv.clear();
+                    tbexplistv.draw();
+                    tbexplistv.ajax.url('/ERP/Casher/explst').load();
+                    $('#mdexp').modal("hide");
+                    $('#mdacc').modal({ backdrop: false });
+
+                });
+                // open model from nav
+                $('#cashrp').click(function () {
+                    $('#mdcashrp').modal({ backdrop: false });
+                });
+                $('#bbaddexp').click(function () {
+                    var table = $("#tbexplist").DataTable();
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).closest('tr').addClass('selected');
+
+
+                    $('#exid').val(20);
+                    $('#exser').val(table.cell('.selected', 0).data());
+
+                    $('#Addexp').modal({ backdrop: false });
+                    $('#exser').val(20);
+                    $('#mdexp').modal('hide');
+                });
+                $('#bbordday').click(function () {
+                    var tborddayv = $("#tborday").DataTable();
+                    tborddayv.$('tr.selected').removeClass('selected');
+                    tborddayv.clear();
+                    tborddayv.draw();
+                    tborddayv.ajax.url('/ERP/Casher/eddguest?id=' + $('#eddate').val()).load()
+                    $('#edguest').modal({ backdrop: false });
+                });
+                $('#bbexplist').click(function () {
+                    var tbexplistv = $("#tbexplist").DataTable();
+                    tbexplistv.$('tr.selected').removeClass('selected');
+                    tbexplistv.clear();
+                    tbexplistv.draw();
+                    tbexplistv.ajax.url('/ERP/Casher/explst').load();
+                    $('#mdexp').modal({ backdrop: false });
+                });
+                $('#adshft').click(function () {
+                    $.ajax({
+                        url: "@(Url.Action("adshf", "Casher"))",
+                        type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { a: $('#whshft').val() },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.Success) {
+                            $('#Addguest').modal("hide");
+                            Gent();
+                            ORDlst();
+                            Ordpk();
+                            ORDlstnum();
+                            Totfuc();
+                        }
+                        else {
+                            alert(data.Message)
+                        }
+                    }
+                });
+                });
+                $('#accad').click(function () {
+                    $.ajax({
+                        url: "@(Url.Action("adacount", "Casher"))",
+                        type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { expnme: $('#expnme').val() },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.Success) {
+                            $('#mdacc').modal("hide");
+                            $('#mdexp').modal({ backdrop: false });
+                        }
+                        else {
+                            alert(data.Message)
+                        }
+                    }
+                });
+            });
+                $('#adexp').click(function () {
+                    $.ajax({
+                        url: "@(Url.Action("addexp", "Casher"))",
+                        type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { idexp: $('#exid').val(), exdate: $('#exdat').val(), expval: $('#exval').val(), remrk: $('#remark').val() },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.Success) {
+                            $('#Addexp').modal("hide");
+                            $('#mdexp').modal({ backdrop: false });
+                        }
+                        else {
+                            alert(data.Message)
+                        }
+                    }
+                });
+            });
+                $('#adgst').click(function () {
+                    $.ajax({
+                        url: "@(Url.Action("adORD", "Casher"))",
+                        type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    data: { gsname: $('#gname').val(), shvt: $('#asdf').val() },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.Success) {
+                           // $('#lastname').val($('#gname').val());
+                            $('#nguest').modal("hide");
+                            //$('#lastname').val($('#gname').val());
+                            $('#orderpk').val(Ordpk());
+                            Gent();
+                            ORDlst();
+                            ORDlstnum();
+                            Ordpk();
+                            Totfuc();
+                            var ordtable = $("#orders").DataTable();
+                            ordtable.$('tr.selected').removeClass('selected');
+                            ordtable.clear();
+                            ordtable.draw();
+                            ordtable.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+
+                        }
+                        else {
+                            alert(data.Message)
+                        }
+                    }
+                });
+            });
+            });
+                    $('#shawrma tbody').on('click', '.bbutton', function () {
+                var table = $("#shawrma").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                var asd = table.cell('.selected', 0).data();
+                var p =   table.cell('.selected', 2).data();
+                $('#iditempr').val(p);
+                $('#iditem').val(asd)
+                $.ajax({
+                         url: "@(Url.Action("aditm", "Casher"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: { itmfk: $('#iditem').val(), ordfk: $('#orderpk').val(), pr: $('#iditempr').val() ,shi:parseInt($('#last').text()), cby:$('#cby').val() },
+                        dataType: "json",
+                        success: function (data) {
+                                    if (data.Success) {
+                                        var ordtable = $("#orders").DataTable();
+                                        ordtable.$('tr.selected').removeClass('selected');
+                                        ordtable.clear();
+                                        ordtable.draw();
+                                        ordtable.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+                                        Totfuc();
+                                    }
+
+                                },
+                        error: function (response) {
+                                    alert("error : " + response);
+                                }
+                            });
+                            });
+                $('#orders tbody').on('click', '.xbutton', function () {
+                            var table = $("#orders").DataTable();
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).closest('tr').addClass('selected');
+                            $("#id").val(table.cell('.selected', 0).data())
+                            $.ajax({
+                                    url: "@(Url.Action("removerow", "Casher"))",
+                                    type: "GET",
+                                contentType: "application/json; charset=utf-8",
+                                data: { id: $("#id").val() },
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data.Success) { alert(data.Success); }
+
+                                    var ordtable = $("#orders").DataTable();
+                                    ordtable.$('tr.selected').removeClass('selected');
+                                    ordtable.clear();
+                                    ordtable.draw();
+                                    ordtable.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+                                },
+                                error: function (response) {
+                                    alert("error : " + response);
+                                }
+                                });
+                            });
+            $('#orders tbody').on('click', '.xzbutton', function () {
+                var table = $("#orders").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                $("#id").val(table.cell('.selected', 0).data())
+                $.ajax({
+                    url: "@(Url.Action("addqty", "Casher"))",
+                    type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: { id: $("#id").val() },
+                dataType: "json",
+                success: function (data) {
+                    if (data.Success) { alert(data.Success); }
+
+                    var ordtable = $("#orders").DataTable();
+                    ordtable.$('tr.selected').removeClass('selected');
+                    ordtable.clear();
+                    ordtable.draw();
+                    ordtable.ajax.url('ordprint?id=' + $('#orderpk').val()).load();
+                },
+                error: function (response) {
+                    alert("error : " + response);
+                }
+            });
+            });
+            $('#tbexplist tbody').on('click', '.expbutton', function () {
+                var tbexplistv = $("#tbexplist").DataTable();
+                tbexplistv.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                $('#exid').val(tbexplistv.cell('.selected', 0).data());
+                $('#exname').val(tbexplistv.cell('.selected', 1).data());
+                $('#Addexp').modal({ backdrop: false });
+                $('#mdexp').modal('hide');
+            });
+            $('#tborday tbody').on('click', '.xobutton', function () {
+                var table = $("#tborday").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                $("#oid").val(table.cell('.selected', 0).data())
+                $.ajax({
+                    url: "@(Url.Action("edorder", "Casher"))",
+                    type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: { id: $('#oid').val() },
+                dataType: "json",
+                success: function (data) {
+                    if (data.Success) { alert(data.Success); }
+                    var tborddayv = $("#tborday").DataTable();
+                    tborddayv.$('tr.selected').removeClass('selected');
+                    tborddayv.clear();
+                    tborddayv.draw();
+                    tborddayv.ajax.url('/ERP/Casher/eddguest?id=' + $('#eddate').val()).load()
+                    Gent()
+                    ORDlst()
+                    ORDlstnum()
+                    Ordpk()
+                    Totfuc()
+                },
+                error: function (response) {
+                    alert("error : " + response);
+                }
+            });
+            });
+        $('#tborday tbody').on('click', '.rebutton', function () {
+            var table = $("#tborday").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            $("#oid").val(table.cell('.selected', 0).data())
+            var tbdetailv = $("#tbdetail").DataTable();
+            tbdetailv.$('tr.selected').removeClass('selected');
+            tbdetailv.clear();
+            tbdetailv.draw();
+            tbdetailv.ajax.url('/ERP/Casher/ordprint?id=' + $('#oid').val()).load()
+            
+        });
+       
+    </script>
+}

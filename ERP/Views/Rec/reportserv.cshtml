@@ -1,0 +1,38 @@
+﻿@{ViewBag.Title = "تقارير الخدمات";}
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("DocDu", "Rec")'>حسابات الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+        <li><a href='@Url.Action("DevSetting", "Rec")'>الأجهزة الطبية</a></li>
+    </ul>
+</nav>
+<hr />

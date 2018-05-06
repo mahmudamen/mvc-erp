@@ -1,0 +1,85 @@
+﻿
+<!DOCTYPE html>
+<html lang="ar-EG">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li class="active"><a href="/Erp/User/AboutMe">About Me</a></li>*@
+                    <li class="active"><a href="/Erp/Pro/Index">الرئيسية</a></li>
+                    <li class="active"><a href="/ERP/User/Index">مدير النظام</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right flip">
+                    <li>
+                        <a class="label-danger" href="/Erp/Home/LogOut">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav>
+        <ul class="nav nav-justified nav-fixed-top">
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الشركات <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("Cpy", "Pro")'>قائمة الشركات</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("Garch", "Pro")'>أرشيف الصور</a></li>
+                    <li class="divider"></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">المشروعات <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("Prolist", "Pro")'>تصنيف المشروعات</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("AdPro", "Pro")'> طرح مشروع</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("TechPro", "Pro")'> الفتح الفنى</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("FinPro", "Pro")'> الفتح المالي</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("FixPro", "Pro")'> الاسناد</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("DurPro", "Pro")'> اضافة مدة</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("OverPro", "Pro")'> تجاوز مالي</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">نماذج تقارير <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("RPsix", "Pro")'>نموذج 6</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("RPseven", "Pro")'>نموذج 7</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("DonePro", "Pro")'> اداء المشروعات</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

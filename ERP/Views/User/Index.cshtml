@@ -1,0 +1,85 @@
+﻿@{ViewBag.Title = "إدارة المستخدمين";}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title" id="prof">المستخدمين</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="padding:5px 5px" id="bcon">
+            <button class="small btn-primary pull-left" id="nrow" title="F8"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="small btn-info pull-left" id="erow" title="F9"><i class="glyphicon glyphicon-edit"></i></button>
+        </div>
+        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center">كود</th>
+                    <th class="text-center">اسم المستخدم</th>
+                    <th class="text-center">الموظف</th>
+                    <th class="text-center">الصلاحية</th>
+               </tr>  
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+<script src="~/Scripts/dts.js"></script>
+    <script>
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    bProcessing: false, sAjaxSource: '/ERP/User/fuser', lengthChange: false,
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print', title: function () { return 'مستشفي الأمل التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                        exportOptions: { modifier: { page: 'current' } },
+                        customize: function (win) {
+                            $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                            $(win.document.body).find('h4').css('text-align', 'center');
+                            $(win.document.body).find('h4').text('كشف بمستخدمى النظام');
+                        }
+                    },
+                    ],
+                    columns: [
+                { "data": "UserID", "sClass": "dt-center", "width":"10%" },
+                { "data": "UserName", "width": "30%" },
+                { "data": "FullName", "width": "30%" },
+                { "data": "RoleName", "sClass": "dt-center", "width": "30%" }
+                    ]
+                });
+                table.buttons().container().appendTo('#bcon');
+                $('#example tbody').on('click', 'tr', function () {
+                    var table = $("#example").DataTable();
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).closest('tr').addClass('selected');
+
+                });
+                $('#erow').click(function () {
+                    var table = $("#example").DataTable();
+                    if (table.cell('.selected', 0).data()) {
+                        location.href = '/ERP/User/EditUser?id=' + table.cell('.selected', 0).data();
+                    }
+                    else {
+                        alert("قم بتحديد مستخدم")
+                    }
+                });
+                $('#nrow').click(function () {
+                    location.href = '/ERP/User/AddUser';
+                })
+                $(window).keydown(function (e)    {
+                    if (event.which === 119) {
+                        $('#nrow').click();
+                    }
+                    else if (event.which === 120) {
+                        $('#erow').click();
+                    }
+                });
+            });
+    </script>
+}

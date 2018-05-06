@@ -1,0 +1,2228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERP.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Depts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="Users" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpHis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="NatId" Type="nvarchar" MaxLength="14" />
+    <Property Name="Action" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Deptfrm" Type="int" />
+    <Property Name="Deptto" Type="int" />
+    <Property Name="Jopfrm" Type="int" />
+    <Property Name="Jopto" Type="int" />
+    <Property Name="Nsal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Osal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="JopID" Type="int" />
+    <Property Name="CostCenter" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NatID" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="HireDate" Type="date" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MonthDays" Type="int" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="12" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="12" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="100" />
+    <Property Name="EduGrade" Type="nvarchar" MaxLength="100" />
+    <Property Name="GradeDate" Type="date" />
+    <Property Name="Degree" Type="nvarchar" MaxLength="20" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MState" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaritalState" Type="bit" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Shift" Type="bit" Nullable="false" />
+    <Property Name="Usr" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EmpShft">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp" Type="int" Nullable="false" />
+    <Property Name="frm" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tw" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dy" Type="int" />
+    <Property Name="Mo" Type="int" />
+    <Property Name="Yer" Type="int" />
+    <Property Name="Val" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SDate" Type="date" Nullable="false" />
+    <Property Name="Dept" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="MinSal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="LoanMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MonthPayed" Type="date" Nullable="false" />
+    <Property Name="Months" Type="int" Nullable="false" />
+    <Property Name="CutMonths" Type="int" Nullable="false" />
+    <Property Name="SCutMonths" Type="date" Nullable="false" />
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="DocID" Type="nvarchar" MaxLength="10" />
+    <Property Name="EntID" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="MorMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MorDay" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DonDate" Type="date" Nullable="false" />
+    <Property Name="PayMonth" Type="date" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Punsh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="PunshMount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="int" Nullable="false" />
+    <Property Name="SCutMonths" Type="date" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="Mon" Type="int" Nullable="false" />
+    <Property Name="Yer" Type="int" Nullable="false" />
+    <Property Name="Lon" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Pun" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Vac" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CtAll" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MainSal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Mor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AdAll" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NetSall" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="PdDoc" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vac">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="VacStrt" Type="date" Nullable="false" />
+    <Property Name="VacEnd" Type="date" Nullable="false" />
+    <Property Name="VMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="int" Nullable="false" />
+    <Property Name="Cuts" Type="bit" Nullable="false" />
+    <Property Name="CreatDate" Type="date" Nullable="false" />
+    <Property Name="CutMonth" Type="date" Nullable="false" />
+    <Property Name="Nots" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.AccDocSub' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AccDocSub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="IDFK" Type="int" />
+    <Property Name="AccID" Type="int" />
+    <Property Name="DebitVal" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreditVal" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+    <Property Name="DocDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.AccDocSubSubSub' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AccDocSubSubSub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="IDFK" Type="int" />
+    <Property Name="AccID" Type="float" />
+    <Property Name="DebitVal" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreditVal" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+    <Property Name="DocDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.AcckindList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AcckindList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Acckind" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.AccTree' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AccTree">
+    <Key>
+      <PropertyRef Name="AccID" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="AccID" Type="int" Nullable="false" />
+    <Property Name="AccName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Acckind" Type="int" />
+    <Property Name="ide" Type="float" />
+    <Property Name="isactive" Type="bit" Nullable="false" />
+    <Property Name="AccidFK" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.DocAcc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DocAcc">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="DocDate" />
+      <PropertyRef Name="DocKind" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocID" Type="int" Nullable="false" />
+    <Property Name="YearID" Type="int" />
+    <Property Name="DocDate" Type="datetime" Nullable="false" />
+    <Property Name="DocKind" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.DocKindList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DocKindList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocKind" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.TrialBalance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TrialBalance">
+    <Key>
+      <PropertyRef Name="AccID" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="AccID" Type="int" Nullable="false" />
+    <Property Name="AccName" Type="nvarchar" MaxLength="100" />
+    <Property Name="AccKind" Type="int" />
+    <Property Name="isactive" Type="bit" Nullable="false" />
+    <Property Name="AccidFK" Type="int" />
+    <Property Name="ADebit" Type="int" />
+    <Property Name="ACredit" Type="int" />
+    <Property Name="BDebit" Type="int" />
+    <Property Name="BCredit" Type="int" />
+    <Property Name="CDebit" Type="int" />
+    <Property Name="CCredit" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.fin.YearsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="YearsList">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="YearName" Type="nvarchar" MaxLength="10" />
+    <Property Name="BeginYear" Type="datetime" />
+    <Property Name="EndYear" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BanksList">
+    <Key>
+      <PropertyRef Name="BnkID" />
+    </Key>
+    <Property Name="BnkID" Type="int" Nullable="false" />
+    <Property Name="BnkTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DegreeList">
+    <Key>
+      <PropertyRef Name="DegreeID" />
+    </Key>
+    <Property Name="DegreeID" Type="int" Nullable="false" />
+    <Property Name="DegreeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpDegree">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Emp_ID" Type="int" />
+    <Property Name="DegreeID" Type="int" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="College" Type="nvarchar" MaxLength="20" />
+    <Property Name="University" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EmpFamily">
+    <Key>
+      <PropertyRef Name="FmlySer" />
+    </Key>
+    <Property Name="FmlySer" Type="int" Nullable="false" />
+    <Property Name="Emp_id" Type="int" Nullable="false" />
+    <Property Name="FmlyID" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EmpFin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EmpId" Type="int" />
+    <Property Name="DegreeID" Type="bit" />
+    <Property Name="BaseSalary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BaseSalaryTax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BaseSalaryNotTax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BounceVal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BnkID" Type="int" />
+    <Property Name="E_Date_receipt_work" Type="date" />
+    <Property Name="E_Date_Hiring" Type="date" />
+    <Property Name="MilitaryID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MilitaryNum" Type="int" />
+    <Property Name="MilitaryFinishDate" Type="date" />
+  </EntityType>
+  <EntityType Name="EmpForm">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EmpGender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emploan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EmpId" Type="int" />
+    <Property Name="LoanID" Type="int" />
+    <Property Name="GetDate" Type="date" />
+    <Property Name="PartVal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Months" Type="int" />
+  </EntityType>
+  <EntityType Name="emppunish">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Emp_id" Type="int" />
+    <Property Name="DecisionNum" Type="int" />
+    <Property Name="DecisionKind" Type="nvarchar" MaxLength="50" />
+    <Property Name="DecisionDate" Type="date" />
+    <Property Name="PunishID" Type="int" />
+    <Property Name="PunishDate" Type="date" />
+    <Property Name="UnPunishDate" Type="date" />
+    <Property Name="NoticeNum" Type="int" />
+    <Property Name="NoticeDate" Type="date" />
+    <Property Name="DayNum" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PanishVal" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="EmpVications">
+    <Key>
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="int" Nullable="false" />
+    <Property Name="Emp_id" Type="int" Nullable="false" />
+    <Property Name="VKind" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="date" Nullable="false" />
+    <Property Name="ToDate" Type="date" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FamilyList">
+    <Key>
+      <PropertyRef Name="FamilyID" />
+    </Key>
+    <Property Name="FamilyID" Type="int" Nullable="false" />
+    <Property Name="FamilyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hr_dept">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HR_EmpReform">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="int" Nullable="false" />
+    <Property Name="Emp_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_NationalID" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="SocialStatues" Type="int" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Emp_kader_FK" Type="int" Nullable="false" />
+    <Property Name="Emp_JCat_FK" Type="int" Nullable="false" />
+    <Property Name="SpecificGrp" Type="int" />
+    <Property Name="Emp_JGrade" Type="int" Nullable="false" />
+    <Property Name="Job_Status_ID" Type="int" Nullable="false" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="Emp_JTitile" Type="nvarchar" MaxLength="50" />
+    <Property Name="HireDate" Type="date" />
+    <Property Name="EmpIsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="HR_SpecificGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SpecGrpName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="JobCategory">
+    <Key>
+      <PropertyRef Name="JBC_PK" />
+    </Key>
+    <Property Name="JBC_PK" Type="int" Nullable="false" />
+    <Property Name="JBC_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kdr_fk" Type="int" />
+    <Property Name="JBC_Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="JobGarde">
+    <Key>
+      <PropertyRef Name="JTL_JG_FK" />
+    </Key>
+    <Property Name="JTL_JG_FK" Type="int" Nullable="false" />
+    <Property Name="JG_Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="JobKader">
+    <Key>
+      <PropertyRef Name="KDR_PK" />
+    </Key>
+    <Property Name="KDR_PK" Type="int" Nullable="false" />
+    <Property Name="KDR_Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="JobStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="JobStatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoanList">
+    <Key>
+      <PropertyRef Name="LoanID" />
+    </Key>
+    <Property Name="LoanID" Type="int" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PunishList">
+    <Key>
+      <PropertyRef Name="PunishID" />
+    </Key>
+    <Property Name="PunishID" Type="int" Nullable="false" />
+    <Property Name="PunishTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOCIALSTATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SocialTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="townlist">
+    <Key>
+      <PropertyRef Name="BnkID" />
+    </Key>
+    <Property Name="BnkID" Type="int" Nullable="false" />
+    <Property Name="BnkTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.HR.VicationList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VicationList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VicationTitle" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="VicationTitle" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SysID" Type="int" Nullable="false" />
+    <Property Name="AgntName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LandNum" Type="int" />
+    <Property Name="FlatNum" Type="int" />
+    <Property Name="BuildNum" Type="int" />
+    <Property Name="StageNum" Type="nvarchar" MaxLength="1" />
+    <Property Name="DebF" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreF" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="DebCur" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreCur" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="DebTot" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreTot" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="DebLast" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="CreLast" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Land.AgentIDFind' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AgentIDFind">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="spacenum" Type="int" />
+    <Property Name="identity_num" Type="int" />
+    <Property Name="kind" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AgentsList">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="int" Nullable="false" />
+    <Property Name="AgentName" Type="nvarchar" MaxLength="150" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="NationalID" Type="numeric" Precision="14" Scale="0" />
+    <Property Name="LandID" Type="int" Nullable="false" />
+    <Property Name="SysID" Type="int" Nullable="false" />
+    <Property Name="LevelID" Type="int" Nullable="false" />
+    <Property Name="Neighborhood" Type="nvarchar" MaxLength="15" />
+    <Property Name="NeighborhoodNext" Type="nvarchar" MaxLength="15" />
+    <Property Name="Stage" Type="int" />
+    <Property Name="AcceptedDate" Type="date" />
+    <Property Name="Spaces" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SpacesReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PriceMeter" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Deposit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DepositPlus" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TossDate" Type="date" />
+    <Property Name="FileNum" Type="int" />
+    <Property Name="Licenseid" Type="nvarchar" MaxLength="255" />
+    <Property Name="LicenseDate" Type="date" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="StatusFlag" Type="int" />
+    <Property Name="DigID" Type="int" />
+    <Property Name="DigSer" Type="int" />
+    <Property Name="DigDate" Type="date" />
+    <Property Name="DigRemark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AgMove">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AgID" Type="int" />
+    <Property Name="Debit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Credit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Land.BeginList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BeginList">
+    <Key>
+      <PropertyRef Name="BeginID" />
+      <PropertyRef Name="BeginFrom" />
+    </Key>
+    <Property Name="BeginID" Type="int" Nullable="false" />
+    <Property Name="BeginFrom" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="digtab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AgentID" Type="int" Nullable="false" />
+    <Property Name="DigID" Type="int" Nullable="false" />
+    <Property Name="DigMount" Type="float" Nullable="false" />
+    <Property Name="DigDate" Type="date" Nullable="false" />
+    <Property Name="DigRemark" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserIDCreated" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UserIDModif" Type="int" />
+    <Property Name="ModifData" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Land.fig' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="fig">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Ldate" Type="date" />
+    <Property Name="part" Type="int" />
+    <Property Name="PerPart" Type="int" />
+  </EntityType>
+  <EntityType Name="LevelList">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="int" Nullable="false" />
+    <Property Name="LevelName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="TosDate" Type="date" />
+    <Property Name="PartDate" Type="date" />
+    <Property Name="PartNum" Type="int" />
+    <Property Name="PartMonth" Type="int" />
+    <Property Name="PartVal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="FreeMonth" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="SysID_FK" Type="int" Nullable="false" />
+    <Property Name="BeginPart" Type="int" Nullable="false" />
+    <Property Name="Benfit" Type="bit" />
+    <Property Name="BRatesFrom" Type="int" />
+    <Property Name="BRates" Type="numeric" Precision="2" Scale="2" />
+    <Property Name="Punch" Type="bit" />
+    <Property Name="PRatesFrom" Type="int" />
+    <Property Name="PRates" Type="numeric" Precision="2" Scale="2" />
+    <Property Name="Fixe" Type="bit" />
+    <Property Name="DebitVal" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Land.mval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mval">
+    <Key>
+      <PropertyRef Name="SerID" />
+    </Key>
+    <Property Name="SerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentID" Type="int" />
+    <Property Name="PartsID" Type="int" />
+    <Property Name="PartsNum" Type="int" />
+    <Property Name="Mount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="MountDate" Type="date" />
+  </EntityType>
+  <EntityType Name="PartMount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AgentID" Type="int" />
+    <Property Name="AgentName" Type="nvarchar(max)" />
+    <Property Name="Deposit" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DepositPlus" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Mount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Benefits" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Finedelay" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="AccFinFund" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="AccFundTrustees" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Expense" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="PartDate" Type="date" />
+    <Property Name="PayDate" Type="date" />
+    <Property Name="PartID_FK" Type="int" Nullable="false" />
+    <Property Name="UserDate" Type="date" />
+    <Property Name="ParID" Type="int" />
+  </EntityType>
+  <EntityType Name="partsname">
+    <Key>
+      <PropertyRef Name="PartID" />
+    </Key>
+    <Property Name="PartID" Type="int" Nullable="false" />
+    <Property Name="PartName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="projectlist">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="TownID_FK" Type="int" />
+  </EntityType>
+  <EntityType Name="SysList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SysName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ReMark" Type="nvarchar" MaxLength="150" />
+    <Property Name="LandNum" Type="bit" />
+    <Property Name="FlatNum" Type="bit" />
+    <Property Name="BuildNum" Type="bit" />
+    <Property Name="StageNum" Type="bit" />
+    <Property Name="CreateBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Syslisto">
+    <Key>
+      <PropertyRef Name="SysID" />
+    </Key>
+    <Property Name="SysID" Type="int" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ProjectID_FK" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="townlist1">
+    <Key>
+      <PropertyRef Name="TownID" />
+    </Key>
+    <Property Name="TownID" Type="int" Nullable="false" />
+    <Property Name="TownName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YearsList1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="YearsNames" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STDate" Type="date" Nullable="false" />
+    <Property Name="EnDate" Type="date" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreaateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArchPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProListFK" Type="int" />
+    <Property Name="GFK" Type="int" />
+    <Property Name="PicPath" Type="nvarchar" MaxLength="200" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="60" />
+    <Property Name="ReNamePic" Type="nvarchar" MaxLength="60" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Posted" Type="bit" />
+    <Property Name="PosteDate" Type="date" />
+    <Property Name="Ex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Img" Type="image" />
+  </EntityType>
+  <EntityType Name="CActivity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedHost" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedIP" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ActivityID" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="14" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="14" />
+    <Property Name="Mob" Type="nvarchar" MaxLength="14" />
+    <Property Name="CEmail" Type="nvarchar" MaxLength="20" />
+    <Property Name="TaxID" Type="nvarchar" MaxLength="50" />
+    <Property Name="SaleID" Type="nvarchar" MaxLength="50" />
+    <Property Name="TradeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DurList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProFK" Type="int" />
+    <Property Name="DurDateFirst" Type="date" />
+    <Property Name="DurDateSec" Type="date" />
+    <Property Name="DurDateThird" Type="date" />
+    <Property Name="FinalDate" Type="date" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ExpPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProListFK" Type="int" Nullable="false" />
+    <Property Name="ExpNum" Type="int" Nullable="false" />
+    <Property Name="ExpDate" Type="date" Nullable="false" />
+    <Property Name="ExpVal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gallary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GallaryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MinImg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="KPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TProFK" Type="int" Nullable="false" />
+    <Property Name="KName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostedName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="ComFK" Type="int" />
+    <Property Name="KProFK" Type="int" />
+    <Property Name="PurNameFK" Type="int" />
+    <Property Name="FirstAccepteDate" Type="date" />
+    <Property Name="SecandAccepteDate" Type="date" />
+    <Property Name="ThirdAceepteDate" Type="date" />
+    <Property Name="DeclareDate" Type="date" />
+    <Property Name="OpnTechDate" Type="date" />
+    <Property Name="SetTechDate" Type="date" />
+    <Property Name="TechUser" Type="int" />
+    <Property Name="TechDate" Type="date" />
+    <Property Name="OpnFinDate" Type="date" />
+    <Property Name="SetFinDate" Type="date" />
+    <Property Name="FinUser" Type="int" />
+    <Property Name="FinDate" Type="date" />
+    <Property Name="ProNum" Type="int" />
+    <Property Name="ProDate" Type="date" />
+    <Property Name="ProVal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TotalVal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="FixDate" Type="date" />
+    <Property Name="FixUser" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="FinalDate" Type="date" />
+    <Property Name="TargetVal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TargetValTime" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TargetPrec" Type="numeric" Precision="3" Scale="2" />
+    <Property Name="ExpForNow" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TargetFin" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ProSt" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="Posted" Type="int" />
+    <Property Name="ProStop" Type="bit" />
+    <Property Name="StopDate" Type="date" />
+    <Property Name="DurDateFirst" Type="date" />
+    <Property Name="DurDateSec" Type="date" />
+    <Property Name="DurDateThird" Type="date" />
+    <Property Name="OverFirst" Type="date" />
+    <Property Name="OverSec" Type="date" />
+  </EntityType>
+  <EntityType Name="PurType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="RoleDescription" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ValidFrom" Type="date" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="CreatedTime" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ValidFrom" Type="date" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="CreatedTime" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserKey" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EntryKey" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ValidFrom" Type="date" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="CreatedTime" Type="time" Precision="6" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vDepts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vDepts">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Users" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="EmpNo" Type="int" />
+    <Property Name="Users" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vEDJ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEDJ">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpName" />
+      <PropertyRef Name="jop" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="JopID" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="CcID" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="jop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="JopID" Type="int" Nullable="false" />
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="CcID" Type="int" Nullable="false" />
+    <Property Name="CcName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vEmpHis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEmpHis">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Action" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="NatID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Jop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Deptto" Type="int" />
+    <Property Name="Jopto" Type="int" />
+    <Property Name="Osal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Nsal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="Deptfrm" Type="int" />
+    <Property Name="Jopfrm" Type="int" />
+    <Property Name="NatID" Type="nvarchar" MaxLength="14" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vEmpl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEmpl">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Jop" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="HireDate" />
+      <PropertyRef Name="NatID" />
+      <PropertyRef Name="CcName" />
+      <PropertyRef Name="Shift" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Jop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HireDate" Type="date" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NatID" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="CcName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Shift" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vEmplon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEmplon">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="dept" />
+      <PropertyRef Name="jop" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="JopID" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="jop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NetSall" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vJops' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vJops">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="empno" Type="int" />
+    <Property Name="MinSal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MaxSal" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vLoanE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vLoanE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="LoanMount" />
+      <PropertyRef Name="MonthPayed" />
+      <PropertyRef Name="EntID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="SCutMonths" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoanMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MonthPayed" Type="date" Nullable="false" />
+    <Property Name="DocID" Type="nvarchar" MaxLength="10" />
+    <Property Name="EntID" Type="int" Nullable="false" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SCutMonths" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vMorsE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vMorsE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MorID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DepID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="MorMount" />
+      <PropertyRef Name="MorDay" />
+      <PropertyRef Name="DonDate" />
+      <PropertyRef Name="PayMonth" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MorID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepID" Type="int" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MorMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MorDay" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DonDate" Type="date" Nullable="false" />
+    <Property Name="PayMonth" Type="date" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vPunE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vPunE">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CutMonths" />
+      <PropertyRef Name="SCutMonths" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="PunID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PunshMount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PunshDay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CutMonths" Type="int" Nullable="false" />
+    <Property Name="SCutMonths" Type="date" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="PunID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vSalary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vSalary">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Jop" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="JopID" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Jop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lon" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pun" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Vac" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CtAll" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Mor" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AdAll" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Mon" Type="int" />
+    <Property Name="Yer" Type="int" />
+    <Property Name="NetSall" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vSalEntry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vSalEntry">
+    <Key>
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Dept" />
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="CcID" />
+      <PropertyRef Name="CcName" />
+    </Key>
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Mon" Type="int" Nullable="false" />
+    <Property Name="Yer" Type="int" Nullable="false" />
+    <Property Name="Lon" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CcID" Type="int" Nullable="false" />
+    <Property Name="CcName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vTSal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vTSal">
+    <Key>
+      <PropertyRef Name="Mon" />
+      <PropertyRef Name="Yer" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Mon" Type="int" Nullable="false" />
+    <Property Name="Yer" Type="int" Nullable="false" />
+    <Property Name="Lon" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Pun" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Vac" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="CtAll" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="MainSal" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Mor" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="AdAll" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="NetSall" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vUsrEmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vUsrEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Emp.vVacE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vVacE">
+    <Key>
+      <PropertyRef Name="EmpID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VacStrt" />
+      <PropertyRef Name="VacEnd" />
+      <PropertyRef Name="VMount" />
+      <PropertyRef Name="Ds" />
+      <PropertyRef Name="Cuts" />
+      <PropertyRef Name="CreatDate" />
+      <PropertyRef Name="CutMonth" />
+    </Key>
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="VacStrt" Type="date" Nullable="false" />
+    <Property Name="VacEnd" Type="date" Nullable="false" />
+    <Property Name="VMount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Ds" Type="int" Nullable="false" />
+    <Property Name="Cuts" Type="bit" Nullable="false" />
+    <Property Name="CreatDate" Type="date" Nullable="false" />
+    <Property Name="CutMonth" Type="date" Nullable="false" />
+    <Property Name="Nots" Type="nvarchar" MaxLength="200" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.Pro.ProState' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProState">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ProName" />
+      <PropertyRef Name="PostedName" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="PostedName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExpVal" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB.usr.vURoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vURoles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UsrRolID" />
+      <PropertyRef Name="UsrID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="EntryKey" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="RoleDescription" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="UsrRolID" Type="int" Nullable="false" />
+    <Property Name="UsrID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="EntryKey" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Ag_Syslist">
+    <End Role="SysList" Type="Self.SysList" Multiplicity="1" />
+    <End Role="Ag" Type="Self.Ag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ag">
+        <PropertyRef Name="SysID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgentsList_LevelList">
+    <End Role="LevelList" Type="Self.LevelList" Multiplicity="1" />
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelList">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="AgentsList">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgentsList_Syslist">
+    <End Role="Syslisto" Type="Self.Syslisto" Multiplicity="1" />
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syslisto">
+        <PropertyRef Name="SysID" />
+      </Principal>
+      <Dependent Role="AgentsList">
+        <PropertyRef Name="SysID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AgMove_Ag">
+    <End Role="Ag" Type="Self.Ag" Multiplicity="0..1" />
+    <End Role="AgMove" Type="Self.AgMove" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ag">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgMove">
+        <PropertyRef Name="AgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchPro_Gallary">
+    <End Role="Gallary" Type="Self.Gallary" Multiplicity="0..1" />
+    <End Role="ArchPro" Type="Self.ArchPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gallary">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ArchPro">
+        <PropertyRef Name="GFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchPro_ProList">
+    <End Role="ProList" Type="Self.ProList" Multiplicity="0..1" />
+    <End Role="ArchPro" Type="Self.ArchPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ArchPro">
+        <PropertyRef Name="ProListFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_CActivity">
+    <End Role="CActivity" Type="Self.CActivity" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CActivity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="ActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_digtab_AgentsList">
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="1" />
+    <End Role="digtab" Type="Self.digtab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgentsList">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="digtab">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DurList_ProList">
+    <End Role="ProList" Type="Self.ProList" Multiplicity="0..1" />
+    <End Role="DurList" Type="Self.DurList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DurList">
+        <PropertyRef Name="ProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDegree_DegreeList">
+    <End Role="DegreeList" Type="Self.DegreeList" Multiplicity="0..1" />
+    <End Role="EmpDegree" Type="Self.EmpDegree" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DegreeList">
+        <PropertyRef Name="DegreeID" />
+      </Principal>
+      <Dependent Role="EmpDegree">
+        <PropertyRef Name="DegreeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDegree_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="EmpDegree" Type="Self.EmpDegree" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpDegree">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpFin_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="EmpFin" Type="Self.EmpFin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpFin">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emploan_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="emploan" Type="Self.emploan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="emploan">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emploan_LoanList">
+    <End Role="LoanList" Type="Self.LoanList" Multiplicity="0..1" />
+    <End Role="emploan" Type="Self.emploan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoanList">
+        <PropertyRef Name="LoanID" />
+      </Principal>
+      <Dependent Role="emploan">
+        <PropertyRef Name="LoanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emppunish_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="0..1" />
+    <End Role="emppunish" Type="Self.emppunish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="emppunish">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emppunish_PunishList">
+    <End Role="PunishList" Type="Self.PunishList" Multiplicity="0..1" />
+    <End Role="emppunish" Type="Self.emppunish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PunishList">
+        <PropertyRef Name="PunishID" />
+      </Principal>
+      <Dependent Role="emppunish">
+        <PropertyRef Name="PunishID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpVications_HR_EmpReform">
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="1" />
+    <End Role="EmpVications" Type="Self.EmpVications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HR_EmpReform">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="EmpVications">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpPro_ProList1">
+    <End Role="ProList" Type="Self.ProList" Multiplicity="1" />
+    <End Role="ExpPro" Type="Self.ExpPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExpPro">
+        <PropertyRef Name="ProListFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_Hr_dept">
+    <End Role="Hr_dept" Type="Self.Hr_dept" Multiplicity="0..1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hr_dept">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobCategory">
+    <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobCategory">
+        <PropertyRef Name="JBC_PK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_JCat_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobGarde">
+    <End Role="JobGarde" Type="Self.JobGarde" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobGarde">
+        <PropertyRef Name="JTL_JG_FK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_JGrade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobKader">
+    <End Role="JobKader" Type="Self.JobKader" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobKader">
+        <PropertyRef Name="KDR_PK" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Emp_kader_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HR_EmpReform_JobStatus">
+    <End Role="JobStatus" Type="Self.JobStatus" Multiplicity="1" />
+    <End Role="HR_EmpReform" Type="Self.HR_EmpReform" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatus">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="HR_EmpReform">
+        <PropertyRef Name="Job_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobCategory_JobKader">
+    <End Role="JobKader" Type="Self.JobKader" Multiplicity="0..1" />
+    <End Role="JobCategory" Type="Self.JobCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobKader">
+        <PropertyRef Name="KDR_PK" />
+      </Principal>
+      <Dependent Role="JobCategory">
+        <PropertyRef Name="Kdr_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPro_TPro">
+    <End Role="TPro" Type="Self.TPro" Multiplicity="1" />
+    <End Role="KPro" Type="Self.KPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KPro">
+        <PropertyRef Name="TProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMount_AgentsList">
+    <End Role="AgentsList" Type="Self.AgentsList" Multiplicity="0..1" />
+    <End Role="PartMount" Type="Self.PartMount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgentsList">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="PartMount">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMount_partsname">
+    <End Role="partsname" Type="Self.partsname" Multiplicity="1" />
+    <End Role="PartMount" Type="Self.PartMount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partsname">
+        <PropertyRef Name="PartID" />
+      </Principal>
+      <Dependent Role="PartMount">
+        <PropertyRef Name="PartID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="ProList" Type="Self.ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="ComFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_KPro">
+    <End Role="KPro" Type="Self.KPro" Multiplicity="0..1" />
+    <End Role="ProList" Type="Self.ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="KProFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_PostList">
+    <End Role="PostList" Type="Self.PostList" Multiplicity="0..1" />
+    <End Role="ProList" Type="Self.ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="Posted" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProList_PurType">
+    <End Role="PurType" Type="Self.PurType" Multiplicity="0..1" />
+    <End Role="ProList" Type="Self.ProList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProList">
+        <PropertyRef Name="PurNameFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Sysrep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="Land">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="SysID" Type="int" />
+          <Property Name="SysName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DebF" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreF" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DebCur" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreCur" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DebTot" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreTot" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DebLast" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreLast" Type="decimal" Precision="18" Scale="2" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="ERPStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Depts" EntityType="Self.Depts" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="EmpHis" EntityType="Self.EmpHis" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="EmpInfo" EntityType="Self.EmpInfo" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="EmpShft" EntityType="Self.EmpShft" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Jop" EntityType="Self.Jop" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Loan" EntityType="Self.Loan" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Mors" EntityType="Self.Mors" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Punsh" EntityType="Self.Punsh" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Sal" EntityType="Self.Sal" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="Vac" EntityType="Self.Vac" Schema="Emp" store:Type="Tables" />
+    <EntitySet Name="BanksList" EntityType="Self.BanksList" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="DegreeList" EntityType="Self.DegreeList" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpDegree" EntityType="Self.EmpDegree" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpFamily" EntityType="Self.EmpFamily" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpFin" EntityType="Self.EmpFin" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpForm" EntityType="Self.EmpForm" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpGender" EntityType="Self.EmpGender" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="emploan" EntityType="Self.emploan" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="emppunish" EntityType="Self.emppunish" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="EmpVications" EntityType="Self.EmpVications" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="FamilyList" EntityType="Self.FamilyList" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="Hr_dept" EntityType="Self.Hr_dept" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="HR_EmpReform" EntityType="Self.HR_EmpReform" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="HR_SpecificGroup" EntityType="Self.HR_SpecificGroup" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="JobCategory" EntityType="Self.JobCategory" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="JobGarde" EntityType="Self.JobGarde" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="JobKader" EntityType="Self.JobKader" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="JobStatus" EntityType="Self.JobStatus" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="LoanList" EntityType="Self.LoanList" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="PunishList" EntityType="Self.PunishList" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="SOCIALSTATUSES" EntityType="Self.SOCIALSTATUSES" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="townlist" EntityType="Self.townlist" Schema="HR" store:Type="Tables" />
+    <EntitySet Name="Ag" EntityType="Self.Ag" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="AgentsList" EntityType="Self.AgentsList" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="AgMove" EntityType="Self.AgMove" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="digtab" EntityType="Self.digtab" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="LevelList" EntityType="Self.LevelList" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="PartMount" EntityType="Self.PartMount" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="partsname" EntityType="Self.partsname" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="projectlist" EntityType="Self.projectlist" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="SysList" EntityType="Self.SysList" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="Syslisto" EntityType="Self.Syslisto" Schema="Land" store:Type="Tables" />
+    <EntitySet Name="townlist1" EntityType="Self.townlist1" Schema="Land" Table="townlist" store:Type="Tables" />
+    <EntitySet Name="YearsList1" EntityType="Self.YearsList1" Schema="Land" Table="YearsList" store:Type="Tables" />
+    <EntitySet Name="ArchPro" EntityType="Self.ArchPro" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="CActivity" EntityType="Self.CActivity" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="DurList" EntityType="Self.DurList" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="ExpPro" EntityType="Self.ExpPro" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="Gallary" EntityType="Self.Gallary" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="KPro" EntityType="Self.KPro" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="PostList" EntityType="Self.PostList" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="ProList" EntityType="Self.ProList" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="PurType" EntityType="Self.PurType" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="TPro" EntityType="Self.TPro" Schema="Pro" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="usr" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="usr" store:Type="Tables" />
+    <EntitySet Name="Usr" EntityType="Self.Usr" Schema="usr" store:Type="Tables" />
+    <EntitySet Name="AccDocSub" EntityType="Self.AccDocSub" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [AccDocSub].[id] AS [id], 
+    [AccDocSub].[IDFK] AS [IDFK], 
+    [AccDocSub].[AccID] AS [AccID], 
+    [AccDocSub].[DebitVal] AS [DebitVal], 
+    [AccDocSub].[CreditVal] AS [CreditVal], 
+    [AccDocSub].[Remark] AS [Remark], 
+    [AccDocSub].[DocDate] AS [DocDate]
+    FROM [fin].[AccDocSub] AS [AccDocSub]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AccDocSubSubSub" EntityType="Self.AccDocSubSubSub" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [AccDocSubSubSub].[id] AS [id], 
+    [AccDocSubSubSub].[IDFK] AS [IDFK], 
+    [AccDocSubSubSub].[AccID] AS [AccID], 
+    [AccDocSubSubSub].[DebitVal] AS [DebitVal], 
+    [AccDocSubSubSub].[CreditVal] AS [CreditVal], 
+    [AccDocSubSubSub].[Remark] AS [Remark], 
+    [AccDocSubSubSub].[DocDate] AS [DocDate]
+    FROM [fin].[AccDocSubSubSub] AS [AccDocSubSubSub]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AcckindList" EntityType="Self.AcckindList" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [AcckindList].[id] AS [id], 
+    [AcckindList].[Acckind] AS [Acckind]
+    FROM [fin].[AcckindList] AS [AcckindList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AccTree" EntityType="Self.AccTree" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [AccTree].[AccID] AS [AccID], 
+    [AccTree].[AccName] AS [AccName], 
+    [AccTree].[Acckind] AS [Acckind], 
+    [AccTree].[ide] AS [ide], 
+    [AccTree].[isactive] AS [isactive], 
+    [AccTree].[AccidFK] AS [AccidFK]
+    FROM [fin].[AccTree] AS [AccTree]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DocAcc" EntityType="Self.DocAcc" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [DocAcc].[ID] AS [ID], 
+    [DocAcc].[DocID] AS [DocID], 
+    [DocAcc].[YearID] AS [YearID], 
+    [DocAcc].[DocDate] AS [DocDate], 
+    [DocAcc].[DocKind] AS [DocKind], 
+    [DocAcc].[UserID] AS [UserID], 
+    [DocAcc].[Remark] AS [Remark]
+    FROM [fin].[DocAcc] AS [DocAcc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DocKindList" EntityType="Self.DocKindList" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [DocKindList].[ID] AS [ID], 
+    [DocKindList].[DocKind] AS [DocKind], 
+    [DocKindList].[IsActive] AS [IsActive]
+    FROM [fin].[DocKindList] AS [DocKindList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TrialBalance" EntityType="Self.TrialBalance" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [TrialBalance].[AccID] AS [AccID], 
+    [TrialBalance].[AccName] AS [AccName], 
+    [TrialBalance].[AccKind] AS [AccKind], 
+    [TrialBalance].[isactive] AS [isactive], 
+    [TrialBalance].[AccidFK] AS [AccidFK], 
+    [TrialBalance].[ADebit] AS [ADebit], 
+    [TrialBalance].[ACredit] AS [ACredit], 
+    [TrialBalance].[BDebit] AS [BDebit], 
+    [TrialBalance].[BCredit] AS [BCredit], 
+    [TrialBalance].[CDebit] AS [CDebit], 
+    [TrialBalance].[CCredit] AS [CCredit]
+    FROM [fin].[TrialBalance] AS [TrialBalance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="YearsList" EntityType="Self.YearsList" store:Type="Tables" store:Schema="fin">
+      <DefiningQuery>SELECT 
+    [YearsList].[id] AS [id], 
+    [YearsList].[YearName] AS [YearName], 
+    [YearsList].[BeginYear] AS [BeginYear], 
+    [YearsList].[EndYear] AS [EndYear], 
+    [YearsList].[IsActive] AS [IsActive]
+    FROM [fin].[YearsList] AS [YearsList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VicationList" EntityType="Self.VicationList" store:Type="Tables" store:Schema="HR">
+      <DefiningQuery>SELECT 
+    [VicationList].[ID] AS [ID], 
+    [VicationList].[VicationTitle] AS [VicationTitle]
+    FROM [HR].[VicationList] AS [VicationList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AgentIDFind" EntityType="Self.AgentIDFind" store:Type="Tables" store:Schema="Land">
+      <DefiningQuery>SELECT 
+    [AgentIDFind].[id] AS [id], 
+    [AgentIDFind].[Name] AS [Name], 
+    [AgentIDFind].[spacenum] AS [spacenum], 
+    [AgentIDFind].[identity_num] AS [identity_num], 
+    [AgentIDFind].[kind] AS [kind]
+    FROM [Land].[AgentIDFind] AS [AgentIDFind]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BeginList" EntityType="Self.BeginList" store:Type="Tables" store:Schema="Land">
+      <DefiningQuery>SELECT 
+    [BeginList].[BeginID] AS [BeginID], 
+    [BeginList].[BeginFrom] AS [BeginFrom]
+    FROM [Land].[BeginList] AS [BeginList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="fig" EntityType="Self.fig" store:Type="Tables" store:Schema="Land">
+      <DefiningQuery>SELECT 
+    [fig].[id] AS [id], 
+    [fig].[Ldate] AS [Ldate], 
+    [fig].[part] AS [part], 
+    [fig].[PerPart] AS [PerPart]
+    FROM [Land].[fig] AS [fig]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="mval" EntityType="Self.mval" store:Type="Tables" store:Schema="Land">
+      <DefiningQuery>SELECT 
+    [mval].[SerID] AS [SerID], 
+    [mval].[AgentID] AS [AgentID], 
+    [mval].[PartsID] AS [PartsID], 
+    [mval].[PartsNum] AS [PartsNum], 
+    [mval].[Mount] AS [Mount], 
+    [mval].[MountDate] AS [MountDate]
+    FROM [Land].[mval] AS [mval]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vDepts" EntityType="Self.vDepts" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vDepts].[ID] AS [ID], 
+    [vDepts].[Name] AS [Name], 
+    [vDepts].[IsActive] AS [IsActive], 
+    [vDepts].[EmpNo] AS [EmpNo], 
+    [vDepts].[Users] AS [Users]
+    FROM [Emp].[vDepts] AS [vDepts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEDJ" EntityType="Self.vEDJ" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vEDJ].[ID] AS [ID], 
+    [vEDJ].[EmpName] AS [EmpName], 
+    [vEDJ].[jop] AS [jop], 
+    [vEDJ].[Dept] AS [Dept], 
+    [vEDJ].[JopID] AS [JopID], 
+    [vEDJ].[DeptID] AS [DeptID], 
+    [vEDJ].[CcID] AS [CcID], 
+    [vEDJ].[CcName] AS [CcName]
+    FROM [Emp].[vEDJ] AS [vEDJ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEmpHis" EntityType="Self.vEmpHis" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vEmpHis].[ID] AS [ID], 
+    [vEmpHis].[EmpID] AS [EmpID], 
+    [vEmpHis].[FullName] AS [FullName], 
+    [vEmpHis].[Dept] AS [Dept], 
+    [vEmpHis].[Jop] AS [Jop], 
+    [vEmpHis].[Action] AS [Action], 
+    [vEmpHis].[Deptto] AS [Deptto], 
+    [vEmpHis].[Jopto] AS [Jopto], 
+    [vEmpHis].[Osal] AS [Osal], 
+    [vEmpHis].[Nsal] AS [Nsal], 
+    [vEmpHis].[CreatedDate] AS [CreatedDate], 
+    [vEmpHis].[Deptfrm] AS [Deptfrm], 
+    [vEmpHis].[Jopfrm] AS [Jopfrm], 
+    [vEmpHis].[NatID] AS [NatID]
+    FROM [Emp].[vEmpHis] AS [vEmpHis]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEmpl" EntityType="Self.vEmpl" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vEmpl].[ID] AS [ID], 
+    [vEmpl].[Jop] AS [Jop], 
+    [vEmpl].[Dept] AS [Dept], 
+    [vEmpl].[FullName] AS [FullName], 
+    [vEmpl].[HireDate] AS [HireDate], 
+    [vEmpl].[Salary] AS [Salary], 
+    [vEmpl].[NatID] AS [NatID], 
+    [vEmpl].[CcName] AS [CcName], 
+    [vEmpl].[Shift] AS [Shift]
+    FROM [Emp].[vEmpl] AS [vEmpl]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEmplon" EntityType="Self.vEmplon" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vEmplon].[ID] AS [ID], 
+    [vEmplon].[DeptID] AS [DeptID], 
+    [vEmplon].[JopID] AS [JopID], 
+    [vEmplon].[FullName] AS [FullName], 
+    [vEmplon].[dept] AS [dept], 
+    [vEmplon].[jop] AS [jop], 
+    [vEmplon].[Salary] AS [Salary], 
+    [vEmplon].[NetSall] AS [NetSall]
+    FROM [Emp].[vEmplon] AS [vEmplon]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vJops" EntityType="Self.vJops" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vJops].[ID] AS [ID], 
+    [vJops].[Name] AS [Name], 
+    [vJops].[IsActive] AS [IsActive], 
+    [vJops].[empno] AS [empno], 
+    [vJops].[MinSal] AS [MinSal], 
+    [vJops].[MaxSal] AS [MaxSal]
+    FROM [Emp].[vJops] AS [vJops]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vLoanE" EntityType="Self.vLoanE" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vLoanE].[ID] AS [ID], 
+    [vLoanE].[FullName] AS [FullName], 
+    [vLoanE].[LoanMount] AS [LoanMount], 
+    [vLoanE].[MonthPayed] AS [MonthPayed], 
+    [vLoanE].[DocID] AS [DocID], 
+    [vLoanE].[EntID] AS [EntID], 
+    [vLoanE].[DeptID] AS [DeptID], 
+    [vLoanE].[Name] AS [Name], 
+    [vLoanE].[SCutMonths] AS [SCutMonths]
+    FROM [Emp].[vLoanE] AS [vLoanE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vMorsE" EntityType="Self.vMorsE" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vMorsE].[ID] AS [ID], 
+    [vMorsE].[MorID] AS [MorID], 
+    [vMorsE].[FullName] AS [FullName], 
+    [vMorsE].[DepID] AS [DepID], 
+    [vMorsE].[Dept] AS [Dept], 
+    [vMorsE].[MorMount] AS [MorMount], 
+    [vMorsE].[MorDay] AS [MorDay], 
+    [vMorsE].[DonDate] AS [DonDate], 
+    [vMorsE].[PayMonth] AS [PayMonth], 
+    [vMorsE].[Notes] AS [Notes], 
+    [vMorsE].[OrderBy] AS [OrderBy]
+    FROM [Emp].[vMorsE] AS [vMorsE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vPunE" EntityType="Self.vPunE" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vPunE].[ID] AS [ID], 
+    [vPunE].[PunshMount] AS [PunshMount], 
+    [vPunE].[PunshDay] AS [PunshDay], 
+    [vPunE].[CutMonths] AS [CutMonths], 
+    [vPunE].[SCutMonths] AS [SCutMonths], 
+    [vPunE].[Notes] AS [Notes], 
+    [vPunE].[OrderBy] AS [OrderBy], 
+    [vPunE].[FullName] AS [FullName], 
+    [vPunE].[Name] AS [Name], 
+    [vPunE].[DeptID] AS [DeptID], 
+    [vPunE].[PunID] AS [PunID]
+    FROM [Emp].[vPunE] AS [vPunE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vSalary" EntityType="Self.vSalary" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vSalary].[ID] AS [ID], 
+    [vSalary].[EmpID] AS [EmpID], 
+    [vSalary].[DeptID] AS [DeptID], 
+    [vSalary].[JopID] AS [JopID], 
+    [vSalary].[FullName] AS [FullName], 
+    [vSalary].[Dept] AS [Dept], 
+    [vSalary].[Jop] AS [Jop], 
+    [vSalary].[Lon] AS [Lon], 
+    [vSalary].[Pun] AS [Pun], 
+    [vSalary].[Vac] AS [Vac], 
+    [vSalary].[CtAll] AS [CtAll], 
+    [vSalary].[Salary] AS [Salary], 
+    [vSalary].[Mor] AS [Mor], 
+    [vSalary].[AdAll] AS [AdAll], 
+    [vSalary].[Status] AS [Status], 
+    [vSalary].[Mon] AS [Mon], 
+    [vSalary].[Yer] AS [Yer], 
+    [vSalary].[NetSall] AS [NetSall]
+    FROM [Emp].[vSalary] AS [vSalary]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vSalEntry" EntityType="Self.vSalEntry" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vSalEntry].[DeptID] AS [DeptID], 
+    [vSalEntry].[Dept] AS [Dept], 
+    [vSalEntry].[Mon] AS [Mon], 
+    [vSalEntry].[Yer] AS [Yer], 
+    [vSalEntry].[Lon] AS [Lon], 
+    [vSalEntry].[Pun] AS [Pun], 
+    [vSalEntry].[Vac] AS [Vac], 
+    [vSalEntry].[CtAll] AS [CtAll], 
+    [vSalEntry].[MainSal] AS [MainSal], 
+    [vSalEntry].[Mor] AS [Mor], 
+    [vSalEntry].[AdAll] AS [AdAll], 
+    [vSalEntry].[NetSall] AS [NetSall], 
+    [vSalEntry].[Status] AS [Status], 
+    [vSalEntry].[CcID] AS [CcID], 
+    [vSalEntry].[CcName] AS [CcName]
+    FROM [Emp].[vSalEntry] AS [vSalEntry]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vTSal" EntityType="Self.vTSal" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vTSal].[Mon] AS [Mon], 
+    [vTSal].[Yer] AS [Yer], 
+    [vTSal].[Lon] AS [Lon], 
+    [vTSal].[Pun] AS [Pun], 
+    [vTSal].[Vac] AS [Vac], 
+    [vTSal].[CtAll] AS [CtAll], 
+    [vTSal].[MainSal] AS [MainSal], 
+    [vTSal].[Mor] AS [Mor], 
+    [vTSal].[AdAll] AS [AdAll], 
+    [vTSal].[NetSall] AS [NetSall], 
+    [vTSal].[Status] AS [Status]
+    FROM [Emp].[vTSal] AS [vTSal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vUsrEmp" EntityType="Self.vUsrEmp" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vUsrEmp].[ID] AS [ID], 
+    [vUsrEmp].[FullName] AS [FullName]
+    FROM [Emp].[vUsrEmp] AS [vUsrEmp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vVacE" EntityType="Self.vVacE" store:Type="Views" store:Schema="Emp">
+      <DefiningQuery>SELECT 
+    [vVacE].[EmpID] AS [EmpID], 
+    [vVacE].[FullName] AS [FullName], 
+    [vVacE].[DeptID] AS [DeptID], 
+    [vVacE].[Name] AS [Name], 
+    [vVacE].[ID] AS [ID], 
+    [vVacE].[VacStrt] AS [VacStrt], 
+    [vVacE].[VacEnd] AS [VacEnd], 
+    [vVacE].[VMount] AS [VMount], 
+    [vVacE].[Ds] AS [Ds], 
+    [vVacE].[Cuts] AS [Cuts], 
+    [vVacE].[CreatDate] AS [CreatDate], 
+    [vVacE].[CutMonth] AS [CutMonth], 
+    [vVacE].[Nots] AS [Nots], 
+    [vVacE].[OrderBy] AS [OrderBy]
+    FROM [Emp].[vVacE] AS [vVacE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProState" EntityType="Self.ProState" store:Type="Views" store:Schema="Pro">
+      <DefiningQuery>SELECT 
+    [ProState].[ID] AS [ID], 
+    [ProState].[ProName] AS [ProName], 
+    [ProState].[PostedName] AS [PostedName], 
+    [ProState].[ExpVal] AS [ExpVal]
+    FROM [Pro].[ProState] AS [ProState]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vURoles" EntityType="Self.vURoles" store:Type="Views" store:Schema="usr">
+      <DefiningQuery>SELECT 
+    [vURoles].[RoleID] AS [RoleID], 
+    [vURoles].[RoleName] AS [RoleName], 
+    [vURoles].[RoleDescription] AS [RoleDescription], 
+    [vURoles].[UserName] AS [UserName], 
+    [vURoles].[UsrRolID] AS [UsrRolID], 
+    [vURoles].[UsrID] AS [UsrID], 
+    [vURoles].[UserID] AS [UserID], 
+    [vURoles].[EntryKey] AS [EntryKey], 
+    [vURoles].[FullName] AS [FullName]
+    FROM [usr].[vURoles] AS [vURoles]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Ag_Syslist" Association="Self.FK_Ag_Syslist">
+      <End Role="SysList" EntitySet="SysList" />
+      <End Role="Ag" EntitySet="Ag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgentsList_LevelList" Association="Self.FK_AgentsList_LevelList">
+      <End Role="LevelList" EntitySet="LevelList" />
+      <End Role="AgentsList" EntitySet="AgentsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgentsList_Syslist" Association="Self.FK_AgentsList_Syslist">
+      <End Role="Syslisto" EntitySet="Syslisto" />
+      <End Role="AgentsList" EntitySet="AgentsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AgMove_Ag" Association="Self.FK_AgMove_Ag">
+      <End Role="Ag" EntitySet="Ag" />
+      <End Role="AgMove" EntitySet="AgMove" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchPro_Gallary" Association="Self.FK_ArchPro_Gallary">
+      <End Role="Gallary" EntitySet="Gallary" />
+      <End Role="ArchPro" EntitySet="ArchPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchPro_ProList" Association="Self.FK_ArchPro_ProList">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="ArchPro" EntitySet="ArchPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_CActivity" Association="Self.FK_Company_CActivity">
+      <End Role="CActivity" EntitySet="CActivity" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_digtab_AgentsList" Association="Self.FK_digtab_AgentsList">
+      <End Role="AgentsList" EntitySet="AgentsList" />
+      <End Role="digtab" EntitySet="digtab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DurList_ProList" Association="Self.FK_DurList_ProList">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="DurList" EntitySet="DurList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDegree_DegreeList" Association="Self.FK_EmpDegree_DegreeList">
+      <End Role="DegreeList" EntitySet="DegreeList" />
+      <End Role="EmpDegree" EntitySet="EmpDegree" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDegree_HR_EmpReform" Association="Self.FK_EmpDegree_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpDegree" EntitySet="EmpDegree" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpFin_HR_EmpReform" Association="Self.FK_EmpFin_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpFin" EntitySet="EmpFin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emploan_HR_EmpReform" Association="Self.FK_emploan_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="emploan" EntitySet="emploan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emploan_LoanList" Association="Self.FK_emploan_LoanList">
+      <End Role="LoanList" EntitySet="LoanList" />
+      <End Role="emploan" EntitySet="emploan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emppunish_HR_EmpReform" Association="Self.FK_emppunish_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="emppunish" EntitySet="emppunish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emppunish_PunishList" Association="Self.FK_emppunish_PunishList">
+      <End Role="PunishList" EntitySet="PunishList" />
+      <End Role="emppunish" EntitySet="emppunish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpVications_HR_EmpReform" Association="Self.FK_EmpVications_HR_EmpReform">
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+      <End Role="EmpVications" EntitySet="EmpVications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpPro_ProList1" Association="Self.FK_ExpPro_ProList1">
+      <End Role="ProList" EntitySet="ProList" />
+      <End Role="ExpPro" EntitySet="ExpPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_Hr_dept" Association="Self.FK_HR_EmpReform_Hr_dept">
+      <End Role="Hr_dept" EntitySet="Hr_dept" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobCategory" Association="Self.FK_HR_EmpReform_JobCategory">
+      <End Role="JobCategory" EntitySet="JobCategory" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobGarde" Association="Self.FK_HR_EmpReform_JobGarde">
+      <End Role="JobGarde" EntitySet="JobGarde" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobKader" Association="Self.FK_HR_EmpReform_JobKader">
+      <End Role="JobKader" EntitySet="JobKader" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HR_EmpReform_JobStatus" Association="Self.FK_HR_EmpReform_JobStatus">
+      <End Role="JobStatus" EntitySet="JobStatus" />
+      <End Role="HR_EmpReform" EntitySet="HR_EmpReform" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobCategory_JobKader" Association="Self.FK_JobCategory_JobKader">
+      <End Role="JobKader" EntitySet="JobKader" />
+      <End Role="JobCategory" EntitySet="JobCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPro_TPro" Association="Self.FK_KPro_TPro">
+      <End Role="TPro" EntitySet="TPro" />
+      <End Role="KPro" EntitySet="KPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMount_AgentsList" Association="Self.FK_PartMount_AgentsList">
+      <End Role="AgentsList" EntitySet="AgentsList" />
+      <End Role="PartMount" EntitySet="PartMount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMount_partsname" Association="Self.FK_PartMount_partsname">
+      <End Role="partsname" EntitySet="partsname" />
+      <End Role="PartMount" EntitySet="PartMount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_Company" Association="Self.FK_ProList_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_KPro" Association="Self.FK_ProList_KPro">
+      <End Role="KPro" EntitySet="KPro" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_PostList" Association="Self.FK_ProList_PostList">
+      <End Role="PostList" EntitySet="PostList" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProList_PurType" Association="Self.FK_ProList_PurType">
+      <End Role="PurType" EntitySet="PurType" />
+      <End Role="ProList" EntitySet="ProList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

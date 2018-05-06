@@ -1,0 +1,569 @@
+﻿@{ViewBag.Title = " طرح مشروع";}
+<script language="javascript" type="text/javascript">
+    function empcountfuc() {
+        $.ajax({
+            url: '/ERP/HR/empcountfuc', cache: false, type: "POST", success: function (data) {
+                $('#empcount').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+    function ORDlst() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlst', cache: false, type: "POST", success: function (data) {
+                $('#lastname').val(data)
+            }
+        });
+    }
+    function ORDlstnum() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlstnum', cache: false, type: "POST", success: function (data) {
+                $('#orderfk').val(data)
+            }
+        });
+    }
+    function Ordpk() {
+        $.ajax({
+            url: '/ERP/Casher/Ordpk', cache: false, type: "POST", success: function (data) {
+                $('#orderpk').val(data)
+            }
+        });
+    }
+    function Totfuc() {
+        $.ajax({
+            url: '/ERP/Casher/Totfuc?id=' + parseInt($('#last').text()), cache: false, type: "POST", success: function (data) {
+                $('#Totfuc').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<div class="modal fade" id="Mdnewpro">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header bg-blue-lighter">
+                <label class="modal-title" style="font-size: 13px !important; margin: 0px 5px 0px 5px !important ">اضافة مشروع جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم المشروع</label>
+                            <input type="text" id="proname" class="form-control text-center" style="width:300px" autofocus="autofocus" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>القيمة التقديرية</label>
+                            <input type="number" id="totalval" class="form-control text-center" style="width:100px" />
+                        </div>
+                      </div>    
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form" style="margin:0px 5px 0px 5px">          
+                        <label>نوع المشروع</label>
+                        @Html.DropDownList("kprofk", (SelectList)ViewBag.kprofk, "  -----اختر نوع المشروع-----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "kprofk" })
+
+                        <label>نوع الاسناد</label>
+                        @Html.DropDownList("purnamefk", (SelectList)ViewBag.purnamefk, "  -----اختر نوع الاسناد-----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "purnamefk" })
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>  ارسال قطاع التخطيط</label>
+                            <input type="date" id="FDate"  class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التخطيط والمشروعات للحصول على موافقة على الطرح من الناحية الفنية "  />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> ارسال قطاع التنمية</label>
+                            <input type="date" id="SDate" class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التنمية وتطوير للحصول على موافقة على الطرح  "  />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> تاريخ الموافقة</label>
+                            <input type="date" id="TDate" class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التنمية وتطوير للحصول على موافقة على الطرح  " />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> تاريخ الاعلان</label>
+                            <input type="date" id="declaredate" class="form-control text-center" style="width:150px" title="تاريخ الاعلان بالنسبة للمناقصات العامة و ارسال الدعوات بالنسبة للمناقصات المحدودة  " />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adpro" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Mdeditepro">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header bg-blue-lighter">
+                <label class="modal-title" style="color:white">بيانات المشروع و تحميل ارشيف</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <input type="hidden" id="vid" />
+                            <label>اسم المشروع</label>
+                            <input type="text" id="vname" class="form-control text-center" style="width:350px" readonly="readonly" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>القيمة التقديرية</label>
+                            <input type="number" id="xvtotalval" class="form-control text-center"  style="width:100px"  />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form" style="margin:0px 5px 0px 5px">
+                        <label>نوع المشروع</label>
+                        @Html.DropDownList("kprofk", (SelectList)ViewBag.kprofk, "  -----اختر نوع المشروع-----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "xkprofk" })
+
+                        <label>نوع الاسناد</label>
+                        @Html.DropDownList("purnamefk", (SelectList)ViewBag.purnamefk, "  -----اختر نوع الاسناد-----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "xpurnamefk" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>قطاع التخطيط</label>
+                            <input type="date" id="xFDate" class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التخطيط والمشروعات للحصول على موافقة على الطرح من الناحية الفنية " />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>  قطاع التنمية</label>
+                            <input type="date" id="xSDate" class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التنمية وتطوير للحصول على موافقة على الطرح  " />
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> تاريخ الموافقة</label>
+                            <input type="date" id="xTDate" class="form-control text-center" style="width:150px" title="تاريخ ارسال الجهاز المذكرة للسيد المهندس / نائب رئيس الهيئة لقطاع التنمية وتطوير للحصول على موافقة على الطرح  " />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> تاريخ الاعلان</label>
+                            <input type="date" id="xdeclaredate" class="form-control text-center" style="width:150px" title="تاريخ الاعلان بالنسبة للمناقصات العامة و ارسال الدعوات بالنسبة للمناقصات المحدودة  " />
+                        </div>
+                    </div>
+                    </div>
+                <hr />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-inline ls_form" style="margin:0px 5px 0px 5px">
+                            <label>معرض ارشيف </label>
+                            @Html.DropDownList("Galery", (SelectList)ViewBag.Galery, "  -----اختر معرض الصور-----  ", new { @class = "js-example-basic-single form-control", @style = "width:100%", id = "Galery" })
+
+                            <label>اسم الصورة</label>
+                            <input type="text" id="ReNamePic" class="form-control text-center" style="width:200px" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>وصف الصورة</label>
+                            <input type="text" lang="ar-eg" placeholder="شرح توضيحي للمستند" id="Subject" class="form-control text-center" style="width:600px" />
+                        </div>
+                    </div>  
+                    </div>
+                <hr />
+                <div class="row">
+                    <div class="form-group" style="margin:0px 5px 0px 5px">
+                        <div class="fileUpload btn btn-primary">
+                            <span>اختار صورة</span>
+                            <input type="file" id="FileUpload1" class="upload" />
+                        </div>
+                        <div class="fileUpload btn btn-primary">
+                            <span>تحميل </span>
+                            <input type="button" id="btnUpload" class="upload" value="Upload Files" />
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div id="grid-gallery" class="grid-gallery">
+                            <section class="grid-wrap">
+                                <ul class="grid">
+                                    <li class="grid-sizer"></li><!-- for Masonry column width -->
+                                    <li>
+                                        <figure>
+                                            <img id="targetImg" src=" " alt="صورة للإرشيف " />
+                                            <figcaption>
+                                                <label id="namefiles"></label>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </section><!-- // grid-wrap -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-blue-lighter">
+                <a href="javascript:;" id="btneditpro" type="button" class="btn btn-sm btn-success">تعديل</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 5px 5px;">
+                <label class="panel-title" style="font-size: 13px !important; margin: 5px 5px 5px 5px !important ">قائمة مشروعات مطروحة للتنفيذ </label>
+                <div class="btn-group m-r-5 pull-left">
+                    <button class="btn   btn-info pull-left" title="Repeat " id="refrsh"><i class="fa fa-repeat fa-1x pull-left"></i>تحديث</button>
+                    <button class="btn   btn-success pull-left" title="اضافة " id="btnewpro"><i class="fa fa-plus-square fa-1x pull-left"></i>اضافة</button>
+                    <button class="btn   btn-warning pull-left" title="تعديل بيانات واضافة صور للأرشيف " id="btnedpro"><i class="fa fa-edit fa-1x pull-left"></i>تعديل</button>
+                </div>
+            </div>
+            <div class="panel-body" style="max-height:460px; min-height:300px; padding:10px">
+                <table id="tbprolist" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">اسم المشروع</th>
+                            <th class="text-center">القيمة التقديرية </th>
+                            <th class="text-center"> تصنيف المشروع</th>
+                            <th class="text-center">نوع المشروع</th>
+                            <th class="text-center">طريقة الاسناد</th>
+                            <th class="text-center">ارسال قطاع التخطيط</th>
+                            <th class="text-center">ارسال قطاع التنمية</th>
+                            <th class="text-center">تاريخ الموافقة</th>
+                            <th class="text-center">تاريخ الاعلان</th>
+                            <th class="text-center">التالي</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+</div>
+<link href="~/Content/google-grid.css" rel="stylesheet" />
+<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/select2.css" rel="stylesheet" />
+<link href="~/Assets/style.btn.min.css" rel="stylesheet" />
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/select2.full.min.js"></script>
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2({
+                dir: "rtl", language: "ar", selectOnClose: true, width: '30%'
+            });
+            $('#reftreash').click(function () {
+               // $('#targetImg').attr('src', '/Erp/Img/155.jpg');
+                $.ajax({
+                    url: '/ERP/Pro/refa',
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                data: { id: 1 },
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+
+                        // $('#targetImg').append("<img src='/Erp/Img/" + data + "'><br>");
+                        var img = $("<img />");
+                        img.attr("style", "height:100px;width: 100px");
+                        img.attr("src", data);
+                    }
+                    //$("img").each(data, function (index, item)  {
+                    //    $('img').attr('src', '/Erp/Img/' + index );// changes all images src to default
+                    //});
+                   // $('#targetImg').attr('src', '/Erp/Img/' + data );
+                    if (data.Success) {
+                        // $("#targetImg").append('<img src="' + data + '">');
+                       // $('#targetImg').attr('src', '/Erp/Img/155.jpg');
+                        //  $("#targetImg").append('<img src="/Erp/Img/' + data + '" class="img-responsive thumbnail"/>');
+                        alert(data.length)
+                    } else {
+                        alert(data)
+                    }
+                }
+
+            });
+
+        });
+        });
+   $('#btnUpload').click(function () {
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                // Adding one more key to FormData object
+                fileData.append('cby', $('#cby').val());
+                fileData.append('vid', $('#vid').val());
+                fileData.append('Galery', $('#Galery').val());
+                fileData.append('ReNamePic', $('#ReNamePic').val());
+                fileData.append('Subject', $('#Subject').val());
+                $.ajax({
+                    url: '/ERP/Pro/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data:  fileData  ,
+                    success: function (data) {
+                     //   $('#targetImg').append("<img src='/Erp/Img/" + data.resulte + "'><br>");
+                        $('#targetImg').attr('src', '/Erp/Img/' + data.resulte)
+                        $('#namefiles').text(data.resulte)
+                       // $('#FileUpload1').empty()
+                        alert(data.Message);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+        $('#example tbody').on('click', 'tr', function () {
+            var table = $("#example").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+        });
+        // var  table
+        var table = $('#tbprolist').DataTable({ cache:true,
+            "bStateSave": true, fixedHeader: true, "pageLength": 15, sAjaxSource: '/ERP/Pro/tbprolistdef',
+            lengthChange: false, dom: 'Bfrtip', scrollY: '400px', scrollCollapse: true,
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' }, columns: [ 1, 3, 4, 5, 6, 7, 8, 9] },
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('بيان طرح المشروعات');
+                }
+            },
+            {
+                extend: 'excelHtml5', title: function () { return 'بيان طرح المشروعات' },
+                text: 'Excel', exportOptions: { columns: [ 1, 3, 4, 5, 6, 7, 8, 9] }, customize: function (xlsx)
+                { var sheet = xlsx.xl.worksheets['طرح-المشروعات.xml']; $('row c[r^="C"]', sheet).attr('s', '2') }
+            }],
+            columns: [
+        { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "ProName", "sClass": "dt-center", "width": "20%" },
+        { "data": "TotalVal", "sClass": "dt-center", "width": "5%" },
+        { "data": "TName", "sClass": "dt-center", "width": "5%" },
+        { "data": "KName", "sClass": "dt-center", "width": "5%" },
+        { "data": "PurName", "sClass": "dt-center", "width": "5%" },
+        {
+          "data": "FirstAccepteDate", "width": "5%", "render": function (data) {
+                if (data == null) {
+                    return "تاريخ"
+                }
+                else {
+
+                    var date = new Date(parseInt(data.substr(6))).getDate();
+                    var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                    var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                    var fl = datey + "/" + datem + "/" + date
+                    return fl
+                }
+            }
+        },
+        {
+          "data": "SecandAccepteDate", "width": "5%", "render": function (data) {
+           if (data == null) { return "تاريخ" }
+                        else {
+                            var date = new Date(parseInt(data.substr(6))).getDate();
+                            var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                            var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                            var fl = datey + "-" + datem + "-" + date
+                            return fl
+                        }
+                    }
+                },
+        {
+          "data": "ThirdAceepteDate", "width": "5%", "render": function (data) {
+                        if (data == null) {
+                            return "تاريخ"
+                        }
+                        else {
+
+                            var date = new Date(parseInt(data.substr(6))).getDate();
+                            var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                            var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                            var fl = datey + "-" + datem + "-" + date
+                            return fl
+                        }
+                    }
+        },
+        {
+          "data": "DeclareDate", "width": "5%", "render": function (data) {
+                        if (data == null) { return "تاريخ" }
+                        else {
+                            var date = new Date(parseInt(data.substr(6))).getDate();
+                            var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                            var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                            var fl = datey + "-" + datem + "-" + date
+                            return fl
+                        }
+                    }
+        },
+        {
+          "data": null, "sClass": "dt-center", "width": "1%", "orderable": false,
+          "defaultContent": "<button  class='xbutton small btn-danger 'id='post'><i class='fa fa-step-backward'></button>"
+        }
+            ]
+        });
+            // select  function tbcpy
+        $('#tbprolist tbody').on('click', 'tr', function () {
+            var tbSysv = $("#tbprolist").DataTable();
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                $(this).addClass('selected')
+            }
+        });
+        $('#btnewpro').click(function () {
+            $('#Mdnewpro').modal({ backdrop: false });
+        });
+        $('#btnedpro').click(function () {
+            var table = $("#tbprolist").DataTable();
+            $("#vid").val(table.cell('.selected', 0).data());
+            $("#vname").val(table.cell('.selected', 1).data());
+            $('#xvtotalval').val(table.cell('.selected', 2).data());
+            $('#xFDate').val(table.cell('.selected', 6).data());
+            $('#xSDate').val(table.cell('.selected', 7).data());
+            $('#xTDate').val(table.cell('.selected', 8).data());
+            $('#xdeclaredate').val(table.cell('.selected', 9).data());
+            var vID = table.cell('.selected', 0).data();
+            if (vID != null) {
+                $('#Mdeditepro').modal({ backdrop: false });
+            } else {
+                alert("اختار مشروع لإضافة البيانات")
+            };
+        });
+        $('#reftreash1111').click(function () {
+            $.ajax({
+                url: "@(Url.Action("refa", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: 1 },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    // $("#targetImg").append('<img src="' + data + '">');
+                    $('#targetImg').attr('src', '/Erp/Img/155.jpg');
+                  //  $("#targetImg").append('<img src="/Erp/Img/' + data + '" class="img-responsive thumbnail"/>');
+                    alert(data.Message)
+                } else {
+                    alert(data.Message)
+                }
+            }
+
+        });
+        });
+        $("#btneditpro").click(function () {
+            $.ajax({
+                url: "@(Url.Action("adeditpro", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: $('#vid').val(), fdate: $('#xFDate').val(), sdate: $('#xSDate').val(), tdate: $('#xTDate').val(), declaredate: $('#xdeclaredate').val(), totalval: $('#xvtotalval').val(), kprofk: $('#xkprofk').val(), purnamefk: $('#xpurnamefk').val(), },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                    var tbtprov = $("#tbprolist").DataTable();
+                    tbtprov.$('tr.selected').removeClass('selected');
+                    tbtprov.clear();
+                    tbtprov.draw();
+                    tbtprov.ajax.url('/ERP/Pro/tbprolistdef').load()
+                    $('#Mdeditepro').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        $('#adpro').click(function () {
+            $.ajax({
+                url: "@(Url.Action("adnpro", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { proname: $('#proname').val(), fdate: $('#fdate').val(), sdate: $('#sdate').val(), tdate: $('#tdate').val(), declaredate: $('#declaredate').val(), totalval: $('#totalval').val(), kprofk: $('#kprofk').val(), purnamefk: $('#purnamefk').val(), cby: $('#cby').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                    var tbtprov = $("#tbprolist").DataTable();
+                    tbtprov.$('tr.selected').removeClass('selected');
+                    tbtprov.clear();
+                    tbtprov.draw();
+                    tbtprov.ajax.url('/ERP/Pro/tbprolistdef').load()
+                    $('#Mdnewpro').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        $('#refrsh').click(function () {
+            var tbtprov = $("#tbprolist").DataTable();
+            tbtprov.$('tr.selected').removeClass('selected');
+            tbtprov.clear();
+            tbtprov.draw();
+            tbtprov.ajax.url('/ERP/Pro/tbprolistdef').load()
+        });
+        $('#tbprolist tbody').on('click', '.xbutton', function () {
+            var table = $("#tbprolist").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            var idv = table.cell('.selected', 0).data()
+            $.ajax({
+                url: "@(Url.Action("pstproj", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: idv },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                } else {
+                    alert(data.Message)
+                }
+            }
+            });
+            var table = $("#tbprolist").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            table.clear();
+            table.draw();
+            table.ajax.url('/ERP/Pro/tbprolistdef').load();
+        });
+    </script>
+}

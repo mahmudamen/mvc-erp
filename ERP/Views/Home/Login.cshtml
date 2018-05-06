@@ -1,0 +1,21 @@
+﻿@model ERP.Models.CoreManager.CoreModel
+@{Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.title = "الدخول للنظام";}
+<link href="~/Content/signin.css" rel="stylesheet" />
+@using (Html.BeginForm(null,null,FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="user-image">
+        <img src="~/Assets/Logo.png" class="img-thumbnail" width="1000" height="700">
+    </div>
+    
+    <h4 class="form-signin-heading"> </h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(model => model.LoginName, "", new { @class = "text-danger", })
+    <label for="unam" class="sr-only">اسم المستخدم</label>
+        @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "form-control", autofocus = "autofocus", placeholder = "اسم المستخدم", id ="unam" }})
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    <label for="pwd" class="sr-only">كلمة المرور</label>
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "كلمة المرور", type = "Password", id= "pwd" }})
+    <button class="btn btn-lg btn-primary btn-block" type="submit">دخــول</button>
+}

@@ -1,0 +1,385 @@
+﻿@{ViewBag.Title = "الخدمات";}
+<input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<input type="hidden" id="cbyn" value=@HttpContext.Current.User.Identity.Name.Split('|')[0] />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">قائمة أسعار الخدمات</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="padding:5px 5px" id="bcon">
+            <button class="small btn-primary pull-left" id="ad" title="F8"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="small btn-info pull-left" id="ed" title="F9"><i class="glyphicon glyphicon-edit"></i></button>
+            <button class="small btn-warning pull-left" id="ritm"><i class="glyphicon glyphicon-refresh"></i></button>
+        </div>
+        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center">كود</th>
+                    <th class="text-center">الخدمة</th>
+                    <th></th>
+                    <th class="text-center">درجة الطبيب</th>
+                    <th class="text-center">كود</th>
+                    <th class="text-center">الحساب</th>
+                    <th class="text-center">كود</th>
+                    <th class="text-center">مركز التكلفة</th>
+                    <th class="text-center">قيمة الخدمة</th>
+                    <th class="text-center">م.إدارية</th>
+                    <th class="text-center">اجمالي</th>
+                    <th class="text-center">الحالة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="Adserv">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة خدمة</label>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline ls_form">
+                    <label style="margin-left:20px">كــــود</label>
+                    <input type="text" id="idtup" disabled="disabled" class="form-control text-center" style="max-width:150px;margin-left:10px" maxlength="10" />
+                    <label>ترقيم تلقائي</label>
+                    <input id="anu" type="checkbox" style="max-width:20px" checked="checked" />
+                    <input id="act" type="hidden" value="0" />
+                    </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <label>الـخـدمـــة</label>
+                    <input type="text" id="servn" class="form-control" style="max-width:450px;min-width:400px" maxlength="50" />
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <label>الـحســاب</label>
+                    @Html.DropDownList("acc", (SelectList)ViewBag.acc, "  -----اختر من القائمة-----  ", new { @class = "js-example-basic-single form-control", @style = "width:70%", id = "acc" })
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <label>مركز التكلفـة</label>
+                    @Html.DropDownList("cst", (SelectList)ViewBag.cst, "  -----اختر من القائمة-----  ", new { @class = "js-example-basic-single form-control", @style = "width:65%", id = "cst" })
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <label style="margin:0px 0px 0px 5px">درجـــة الطبيـب</label>
+                    @Html.DropDownList("dgr", (SelectList)ViewBag.dgr, "  -----اختر من القائمة-----  ", new { @class = "js-example-basic-single form-control", @style = "width:30%", id = "dgr" })
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                        <label style="margin:0px 1px 0px 10px">قيمة الـخـدمة</label>
+                        <input type="text" id="sval" class="form-control text-center" style="max-width:100px" />
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                        <label style="margin:0px 0px 0px 45px">م.ادارية</label>
+                        <input type="text" id="aval" class="form-control text-center" style="max-width:100px" />
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <label style="margin:0px 0px 0px 45px">اجمالــي</label>
+                    <input type="text" min="0" id="tval" class="form-control text-center" style="max-width:100px" />
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                        <label style="margin-left:55px">الحالة</label>
+                        <input id="isac" type="checkbox" style="max-width:20px" checked="checked" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="sve" style="display:none" type="button" class="btn btn-sm btn-success">حفظ</a>
+                <a href="javascript:;" id="ede" style="display:none" type="button" class="btn btn-sm btn-primary">نعديل</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/Content/select2.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+<script src="~/Scripts/select2.full.min.js"></script>
+    <script>
+        var table = $('#example').DataTable({
+            "bStateSave": true, fixedHeader: true, "pageLength": 15, sAjaxSource: '/Haf/Rec/fserv',
+            lengthChange: false, dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' }, columns: [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('قائمة الخدمات');
+                }
+            },
+
+            {
+                extend: 'excelHtml5', title: function () { return 'قائمة الخدمات' },
+                text: 'Excel', exportOptions: { columns: [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11] }, customize: function (xlsx)
+                { var sheet = xlsx.xl.worksheets['قائمة الخدمات.xml']; $('row c[r^="C"]', sheet).attr('s', '2') }
+            }],
+            columns: [
+        { "data": "Cod", "width": "5%", "sClass": "dt-center" },
+        { "data": "ServName", "width": "22%" },
+        { "data": "DocDegre", "visible": false },
+        { "data": "DocDegrN", "width": "10%", "sClass": "dt-center" },
+        { "data": "Acc", "width": "5%", "sClass": "dt-center" },
+        { "data": "AccN", "width": "14%" },
+        { "data": "sect", "width": "5%", "sClass": "dt-center" },
+        { "data": "sectN", "width": "15%" },
+        {
+            "data": "ServVal", "width": "8%", "sClass": "dt-center", "render": function (data, type, full) {
+                return parseFloat(data).toFixed(2);
+            }
+        },
+        {
+            "data": "AddVal", "width": "8%", "sClass": "dt-center", "render": function (data, type, full) {
+                return parseFloat(data).toFixed(2);
+            }
+        },
+        {
+            "data": "ServTot", "width": "8%", "sClass": "dt-center", "render": function (data, type, full) {
+                return parseFloat(data).toFixed(2);
+            }
+        },
+        {
+            "data": "IsActive", "sClass": "dt-center", "width": "5%", "render": function (data, type, full, meta) {
+                var is_checked = data == true ? "checked" : "";
+                return '<input type="checkbox" class="checkbox" ' +
+                    is_checked + ' />'
+            }
+        }]
+        });
+        $(".js-example-basic-single").select2({
+            dir: "rtl", language: "ar", selectOnClose: true
+        });
+        $(document).ready(function () {
+            $('#anu').change(function () {
+                if ($("#anu").is(':checked')) {
+                    $("#idtup").val('');
+                    document.getElementById("idtup").disabled = true;
+                }
+                else {
+                    $("#idtup").val('');
+                    document.getElementById("idtup").disabled = false;
+                }
+            });
+            $('#cst').change(function () {
+                if ($("#anu").is(':checked') && $("#act").val() == 0 ) {
+                    $.ajax({
+                        url: "@(Url.Action("gcod", "Rec"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: { cst: $("#cst").val() },
+                        dataType: "json",
+                        success: function (data) {
+                            var x = parseInt(data.aaData) + 1
+                            if (!isNaN(x))
+                            { $("#idtup").val(x); }
+                        }
+                    });
+                }
+            });
+            $('#ritm').click(function () {
+                var table = $("#example").DataTable();
+                table.ajax.reload(null, false);
+            })
+            $("#Adserv").on('hidden.bs.modal', function () {
+                var table = $("#example").DataTable();
+                table.ajax.reload(null, false);
+                $("#idtup,#servn,#sval,#aval,#tval").val('');
+                $('#idtup,#servn,#sval,#aval,#tval').removeClass('input-validation-error');
+                $("#cst,#dgr,#acc").val('').trigger("change");
+                $('#sve').css('display', 'none');
+                $('#ede').css('display', 'none');
+                $("#act").val(0);
+            });
+            $('#sve').click(function () {
+                $('#sve').css('display', 'none')
+                if ($('#idtup').val() == '') {
+                    $('#idtup').focus();
+                    $('#idtup').addClass('input-validation-error');
+                    alert('يجب تحديد كود الخدمة');
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#servn').val() == '') {
+                    $('#servn').focus();
+                    $('#servn').addClass('input-validation-error');
+                    alert('يجب تحديد اسم الخدمة');
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#acc').val() == '') {
+                    alert('يجب تحديد حساب');
+                    $('#acc').focus();
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#cst').val() == '') {
+                    alert('يجب تحديد مركز التكلفة');
+                    $('#cst').focus();
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#sval').val() == '') {
+                    $('#sval').focus();
+                    $('#sval').addClass('input-validation-error');
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#aval').val() == '') {
+                    $('#aval').addClass('input-validation-error');
+                    $('#aval').focus();
+                    $('#sve').css('display', 'inline-block')
+                }
+                else if ($('#tval').val() == '') {
+                    $('#tval').addClass('input-validation-error');
+                    $('#tval').focus();
+                    $('#sve').css('display', 'inline-block')
+                }
+                else {
+                    $.ajax({
+                        url: "@(Url.Action("AddServ", "Rec"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: {
+                            cbyn: $('#cbyn').val(), cby: $('#cby').val(), cod:$("#idtup").val(), acc: $('#acc').val(),
+                            accn: $('#acc option:selected').text(), sect:$("#cst").val(),sectn:$("#cst option:selected").text(),
+                    docg: $("#dgr").val(), docgn:$('#dgr option:selected').text(),ServName:$("#servn").val(),sVal:$("#sval").val(),
+                    aVal: $('#aval').val(), tVal: $('#tval').val(), Isa: $("#isac").is(':checked'),
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.Success) {
+                                $("#Adserv").modal("hide");
+                                $('#sve').css('display', 'inline-block')
+                            }
+                            else {
+                                alert(data.Message)
+                                $('#sve').css('display', 'inline-block')
+                            }
+                        }
+                    });
+                }
+            });
+            $('#ede').click(function () {
+                $('#ede').css('display', 'none')
+                if ($('#idtup').val() == '') {
+                    $('#idtup').focus();
+                    $('#idtup').addClass('input-validation-error');
+                    alert('يجب تحديد كود الخدمة');
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#servn').val() == '') {
+                    $('#servn').focus();
+                    $('#servn').addClass('input-validation-error');
+                    alert('يجب تحديد اسم الخدمة');
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#acc').val() == '') {
+                    alert('يجب تحديد حساب');
+                    $('#acc').focus();
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#cst').val() == '') {
+                    alert('يجب تحديد مركز التكلفة');
+                    $('#cst').focus();
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#sval').val() == '') {
+                    $('#sval').focus();
+                    $('#sval').addClass('input-validation-error');
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#aval').val() == '') {
+                    $('#aval').addClass('input-validation-error');
+                    $('#aval').focus();
+                    $('#ede').css('display', 'inline-block')
+                }
+                else if ($('#tval').val() == '') {
+                    $('#tval').addClass('input-validation-error');
+                    $('#tval').focus();
+                    $('#ede').css('display', 'inline-block')
+                }
+                else {
+                    $.ajax({
+                        url: "@(Url.Action("EdServ", "Rec"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: {
+                            cbyn: $('#cbyn').val(), cby: $('#cby').val(), cod:$("#idtup").val(), acc: $('#acc').val(),
+                            accn: $('#acc option:selected').text(), sect:$("#cst").val(),sectn:$("#cst option:selected").text(),
+                    docg: $("#dgr").val(), docgn:$('#dgr option:selected').text(),ServName:$("#servn").val(),sVal:$("#sval").val(),
+                    aVal: $('#aval').val(), tVal: $('#tval').val(), Isa: $("#isac").is(':checked'),
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.Success) {
+                                $("#Adserv").modal("hide");
+                                $('#ede').css('display', 'inline-block')
+                            }
+                            else {
+                                alert(data.Message)
+                                $('#ede').css('display', 'inline-block')
+                            }
+                        }
+                    });
+                }
+            });
+            $(window).keydown(function (e) {
+                if (event.which === 119) {
+                    $('#ad').click();
+                }
+                else if (event.which === 120) {
+                    $('#ed').click();
+                }
+            });
+            $('#ad,#ed,#ritm').appendTo('#example_filter');
+            $('#ad').click(function () {
+                $('#sve').css('display', 'inline-block');
+                $('#Adserv').modal({ backdrop: false });
+                $('#servn').focus();
+                $("#act").val(0);
+            });
+            $('#ed').click(function () {
+                var table = $("#example").DataTable();
+                if (table.cell('.selected', 0).data()) {
+                    $("#act").val(1);
+                    $('#ede').css('display', 'inline-block')
+                    $("#idtup").val(table.cell('.selected', 0).data());
+                    $("#servn").val(table.cell('.selected', 1).data());
+                    $("#dgr").val(table.cell('.selected', 2).data()).trigger("change");
+                    $("#acc").val(table.cell('.selected', 4).data()).trigger("change");
+                    $("#cst").val(table.cell('.selected', 6).data()).trigger("change");
+                    $("#sval").val(table.cell('.selected', 8).data());
+                    $("#aval").val(table.cell('.selected', 9).data());
+                    $("#tval").val(table.cell('.selected', 10).data());
+                    if (table.cell('.selected', 11).data())
+                    { $("#isac").prop('checked', true); }
+                    else { $("#isac").prop('checked', false); }
+                    $('#Adserv').modal({ backdrop: false });
+                }
+                else { alert("قم بتحديد خدمة أولا") }
+            });
+            $('#example tbody').on('dblclick', 'tr', function () {
+                $('#ed').trigger('click');
+            });
+            $('#example tbody').on('click', 'tr', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected')
+            });
+        });
+    </script>
+}

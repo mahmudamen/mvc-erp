@@ -1,0 +1,199 @@
+﻿@{ViewBag.Title = "حسابات باب الحارة";}
+<script language="javascript" type="text/javascript">
+
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+
+<div class="row">
+    <div class="col-md-2 col-sm-6">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content text-center">
+                <div class="user-image">
+                    <img src="../Assets/logo.png" class="img-thumbnail" height="50%" style="border:none ; background-color:none">
+                </div>
+                <div class="ibox-content text-center">
+                    @DateTime.Today.ToString("yyyy-MM-dd")
+                    <div class="user-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5" style="padding: 5px;">
+        <div class="panel panel-primary" style="margin-bottom:5px ;">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">المصروفات</label>
+            </div>
+            <br />
+            <div class="panel-body" style="max-height:500px; min-height:380px; padding:10px">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 20px 5px 0px">
+                            <label style="font-family:Arial ; color:slateblue"> اول الفترة </label>
+                            <input type="date" id="exname" class="form-control text-center" style="max-width:130px" value=@DateTime.Today.ToString("yyyy-MM-dd")  />
+                        </div>
+                        <div class="form-group" style="margin:0px 20px 5px 0px">
+                            <label style="font-family:Arial ; color:slateblue">اخر الفترة</label>
+                            <input type="date" id="exdat" class="form-control text-center" style="max-width:130px" value=@DateTime.Today.ToString("yyyy-MM-dd")  />
+                        </div>
+                    </div>
+                </div>
+                <table id="tbexp"class="table table-striped table-bordered dt-responsive" style="margin-bottom:0px" cellspacing="0" width="100%">
+                    <thead>
+                        <tr style="background-color:mediumslateblue !important ; color:white">
+                            <th class="text-center">الحساب</th>
+                            <th class="text-center">المبلغ </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>   
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5" style="padding: 5px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">الايرادات</label>
+            </div>
+            <br />
+            <div class="panel-body" style="max-height:500px; min-height:380px; padding:10px">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 20px 5px 0px">
+                            <label style="font-family:Arial ; color:slateblue"> اول الفترة </label>
+                            <input type="date" id="sincom" class="form-control text-center" style="max-width:130px" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+                        </div>
+                        <div class="form-group" style="margin:0px 20px 5px 0px">
+                            <label style="font-family:Arial ; color:slateblue">اخر الفترة</label>
+                            <input type="date" id="eincom" class="form-control text-center" style="max-width:130px" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+                        </div>
+                    </div>
+                </div>
+
+                <table id="tbincom" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                    <thead>
+                        <tr style="background-color:slateblue !important ; color:white">
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">المبلغ</th>
+                        </tr>
+
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var tbexpv = $('#tbexp').DataTable({
+                fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                "pageLength": 5, "order": [[1, "desc"]], scrollY: '300px', scrollCollapse: false, sAjaxSource: '/ERP/acc/expfunc?s=' + $('#sincom').val() + '&e=' + $('#eincom').val(),
+                footerCallback: function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                            i : 0;
+                    };
+                    caca = api
+                        .column(1, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    $(api.column(1).footer()).html(
+                         caca
+                    );
+                },
+                columns: [  
+                { "data": "expname", "orderable": false, "width": "70%" },
+                { "data": "expval", "orderable": true, "width": "30%" }
+                ]
+            });
+            var tbincomv = $('#tbincom').DataTable({
+                fixedHeader: true, bPaginate: false, bLengthChange: false, bFilter: false, bInfo: false, "oLanguage": { "sSearch": "" },
+                //"pageLength": 5, "order": [[1, "desc"]], scrollY: '200px', scrollCollapse: true, sAjaxSource: '/ERP/Casher/ordprint',
+                "pageLength": 5, "order": [[1, "desc"]], scrollY: '300px', scrollCollapse: false, sAjaxSource: '/ERP/acc/incomfunc?s=' + $('#exname').val() + '&e=' + $('#exdat').val(),
+                footerCallback: function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                            i : 0;
+                    };
+                    caca = api
+                        .column(1, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    $(api.column(1).footer()).html(
+                         caca
+                    );
+                },
+                columns: [
+                { "data": "ItmName", "orderable": false, "width": "70%" },
+                { "data": "totval", "orderable": true, "width": "30%" }
+                ]
+            });
+            $('#exdat').change(function () {
+                var tbexpv = $("#tbexp").DataTable();
+                tbexpv.$('tr.selected').removeClass('selected');
+                tbexpv.clear();
+                tbexpv.draw();
+                tbexpv.ajax.url('/ERP/Acc/expfunc?s=' + $('#exname').val() + '&e=' + $('#exdat').val()).load()
+            });
+            $('#eincom').change(function () {
+                var tbincomv = $("#tbincom").DataTable();
+                tbincomv.$('tr.selected').removeClass('selected');
+                tbincomv.clear();
+                tbincomv.draw();
+                tbincomv.ajax.url('/ERP/Acc/incomfunc?s=' + $('#sincom').val() + '&e=' + $('#eincom').val()).load()
+            });
+            $('#sincom').change(function () {
+                var tbincomv = $("#tbincom").DataTable();
+                tbincomv.$('tr.selected').removeClass('selected');
+                tbincomv.clear();
+                tbincomv.draw();
+                tbincomv.ajax.url('/ERP/Acc/incomfunc?s=' + $('#sincom').val() + '&e=' + $('#eincom').val()).load()
+            });
+            });
+
+            $('#exname').change(function () {
+            var tbexpv = $("#tbexp").DataTable();
+            tbexpv.$('tr.selected').removeClass('selected');
+            tbexpv.clear();
+            tbexpv.draw();
+            tbexpv.ajax.url('/ERP/Acc/expfunc?s=' + $('#exname').val() + '&e=' + $('#exdat').val()).load()
+            });
+        
+    </script>
+}

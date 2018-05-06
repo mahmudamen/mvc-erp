@@ -1,0 +1,664 @@
+﻿@{ViewBag.Title = "حساب العملاء  ";}
+<script language="javascript" type="text/javascript">
+    function empcountfuc() {
+        $.ajax({
+            url: '/ERP/HR/empcountfuc', cache: false, type: "POST", success: function (data) {
+                $('#empcount').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+    function ORDlst() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlst', cache: false, type: "POST", success: function (data) {
+                $('#lastname').val(data)
+            }
+        });
+    }
+    function ORDlstnum() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlstnum', cache: false, type: "POST", success: function (data) {
+                $('#orderfk').val(data)
+            }
+        });
+    }
+    function Ordpk() {
+        $.ajax({
+            url: '/ERP/Casher/Ordpk', cache: false, type: "POST", success: function (data) {
+                $('#orderpk').val(data)
+            }
+        });
+    }
+    function Totfuc() {
+        $.ajax({
+            url: '/ERP/Casher/Totfuc?id=' + parseInt($('#last').text()), cache: false, type: "POST", success: function (data) {
+                $('#Totfuc').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+<div class="modal fade" id="mdcashrp">
+    <div class="modal-prn">
+        <div class="modal-contentp">
+            <div class="modal-header text-center" style="background-color:#fff">
+                <a href="javascript:;" id="bbcashrp" type="button" class="btn btn-sm btn-success no-print">طباعة</a>
+                <a type="button" href="javascript:;" id="prn" class="btn btn-sm btn-danger no-print" data-dismiss="modal">إغلاق</a>
+                <div class="form-group" style="margin:0px 5px 0px 5px">
+                    <label>تقرير اليومية</label>
+                    <input type="text" id="qdate" class="form-control text-center" style="max-width:200px" value=20 autofocus="autofocus" />
+
+                </div>
+            </div>
+
+            <div class="panel-body" style="max-height:480px; min-height:400px; padding:5px">
+                <table id="tbcashrp" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                    <thead>
+                        <tr>
+                            <th class="text-center">الصنف</th>
+                            <th class="text-center">اجمالي</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+
+                            <th class="text-center">الإجمالي:</th>
+                            <th></th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+
+                            <td></td>
+                            <td class="text-center"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <label>تاريخ:</label>
+                <label id="ZDPRNT" style="margin-left:5px">@DateTime.Today.ToString("yyyy-MMM-dd")</label>
+                <label style="margin:0px 2px">الوقت:</label>
+                <label id="ZTPRNT">@DateTime.Now.ToString("hh:mm tt")</label>
+                <label>أصـل</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdAddAg">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title"> أضافة عميل جديد </label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم العميل </label>
+                            <input type="text" id="gname" class="form-control text-center" autofocus="autofocus" style="max-width:300px" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>حسابه الفرعي </label>
+                            @Html.DropDownList("sysid", (SelectList)ViewBag.sysid, htmlAttributes: new { @title = "اختار الحساب الفرعى للعميل ", @class = "form-control", @style = "max-width:120px; width:120px;", id = "sysid" })
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>رقم القطعة </label>
+                            <input type="number" id="landnum" class="form-control text-center"  style="max-width:100px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>حالة الحساب</label>
+                            <select id="isactive" class="form-control" name="isactive" style="max-width:100px">
+                                <option value=true>فعال</option>
+                                <option value=false>متوقف</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adgst" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdAddmove">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title"> أضافة قسط للعميل </label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>كود الحساب </label>
+                            <input type="text" id="agnumv" class="form-control text-center" readonly="readonly" style="max-width:300px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم العميل </label>
+                            <input type="text" id="agnamev" class="form-control text-center" readonly="readonly" style="max-width:300px" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>مبلغ القسط  </label>
+                            <input type="number" id="partval" class="form-control text-center" style="max-width:100px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تاريخ   </label>
+                            <input type="date" id="sdate" class="form-control text-center" style="max-width:200px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="btnaddpart" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdadsale">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">ربط قيمة بيعية للقطعة</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label >كود الحساب </label>
+                            <input type="text" id="agnum" class="form-control text-center" readonly="readonly" style="max-width:300px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم العميل </label>
+                            <input type="text" id="agname" class="form-control text-center" readonly="readonly" style="max-width:300px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>القيمة البيعية </label>
+                            <input type="number" id="landprice" class="form-control text-center" autofocus="autofocus" style="max-width:300px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="accad" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="edguest">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">تعديل طلب</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>رقم الشفت</label>
+                            <input type="text" id="eddate" class="form-control text-center" style="max-width:300px" value=20 autofocus="autofocus" />
+                            <input type="hidden" id="oid" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="panel-body" style="max-height:300px; min-height:200px; padding:10px">
+                    <table id="tborday" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="background-color:slateblue !important ; color:white">
+                                <th></th>
+                                <th class="text-center">رقم الطلب</th>
+                                <th class="text-center">اسم العميل</th>
+                                <th class="text-center">فعال</th>
+                                <th class="text-center">الغاء طلب</th>
+                                <th class="text-center">تفاصيل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-body" style="max-height:300px; min-height:200px; padding:10px">
+                    <table id="tbdetail" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="100%">
+                        <thead>
+                            <tr style="background-color:slateblue !important ; color:white">
+                                <th></th>
+                                <th class="text-center">الصنف</th>
+                                <th class="text-center">السعر</th>
+                                <th class="text-center">الكمية</th>
+                                <th class="text-center">اجمالي</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th class="text-center">الإجمالي:</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdSysrep">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title"></label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تقرير الحسابات الفرعية للعملاء </label>
+                        </div>
+                        <br />
+                        <div class="form-group" style="margin:0px 5px 0px 5px" id="butan">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-body" style="max-height:350px; min-height:200px; padding:10px; width:auto">
+                        <table id="tbSysrep" class="table table-striped table-bordered dt-responsive " style="margin-bottom:0px" cellspacing="0" width="auto">
+                            <thead>
+                                 <tr>
+                                    <th colspan="2">بيان</th>
+                                    <th colspan="2">رصيد سابق</th>
+                                    <th colspan="2">حركة العام</th>
+                                    <th colspan="2">رصيد نهائى</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-center">الحساب</th>
+                                    <th class="text-center">مدين</th>
+                                    <th class="text-center">دائن</th>
+                                    <th class="text-center">مدين</th>
+                                    <th class="text-center">دائن</th>
+                                    <th class="text-center">مدين</th>
+                                    <th class="text-center">دائن</th>
+                                </tr>
+                            </thead>
+                                 <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-center">الإجمالي:</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="AddAcc">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة حساب فرعي جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> اسم الحساب </label>
+                            <input type="text" id="sysname" class="form-control text-center" style="width:350px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adac" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-2" style="padding: 12px;">
+    <div class="panel panel-primary" style="margin-bottom:5px">
+        <div class="panel-heading" style="padding: 5px 5px;">
+            <label class="panel-title" title=" اسفل قائمة الحسابات الفرعية يمكنك اضافة حساب فرعي جديد او ايقاف مؤقت للحساب و كذلك اضافة عملاء جدد و اضافة حركة لحساباتهم ">حسابات العملاء</label>
+            <button class="btn btn-xs btn-success pull-left" title="إضافة حساب فرعى جديد " id="AdAgAcc"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button class="btn btn-xs btn-success pull-left" title="مرفقات الحسابات الفرعية " id="runaccrep"><i class="glyphicon glyphicon-book"></i></button>
+        </div>
+        <div class="panel-body" style="max-height:360px; min-height:300px; padding:10px">
+            <table id="tbSys" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-center">الحسابات الفرعية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-5" style="padding: 12px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">قائمة العملاء</label>
+                <button class="btn btn-xs btn-warning pull-left" title="ربط قيمة بيعية للقطعة" id="addsalebtn"><i class="glyphicon glyphicon-tag"></i></button>
+                <button class="btn btn-xs btn-success pull-left"  title="اضافة عميل جديد  " id="addag"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                <button class="btn btn-xs btn-danger   pull-left" title="اضافة قسط جديد  " id="adpart"><i class="glyphicon glyphicon-plus"></i></button>
+            </div>
+            <div class="panel-body" style="max-height:360px; min-height:300px; padding:10px">
+                <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr >
+                            <th></th>
+                            <th class="text-center"> العميل</th>
+                            <th class="text-center"> القطعة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>                     
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+<div class="col-md-4" style="padding: 12px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">تفاصيل الحركة</label>
+                <button class="btn btn-xs btn-success pull-left" id="rdeptadd"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            </div>
+            <div class="panel-body" style="max-height:300px; min-height:300px; padding:10px">
+                <table id="tbAgMove" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th colspan="3">حركة</th>
+                            <th colspan="2">رصيد</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th class="text-center"> مدين</th>
+                            <th class="text-center"> دائن</th>
+                            <th class="text-center"> مدين</th>
+                            <th class="text-center"> دائن</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>  
+</div>
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script src="~/Scripts/Bdt.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#tbAgMove').DataTable({
+                "pageLength": 5, bProcessing: false, bFilter: false, bInfo: false, lengthChange: false, scrollY: '120px', scrollCollapse: false, bPaginate: false,
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="big glyphicon glyphicon-print"></i>',
+                    exportOptions: { modifier: { page: 'current' } },
+                    customize: function (win) {
+                        $(win.document.body).find('tbSysrep').addClass('display').css('font-size', '12px');
+                        $(win.document.body).find('h4').css('text-align', 'center');
+                        $(win.document.body).find('h4').text('حركة حساب العميل');
+                        
+
+                    }
+                },
+
+                ],
+
+                columns: [
+                   { "data": "ID", "visible": false, "bSearchable": false },
+                   { "data": "DebCur", "sClass": "dt-center", "width": "10%" },
+                   { "data": "CreCur", "sClass": "dt-center", "width": "10%" },
+                   { "data": "DebF", "sClass": "dt-center", "width": "10%" },
+                   { "data": "CreF", "sClass": "dt-center", "width": "10%" }
+                ]
+            });
+// var emp  table 
+        var table = $('#example').DataTable({
+            "pageLength": 5,bProcessing: false,  lengthChange: false,scrollY: '220px', scrollCollapse: true, bPaginate: true,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } },
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('حساب العملاء');
+                }
+            },
+            ],
+            columns: [
+            { "data": "ID", "visible": false, "bSearchable": false },
+             { "data": "AgntName", "sClass": "dt-center", "width": "50%" },
+               { "data": "LandNum", "sClass": "dt-center", "width": "10%" }
+            ]
+        });
+        $('#example tbody').on('click', 'tr', function () {
+            var table = $("#example").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+        });
+// var dept table 
+        var table = $('#tbSys').DataTable({
+            bProcessing: false, sAjaxSource: '/ERP/Ag/tbSysdef', bFilter: false, bInfo: false, lengthChange: false, scrollY: '200px', scrollCollapse: false, bPaginate: false,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } }, scrollY: '120px', scrollCollapse: true, bPaginate: false,
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('الحسابات الفرعية');
+                }
+            },
+            ],
+            columns: [
+        { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "SysName", "sClass": "dt-center", "width": "30%" }
+            ]
+        });
+
+// select  function 
+        $('#tbSys tbody').on('click', 'tr', function () {
+            var tbSysv = $("#tbSys").DataTable();
+            tbSysv.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            var vid = tbSysv.cell('.selected', 0).data()
+            var table = $("#example").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            table.clear();
+            table.draw();
+            table.ajax.url('/Erp/Ag/tbAgdef?id=' + vid).load()
+        });
+        });
+        $('#example tbody').on('click', 'tr', function () {
+            var examplev = $("#example").DataTable();
+            examplev.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            var vid = examplev.cell('.selected', 0).data()
+            var table = $("#tbAgMove").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            table.clear();
+            table.draw();
+            table.ajax.url('/Erp/Ag/tbAgMove?id=' + vid).load()
+        });
+        $('#AdAgAcc').click(function () {
+            $('#AddAcc').modal({ backdrop: false });
+        });
+        $('#adac').click(function () {
+            $.ajax({
+                url: "@(Url.Action("AdAc", "Ag"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { syname: $('#sysname').val(), cby: $('#cby').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    $('#AddAcc').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        $('#runaccrep').click(function () {
+            var tbSysrepv = $("#tbSysrep").DataTable();
+            tbSysrepv.$('tr.selected').removeClass('selected');
+            tbSysrepv.clear();
+            tbSysrepv.draw();
+            tbSysrepv.ajax.url('/ERP/Ag/systmrep').load();
+            $('#mdSysrep').modal({ backdrop: false });
+
+        }); 
+        $('#addsalebtn').click(function () {            
+            var table = $("#example").DataTable();
+            //table.$('tr.selected').removeClass('selected');
+            var m = table.cell('.selected', 0).data()
+            if (m != null) {
+                $("#agnum").val(table.cell('.selected', 0).data())
+                $("#agname").val(table.cell('.selected', 1).data())
+                $('#mdadsale').modal({ backdrop: false });
+            } else {
+                alert("من فضلك تأكد من اختيار عميل لربط قيمة بيعيه له !..")
+            };
+            
+
+        });
+        $('#adpart').click(function () {
+            var table = $("#example").DataTable();
+            //table.$('tr.selected').removeClass('selected');
+            var m = table.cell('.selected', 0).data()
+            if (m != null) {
+                $("#agnumv").val(table.cell('.selected', 0).data())
+                $("#agnamev").val(table.cell('.selected', 1).data())
+                $('#mdAddmove').modal({ backdrop: false });
+            } else {
+                alert("من فضلك تأكد من اختيار عميل لإضافة قسط  له !..")
+            };
+            
+
+        });
+        $('#addag').click(function () {
+            $('#mdAddAg').modal({ backdrop: false });
+
+        });
+        $('#tbSysrep tbody').on('click', 'tr', function () {
+            var table = $("#tbSysrep").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+        });
+        
+        $('#btnaddpart').click(function () {
+            $.ajax({
+                url: "@(Url.Action("adpart", "Ag"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { id: $('#agnumv').val(), mdate: $('#sdate').val(), valmove: $('#partval').val(), cby: $('#cby').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) { alert(data.Success); }
+                var tbAgMove = $("#tbAgMove").DataTable();
+                tbAgMove.$('tr.selected').removeClass('selected');
+                tbAgMove.clear();
+                tbAgMove.draw();
+                tbAgMove.ajax.url('/ERP/Ag/tbAgMove?id=' + $('#agnumv').val()).load()
+            },
+            error: function (response) {
+                alert("error : " + response);
+            }
+        });
+
+        });
+    </script>
+}

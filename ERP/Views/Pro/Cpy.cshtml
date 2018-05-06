@@ -1,0 +1,429 @@
+﻿@{ViewBag.Title = " الشركات";}
+<script language="javascript" type="text/javascript">
+
+    function ORDlst() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlst', cache: false, type: "POST", success: function (data) {
+                $('#lastname').val(data)
+            }
+        });
+    }
+    function ORDlstnum() {
+        $.ajax({
+            url: '/ERP/Casher/ORDlstnum', cache: false, type: "POST", success: function (data) {
+                $('#orderfk').val(data)
+            }
+        });
+    }
+    function Ordpk() {
+        $.ajax({
+            url: '/ERP/Casher/Ordpk', cache: false, type: "POST", success: function (data) {
+                $('#orderpk').val(data)
+            }
+        });
+    }
+    function Totfuc() {
+        $.ajax({
+            url: '/ERP/Casher/Totfuc?id=' + parseInt($('#last').text()), cache: false, type: "POST", success: function (data) {
+                $('#Totfuc').text(parseFloat(data).toFixed(0))
+            }
+        });
+    }
+</script>
+<input type="hidden" id="prd" value=@ViewBag.prd /><input type="hidden" id="cby" value=@HttpContext.Current.User.Identity.Name.Split('|')[1] />
+
+<div class="modal fade" id="MdAdactivity">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة  نشاط جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم النشاط</label>
+                            <input type="text" id="activityname" class="form-control text-center" style="width:200px" autofocus="autofocus" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adactivty" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="MdAdcompany">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة شركة جديدة</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>اسم الشركة</label>
+                            <input type="text" id="companyname" class="form-control text-center" style="width:300px"  autofocus="autofocus" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>نشاط الشركة</label>
+                            @Html.DropDownList("activity", (SelectList)ViewBag.activity, htmlAttributes: new { @title = "نشاط الشركة ", @class = "form-control", @style = "max-width:120px; width:120px;", id = "activity" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>عنوان الشركة</label>
+                            <input type="text" id="Address" class="form-control text-center" style="width:300px" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>تليفون</label>
+                            <input type="tel" id="phone" class="form-control text-center" style="width:120px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>فاكس</label>
+                            <input type="tel" id="fax" class="form-control text-center" style="width:120px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>موبايل</label>
+                            <input type="text" id="mob" class="form-control text-center" style="width:120px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>ايميل</label>
+                            <input type="email" id="cemail" class="form-control text-center" style="width:200px" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>بطاقة ضريبية</label>
+                            <input type="text" id="taxid" class="form-control text-center" style="width:120px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>ضريبة ميبعات</label>
+                            <input type="text" id="saleid" class="form-control text-center" style="width:120px" />
+                        </div>
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label>سجل تجاري</label>
+                            <input type="text" id="tradeid" class="form-control text-center" style="width:120px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adcomp" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddAcc">
+    <div class="modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">إضافة حساب فرعي جديد</label>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-inline ls_form">
+                        <div class="form-group" style="margin:0px 5px 0px 5px">
+                            <label> اسم الحساب </label>
+                            <input type="text" id="sysname" class="form-control text-center" style="width:350px" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="adac" type="button" class="btn btn-sm btn-success">اضافة</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2" style="padding: 12px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 5px 5px;">
+                <label class="panel-title" >انشطة الشركات</label>
+                <button class="btn btn-xs btn-success pull-left" title="إضافة نشاط  جديد " id="btnadactivity"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            </div>
+            <div class="panel-body" style="max-height:360px; min-height:300px; padding:10px">
+                <table id="tbactivity" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">النشاط </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5" style="padding: 12px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">الشركات</label>
+                <button class="btn btn-xs btn-success pull-left" title="إضافة بيانات شركة جديدة " id="btnadcompany"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            </div>
+            <div class="panel-body" style="max-height:360px; min-height:300px; padding:10px">
+                <table id="tbcpy" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center"> الشركة</th>
+                            <th class="text-center"> المشروعات </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5" style="padding: 12px;">
+        <div class="panel panel-primary" style="margin-bottom:5px">
+            <div class="panel-heading" style="padding: 10px 10px;">
+                <label class="panel-title">المشاريع</label>
+                <button class="btn btn-xs btn-success pull-left" id="rdeptadd"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            </div>
+            <div class="panel-body" style="max-height:360px; min-height:300px; padding:10px">
+                <table id="prolist" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center"> اسم المشروع</th>
+                            <th class="text-center"> نوع المشروع</th>
+                            <th class="text-center"> امر الاسناد</th>
+                            <th class="text-center"> تاريخ الاسناد</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/Content/dt.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+        
+
+// var dept table
+        var table = $('#tbcpy').DataTable({
+            bProcessing: false, sAjaxSource: '/ERP/Pro/tbcpydef', bFilter: true, bInfo: false, lengthChange: false, scrollY: '220px', scrollCollapse: false, bPaginate: true,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } }, scrollY: '120px', 
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('قائمة الشركات');
+                }
+            },
+            ],
+            columns: [
+            { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "CompanyName", "sClass": "dt-center", "width": "30%" },
+        { "data": "Count", "sClass": "dt-center", "width": "10%" }
+            ]
+        });
+        var table = $('#tbactivity').DataTable({
+            bProcessing: false, sAjaxSource: '/ERP/Pro/tbactivitydef', bFilter: false, bInfo: false, lengthChange: false, scrollY: '200px', scrollCollapse: false, bPaginate: false,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } }, scrollY: '120px',
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('قائمة انشطة الشركات');
+                }
+            },
+            ],
+            columns: [
+        { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "ActivityName", "sClass": "dt-center", "width": "30%" }
+            ]
+        });
+        var prolistv = $('#prolist').DataTable({
+            bProcessing: false, sAjaxSource: '/ERP/Pro/tbprolistvdef', bFilter: true, bInfo: false, lengthChange: false, scrollY: '200px', scrollCollapse: false, bPaginate: true,
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'print', title: function () { return 'جهاز مدينة أسوان الجديدة' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                exportOptions: { modifier: { page: 'current' } }, scrollY: '120px',
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                    $(win.document.body).find('h4').css('text-align', 'center');
+                    $(win.document.body).find('h4').text('قائمة الشركات');
+                }
+            },
+            ],
+            columns: [
+        { "data": "ID", "visible": false, "bSearchable": false },
+        { "data": "ProName", "sClass": "dt-center", "width": "30%" },
+        { "data": "KName", "sClass": "dt-center", "width": "10%" },
+        { "data": "ProNum", "sClass": "dt-center", "width": "10%" },
+{
+    "data": "ProDate", "width": "10%", "render": function (data) {
+        if (data == null) {
+            //   var date = new Date(parseInt(data.substr(6))).getDate();
+            //  var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+            // var datey = new Date(parseInt(data.substr(6))).getFullYear();
+            //var fl = datey + "-" + datem + "-" + date
+            return "  -  -     "
+        }
+        else {
+
+            var date = new Date(parseInt(data.substr(6))).getDate();
+            var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+            var datey = new Date(parseInt(data.substr(6))).getFullYear();
+            var fl = datey + "-" + datem + "-" + date
+            return fl
+        }
+    }
+},
+            ]
+        });
+
+           
+
+            // select  function tbactivity
+        $('#tbactivity tbody').on('click', 'tr', function () {
+            var tbSysv = $("#tbactivity").DataTable();
+            tbSysv.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+        });
+        // select  function tbcpy
+        $('#tbcpy tbody').on('click', 'tr', function () {
+            var examplev = $("#tbcpy").DataTable();
+            examplev.$('tr.selected').removeClass('selected');
+            $(this).closest('tr').addClass('selected');
+            var vid = examplev.cell('.selected', 0).data()
+            var table = $("#prolist").DataTable();
+            table.$('tr.selected').removeClass('selected');
+            table.clear();
+            table.draw();
+            table.ajax.url('/Erp/Pro/tbprolistvdef?id=' + vid).load()
+        });
+        $('#AdAgAcc').click(function () {
+            $('#AddAcc').modal({ backdrop: false });
+        });
+        $('#adcomp').click(function () {
+            $.ajax({
+                url: "@(Url.Action("adnewcomp", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { CompanyName: $('#companyname').val(), activity: $('#activity').val(), Address: $('#Address').val(), phone: $('#phone').val(), fax: $('#fax').val(), mob: $('#mob').val(), cemail: $('#cemail').val(), taxid: $('#taxid').val(), saleid: $('#saleid').val(), tradeid: $('#tradeid').val(), cby: $('#cby').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert("تمت إضافة الشركة بنجاح ")
+                    var tbcpyv = $("#tbcpy").DataTable();
+                    tbcpyv.$('tr.selected').removeClass('selected');
+                    tbcpyv.clear();
+                    tbcpyv.draw();
+                    tbcpyv.ajax.url('/ERP/Pro/tbcpydef').load()
+                    $('#MdAdcompany').modal("hide");
+                }
+                else {
+                    alert(data.Success)
+                }
+            }
+        });
+        });
+        $('#adactivty').click(function () {
+            $.ajax({
+                url: "@(Url.Action("adnewactivity", "Pro"))",
+                type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { ActivityName: $('#activityname').val(), cby: $('#cby').val() },
+            dataType: "json",
+            success: function (data) {
+                if (data.Success) {
+                    alert(data.Message)
+                    var tbactivityv = $("#tbactivity").DataTable();
+                    tbactivityv.$('tr.selected').removeClass('selected');
+                    tbactivityv.clear();
+                    tbactivityv.draw();
+                    tbactivityv.ajax.url('/ERP/Pro/tbactivitydef').load()
+                    $('#MdAdactivity').modal("hide");
+                }
+                else {
+                    alert(data.Message)
+                }
+            }
+        });
+        });
+        $('#runaccrep').click(function () {
+            var tbSysrepv = $("#tbSysrep").DataTable();
+            tbSysrepv.$('tr.selected').removeClass('selected');
+            tbSysrepv.clear();
+            tbSysrepv.draw();
+            tbSysrepv.ajax.url('/ERP/Ag/systmrep').load();
+            $('#mdSysrep').modal({ backdrop: false });
+
+        });
+        $('#btnadcompany').click(function () {
+            // open model add new company 
+            $('#MdAdcompany').modal({ backdrop: false });
+
+        });
+        $('#btnadactivity').click(function () {
+            // open model add new activity 
+            $('#MdAdactivity').modal({ backdrop: false });
+
+        });
+        $('#adpart').click(function () {
+            var table = $("#example").DataTable();
+            //table.$('tr.selected').removeClass('selected');
+            var m = table.cell('.selected', 0).data()
+            if (m != null) {
+                $("#agnumv").val(table.cell('.selected', 0).data())
+                $("#agnamev").val(table.cell('.selected', 1).data())
+                $('#mdAddmove').modal({ backdrop: false });
+            } else {
+                alert("من فضلك تأكد من اختيار عميل لإضافة قسط  له !..")
+            };
+
+
+        });
+        $('#addag').click(function () {
+            $('#mdAddAg').modal({ backdrop: false });
+
+        });
+
+        });
+
+        
+    </script>
+}

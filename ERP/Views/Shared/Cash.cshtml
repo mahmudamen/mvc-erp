@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="ar-EG">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/Assets")
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li class="active"><a href="/ERP/Admin/Index">الرئيسية</a></li>
+                    <li class="active"><a href="/ERP/Rec/RecAdmin">مدير النظام</a></li>
+                    <li class="active"><a href="/ERP/Finance/Index">الحسابات</a></li>
+                    <li class="active"><a href="/ERP/HR/Index">شئون العاملين</a></li>
+                    <li class="active"><a href="/ERP/InvMan/Index">المخازن</a></li>*@
+                </ul>
+                <ul class="nav navbar-nav navbar-right flip">
+                    <li>
+                        <a class="label-danger" href="/ERP/Home/LogOut">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container body-content">
+        @*<nav>
+            <ul class="nav nav-justified nav-fixed-top">
+                <li class="dropdown"><a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown" >حسابات عامة <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("AccTree", "Finance")'>دليل الحسابات</a></li><li class="divider"></li>
+                        <li><a href='@Url.Action("Per", "Finance")'>الفترات المالية</a></li><li class="divider"></li>
+                        <li><a href='@Url.Action("JEntry", "Finance")'>قيود اليومية</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">النقدية <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("CashIndex", "Finance")'>حركة الخزينة</a></li><li class="divider"></li>
+                        <li><a href='@Url.Action("Bank", "Finance")'>البنك</a></li><li class="divider"></li>
+                        <li><a href='@Url.Action("Cashtrans", "Finance")'>تحويلات</a></li><li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">المساهمين <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("GetHolds", "Shar")'>المساهمين</a></li>
+                        <li><a href='@Url.Action("Getshrs", "Shar")'>الأسهم</a></li>
+                        <li><a href='@Url.Action("GetAccSh", "Shar")'>حسابات المساهمين</a></li>
+                    </ul>
+                </li>
+                <li><a href='@Url.Action("CostCenter", "Finance")'>التكاليف</a></li>
+                <li class="dropdown">
+                    <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الموردين <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("GetVendors", "Shar")'>قائمة الموردين</a></li>
+                        <li><a href='@Url.Action("Vendors", "Shar")'>مجموعات الموردين</a></li>
+                        <li><a href='@Url.Action("GetAccVen", "Shar")'>حـ/ الموردين</a></li>
+                    </ul>
+                </li>
+                <li><a href='@Url.Action("Mor", "HR")'>الأصول الثابتة</a></li>
+                <li><a href='@Url.Action("Pun", "HR")'>التعاقدات</a></li>
+            </ul>
+        </nav>*@
+        <br />
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

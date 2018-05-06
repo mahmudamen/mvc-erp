@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPStoreContainer" CdmEntityContainer="ErpDB">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ERP.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depts">
+      <EntityTypeMapping TypeName="ERP.Depts">
+        <MappingFragment StoreEntitySet="Depts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpHis">
+      <EntityTypeMapping TypeName="ERP.EmpHis">
+        <MappingFragment StoreEntitySet="EmpHis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="NatId" ColumnName="NatId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Deptfrm" ColumnName="Deptfrm" />
+          <ScalarProperty Name="Deptto" ColumnName="Deptto" />
+          <ScalarProperty Name="Jopfrm" ColumnName="Jopfrm" />
+          <ScalarProperty Name="Jopto" ColumnName="Jopto" />
+          <ScalarProperty Name="Nsal" ColumnName="Nsal" />
+          <ScalarProperty Name="Osal" ColumnName="Osal" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpInfo">
+      <EntityTypeMapping TypeName="ERP.EmpInfo">
+        <MappingFragment StoreEntitySet="EmpInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="MonthDays" ColumnName="MonthDays" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="EduGrade" ColumnName="EduGrade" />
+          <ScalarProperty Name="GradeDate" ColumnName="GradeDate" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="MState" ColumnName="MState" />
+          <ScalarProperty Name="MaritalState" ColumnName="MaritalState" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="Usr" ColumnName="Usr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpShft">
+      <EntityTypeMapping TypeName="ERP.EmpShft">
+        <MappingFragment StoreEntitySet="EmpShft">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Emp" ColumnName="Emp" />
+          <ScalarProperty Name="frm" ColumnName="frm" />
+          <ScalarProperty Name="tw" ColumnName="tw" />
+          <ScalarProperty Name="Dy" ColumnName="Dy" />
+          <ScalarProperty Name="Mo" ColumnName="Mo" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="SDate" ColumnName="SDate" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jop">
+      <EntityTypeMapping TypeName="ERP.Jop">
+        <MappingFragment StoreEntitySet="Jop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MinSal" ColumnName="MinSal" />
+          <ScalarProperty Name="MaxSal" ColumnName="MaxSal" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loan">
+      <EntityTypeMapping TypeName="ERP.Loan">
+        <MappingFragment StoreEntitySet="Loan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="LoanMount" ColumnName="LoanMount" />
+          <ScalarProperty Name="MonthPayed" ColumnName="MonthPayed" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mors">
+      <EntityTypeMapping TypeName="ERP.Mors">
+        <MappingFragment StoreEntitySet="Mors">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="MorMount" ColumnName="MorMount" />
+          <ScalarProperty Name="MorDay" ColumnName="MorDay" />
+          <ScalarProperty Name="DonDate" ColumnName="DonDate" />
+          <ScalarProperty Name="PayMonth" ColumnName="PayMonth" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Punsh">
+      <EntityTypeMapping TypeName="ERP.Punsh">
+        <MappingFragment StoreEntitySet="Punsh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="PunshMount" ColumnName="PunshMount" />
+          <ScalarProperty Name="PunshDay" ColumnName="PunshDay" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sal">
+      <EntityTypeMapping TypeName="ERP.Sal">
+        <MappingFragment StoreEntitySet="Sal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PdDoc" ColumnName="PdDoc" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vac">
+      <EntityTypeMapping TypeName="ERP.Vac">
+        <MappingFragment StoreEntitySet="Vac">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="VacStrt" ColumnName="VacStrt" />
+          <ScalarProperty Name="VacEnd" ColumnName="VacEnd" />
+          <ScalarProperty Name="VMount" ColumnName="VMount" />
+          <ScalarProperty Name="Ds" ColumnName="Ds" />
+          <ScalarProperty Name="Cuts" ColumnName="Cuts" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="CutMonth" ColumnName="CutMonth" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanksList">
+      <EntityTypeMapping TypeName="ERP.BanksList">
+        <MappingFragment StoreEntitySet="BanksList">
+          <ScalarProperty Name="BnkID" ColumnName="BnkID" />
+          <ScalarProperty Name="BnkTitle" ColumnName="BnkTitle" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DegreeList">
+      <EntityTypeMapping TypeName="ERP.DegreeList">
+        <MappingFragment StoreEntitySet="DegreeList">
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+          <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpDegree">
+      <EntityTypeMapping TypeName="ERP.EmpDegree">
+        <MappingFragment StoreEntitySet="EmpDegree">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="College" ColumnName="College" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpFamily">
+      <EntityTypeMapping TypeName="ERP.EmpFamily">
+        <MappingFragment StoreEntitySet="EmpFamily">
+          <ScalarProperty Name="FmlySer" ColumnName="FmlySer" />
+          <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+          <ScalarProperty Name="FmlyID" ColumnName="FmlyID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpFin">
+      <EntityTypeMapping TypeName="ERP.EmpFin">
+        <MappingFragment StoreEntitySet="EmpFin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+          <ScalarProperty Name="BaseSalary" ColumnName="BaseSalary" />
+          <ScalarProperty Name="BaseSalaryTax" ColumnName="BaseSalaryTax" />
+          <ScalarProperty Name="BaseSalaryNotTax" ColumnName="BaseSalaryNotTax" />
+          <ScalarProperty Name="BounceVal" ColumnName="BounceVal" />
+          <ScalarProperty Name="BnkID" ColumnName="BnkID" />
+          <ScalarProperty Name="E_Date_receipt_work" ColumnName="E_Date_receipt_work" />
+          <ScalarProperty Name="E_Date_Hiring" ColumnName="E_Date_Hiring" />
+          <ScalarProperty Name="MilitaryID" ColumnName="MilitaryID" />
+          <ScalarProperty Name="MilitaryNum" ColumnName="MilitaryNum" />
+          <ScalarProperty Name="MilitaryFinishDate" ColumnName="MilitaryFinishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpForm">
+      <EntityTypeMapping TypeName="ERP.EmpForm">
+        <MappingFragment StoreEntitySet="EmpForm">
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpGender">
+      <EntityTypeMapping TypeName="ERP.EmpGender">
+        <MappingFragment StoreEntitySet="EmpGender">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emploan">
+      <EntityTypeMapping TypeName="ERP.emploan">
+        <MappingFragment StoreEntitySet="emploan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="LoanID" ColumnName="LoanID" />
+          <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+          <ScalarProperty Name="PartVal" ColumnName="PartVal" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emppunish">
+      <EntityTypeMapping TypeName="ERP.emppunish">
+        <MappingFragment StoreEntitySet="emppunish">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+          <ScalarProperty Name="DecisionNum" ColumnName="DecisionNum" />
+          <ScalarProperty Name="DecisionKind" ColumnName="DecisionKind" />
+          <ScalarProperty Name="DecisionDate" ColumnName="DecisionDate" />
+          <ScalarProperty Name="PunishID" ColumnName="PunishID" />
+          <ScalarProperty Name="PunishDate" ColumnName="PunishDate" />
+          <ScalarProperty Name="UnPunishDate" ColumnName="UnPunishDate" />
+          <ScalarProperty Name="NoticeNum" ColumnName="NoticeNum" />
+          <ScalarProperty Name="NoticeDate" ColumnName="NoticeDate" />
+          <ScalarProperty Name="DayNum" ColumnName="DayNum" />
+          <ScalarProperty Name="PanishVal" ColumnName="PanishVal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpVications">
+      <EntityTypeMapping TypeName="ERP.EmpVications">
+        <MappingFragment StoreEntitySet="EmpVications">
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+          <ScalarProperty Name="VKind" ColumnName="VKind" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyList">
+      <EntityTypeMapping TypeName="ERP.FamilyList">
+        <MappingFragment StoreEntitySet="FamilyList">
+          <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
+          <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hr_dept">
+      <EntityTypeMapping TypeName="ERP.Hr_dept">
+        <MappingFragment StoreEntitySet="Hr_dept">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HR_EmpReform">
+      <EntityTypeMapping TypeName="ERP.HR_EmpReform">
+        <MappingFragment StoreEntitySet="HR_EmpReform">
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Emp_NationalID" ColumnName="Emp_NationalID" />
+          <ScalarProperty Name="SocialStatues" ColumnName="SocialStatues" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Emp_kader_FK" ColumnName="Emp_kader_FK" />
+          <ScalarProperty Name="Emp_JCat_FK" ColumnName="Emp_JCat_FK" />
+          <ScalarProperty Name="SpecificGrp" ColumnName="SpecificGrp" />
+          <ScalarProperty Name="Emp_JGrade" ColumnName="Emp_JGrade" />
+          <ScalarProperty Name="Job_Status_ID" ColumnName="Job_Status_ID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Emp_JTitile" ColumnName="Emp_JTitile" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="EmpIsActive" ColumnName="EmpIsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HR_SpecificGroup">
+      <EntityTypeMapping TypeName="ERP.HR_SpecificGroup">
+        <MappingFragment StoreEntitySet="HR_SpecificGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SpecGrpName" ColumnName="SpecGrpName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategory">
+      <EntityTypeMapping TypeName="ERP.JobCategory">
+        <MappingFragment StoreEntitySet="JobCategory">
+          <ScalarProperty Name="JBC_PK" ColumnName="JBC_PK" />
+          <ScalarProperty Name="JBC_Name" ColumnName="JBC_Name" />
+          <ScalarProperty Name="Kdr_fk" ColumnName="Kdr_fk" />
+          <ScalarProperty Name="JBC_Description" ColumnName="JBC_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobGarde">
+      <EntityTypeMapping TypeName="ERP.JobGarde">
+        <MappingFragment StoreEntitySet="JobGarde">
+          <ScalarProperty Name="JTL_JG_FK" ColumnName="JTL_JG_FK" />
+          <ScalarProperty Name="JG_Name" ColumnName="JG_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobKader">
+      <EntityTypeMapping TypeName="ERP.JobKader">
+        <MappingFragment StoreEntitySet="JobKader">
+          <ScalarProperty Name="KDR_PK" ColumnName="KDR_PK" />
+          <ScalarProperty Name="KDR_Name" ColumnName="KDR_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobStatus">
+      <EntityTypeMapping TypeName="ERP.JobStatus">
+        <MappingFragment StoreEntitySet="JobStatus">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="JobStatusName" ColumnName="JobStatusName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanList">
+      <EntityTypeMapping TypeName="ERP.LoanList">
+        <MappingFragment StoreEntitySet="LoanList">
+          <ScalarProperty Name="LoanID" ColumnName="LoanID" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PunishList">
+      <EntityTypeMapping TypeName="ERP.PunishList">
+        <MappingFragment StoreEntitySet="PunishList">
+          <ScalarProperty Name="PunishID" ColumnName="PunishID" />
+          <ScalarProperty Name="PunishTitle" ColumnName="PunishTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOCIALSTATUSES">
+      <EntityTypeMapping TypeName="ERP.SOCIALSTATUSES">
+        <MappingFragment StoreEntitySet="SOCIALSTATUSES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SocialTitle" ColumnName="SocialTitle" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="townlist">
+      <EntityTypeMapping TypeName="ERP.townlist">
+        <MappingFragment StoreEntitySet="townlist">
+          <ScalarProperty Name="BnkID" ColumnName="BnkID" />
+          <ScalarProperty Name="BnkTitle" ColumnName="BnkTitle" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ag">
+      <EntityTypeMapping TypeName="ERP.Ag">
+        <MappingFragment StoreEntitySet="Ag">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="AgntName" ColumnName="AgntName" />
+          <ScalarProperty Name="LandNum" ColumnName="LandNum" />
+          <ScalarProperty Name="FlatNum" ColumnName="FlatNum" />
+          <ScalarProperty Name="BuildNum" ColumnName="BuildNum" />
+          <ScalarProperty Name="StageNum" ColumnName="StageNum" />
+          <ScalarProperty Name="DebF" ColumnName="DebF" />
+          <ScalarProperty Name="CreF" ColumnName="CreF" />
+          <ScalarProperty Name="DebCur" ColumnName="DebCur" />
+          <ScalarProperty Name="CreCur" ColumnName="CreCur" />
+          <ScalarProperty Name="DebTot" ColumnName="DebTot" />
+          <ScalarProperty Name="CreTot" ColumnName="CreTot" />
+          <ScalarProperty Name="DebLast" ColumnName="DebLast" />
+          <ScalarProperty Name="CreLast" ColumnName="CreLast" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgentsList">
+      <EntityTypeMapping TypeName="ERP.AgentsList">
+        <MappingFragment StoreEntitySet="AgentsList">
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="LandID" ColumnName="LandID" />
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="NeighborhoodNext" ColumnName="NeighborhoodNext" />
+          <ScalarProperty Name="Stage" ColumnName="Stage" />
+          <ScalarProperty Name="AcceptedDate" ColumnName="AcceptedDate" />
+          <ScalarProperty Name="Spaces" ColumnName="Spaces" />
+          <ScalarProperty Name="SpacesReal" ColumnName="SpacesReal" />
+          <ScalarProperty Name="PriceMeter" ColumnName="PriceMeter" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="DepositPlus" ColumnName="DepositPlus" />
+          <ScalarProperty Name="TossDate" ColumnName="TossDate" />
+          <ScalarProperty Name="FileNum" ColumnName="FileNum" />
+          <ScalarProperty Name="Licenseid" ColumnName="Licenseid" />
+          <ScalarProperty Name="LicenseDate" ColumnName="LicenseDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="StatusFlag" ColumnName="StatusFlag" />
+          <ScalarProperty Name="DigID" ColumnName="DigID" />
+          <ScalarProperty Name="DigSer" ColumnName="DigSer" />
+          <ScalarProperty Name="DigDate" ColumnName="DigDate" />
+          <ScalarProperty Name="DigRemark" ColumnName="DigRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgMove">
+      <EntityTypeMapping TypeName="ERP.AgMove">
+        <MappingFragment StoreEntitySet="AgMove">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AgID" ColumnName="AgID" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="digtab">
+      <EntityTypeMapping TypeName="ERP.digtab">
+        <MappingFragment StoreEntitySet="digtab">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="DigID" ColumnName="DigID" />
+          <ScalarProperty Name="DigMount" ColumnName="DigMount" />
+          <ScalarProperty Name="DigDate" ColumnName="DigDate" />
+          <ScalarProperty Name="DigRemark" ColumnName="DigRemark" />
+          <ScalarProperty Name="UserIDCreated" ColumnName="UserIDCreated" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserIDModif" ColumnName="UserIDModif" />
+          <ScalarProperty Name="ModifData" ColumnName="ModifData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevelList">
+      <EntityTypeMapping TypeName="ERP.LevelList">
+        <MappingFragment StoreEntitySet="LevelList">
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+          <ScalarProperty Name="TosDate" ColumnName="TosDate" />
+          <ScalarProperty Name="PartDate" ColumnName="PartDate" />
+          <ScalarProperty Name="PartNum" ColumnName="PartNum" />
+          <ScalarProperty Name="PartMonth" ColumnName="PartMonth" />
+          <ScalarProperty Name="PartVal" ColumnName="PartVal" />
+          <ScalarProperty Name="FreeMonth" ColumnName="FreeMonth" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SysID_FK" ColumnName="SysID_FK" />
+          <ScalarProperty Name="BeginPart" ColumnName="BeginPart" />
+          <ScalarProperty Name="Benfit" ColumnName="Benfit" />
+          <ScalarProperty Name="BRatesFrom" ColumnName="BRatesFrom" />
+          <ScalarProperty Name="BRates" ColumnName="BRates" />
+          <ScalarProperty Name="Punch" ColumnName="Punch" />
+          <ScalarProperty Name="PRatesFrom" ColumnName="PRatesFrom" />
+          <ScalarProperty Name="PRates" ColumnName="PRates" />
+          <ScalarProperty Name="Fixe" ColumnName="Fixe" />
+          <ScalarProperty Name="DebitVal" ColumnName="DebitVal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartMount">
+      <EntityTypeMapping TypeName="ERP.PartMount">
+        <MappingFragment StoreEntitySet="PartMount">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="DepositPlus" ColumnName="DepositPlus" />
+          <ScalarProperty Name="Mount" ColumnName="Mount" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Finedelay" ColumnName="Finedelay" />
+          <ScalarProperty Name="AccFinFund" ColumnName="AccFinFund" />
+          <ScalarProperty Name="AccFundTrustees" ColumnName="AccFundTrustees" />
+          <ScalarProperty Name="Expense" ColumnName="Expense" />
+          <ScalarProperty Name="PartDate" ColumnName="PartDate" />
+          <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+          <ScalarProperty Name="PartID_FK" ColumnName="PartID_FK" />
+          <ScalarProperty Name="UserDate" ColumnName="UserDate" />
+          <ScalarProperty Name="ParID" ColumnName="ParID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partsname">
+      <EntityTypeMapping TypeName="ERP.partsname">
+        <MappingFragment StoreEntitySet="partsname">
+          <ScalarProperty Name="PartID" ColumnName="PartID" />
+          <ScalarProperty Name="PartName" ColumnName="PartName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projectlist">
+      <EntityTypeMapping TypeName="ERP.projectlist">
+        <MappingFragment StoreEntitySet="projectlist">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TownID_FK" ColumnName="TownID_FK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysList">
+      <EntityTypeMapping TypeName="ERP.SysList">
+        <MappingFragment StoreEntitySet="SysList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysName" ColumnName="SysName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ReMark" ColumnName="ReMark" />
+          <ScalarProperty Name="LandNum" ColumnName="LandNum" />
+          <ScalarProperty Name="FlatNum" ColumnName="FlatNum" />
+          <ScalarProperty Name="BuildNum" ColumnName="BuildNum" />
+          <ScalarProperty Name="StageNum" ColumnName="StageNum" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Syslisto">
+      <EntityTypeMapping TypeName="ERP.Syslisto">
+        <MappingFragment StoreEntitySet="Syslisto">
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProjectID_FK" ColumnName="ProjectID_FK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="townlist1">
+      <EntityTypeMapping TypeName="ERP.townlist1">
+        <MappingFragment StoreEntitySet="townlist1">
+          <ScalarProperty Name="TownID" ColumnName="TownID" />
+          <ScalarProperty Name="TownName" ColumnName="TownName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YearsList1">
+      <EntityTypeMapping TypeName="ERP.YearsList1">
+        <MappingFragment StoreEntitySet="YearsList1">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="YearsNames" ColumnName="YearsNames" />
+          <ScalarProperty Name="STDate" ColumnName="STDate" />
+          <ScalarProperty Name="EnDate" ColumnName="EnDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreaateDate" ColumnName="CreaateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CActivity">
+      <EntityTypeMapping TypeName="ERP.CActivity">
+        <MappingFragment StoreEntitySet="CActivity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedHost" ColumnName="CreatedHost" />
+          <ScalarProperty Name="CreatedIP" ColumnName="CreatedIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="ERP.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Mob" ColumnName="Mob" />
+          <ScalarProperty Name="CEmail" ColumnName="CEmail" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+          <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KPro">
+      <EntityTypeMapping TypeName="ERP.KPro">
+        <MappingFragment StoreEntitySet="KPro">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TProFK" ColumnName="TProFK" />
+          <ScalarProperty Name="KName" ColumnName="KName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostList">
+      <EntityTypeMapping TypeName="ERP.PostList">
+        <MappingFragment StoreEntitySet="PostList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostedName" ColumnName="PostedName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurType">
+      <EntityTypeMapping TypeName="ERP.PurType">
+        <MappingFragment StoreEntitySet="PurType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PurName" ColumnName="PurName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPro">
+      <EntityTypeMapping TypeName="ERP.TPro">
+        <MappingFragment StoreEntitySet="TPro">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TName" ColumnName="TName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ERP.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="ERP.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usr">
+      <EntityTypeMapping TypeName="ERP.Usr">
+        <MappingFragment StoreEntitySet="Usr">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="EntryKey" ColumnName="EntryKey" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccDocSub">
+      <EntityTypeMapping TypeName="ERP.AccDocSub">
+        <MappingFragment StoreEntitySet="AccDocSub">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IDFK" ColumnName="IDFK" />
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="DebitVal" ColumnName="DebitVal" />
+          <ScalarProperty Name="CreditVal" ColumnName="CreditVal" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccDocSubSubSub">
+      <EntityTypeMapping TypeName="ERP.AccDocSubSubSub">
+        <MappingFragment StoreEntitySet="AccDocSubSubSub">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="IDFK" ColumnName="IDFK" />
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="DebitVal" ColumnName="DebitVal" />
+          <ScalarProperty Name="CreditVal" ColumnName="CreditVal" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AcckindList">
+      <EntityTypeMapping TypeName="ERP.AcckindList">
+        <MappingFragment StoreEntitySet="AcckindList">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Acckind" ColumnName="Acckind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccTree">
+      <EntityTypeMapping TypeName="ERP.AccTree">
+        <MappingFragment StoreEntitySet="AccTree">
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="AccName" ColumnName="AccName" />
+          <ScalarProperty Name="Acckind" ColumnName="Acckind" />
+          <ScalarProperty Name="ide" ColumnName="ide" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="AccidFK" ColumnName="AccidFK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocAcc">
+      <EntityTypeMapping TypeName="ERP.DocAcc">
+        <MappingFragment StoreEntitySet="DocAcc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="YearID" ColumnName="YearID" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+          <ScalarProperty Name="DocKind" ColumnName="DocKind" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocKindList">
+      <EntityTypeMapping TypeName="ERP.DocKindList">
+        <MappingFragment StoreEntitySet="DocKindList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocKind" ColumnName="DocKind" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrialBalance">
+      <EntityTypeMapping TypeName="ERP.TrialBalance">
+        <MappingFragment StoreEntitySet="TrialBalance">
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="AccName" ColumnName="AccName" />
+          <ScalarProperty Name="AccKind" ColumnName="AccKind" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="AccidFK" ColumnName="AccidFK" />
+          <ScalarProperty Name="ADebit" ColumnName="ADebit" />
+          <ScalarProperty Name="ACredit" ColumnName="ACredit" />
+          <ScalarProperty Name="BDebit" ColumnName="BDebit" />
+          <ScalarProperty Name="BCredit" ColumnName="BCredit" />
+          <ScalarProperty Name="CDebit" ColumnName="CDebit" />
+          <ScalarProperty Name="CCredit" ColumnName="CCredit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YearsList">
+      <EntityTypeMapping TypeName="ERP.YearsList">
+        <MappingFragment StoreEntitySet="YearsList">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="YearName" ColumnName="YearName" />
+          <ScalarProperty Name="BeginYear" ColumnName="BeginYear" />
+          <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VicationList">
+      <EntityTypeMapping TypeName="ERP.VicationList">
+        <MappingFragment StoreEntitySet="VicationList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VicationTitle" ColumnName="VicationTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgentIDFind">
+      <EntityTypeMapping TypeName="ERP.AgentIDFind">
+        <MappingFragment StoreEntitySet="AgentIDFind">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="spacenum" ColumnName="spacenum" />
+          <ScalarProperty Name="identity_num" ColumnName="identity_num" />
+          <ScalarProperty Name="kind" ColumnName="kind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeginList">
+      <EntityTypeMapping TypeName="ERP.BeginList">
+        <MappingFragment StoreEntitySet="BeginList">
+          <ScalarProperty Name="BeginID" ColumnName="BeginID" />
+          <ScalarProperty Name="BeginFrom" ColumnName="BeginFrom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fig">
+      <EntityTypeMapping TypeName="ERP.fig">
+        <MappingFragment StoreEntitySet="fig">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Ldate" ColumnName="Ldate" />
+          <ScalarProperty Name="part" ColumnName="part" />
+          <ScalarProperty Name="PerPart" ColumnName="PerPart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mval">
+      <EntityTypeMapping TypeName="ERP.mval">
+        <MappingFragment StoreEntitySet="mval">
+          <ScalarProperty Name="SerID" ColumnName="SerID" />
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="PartsID" ColumnName="PartsID" />
+          <ScalarProperty Name="PartsNum" ColumnName="PartsNum" />
+          <ScalarProperty Name="Mount" ColumnName="Mount" />
+          <ScalarProperty Name="MountDate" ColumnName="MountDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDepts">
+      <EntityTypeMapping TypeName="ERP.vDepts">
+        <MappingFragment StoreEntitySet="vDepts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEDJ">
+      <EntityTypeMapping TypeName="ERP.vEDJ">
+        <MappingFragment StoreEntitySet="vEDJ">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="jop" ColumnName="jop" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="CcID" ColumnName="CcID" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmpHis">
+      <EntityTypeMapping TypeName="ERP.vEmpHis">
+        <MappingFragment StoreEntitySet="vEmpHis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Deptto" ColumnName="Deptto" />
+          <ScalarProperty Name="Jopto" ColumnName="Jopto" />
+          <ScalarProperty Name="Osal" ColumnName="Osal" />
+          <ScalarProperty Name="Nsal" ColumnName="Nsal" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Deptfrm" ColumnName="Deptfrm" />
+          <ScalarProperty Name="Jopfrm" ColumnName="Jopfrm" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmpl">
+      <EntityTypeMapping TypeName="ERP.vEmpl">
+        <MappingFragment StoreEntitySet="vEmpl">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="NatID" ColumnName="NatID" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEmplon">
+      <EntityTypeMapping TypeName="ERP.vEmplon">
+        <MappingFragment StoreEntitySet="vEmplon">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="jop" ColumnName="jop" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vJops">
+      <EntityTypeMapping TypeName="ERP.vJops">
+        <MappingFragment StoreEntitySet="vJops">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="MinSal" ColumnName="MinSal" />
+          <ScalarProperty Name="MaxSal" ColumnName="MaxSal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLoanE">
+      <EntityTypeMapping TypeName="ERP.vLoanE">
+        <MappingFragment StoreEntitySet="vLoanE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LoanMount" ColumnName="LoanMount" />
+          <ScalarProperty Name="MonthPayed" ColumnName="MonthPayed" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="EntID" ColumnName="EntID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vMorsE">
+      <EntityTypeMapping TypeName="ERP.vMorsE">
+        <MappingFragment StoreEntitySet="vMorsE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MorID" ColumnName="MorID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="MorMount" ColumnName="MorMount" />
+          <ScalarProperty Name="MorDay" ColumnName="MorDay" />
+          <ScalarProperty Name="DonDate" ColumnName="DonDate" />
+          <ScalarProperty Name="PayMonth" ColumnName="PayMonth" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPunE">
+      <EntityTypeMapping TypeName="ERP.vPunE">
+        <MappingFragment StoreEntitySet="vPunE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PunshMount" ColumnName="PunshMount" />
+          <ScalarProperty Name="PunshDay" ColumnName="PunshDay" />
+          <ScalarProperty Name="CutMonths" ColumnName="CutMonths" />
+          <ScalarProperty Name="SCutMonths" ColumnName="SCutMonths" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="PunID" ColumnName="PunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSalary">
+      <EntityTypeMapping TypeName="ERP.vSalary">
+        <MappingFragment StoreEntitySet="vSalary">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="JopID" ColumnName="JopID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Jop" ColumnName="Jop" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSalEntry">
+      <EntityTypeMapping TypeName="ERP.vSalEntry">
+        <MappingFragment StoreEntitySet="vSalEntry">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CcID" ColumnName="CcID" />
+          <ScalarProperty Name="CcName" ColumnName="CcName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vTSal">
+      <EntityTypeMapping TypeName="ERP.vTSal">
+        <MappingFragment StoreEntitySet="vTSal">
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Yer" ColumnName="Yer" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+          <ScalarProperty Name="Pun" ColumnName="Pun" />
+          <ScalarProperty Name="Vac" ColumnName="Vac" />
+          <ScalarProperty Name="CtAll" ColumnName="CtAll" />
+          <ScalarProperty Name="MainSal" ColumnName="MainSal" />
+          <ScalarProperty Name="Mor" ColumnName="Mor" />
+          <ScalarProperty Name="AdAll" ColumnName="AdAll" />
+          <ScalarProperty Name="NetSall" ColumnName="NetSall" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vUsrEmp">
+      <EntityTypeMapping TypeName="ERP.vUsrEmp">
+        <MappingFragment StoreEntitySet="vUsrEmp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vVacE">
+      <EntityTypeMapping TypeName="ERP.vVacE">
+        <MappingFragment StoreEntitySet="vVacE">
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VacStrt" ColumnName="VacStrt" />
+          <ScalarProperty Name="VacEnd" ColumnName="VacEnd" />
+          <ScalarProperty Name="VMount" ColumnName="VMount" />
+          <ScalarProperty Name="Ds" ColumnName="Ds" />
+          <ScalarProperty Name="Cuts" ColumnName="Cuts" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="CutMonth" ColumnName="CutMonth" />
+          <ScalarProperty Name="Nots" ColumnName="Nots" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vURoles">
+      <EntityTypeMapping TypeName="ERP.vURoles">
+        <MappingFragment StoreEntitySet="vURoles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UsrRolID" ColumnName="UsrRolID" />
+          <ScalarProperty Name="UsrID" ColumnName="UsrID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EntryKey" ColumnName="EntryKey" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sysrep" FunctionName="ERP.Store.Sysrep">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERP.Sysrep_Result">
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="SysName" ColumnName="SysName" />
+          <ScalarProperty Name="DebF" ColumnName="DebF" />
+          <ScalarProperty Name="CreF" ColumnName="CreF" />
+          <ScalarProperty Name="DebCur" ColumnName="DebCur" />
+          <ScalarProperty Name="CreCur" ColumnName="CreCur" />
+          <ScalarProperty Name="DebTot" ColumnName="DebTot" />
+          <ScalarProperty Name="CreTot" ColumnName="CreTot" />
+          <ScalarProperty Name="DebLast" ColumnName="DebLast" />
+          <ScalarProperty Name="CreLast" ColumnName="CreLast" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ExpPro">
+      <EntityTypeMapping TypeName="ERP.ExpPro">
+        <MappingFragment StoreEntitySet="ExpPro">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ExpVal" ColumnName="ExpVal" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="ExpNum" ColumnName="ExpNum" />
+          <ScalarProperty Name="ProListFK" ColumnName="ProListFK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProState">
+      <EntityTypeMapping TypeName="ERP.ProState">
+        <MappingFragment StoreEntitySet="ProState">
+          <ScalarProperty Name="ExpVal" ColumnName="ExpVal" />
+          <ScalarProperty Name="PostedName" ColumnName="PostedName" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gallary">
+      <EntityTypeMapping TypeName="ERP.Gallary">
+        <MappingFragment StoreEntitySet="Gallary">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="MinImg" ColumnName="MinImg" />
+          <ScalarProperty Name="GallaryName" ColumnName="GallaryName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DurList">
+      <EntityTypeMapping TypeName="ERP.DurList">
+        <MappingFragment StoreEntitySet="DurList">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="FinalDate" ColumnName="FinalDate" />
+          <ScalarProperty Name="DurDateThird" ColumnName="DurDateThird" />
+          <ScalarProperty Name="DurDateSec" ColumnName="DurDateSec" />
+          <ScalarProperty Name="DurDateFirst" ColumnName="DurDateFirst" />
+          <ScalarProperty Name="ProFK" ColumnName="ProFK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProList">
+      <EntityTypeMapping TypeName="ERP.ProList">
+        <MappingFragment StoreEntitySet="ProList">
+          <ScalarProperty Name="OverSec" ColumnName="OverSec" />
+          <ScalarProperty Name="OverFirst" ColumnName="OverFirst" />
+          <ScalarProperty Name="DurDateThird" ColumnName="DurDateThird" />
+          <ScalarProperty Name="DurDateSec" ColumnName="DurDateSec" />
+          <ScalarProperty Name="DurDateFirst" ColumnName="DurDateFirst" />
+          <ScalarProperty Name="StopDate" ColumnName="StopDate" />
+          <ScalarProperty Name="ProStop" ColumnName="ProStop" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProSt" ColumnName="ProSt" />
+          <ScalarProperty Name="TargetFin" ColumnName="TargetFin" />
+          <ScalarProperty Name="ExpForNow" ColumnName="ExpForNow" />
+          <ScalarProperty Name="TargetPrec" ColumnName="TargetPrec" />
+          <ScalarProperty Name="TargetValTime" ColumnName="TargetValTime" />
+          <ScalarProperty Name="TargetVal" ColumnName="TargetVal" />
+          <ScalarProperty Name="FinalDate" ColumnName="FinalDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="FixUser" ColumnName="FixUser" />
+          <ScalarProperty Name="FixDate" ColumnName="FixDate" />
+          <ScalarProperty Name="TotalVal" ColumnName="TotalVal" />
+          <ScalarProperty Name="ProVal" ColumnName="ProVal" />
+          <ScalarProperty Name="ProDate" ColumnName="ProDate" />
+          <ScalarProperty Name="ProNum" ColumnName="ProNum" />
+          <ScalarProperty Name="FinDate" ColumnName="FinDate" />
+          <ScalarProperty Name="FinUser" ColumnName="FinUser" />
+          <ScalarProperty Name="SetFinDate" ColumnName="SetFinDate" />
+          <ScalarProperty Name="OpnFinDate" ColumnName="OpnFinDate" />
+          <ScalarProperty Name="TechDate" ColumnName="TechDate" />
+          <ScalarProperty Name="TechUser" ColumnName="TechUser" />
+          <ScalarProperty Name="SetTechDate" ColumnName="SetTechDate" />
+          <ScalarProperty Name="OpnTechDate" ColumnName="OpnTechDate" />
+          <ScalarProperty Name="DeclareDate" ColumnName="DeclareDate" />
+          <ScalarProperty Name="ThirdAceepteDate" ColumnName="ThirdAceepteDate" />
+          <ScalarProperty Name="SecandAccepteDate" ColumnName="SecandAccepteDate" />
+          <ScalarProperty Name="FirstAccepteDate" ColumnName="FirstAccepteDate" />
+          <ScalarProperty Name="PurNameFK" ColumnName="PurNameFK" />
+          <ScalarProperty Name="KProFK" ColumnName="KProFK" />
+          <ScalarProperty Name="ComFK" ColumnName="ComFK" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchPro">
+      <EntityTypeMapping TypeName="ERP.ArchPro">
+        <MappingFragment StoreEntitySet="ArchPro">
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="Ex" ColumnName="Ex" />
+          <ScalarProperty Name="PosteDate" ColumnName="PosteDate" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="ReNamePic" ColumnName="ReNamePic" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="PicPath" ColumnName="PicPath" />
+          <ScalarProperty Name="GFK" ColumnName="GFK" />
+          <ScalarProperty Name="ProListFK" ColumnName="ProListFK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

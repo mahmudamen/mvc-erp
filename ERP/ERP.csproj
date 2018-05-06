@@ -1,0 +1,732 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B4BAD0A-E59F-4FD6-96A2-0CDFE62E9A83}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP</RootNamespace>
+    <AssemblyName>ERP</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AgController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HRController.cs" />
+    <Compile Include="Controllers\ProController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccDocSub.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccDocSubSubSub.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcckindList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccTree.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ag.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentIDFind.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentsList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgMove.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchPro.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanksList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BeginList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CActivity.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CoreManager\CoreManager.cs" />
+    <Compile Include="Models\CoreManager\CoreModel.cs" />
+    <Compile Include="Models\DegreeList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Depts.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\digtab.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DocAcc.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DocKindList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DurList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpDegree.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpFamily.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpFin.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpForm.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpGender.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpHis.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpInfo.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\emploan.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\emppunish.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpShft.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpVications.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErpDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExpPro.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FamilyList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fig.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gallary.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hr_dept.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HR_EmpReform.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HR_SpecificGroup.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobCategory.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobGarde.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobKader.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobStatus.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jop.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KPro.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LevelList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loan.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoanList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mors.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mval.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartMount.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\partsname.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\projectlist.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProState.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PunishList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Punsh.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PurType.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sal.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SOCIALSTATUSES.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SysList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Syslisto.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sysrep_Result.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\townlist.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\townlist1.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TPro.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrialBalance.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usr.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vac.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vDepts.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEDJ.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEmpHis.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEmpl.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEmplon.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VicationList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vJops.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vLoanE.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMorsE.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vPunE.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSalary.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSalEntry.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vTSal.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vURoles.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vUsrEmp.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vVacE.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\YearsList.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\YearsList1.cs">
+      <DependentUpon>ErpDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AuthorizeRoleAttribute.cs" />
+    <Compile Include="Security\Secur.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\animate.css" />
+    <Content Include="Assets\animate.min.css" />
+    <Content Include="Assets\BackGroundA.jpg" />
+    <Content Include="Assets\Bg.jpg" />
+    <Content Include="Assets\black-0.2.png" />
+    <Content Include="Assets\black-0.4.png" />
+    <Content Include="Assets\black-0.6.png" />
+    <Content Include="Assets\black-0.8.png" />
+    <Content Include="Assets\boss.jpg" />
+    <Content Include="Assets\erp.png" />
+    <Content Include="Assets\erpA.jpg" />
+    <Content Include="Assets\erplogo.png" />
+    <Content Include="Assets\favicon.ico" />
+    <Content Include="Assets\Hacker2.jpg" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\main.css" />
+    <Content Include="Assets\maxresdefault.jpg" />
+    <Content Include="Assets\plugins\calendar.demo.min.js" />
+    <Content Include="Assets\plugins\fullcalendar.css" />
+    <Content Include="Assets\plugins\fullcalendar.js" />
+    <Content Include="Assets\SalarySurvey.jpg" />
+    <Content Include="Assets\style.btn.min.css" />
+    <Content Include="Assets\style.min.css" />
+    <Content Include="Assets\white-0.98.png" />
+    <Content Include="Content\AboutME.css" />
+    <Content Include="Content\bootstrap-rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\dt.css" />
+    <Content Include="Content\google-grid.css" />
+    <Content Include="Content\gritter\css\jquery.gritter.css" />
+    <Content Include="Content\gritter\images\gritter-light.png" />
+    <Content Include="Content\gritter\images\gritter.png" />
+    <Content Include="Content\gritter\images\ie-spacer.gif" />
+    <Content Include="Content\gritter\js\jquery.gritter.js" />
+    <Content Include="Content\gritter\ui-modal-notification.demo.min.js" />
+    <Content Include="Content\images\details_close.png" />
+    <Content Include="Content\images\details_open.png" />
+    <Content Include="Content\Papper.css" />
+    <Content Include="Content\Printsh.css" />
+    <Content Include="Content\rtl-treeview\jquery.treeview.js" />
+    <Content Include="Content\rtl-treeview\jquery.treeview.rtl.css" />
+    <Content Include="Content\rtl-treeview\rtl-file.gif" />
+    <Content Include="Content\rtl-treeview\rtl-folder-closed.gif" />
+    <Content Include="Content\rtl-treeview\rtl-folder.gif" />
+    <Content Include="Content\rtl-treeview\rtl-treeview-default-c.gif" />
+    <Content Include="Content\rtl-treeview\rtl-treeview-default-e.gif" />
+    <Content Include="Content\rtl-treeview\rtl-treeview-default-lc.gif" />
+    <Content Include="Content\rtl-treeview\rtl-treeview-default-le.gif" />
+    <Content Include="Content\rtl-treeview\rtl-treeview-default-line.gif" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Content\signin.css" />
+    <Content Include="Content\theme.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Img\1.png" />
+    <Content Include="Img\123123.jpg" />
+    <Content Include="Img\2112.png" />
+    <Content Include="Img\3.jpg" />
+    <Content Include="Img\338203_920.jpg" />
+    <Content Include="Img\338205_920.jpg" />
+    <Content Include="Img\asd.jpg" />
+    <Content Include="Img\asdawe.jpg" />
+    <Content Include="Img\asdwe.jpg" />
+    <Content Include="Img\cream_dust.png" />
+    <Content Include="Img\dig.png" />
+    <Content Include="Img\dsdsfs.jpg" />
+    <Content Include="Img\favicon.ico" />
+    <Content Include="Img\gf.png" />
+    <Content Include="Img\icon_minus.png" />
+    <Content Include="Img\icon_plus.png" />
+    <Content Include="Img\image.jpg" />
+    <Content Include="Img\login-body-bg.jpg" />
+    <Content Include="Img\logo.png" />
+    <Content Include="Img\logo2.png" />
+    <Content Include="Img\profile-bg.jpg" />
+    <Content Include="Img\profile-bg2.jpg" />
+    <Content Include="Img\profile-bg3.jpg" />
+    <Content Include="Img\profile-bg4.jpg" />
+    <Content Include="Img\sorting.png" />
+    <Content Include="Img\sorting_asc.png" />
+    <Content Include="Img\sorting_desc.png" />
+    <Content Include="Img\user1.jpg" />
+    <Content Include="Img\user1.png" />
+    <Content Include="Img\user10.jpg" />
+    <Content Include="Img\user2.jpg" />
+    <Content Include="Img\user3.jpg" />
+    <Content Include="Img\user4.jpg" />
+    <Content Include="Img\user5.jpg" />
+    <Content Include="Img\user6.jpg" />
+    <Content Include="Img\user7.jpg" />
+    <Content Include="Img\user8.jpg" />
+    <Content Include="Img\user9.jpg" />
+    <Content Include="jqueryui\jquery-ui.min.js" />
+    <Content Include="Models\ErpDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+      <LastGenOutput>ErpDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ErpDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+      <LastGenOutput>ErpDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\apps.min.js" />
+    <Content Include="Scripts\ar.js" />
+    <Content Include="Scripts\Bdt.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="font-awesome\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="Img\bitcoin.pdf" />
+    <Content Include="Img\web.config" />
+    <EntityDeploy Include="Models\ErpDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ErpDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ErpDB.edmx.diagram">
+      <DependentUpon>ErpDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="fonts\fontawesome-webfonte0a5.woff2" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dts.js" />
+    <Content Include="Scripts\dtsr.js" />
+    <Content Include="Scripts\google-grid\classie.js" />
+    <Content Include="Scripts\google-grid\gridGallery.js" />
+    <Content Include="Scripts\google-grid\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\google-grid\jquery.js" />
+    <Content Include="Scripts\google-grid\masonry.pkgd.min.js" />
+    <Content Include="Scripts\google-grid\modernizr.custom.js" />
+    <Content Include="Scripts\grid\animate.min.css" />
+    <Content Include="Scripts\grid\style-responsive.min.css" />
+    <Content Include="Scripts\grid\style.min.css" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\printThis-master\changelog.txt" />
+    <Content Include="Scripts\printThis-master\printThis.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\UnAuthorized.cshtml" />
+    <Content Include="Views\User\AddUser.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\_ViewStart.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Admin.cshtml" />
+    <Content Include="Views\Shared\Finance.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Manager.cshtml" />
+    <Content Include="Scripts\printThis-master\.gitignore" />
+    <Content Include="Scripts\printThis-master\bower.json" />
+    <Content Include="Scripts\printThis-master\composer.json" />
+    <Content Include="Scripts\printThis-master\ISSUE_TEMPLATE.md" />
+    <Content Include="Scripts\printThis-master\package.json" />
+    <Content Include="Scripts\printThis-master\printThis.jquery.json" />
+    <Content Include="Scripts\printThis-master\README.md" />
+    <Content Include="Views\Shared\_Pro.cshtml" />
+    <Content Include="Views\HR\Index.cshtml" />
+    <Content Include="Views\HR\_ViewStart.cshtml" />
+    <Content Include="Views\Pro\AdPro.cshtml" />
+    <Content Include="Views\Pro\Cpy.cshtml" />
+    <Content Include="Views\Pro\FinPro.cshtml" />
+    <Content Include="Views\Pro\FixPro.cshtml" />
+    <Content Include="Views\Pro\Gallerie.cshtml" />
+    <Content Include="Views\Pro\Index.cshtml" />
+    <Content Include="Views\Pro\Prolist.cshtml" />
+    <Content Include="Views\Pro\RPsix.cshtml" />
+    <Content Include="Views\Pro\TechPro.cshtml" />
+    <Content Include="Views\Pro\_ViewStart.cshtml" />
+    <Content Include="Views\Ag\Index.cshtml" />
+    <Content Include="Views\Ag\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\AppLayout.cshtml" />
+    <Content Include="Views\User\AboutMe.cshtml" />
+    <Content Include="Views\Pro\RPseven.cshtml" />
+    <Content Include="Views\Pro\DurPro.cshtml" />
+    <Content Include="Views\Pro\DonePro.cshtml" />
+    <Content Include="Views\Pro\OverPro.cshtml" />
+    <Content Include="Views\Pro\Calendar.cshtml" />
+    <Content Include="Views\Pro\Garch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39875</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ERP</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

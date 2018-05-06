@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ar-eg">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/Assets")
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav nav-justified nav-fixed-top">
+            <li><a href='@Url.Action("Index", "InvUser")'>الرئيسية</a></li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأصناف <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("Additem", "InvUser")'>إضافة صنف</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("ItmCrd", "InvUser")'>كارت صنف</a></li>
+                    <li class="divider"></li>
+                    <li><a href='@Url.Action("GetItems", "InvUser")'>قائمة الأصناف</a></li>
+                    <li class="divider"></li>
+                    <li style="cursor:pointer"><a id="itmb">أرصدة الأصناف</a></li>
+                    <li style="cursor:pointer"><a href='@Url.Action("oAddbill", "InvUser")'>رصيد أول المدة</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">المشتريات <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("Addbill", "InvUser")'>فاتورة شراء</a></li>
+                    <li class="divider"></li>
+                    <li><a id="bili">مراجعة الفواتير</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الموردين <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li style="cursor:pointer"><a id="advn">اضافة مورد</a></li>
+                    <li><a href='@Url.Action("GetVendors", "InvUser")'>قائمة الموردين</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الصرف <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href='@Url.Action("Itemtrans", "InvUser")'>صرف للمخازن الفرعية</a></li>
+                    <li><a href='@Url.Action("patdrw", "InvUser")'>صرف للمرضي</a></li>
+                    <li><a href='@Url.Action("trarep", "InvUser")'>تقرير صرف</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container body-content">
+        <br />
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/wAssets")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

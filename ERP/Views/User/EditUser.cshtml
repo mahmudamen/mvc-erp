@@ -1,0 +1,236 @@
+﻿@model ERP.Models.Usr
+@{ViewBag.Title = "تعديل مستخدم";}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "edusr" }))
+{@Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div style="display:none">
+        @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @Value = Convert.ToInt32(HttpContext.Current.User.Identity.Name.Split('|')[1]) } })
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <button class="btn btn-xs btn-icon btn-circle btn-success" type="button" id="sv">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                </button>
+                <span>|</span>
+                <button class="btn btn-xs btn-info" type="button" id="upwn">
+                    <i class="glyphicon glyphicon-user"></i>
+                    تغيير كلمة المرور
+                </button>
+                <span>|</span>
+                <button class="btn btn-xs btn-icon btn-circle btn-danger" type="button" id="canc">
+                    <i class="glyphicon glyphicon-backward"></i>
+                </button>
+                <label style="margin-right:20px" id="prof">بيانات المستخدم</label>
+            </h3>
+        </div>
+        @Html.HiddenFor(model => model.UserID) @Html.HiddenFor(model => model.EmpID)
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 16px">اسم المستخدم</label>
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", autofocus = "autofocus", maxlength = "10", id = "unam" } })
+                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "text-center", @style = "display:none", id = "uid" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin-left: 61px;">الموظف</label>
+                        @Html.Editor("emp", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @value = ViewBag.emp } })
+                        @Html.ValidationMessageFor(model => model.EmpID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 25px">
+                        <label style="margin:0px 0px 0px 5px">البريد الالكتروني</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 70px">تليفون</label>
+                        @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control text-center", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 60px">الصلاحية</label>
+                        @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.depts, " ---اختر من القائمة--- ", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 23px">نشط/غير نشط</label>
+                        @Html.DropDownListFor(model => model.IsActive, new List<SelectListItem> { new SelectListItem { Text = "نشط", Value = "true" }, new SelectListItem { Text = "معلق", Value = "false" } }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 15px 0px 20px">
+                        <label style="margin:0px 0px 0px 25px">تاريخ التنشيط</label>
+                        @Html.TextBoxFor(model => model.ValidFrom, "{0:yyyy-MM-dd}", new { @class = "form-control", id = "vdat", type = "date" })
+                        @Html.ValidationMessageFor(model => model.ValidFrom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="modal fade" id="modal-dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <label class="modal-title">تغيير كلمة المرور</label>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-inline ls_form">
+                                    <div class="form-group" style="margin:0px 20px 0px 0px">
+                                        <label style="margin-left:18px">كلمة المرور الحالية</label>
+                                        <input type="password" id="opw" class="form-control" maxlength="10" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-inline ls_form">
+                                    <div class="form-group" style="margin:0px 20px 0px 0px">
+                                        <label style="margin-left:10px">كلمة المرور الجديدة</label>
+                                        <input type="password" id="npw" class="form-control" maxlength="10" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-inline ls-form">
+                                    <div class="form-group" style="margin:0px 20px 0px 0px">
+                                        <label style="margin-left:28px">تأكيد كلمة المرور</label>
+                                        <input type="password" id="rnpw" class="form-control" maxlength="10" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="javascript:;" id="upws" type="button" class="btn btn-sm btn-info">حفظ</a>
+                            <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(window).keydown(function (e) {
+                if (event.which === 119) {
+                    $('#sv').click();
+                }
+                else if (event.which === 121) {
+                    $('#canc').click();
+                }
+            });
+            $('#upwn').click(function () {
+                $('#modal-dialog').modal({ backdrop: false });
+                $('#opw').focus();
+            })
+            $("#modal-dialog").on('hidden.bs.modal', function () {
+                $('#opw,#npw,#rnpw').val('');
+                $('#opw,#npw,#rnpw').removeClass('input-validation-error');
+                $('#opw,#npw,#rnpw').removeAttr('placeholder');
+            });
+            $('#upws').click(function () {
+                if ($('#opw').val() == '') {
+                    $('#opw').addClass('input-validation-error');
+                    $('#opw').attr('placeholder', 'يرجى إدخال كلمة المرور الحالية');
+                    $('#opw').focus();
+                }
+                else if ($('#npw').val() == '') {
+                    $('#opw').removeClass('input-validation-error');
+                    $('#npw').addClass('input-validation-error');
+                    $('#npw').attr('placeholder', 'يجب إدخال كلمة المرور الجديدة');
+                    $('#npw').focus();
+                }
+                else if ($('#rnpw').val() == '') {
+                    $('#opw').removeClass('input-validation-error');
+                    $('#rnpw').addClass('input-validation-error');
+                    $('#rnpw').attr('placeholder', 'يجب أعادة تأكيد كلمة المرور');
+                    $('#rnpw').focus();
+                }
+                else if ($('#rnpw').val() != $('#npw').val()) {
+                    $('#opw,#npw').removeClass('input-validation-error');
+                    $('#rnpw').addClass('input-validation-error');
+                    $('#rnpw').val('');
+                    $('#rnpw').attr('placeholder', 'يرجى إعادة تأكيد كلمة المرور');
+                    $('#rnpw').focus();
+                }
+                else{
+                    $.ajax({
+                        url: "@(Url.Action("pwUpdat", "User"))",
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: { id: $("#uid").val(), pw: $("#opw").val(), npw: $("#npw").val() },
+                        dataType: "json",
+                        success: function (data) {
+                            if (!data.Success) {
+                                $('#opw').addClass('input-validation-error');
+                                $('#rnpw,#npw').removeClass('input-validation-error');
+                                $('#opw').val('');
+                                $('#opw').attr('placeholder', 'كلمة المرور الحالية غير صحيحة');
+                                $('#opw').focus();
+                            }
+                            else {
+                                alert('تم تغيير كلمة المرور بنجاح');
+                                $('#modal-dialog').modal("hide");
+                        }
+                    },
+                    });    }        })
+            $(document).on("keypress", 'form', function (e) {
+                var code = e.keyCode || e.which;
+                if (code == 13) {
+                    var $targ = $(e.target);
+                    if (!$targ.is("textarea") && !$targ.is(":button:submit")) {
+                        var focusNext = false;
+                        $(this).find(":input:visible:not([disabled],[readonly]), a").each(function () {
+                            if (this === e.target) {
+                                focusNext = true;
+                            }
+                            else if (focusNext) {
+                                $(this).focus();
+                                return false;
+                            }
+                        });
+                        return false;
+                    }
+                }
+            });
+            $('#prof').text('تعديل بيانات المستخدم ( ' + $('#unam').val() + ' )')
+            $('#sv').click(function () {
+                $("#edusr").submit();
+            })
+            $('#canc').click(function () {
+                location.href = '/ERP/User/Index';
+            })
+        });
+    </script>
+}

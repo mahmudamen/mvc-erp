@@ -1,0 +1,338 @@
+﻿@{ViewBag.Title = "تقرير طبيب";}
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("DocDu", "Rec")'>حسابات الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+        <li><a href='@Url.Action("DevSetting", "Rec")'>الأجهزة الطبية</a></li>
+    </ul>
+</nav>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-primary">
+            <input type="hidden" value="@ViewBag.doc" id="dcn" /><input type="hidden" value="@ViewBag.docn" id="dcnn" />
+            <input type="hidden" id="dgr" value="@ViewBag.dgr" />
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <label class="panel-title" id="tit">تقرير الطبيب @ViewBag.doc / @ViewBag.docn</label>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label style="margin-right:10px">من</label>
+                            <input type="date" id="frm" value=@DateTime.Today.ToString("yyyy-MM-dd") class="form-control text-center" style="max-width:150px;display:inline-block" autofocus="autofocus" />
+                            <label>إلي</label>
+                            <input type="date" id="tw" class="form-control text-center" style="max-width:150px;display:inline-block" max=@DateTime.Today.ToString("yyyy-MM-dd") value=@DateTime.Today.ToString("yyyy-MM-dd") />
+                            <select id="depo" class="form-control" name="depo" style="max-width:120px;display:inline-block">
+                                <option value="">الحساب</option>
+                                <option value=0>نقدي</option>
+                                <option value=1>تعاقد</option>
+                            </select>
+                            <select id="prtd" class="form-control" name="sata" style="max-width:100px;display:inline-block">
+                                <option value="">الترحيل</option>
+                                <option value=false>غ مرحل</option>
+                                <option value=true>مرحل</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                        <button class="small btn-warning pull-left" id="aden"><i class="glyphicon glyphicon-refresh"></i></button>
+                        <button class="small btn-primary pull-left" id="pall">الكل<i class="glyphicon glyphicon-asterisk"></i></button>
+                        <button class="small btn-info pull-left" id="psts">بحث<i class="glyphicon glyphicon-search"></i></button>
+                        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">غرفة</th>
+                                    <th class="text-center">تاريخ الخدمة</th>
+                                    <th class="text-center">المريض</th>
+                                    <th class="text-center">الحساب</th>
+                                    <th class="text-center">الخدمة</th>
+                                    <th class="text-center">القيمة</th>
+                                    <th class="text-center">المستخدم</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="text-center">
+                                        الصفحة الحالية
+                                        <hr style="border-top:#fff 1px solid" />
+                                        جميع الصفحات
+                                    </th>
+                                    <th class="text-center"></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+</div>
+<div class="modal fade" id="pstng">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">ترحيل</label>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline ls_form">
+                    <div class="form-group">
+                        <label style="margin:0px 5px 0px 5px">الخدمة</label>
+                        <input type="text" id="servs" style="max-width:250px" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 5px 0px 5px">
+                        <label>تاريخ الخدمة</label>
+                        <input type="date" id="dat" class="form-control" style="max-width:150px;" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 5px 0px 5px">
+                        <label>مايخص الطبيب</label>
+                        <input type="number" id="docval" class="form-control text-center" style="max-width:100px" value=0 min=0 />
+                    </div>
+                    <div class="form-group" style="display:none" id="comp">
+                        <label style="margin:0px 5px 0px 5px">المحمل علي الشركة</label>
+                        <input type="hidden" id="cus" /><input type="hidden" id="isaln" />
+                        <input type="number" id="pcval" value="0" style="max-width:100px" class="form-control text-center" min="0" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-inline ls_form">
+                    <div class="form-group" style="margin:0px 5px 0px 5px">
+                        <label>ملاحظات</label>
+                        <input type="text" id="nots" class="form-control" style="max-width:300px" />
+                    </div>
+                    <div class="form-group">
+                        <label>المستخدم</label>
+                        <input type="password" id="cbyn" class="form-control text-center" style="max-width:80px" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" id="pdle" type="button" class="btn btn-sm btn-success">ترحيل</a>
+                <a type="button" href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">إغلاق</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/dts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#aden').click(function () {
+                var table = $("#example").DataTable();
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/exgDocDudt?doc=' + $('#dcn').val() + '&frm=' + $('#frm').val() + '&tw=' + $('#tw').val()).load();
+            });
+            $('#pdle').click(function () {
+                $('#pdle').css('display','none')
+                if ($('#docval').val() == 0 || $('#docval').val() == '')
+                {
+                    alert('يجب تحديد ما يخص الطبيب')
+                    $('#pdle').css('display', 'inline-block')
+                }
+                else if ($('#cbyn').val() == '') {
+                    alert('يجب تحديد المستخدم')
+                    $('#pdle').css('display', 'inline-block')
+                    $('#cbyn').focus();
+                }
+                else {
+                        $.ajax({
+                            url: "@(Url.Action("epdocdu", "Rec"))",
+                            type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        data: {
+                            cby: $('#cbyn').val(), desc: $('#nots').val(), cLMT: $('#pcval').val(), cus: $('#cus').val(),
+                            serv: $('#servs').val(), LMT: $('#docval').val(), MP: $('#dat').val(), id: $('#dcn').val(), isal: $('#isaln').val(),
+                            },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.Success) {
+                                alert('تم الترحيل لحساب الطبيب')
+                                $('#pstng').modal('hide');
+                                $('#pdle').css('display', 'inline-block')
+                                var table = $("#example").DataTable();
+                                table.clear();
+                                table.draw();
+                                table.ajax.url('/Haf/Rec/exgDocDudt?doc=' + $('#dcn').val() + '&frm=' + $('#frm').val() + '&tw=' + $('#tw').val() + '&dep=' + $('#depo').val() + '&st=' + $('#sata').val() + '&serv=' + $('#serv').val()).load();
+                            }
+                            else {
+                                alert(data.Message)
+                                $('#pdle').css('display', 'inline-block')
+                            }
+                        },
+                        error: function (response) {
+                            alert('خطأ يرجي مراجعة الايصال')
+                            $('#pdle').css('display', 'inline-block')
+                        }
+                    });
+                }
+            });
+            $('#psts').click(function () {
+                var table = $("#example").DataTable();
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/exgDocDudt?doc=' + $('#dcn').val() + '&frm=' + $('#frm').val() + '&tw=' + $('#tw').val() + '&dep=' + $('#depo').val() + '&prtd=' + $('#prtd').val()).load();
+            });
+            $('#pall').click(function () {
+                var table = $("#example").DataTable();
+                table.clear();
+                table.draw();
+                table.ajax.url('/Haf/Rec/exgDocDudt?doc=' + $('#dcn').val() + '&frm=' + $('#frm').val() + '&tw=' + $('#tw').val()).load();
+            });
+            var table = $('#example').DataTable({
+                "bStateSave": true, "oLanguage": { "sSearch": "بحث " }, fixedHeader: true, "pageLength": 15,
+                sAjaxSource: '/Haf/Rec/exgDocDudt?doc=' + $('#dcn').val() + '&frm=' + $('#frm').val() + '&tw=' + $('#tw').val()
+                , lengthChange: false, dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+                    exportOptions: { modifier: { page: 'current' }, columns: [0, 1, 2, 3, 4, 5, 6] },
+                    customize: function (win) {
+                        $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                        $(win.document.body).find('h4').css('text-align', 'center');
+                        $(win.document.body).find('h4').text();
+                    }
+                }, {
+                    extend: 'excelHtml5', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: 'Excel',
+                    exportOptions: { columns: [0, 1, 2, 3, 4, 5] }, customize: function (xlsx) {
+                        var sheet = xlsx.xl.worksheets['تقرير.xml'];
+                        $('row c[r^="C"]', sheet).attr('s', '2')
+                    }
+                }
+                ],
+                footerCallback: function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                    };
+                    totalc = api.column(5).data().reduce(function (a, b) { return intVal(a) + intVal(b); }, 0);
+                    $(api.column(5).footer()).html(parseFloat(totalc).toFixed(2));
+                    pageTotal = api.column(5, { page: 'current' }).data().reduce(function (a, b) { return intVal(a) + intVal(b); }, 0);
+                    $(api.column(5).footer()).html(pageTotal + '<hr style="border-top:#fff 1px solid" />' + totalc);
+                },
+                "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                    if (aData["Prtd"] == true) { $("td", nRow).css('color', 'blue'); }
+                    return nRow;
+                },
+                columns: [
+            { "data": "Rom", "sClass": "dt-center", "width": "10%" },
+            {
+                    "data": "ActDate", "sClass": "dt-center", "width": "10%", "render": function (data) {
+                        var date = new Date(parseInt(data.substr(6))).getDate();
+                        var datem = new Date(parseInt(data.substr(6))).getMonth() + 1;
+                        var datey = new Date(parseInt(data.substr(6))).getFullYear();
+                        var fl = datey + "-" + (datem < 10 ? '0' : '') + datem + "-" + (date < 10 ? '0' : '') + date
+                        return fl
+                    }
+                },
+                { "data": "Patnam", "width": "20%" },
+                { "data": "CusName", "width": "20%" },
+                { "data": "Nots", "sClass": "dt-center", "width": "20%" },
+                { "data": "Dpt", "sClass": "dt-center", "width": "10%" },
+                { "data": "Cbyn", "sClass": "dt-center", "width": "10%" },
+                { "data": "Cus", "visible": false },
+                { "data": "valu", "visible": false },
+                { "data": "Price", "visible": false },
+                { "data": "Prtd", "visible": false },
+                { "data": "ID", "visible": false },
+            ]
+            });
+            $('#aden,#pall,#psts').appendTo('#example_filter');
+            $('#example tbody').on('dblclick', 'tr', function () {
+                var table = $("#example").DataTable();
+                table.$('tr.selected').removeClass('selected');
+                $(this).closest('tr').addClass('selected');
+                if (table.cell('.selected', 10).data() == false) {
+                    $('#servs').val(table.cell('.selected', 4).data());
+                    $('#docval').val(table.cell('.selected', 8).data());
+                    $('#isaln').val(table.cell('.selected', 11).data())
+                    var dt = parseJsonDate(table.cell('.selected', 1).data());
+                    $('#dat').val(dt);
+                    var vl = table.cell('.selected', 7).data()
+                    if (vl > 0) {
+                        $('#comp').css('display', 'inline-block')
+                        $('#pcval').val(table.cell('.selected', 9).data())
+                        $('#cus').val(table.cell('.selected', 7).data())
+                    }
+                    else {
+                        $('#comp').css('display', 'none')
+                        $('#pcval').val(0)
+                        $('#cus').val(0)
+                    }
+                    $('#pstng').modal({ backdrop: false });
+                }
+                else
+                     {
+                        alert('الايصال مرحل من قبل')
+                    }
+            });
+        })
+    </script>
+}

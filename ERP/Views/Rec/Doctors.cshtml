@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Haf.Models.Rec.gdoctor>
+@{ViewBag.Title = "قائمة الأطباء";}
+<nav>
+    <ul class="nav nav-justified nav-fixed-top">
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الأطباء <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("AddDoctor", "Rec")'>إضافة طبيب</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("Doctors", "Rec")'>قائمة الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("DocDu", "Rec")'>حسابات الأطباء</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("GetsDoctor", "Rec")'>أطباء متوقفين</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">الخدمات <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("Serv", "Rec")'>قائمة الخدمات</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("stopedserv", "Rec")'>خدمات متوقفة</a></li>
+                <li class="divider"></li>
+                <li><a href='@Url.Action("reportserv", "Rec")'>تقارير</a></li>
+                <li class="divider"></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a herf="#" class="dropdown-toggle" role="button" data-toggle="dropdown">القسم الداخلي <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href='@Url.Action("GetRooms", "Rec")'>الغرف</a></li>
+                <li><a href='@Url.Action("GstRoom", "Rec")'>غرف متوقفة</a></li>
+            </ul>
+        </li>
+        <li><a href='@Url.Action("OprSetting", "Rec")'>العمليات</a></li>
+        <li><a href='@Url.Action("DevSetting", "Rec")'>الأجهزة الطبية</a></li>
+    </ul>
+</nav>
+<hr />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">قائمة الأطباء</h3>
+    </div>
+    <div class="panel-body">
+        <table id="example" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width:10%">كود</th>
+                    <th class="text-center" style="width:30%">الاسم</th>
+                    <th class="text-center" style="width:15%">الدرجة</th>
+                    <th class="text-center" style="width:15%">التخصص</th>
+                    <th class="text-center" style="width:10%">تليفون-1</th>
+                    <th class="text-center" style="width:10%">تليفون-2</th>
+                    <th class="text-center" style="width:5%">حسابات</th>
+                    <th class="text-center" style="width:5%">خدمات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Dnum)
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Name, "EditDoctor", new { id = item.ID })
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Degree)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Speci)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Telephone)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Mobile)
+                        </td>
+                        <td class="text-center">
+                            <button class="small btn-success" type="button"
+                                    onclick="location.href='@Url.Action("DocDudt", "Rec", new { doc = item.Dnum })'">
+                                <i class="glyphicon glyphicon-tree-conifer"></i>
+                            </button>
+                        </td>
+                        <td class="text-center">
+                            <button class="small btn-success" type="button"
+                                    onclick="location.href='@Url.Action("DocServ", "Rec", new { doc = item.Dnum, docn = item.Name, spc = item.Specid })'">
+                                <i class="glyphicon glyphicon-certificate"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section scripts{
+<script src="~/Scripts/dts.js"></script>
+<script>
+    var table = $('#example').DataTable({
+        fixedHeader: true, "pageLength": 15,
+        lengthChange: false, dom: 'Bfrtip', "bStateSave": true,
+        buttons: [{
+            extend: 'print', title: function () { return 'مستشفي حفصة العوضي التخصصي' }, text: '<i class="glyphicon glyphicon-print"></i>',
+            exportOptions: { modifier: { page: 'current' }, columns: [0, 1, 2, 3, 4, 5] },
+            customize: function (win) {
+                $(win.document.body).find('table').addClass('display').css('font-size', '12px');
+                $(win.document.body).find('h4').css('text-align', 'center');
+                $(win.document.body).find('h4').text('قائمة الأطباء');
+            }
+        },
+        ],
+    });
+    </script>
+}
